@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/360-whims/360-whims/rbac/rbac-concept/">
+  <link rel="canonical" href="http://localhost:1313/360-whims/360-whims/rbac/rbac-concept/">
+<title>RBAC Concept  |  ikure developer docs</title>
+<meta name="description" content="An overview of RBAC usage in whims portal">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="RBAC Concept">
+<meta property="og:description" content="An overview of RBAC usage in whims portal">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/360-whims/360-whims/rbac/rbac-concept/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="360-whims">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="RBAC Concept">
+<meta name="twitter:description" content="An overview of RBAC usage in whims portal">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "360 Whims",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/360-whims/",
+       "name": "360 Whims",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/360-whims/rbac/",
+       "name": "Rbac",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "Rbac Concept",
+       "position": 4
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section 360-whims" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">ikure developer docs</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">ikure developer docs</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/360-whims">360-whims</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/healthq/">healthq</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-chw-webview-fe/">webview</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-whims-usermanual/">whims-usermanual</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/thuliteio/doks"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#sidebarroute-level">sidebar/route level</a></li>
+    <li><a href="#component-level">component level</a></li>
+    <li><a href="#module-level">module level</a></li>
+    <li><a href="#example-2-when-dealing-with-modules">Example 2 when dealing with Modules</a></li>
+    <li><a href="#extend-rbac-rules">extend RBAC rules</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>RBAC Concept</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sidebarroute-level">sidebar/route level</a></li>
+    <li><a href="#component-level">component level</a></li>
+    <li><a href="#module-level">module level</a></li>
+    <li><a href="#example-2-when-dealing-with-modules">Example 2 when dealing with Modules</a></li>
+    <li><a href="#extend-rbac-rules">extend RBAC rules</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<h1 id="technical-documentation-for-rbac">technical documentation for RBAC</h1>
+<p>RBAC at many level</p>
+<ul>
+<li>Component level</li>
+<li>Feature level (toggle feature)</li>
+<li>Sidebar level</li>
+</ul>
+<p>===</p>
+<p>get the logged in user&rsquo;s</p>
+<ul>
+<li>
+<p>role and org plan
+ex: FM</p>
+</li>
+<li>
+<p>access to the modules as well as its sub modules based on the current org plan
+ex: CHW Module , Track CHW Attendance</p>
+</li>
+<li>
+<p>his abilities and
+ex: Read</p>
+</li>
+</ul>
+<p>====</p>
+<p>Sidebar level - static items - dynamic items based on some special toggle feature which is specific to the facility / Org
+ex: Analytics</p>
+<p>Component level ( Show and hide ) - we would need a inhouse custom component like <Can /> ( from @casl/ability ) - base on the logged in user role</p>
+<p>Feature level
+-Based on their access to specific modules ex: doctor module is not visible for fm</p>
+<hr>
+<p>RBAC for custom roles</p>
+<p>1 Create a user group/cohart ex: operations group
+2 Attach a policy to that group ex: operations policy</p>
+<p>Operations access terms / policy
+*And the terms like this,
+CHW Module - CHW Profile
+[Y]Create [Y]Read [N]Update [N]Delete</p>
+<pre><code>- Track CHW Attendance
+	[N]Create [Y]Read [N]Update [N]Delete
+</code></pre>
+<p>3 Add a user to a operations group ex: user rahul,rakshith is added to the group</p>
+<ul>
+<li>By default user inherits the abilites/properties of the cohert he is added to</li>
+</ul>
+<p>Create a Policy
+1 Show all modules and select the modules which needs to be added to a cohart
+Ex 1 CHW Module - CHW Profile - Track CHW Attendance</p>
+<hr>
+<blockquote>
+<p><code>path</code> src/rbac</p>
+</blockquote>
+<h2 id="sidebarroute-level">sidebar/route level<a href="#sidebarroute-level" class="anchor" aria-hidden="true">#</a> </h2>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// src\common\config\routing\RoutesConfig.ts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">allRoles</span><span class="p">,</span> <span class="nx">permittedRoles</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../rbac/types/rbac.types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">hasAccessToModule</span><span class="p">,</span> <span class="nx">hasAccessToSubModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Permissions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac/types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">isRoute</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">component</span>: <span class="kt">DashboardPage</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/dashboard&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;DashboardPage&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exact</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">permission</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">permittedRoles</span><span class="p">.</span><span class="nx">facilityManager</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">permittedRoles</span><span class="p">.</span><span class="nx">organizationAdmin</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">canDisplay</span>: <span class="kt">hasAccessToModule</span><span class="p">(</span><span class="s2">&#34;DASHBOARD&#34;</span><span class="p">,</span> <span class="nx">read</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">children</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">isRoute</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">component</span>: <span class="kt">CHWPage</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/chw/chw-management&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;CHWPage&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exact</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">permission</span>: <span class="kt">allRoles</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">canDisplay</span>: <span class="kt">hasAccessToModule</span><span class="p">(</span><span class="s2">&#34;LIST_CHW&#34;</span><span class="p">,</span> <span class="nx">read</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">children</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">isRoute</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">component</span>: <span class="kt">CHWOverview</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;/chw/overview&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;CHWOverview&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">permission</span>: <span class="kt">allRoles</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">canDisplay</span>: <span class="kt">hasAccessToSubModule</span><span class="p">(</span><span class="s2">&#34;LIST_CHW&#34;</span><span class="p">,</span> <span class="s2">&#34;CONTAINER_CHW&#34;</span><span class="p">,</span> <span class="nx">read</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">children</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span></span></span></code></pre></div>
+  </figure>
+</div>
+<h2 id="component-level">component level<a href="#component-level" class="anchor" aria-hidden="true">#</a> </h2>
+<p>&mdash; check rbac-component.md</p>
+<h2 id="module-level">module level<a href="#module-level" class="anchor" aria-hidden="true">#</a> </h2>
+<blockquote>
+<p>Example 1 when dealing with Submodules</p>
+</blockquote>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">allRoles</span><span class="p">,</span> <span class="nx">permittedRoles</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../rbac/types/rbac.types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">hasAccessToModule</span><span class="p">,</span> <span class="nx">hasAccessToSubModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Permissions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac/types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">AttendanceListTable() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">canExport</span> <span class="o">=</span> <span class="nx">hasAccessToSubModule</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;LIST_CHW&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;LIST_ATTENDANCE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Permissions</span><span class="p">.</span><span class="nx">export_button</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;card-toolbar&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span>
+</span></span><span class="line"><span class="cl">          <span class="na">hidden</span><span class="o">=</span><span class="p">{</span><span class="o">!</span><span class="nx">canExport</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleExportModal</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="na">className</span><span class="o">=</span><span class="s">&#34;btn btn-sm btn-light-primary me-5&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">i</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;fas fa-download&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">EXPORT</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">SampleApp</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<h2 id="example-2-when-dealing-with-modules">Example 2 when dealing with Modules<a href="#example-2-when-dealing-with-modules" class="anchor" aria-hidden="true">#</a> </h2>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">allRoles</span><span class="p">,</span> <span class="nx">permittedRoles</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../rbac/types/rbac.types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">hasAccessToModule</span><span class="p">,</span> <span class="nx">hasAccessToSubModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Permissions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;../../../rbac/types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">ManagerOnboarding() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">cannotSeeOnboardingForm</span> <span class="o">=</span> <span class="o">!</span><span class="nx">hasAccessToModule</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ONBOARD_MANAGER&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Permissions</span><span class="p">.</span><span class="nx">read</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">hidden</span><span class="o">=</span><span class="p">{</span><span class="nx">cannotSeeOnboardingForm</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Some</span> <span class="nx">sample</span> <span class="nx">text</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">ManagerOnboarding</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<h2 id="extend-rbac-rules">extend RBAC rules<a href="#extend-rbac-rules" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Step 1</p>
+<ul>
+<li>
+<p>Ask which user role as access to this feature, is it
+admin or facility manager.</p>
+</li>
+<li>
+<p>If both can access it than place it as a common resources</p>
+</li>
+<li>
+<p>Know its composability ie., export btn, distribute option
+some examples</p>
+</li>
+</ul>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">Composability_Permissions</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">read</span><span class="o">:</span> <span class="s2">&#34;READ&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">update</span><span class="o">:</span> <span class="s2">&#34;UPDATE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">create</span><span class="o">:</span> <span class="s2">&#34;CREATE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">search_bar</span><span class="o">:</span> <span class="s2">&#34;SEARCH_BAR&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">assign_button</span><span class="o">:</span> <span class="s2">&#34;ASSIGN_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">reassign_button</span><span class="o">:</span> <span class="s2">&#34;REASSIGN_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">distribute_button</span><span class="o">:</span> <span class="s2">&#34;DISTRIBUTE_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">export_button</span><span class="o">:</span> <span class="s2">&#34;EXPORT_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">delete_button</span><span class="o">:</span> <span class="s2">&#34;DELETE_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">filter_button</span><span class="o">:</span> <span class="s2">&#34;FILTER_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">detail_button</span><span class="o">:</span> <span class="s2">&#34;DETAIL_BUTTON&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">create_form</span><span class="o">:</span> <span class="s2">&#34;CREATE_FORM&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view_form</span><span class="o">:</span> <span class="s2">&#34;VIEW_FORM&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *  Logged in User level RBAC
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Permissions</span><span class="p">,</span> <span class="nx">chwTablePermissions</span><span class="p">,</span> <span class="nx">tablePermissions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;./types&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">create</span><span class="p">,</span> <span class="nx">filter_button</span><span class="p">,</span> <span class="nx">export_button</span><span class="p">,</span> <span class="nx">read</span><span class="p">,</span> <span class="nx">search_bar</span><span class="p">,</span> <span class="nx">update</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">Permissions</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">commonResource</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">roleId</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">roleName</span><span class="o">:</span> <span class="s2">&#34;FACILITY_MANAGER&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;This role specifies the Admin users&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">platform</span><span class="o">:</span> <span class="s2">&#34;WEB_PORTAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sidebars</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">modules</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">moduleName</span><span class="o">:</span> <span class="s2">&#34;Visulise the insights on various modules&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;DASHBOARD&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">submoduleAvailable</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">subModules</span><span class="o">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">moduleName</span><span class="o">:</span> <span class="s2">&#34;Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;LIST_REPORT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">submoduleAvailable</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">,</span> <span class="nx">export_button</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">subModules</span><span class="o">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">moduleName</span><span class="o">:</span> <span class="s2">&#34;list of courses&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;LIST_COURSE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">submoduleAvailable</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">,</span> <span class="nx">search_bar</span><span class="p">,</span> <span class="nx">filter_button</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">subModules</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">subModuleName</span><span class="o">:</span> <span class="s2">&#34;Container for the Course Overview&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;CONTAINER_COURSE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">subModuleName</span><span class="o">:</span> <span class="s2">&#34;Attach/Modify content to the existing course&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;ATTACH_MODIFY_CONTENT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">,</span> <span class="nx">update</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">subModuleName</span><span class="o">:</span> <span class="s2">&#34;See course content&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">identifier</span><span class="o">:</span> <span class="s2">&#34;SEE_COURSE_CONTENT&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">permissions</span><span class="o">:</span> <span class="p">[</span><span class="nx">read</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Step 2</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">resource</span> <span class="o">=</span> <span class="nx">loggedInUser</span> <span class="o">===</span> <span class="s2">&#34;FACILITY_MANAGER&#34;</span> <span class="o">?</span> <span class="nx">fmResource</span> : <span class="kt">AdminResource</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/360-whims/360-whims/formbuilder/question/" class="stretched-link text-reset text-decoration-none">Question</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/360-whims/360-whims/rbac/rbaccomponent/" class="stretched-link text-reset text-decoration-none">RBACComponent</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by Ikure Engineering Team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.09facf94aef13bf0642262b974e50790861baf8a71a51f2ce3a1b08ac22183fb.js"
+  integrity="sha256-CfrPlK7xO/BkImK5dOUHkIYbr4pxpR8s46GwisIhg/s=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

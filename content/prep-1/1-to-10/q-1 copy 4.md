@@ -1,0 +1,232 @@
+---
+title: "Determining Even/Odd Numbers"
+description: "commands associated with whims-usermanual portal"
+---
+
+### 1. **Determining Even/Odd Numbers**
+
+```javascript
+const checkEvenOdd = (number) => (number % 2 === 0 ? "Even" : "Odd");
+console.log(checkEvenOdd(4)); // Output: Even
+```
+
+---
+
+### 2. **Checking for Prime Numbers**
+
+```javascript
+const isPrime = (number) => {
+  if (number <= 1) return "Not Prime";
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) return "Not Prime";
+  }
+  return "Prime";
+};
+console.log(isPrime(7)); // Output: Prime
+```
+
+---
+
+### 3. **Validating Leap Years**
+
+```javascript
+const isLeapYear = (year) => ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? "Leap Year" : "Not a Leap Year");
+console.log(isLeapYear(2020)); // Output: Leap Year
+```
+
+---
+
+### 4. **Calculating Armstrong Numbers**
+
+```javascript
+const isArmstrongNumber = (number) => {
+  const digits = number.toString().split("");
+  const sum = digits.reduce((acc, digit) => acc + Math.pow(Number(digit), digits.length), 0);
+  return sum === number ? "Armstrong Number" : "Not an Armstrong Number";
+};
+console.log(isArmstrongNumber(153)); // Output: Armstrong Number
+```
+
+---
+
+### 5. **Generating the Fibonacci Series**
+
+```javascript
+const generateFibonacci = (limit) => {
+  const fib = [0, 1];
+  let next = fib[0] + fib[1];
+  while (next <= limit) {
+    fib.push(next);
+    next = fib[fib.length - 1] + fib[fib.length - 2];
+  }
+  return fib;
+};
+console.log(generateFibonacci(10)); // Output: [0, 1, 1, 2, 3, 5, 8]
+```
+
+---
+
+### 6. **Identifying Palindromes**
+
+```javascript
+const isPalindrome = (input) => {
+  const str = input.toString();
+  return str === str.split("").reverse().join("") ? "Palindrome" : "Not a Palindrome";
+};
+console.log(isPalindrome("radar")); // Output: Palindrome
+```
+
+---
+
+**7. Crafting Star Patterns (Pyramid)**
+
+```javascript
+// pyramid star pattern
+
+function generateStarPattern(patternType, height) {
+  if (patternType === "pyramid") {
+    for (let i = 1; i <= height; i++) {
+      const spaces = " ".repeat(height - i); // Leading spaces
+      const stars = "*".repeat(2 * i - 1); // Stars in the row
+      console.log(spaces + stars);
+    }
+  } else {
+    console.log("Pattern type not supported.");
+  }
+}
+
+const patternType = "pyramid";
+const height = 5;
+generateStarPattern(patternType, height);
+```
+
+---
+
+**Explanation**:
+
+1. **Spaces**: For each row, we calculate the number of leading spaces using `" ".repeat(height - i)`, which decreases as we go down.
+2. **Stars**: For each row, the number of stars follows the formula `2 * i - 1`.
+3. **Combination**: Combine the spaces and stars to form the row and print it.
+
+When run with `patternType = "pyramid"` and `height = 5`, the output will be:
+
+```
+    *
+   ***
+  *****
+ *******
+*********
+```
+
+---
+
+### 8. **Finding the Factorial of a Number**
+
+```javascript
+const factorial = (number) => {
+  let result = 1;
+  for (let i = 2; i <= number; i++) {
+    result *= i;
+  }
+  return result;
+};
+console.log(factorial(5)); // Output: 120
+```
+
+---
+
+### 9. **Summing Digits of a Number**
+
+```javascript
+const sumDigits = (number) =>
+  number
+    .toString()
+    .split("")
+    .reduce((sum, digit) => sum + Number(digit), 0);
+console.log(sumDigits(1234)); // Output: 10
+```
+
+---
+
+### 10. **Finding the Greatest Common Divisor (GCD)**
+
+```javascript
+const gcd = (a, b) => {
+  while (b !== 0) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+};
+console.log(gcd(48, 18)); // Output: 6
+```
+
+---
+
+### 11. **Finding the Least Common Multiple (LCM)**
+
+```javascript
+const lcm = (a, b) => (a * b) / gcd(a, b);
+console.log(lcm(12, 15)); // Output: 60
+```
+
+---
+
+### 12. **Counting Vowels and Consonants in a String**
+
+```javascript
+const countVowelsConsonants = (str) => {
+  const vowels = "aeiouAEIOU";
+  let vowelCount = 0,
+    consonantCount = 0;
+  for (let char of str) {
+    if (/[a-zA-Z]/.test(char)) {
+      vowels.includes(char) ? vowelCount++ : consonantCount++;
+    }
+  }
+  return `Vowels: ${vowelCount}, Consonants: ${consonantCount}`;
+};
+console.log(countVowelsConsonants("hello world")); // Output: Vowels: 3, Consonants: 7
+```
+
+---
+
+### 13. **Reversing a String**
+
+```javascript
+const reverseString = (str) => str.split("").reverse().join("");
+console.log(reverseString("programming")); // Output: "gnimmargorp"
+```
+
+---
+
+### 14. **Finding the Largest and Smallest Numbers in an Array**
+
+```javascript
+const findLargestSmallest = (array) => ({
+  Largest: Math.max(...array),
+  Smallest: Math.min(...array)
+});
+console.log(findLargestSmallest([4, 7, 1, 8, 5])); // Output: { Largest: 8, Smallest: 1 }
+```
+
+---
+
+### 15. **Sorting an Array**
+
+```javascript
+const sortArray = (array) => array.slice().sort((a, b) => a - b);
+console.log(sortArray([3, 1, 4, 1, 5, 9])); // Output: [1, 1, 3, 4, 5, 9]
+```
+
+---
+
+### 16. **Finding the Sum of Elements in an Array**
+
+```javascript
+const sumArray = (array) => array.reduce((sum, num) => sum + num, 0);
+console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15
+```
+
+---
+
+Each function includes the necessary logic for solving the problem, and you can test them by changing the input values in the `console.log` calls. Let me know if you need more assistance! 😊

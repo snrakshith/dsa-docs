@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ikure whims usermanual on DSA Prep</title><link>/ikure-whims-usermanual/</link><description>Recent content in ikure whims usermanual on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/ikure-whims-usermanual/index.xml" rel="self" type="application/rss+xml"/><item><title>Commands</title><link>/ikure-whims-usermanual/ikure-whims-usermanual/commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/ikure-whims-usermanual/ikure-whims-usermanual/commands/</guid><description>&lt;h1 id="website">Website&lt;/h1>
+&lt;p>This website is built using &lt;a href="https://docusaurus.io/">Docusaurus 2&lt;/a>, a modern static website generator.&lt;/p>
+&lt;h3 id="installation">Installation&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;pre tabindex="0">&lt;code>$ npm&lt;/code>&lt;/pre>
+ &lt;/figure>
+&lt;/div>
+&lt;h3 id="local-development">Local Development&lt;/h3>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;pre tabindex="0">&lt;code>$ npm start&lt;/code>&lt;/pre>
+ &lt;/figure>
+&lt;/div>
+&lt;p>This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.&lt;/p></description></item><item><title>Introduction</title><link>/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</guid><description>&lt;h1 id="documentation">Documentation&lt;/h1>
+&lt;p>Repo link &lt;a href="https://github.com/ikuretechsoft/ikure-whims-usermanual">ikure-whims-usermanual&lt;/a>&lt;/p>
+&lt;h3 id="table-of-contents">Table of Contents&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="#1">What is the scope of this repo?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#2">Technical choices made&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#3">Commands to run the project&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;div id="1">&lt;/div>
+&lt;h2 id="what-is-the-scope-of-this-repo">What is the scope of this repo&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>It covers the end to end documentation of the features available in the &lt;code>whims 360&lt;/code> portal&lt;/p></description></item></channel></rss>

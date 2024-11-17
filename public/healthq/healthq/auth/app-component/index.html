@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/healthq/healthq/auth/app-component/">
+  <link rel="canonical" href="http://localhost:1313/healthq/healthq/auth/app-component/">
+<title>App component  |  ikure developer docs</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="App component">
+<meta property="og:description" content="Authentication Flow in the Web App
+We’ve implemented OpenID Connect (OIDC) using oidc-client-ts to manage user authentication. Below is an overview of the key concepts and code setup.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/healthq/healthq/auth/app-component/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="healthq">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="App component">
+<meta name="twitter:description" content="Authentication Flow in the Web App
+We’ve implemented OpenID Connect (OIDC) using oidc-client-ts to manage user authentication. Below is an overview of the key concepts and code setup.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "360 Whims",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/healthq/",
+       "name": "Healthq",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/healthq/auth/",
+       "name": "Auth",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "App Component",
+       "position": 4
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section healthq" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">ikure developer docs</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">ikure developer docs</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/docs/guides/example-guide/">Docs</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/360-whims">360-whims</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/blog/">Blog</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/healthq/">healthq</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-chw-webview-fe/">webview</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-whims-usermanual/">whims-usermanual</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/thuliteio/doks"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#authentication-flow-in-the-web-app">Authentication Flow in the Web App</a>
+      <ul>
+        <li><a href="#1-what-is-oidc-and-why-are-we-using-it">1. <strong>What is OIDC and why are we using it?</strong></a></li>
+        <li><a href="#2-overview-of-the-configuration-configts">2. <strong>Overview of the Configuration (config.ts)</strong></a></li>
+        <li><a href="#3-how-the-configuration-works">3. <strong>How the Configuration Works</strong></a></li>
+        <li><a href="#4-handling-the-sign-in-callback">4. <strong>Handling the Sign-In Callback</strong></a></li>
+        <li><a href="#5-flow-in-action">5. <strong>Flow in Action</strong></a></li>
+        <li><a href="#6-key-points-to-explain-during-kt">6. <strong>Key Points to Explain During KT:</strong></a></li>
+        <li><a href="#7-possible-issues-and-how-to-debug">7. <strong>Possible Issues and How to Debug</strong></a></li>
+        <li><a href="#8-references">8. <strong>References</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>App component</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#authentication-flow-in-the-web-app">Authentication Flow in the Web App</a>
+      <ul>
+        <li><a href="#1-what-is-oidc-and-why-are-we-using-it">1. <strong>What is OIDC and why are we using it?</strong></a></li>
+        <li><a href="#2-overview-of-the-configuration-configts">2. <strong>Overview of the Configuration (config.ts)</strong></a></li>
+        <li><a href="#3-how-the-configuration-works">3. <strong>How the Configuration Works</strong></a></li>
+        <li><a href="#4-handling-the-sign-in-callback">4. <strong>Handling the Sign-In Callback</strong></a></li>
+        <li><a href="#5-flow-in-action">5. <strong>Flow in Action</strong></a></li>
+        <li><a href="#6-key-points-to-explain-during-kt">6. <strong>Key Points to Explain During KT:</strong></a></li>
+        <li><a href="#7-possible-issues-and-how-to-debug">7. <strong>Possible Issues and How to Debug</strong></a></li>
+        <li><a href="#8-references">8. <strong>References</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<h2 id="authentication-flow-in-the-web-app">Authentication Flow in the Web App<a href="#authentication-flow-in-the-web-app" class="anchor" aria-hidden="true">#</a> </h2>
+<p>We’ve implemented <strong>OpenID Connect (OIDC)</strong> using <code>oidc-client-ts</code> to manage user authentication. Below is an overview of the key concepts and code setup.</p>
+<hr>
+<h3 id="1-what-is-oidc-and-why-are-we-using-it">1. <strong>What is OIDC and why are we using it?</strong><a href="#1-what-is-oidc-and-why-are-we-using-it" class="anchor" aria-hidden="true">#</a> </h3>
+<p>OIDC (OpenID Connect) is a protocol built on OAuth 2.0, providing identity verification and authentication. We&rsquo;re using this for:</p>
+<ul>
+<li><strong>User Authentication:</strong> Verify the user&rsquo;s identity and retrieve their profile and email.</li>
+<li><strong>Token Management:</strong> Secure communication with an authorization server using access tokens.</li>
+<li><strong>Session Management:</strong> Maintain user sessions across browser tabs.</li>
+</ul>
+<hr>
+<h3 id="2-overview-of-the-configuration-configts">2. <strong>Overview of the Configuration (config.ts)</strong><a href="#2-overview-of-the-configuration-configts" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Below is our authentication setup in <code>config.ts</code>:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// config.ts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">UserManager</span><span class="p">,</span> <span class="nx">WebStorageStateStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;oidc-client-ts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">userManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserManager</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">response_type</span><span class="o">:</span> <span class="s2">&#34;code&#34;</span><span class="p">,</span> <span class="c1">// Authorization code flow for enhanced security
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">scope</span><span class="o">:</span> <span class="s2">&#34;openid profile email&#34;</span><span class="p">,</span> <span class="c1">// Requesting basic profile and email info
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">authority</span>: <span class="kt">import.meta.env.VITE_AUTHORITY</span><span class="p">,</span> <span class="c1">// Authorization server URL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">client_id</span>: <span class="kt">import.meta.env.VITE_CLIENT_ID</span><span class="p">,</span> <span class="c1">// Client ID for our app
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">client_secret</span>: <span class="kt">import.meta.env.VITE_SECRET_ID</span><span class="p">,</span> <span class="c1">// Secret key for auth (server-side)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">redirect_uri</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="si">}</span><span class="sb">/dashboard`</span><span class="p">,</span> <span class="c1">// Post-login redirect
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">post_logout_redirect_uri</span>: <span class="kt">window.location.origin</span><span class="p">,</span> <span class="c1">// Redirect after logout
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">userStore</span>: <span class="kt">new</span> <span class="nx">WebStorageStateStore</span><span class="p">({</span> <span class="nx">store</span>: <span class="kt">window.sessionStorage</span> <span class="p">}),</span> <span class="c1">// Store auth session in sessionStorage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">monitorSession</span>: <span class="kt">true</span> <span class="c1">// Detects login/logout across tabs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">onSigninCallback</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">replaceState</span><span class="p">({},</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="3-how-the-configuration-works">3. <strong>How the Configuration Works</strong><a href="#3-how-the-configuration-works" class="anchor" aria-hidden="true">#</a> </h3>
+<h4 id="authentication-settings"><strong>Authentication Settings:</strong><a href="#authentication-settings" class="anchor" aria-hidden="true">#</a> </h4>
+<ol>
+<li>
+<p><strong>response_type:</strong></p>
+<ul>
+<li>We&rsquo;re using <code>code</code> flow for security. This means we exchange an <strong>authorization code</strong> for access tokens, preventing the exposure of tokens in the URL.</li>
+</ul>
+</li>
+<li>
+<p><strong>scope:</strong></p>
+<ul>
+<li>We&rsquo;re requesting the user’s <strong>profile</strong>, <strong>email</strong>, and <strong>openid</strong> (basic identity). This helps us retrieve user-specific data like their email or name.</li>
+</ul>
+</li>
+<li>
+<p><strong>authority:</strong></p>
+<ul>
+<li>The URL of the <strong>identity provider/authorization server</strong> (e.g., Auth0, Okta). This will validate the user&rsquo;s identity.</li>
+</ul>
+</li>
+<li>
+<p><strong>client_id &amp; client_secret:</strong></p>
+<ul>
+<li>Identifiers for our web app, registered with the identity provider. These ensure our app is authorized to request user information.</li>
+</ul>
+</li>
+<li>
+<p><strong>redirect_uri:</strong></p>
+<ul>
+<li>Where the user is redirected after a successful login. We&rsquo;re using <code>/dashboard</code> as the landing page.</li>
+</ul>
+</li>
+<li>
+<p><strong>post_logout_redirect_uri:</strong></p>
+<ul>
+<li>After the user logs out, we redirect them to the home page (<code>window.location.origin</code>).</li>
+</ul>
+</li>
+</ol>
+<h4 id="session-management"><strong>Session Management:</strong><a href="#session-management" class="anchor" aria-hidden="true">#</a> </h4>
+<ul>
+<li>
+<p><strong>userStore:</strong></p>
+<ul>
+<li>Stores the user’s session in <strong>sessionStorage</strong> (scoped to the browser tab). This means the session ends when the browser tab closes.</li>
+</ul>
+</li>
+<li>
+<p><strong>monitorSession:</strong></p>
+<ul>
+<li>Tracks the login/logout events <strong>across tabs</strong>, so when the user logs out in one tab, they will also be logged out in other tabs.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-handling-the-sign-in-callback">4. <strong>Handling the Sign-In Callback</strong><a href="#4-handling-the-sign-in-callback" class="anchor" aria-hidden="true">#</a> </h3>
+<p>After the user signs in, OIDC redirects them back to the redirect URI (in our case, <code>/dashboard</code>). The callback function ensures the page state remains clean.</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">onSigninCallback</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">replaceState</span><span class="p">({},</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<ul>
+<li><strong>Why is this needed?</strong>
+When OIDC redirects the user back, the URL may contain some extra query parameters (<code>?code=...&amp;state=...</code>).
+<ul>
+<li>The <code>onSigninCallback</code> clears these parameters without reloading the page by using <code>window.history.replaceState</code>.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-flow-in-action">5. <strong>Flow in Action</strong><a href="#5-flow-in-action" class="anchor" aria-hidden="true">#</a> </h3>
+<ol>
+<li>
+<p><strong>Login Flow:</strong></p>
+<ul>
+<li>User clicks <strong>login</strong> in the app.</li>
+<li>They are redirected to the <strong>authorization server&rsquo;s login page</strong>.</li>
+<li>After successful login, they are <strong>redirected back to <code>/dashboard</code></strong>.</li>
+<li>Session is saved in <strong>sessionStorage</strong> and shared across open tabs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Logout Flow:</strong></p>
+<ul>
+<li>When the user logs out, the <strong>post_logout_redirect_uri</strong> triggers, redirecting them to the home page.</li>
+<li>If multiple tabs are open, <strong>monitorSession</strong> ensures all tabs reflect the logged-out state.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="6-key-points-to-explain-during-kt">6. <strong>Key Points to Explain During KT:</strong><a href="#6-key-points-to-explain-during-kt" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li><strong>Security:</strong> Explain the importance of using <strong>authorization code flow</strong> and how it secures the token exchange process.</li>
+<li><strong>Session Management:</strong> Highlight how <code>WebStorageStateStore</code> and <code>monitorSession</code> help in <strong>multi-tab login/logout handling</strong>.</li>
+<li><strong>Environment Variables:</strong> Mention how <code>import.meta.env</code> variables are used to keep sensitive information (like <strong>client ID</strong>) out of the codebase.</li>
+<li><strong>Callback Management:</strong> Emphasize the need for <code>onSigninCallback</code> to clean up the URL after authentication.</li>
+</ul>
+<hr>
+<h3 id="7-possible-issues-and-how-to-debug">7. <strong>Possible Issues and How to Debug</strong><a href="#7-possible-issues-and-how-to-debug" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li>
+<p><strong>Login not working?</strong></p>
+<ul>
+<li>Check if the <strong>client_id</strong> and <strong>authority</strong> URLs are correctly set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Session not shared across tabs?</strong></p>
+<ul>
+<li>Make sure <code>monitorSession</code> is enabled, and <strong>sessionStorage</strong> is available in the browser.</li>
+</ul>
+</li>
+<li>
+<p><strong>Redirect loop after login?</strong></p>
+<ul>
+<li>Ensure the <strong>redirect_uri</strong> and <strong>callback logic</strong> are correctly configured.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="8-references">8. <strong>References</strong><a href="#8-references" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li><a href="https://github.com/authts/oidc-client-ts">OIDC-client-ts Documentation</a></li>
+<li><a href="https://openid.net/connect/">OpenID Connect Overview</a></li>
+</ul>
+<hr>
+<p>This documentation should give your junior a clear picture of the auth setup, key concepts, and potential troubleshooting steps.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/healthq/healthq/auth/app-component/" class="stretched-link text-reset text-decoration-none">App component</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/healthq/healthq/charts/barchart/" class="stretched-link text-reset text-decoration-none">BarChart</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by Ikure Engineering Team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.09facf94aef13bf0642262b974e50790861baf8a71a51f2ce3a1b08ac22183fb.js"
+  integrity="sha256-CfrPlK7xO/BkImK5dOUHkIYbr4pxpR8s46GwisIhg/s=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

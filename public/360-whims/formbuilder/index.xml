@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>An overview of formbuilder module on DSA Prep</title><link>/360-whims/formbuilder/</link><description>Recent content in An overview of formbuilder module on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/360-whims/formbuilder/index.xml" rel="self" type="application/rss+xml"/><item><title>FormBuilder</title><link>/360-whims/360-whims/formbuilder/formbuilder/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/formbuilder/formbuilder/</guid><description>&lt;h3 id="1-formbuilder">1. &lt;strong>FormBuilder&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Description&lt;/strong>: This is the top-level component responsible for managing the overall form structure. It serves as a container for all other components.&lt;/li>
+&lt;li>&lt;strong>Responsibilities&lt;/strong>:
+&lt;ul>
+&lt;li>Maintains the state of the entire form (e.g., values, validation status).&lt;/li>
+&lt;li>Handles form submission and validation logic.&lt;/li>
+&lt;li>Can provide a context for child components to access common data and methods (e.g., using React Context or state management libraries like Redux).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-multisection">2. &lt;strong>MultiSection&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Description&lt;/strong>: This component represents a collection of sections within the form. It allows users to add or remove sections dynamically.&lt;/li>
+&lt;li>&lt;strong>Responsibilities&lt;/strong>:
+&lt;ul>
+&lt;li>Renders multiple &lt;code>Section&lt;/code> components based on the current form structure.&lt;/li>
+&lt;li>Provides the ability to manage the order of sections (e.g., drag-and-drop functionality).&lt;/li>
+&lt;li>Might include controls for adding new sections, such as buttons for “Add Section”.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-section">3. &lt;strong>Section&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Description&lt;/strong>: A &lt;code>Section&lt;/code> component groups related questions. It provides a logical division within the form, making it easier for users to navigate and complete.&lt;/li>
+&lt;li>&lt;strong>Responsibilities&lt;/strong>:
+&lt;ul>
+&lt;li>Renders multiple &lt;code>MultiQuestion&lt;/code> components.&lt;/li>
+&lt;li>Can include a title or header for the section, along with description text if needed.&lt;/li>
+&lt;li>Handles local state and functionality specific to the section (e.g., validation for questions in that section).&lt;/li>
+&lt;li>Provides functionality to delete the section or reorder it.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-multiquestion">4. &lt;strong>MultiQuestion&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Description&lt;/strong>: This component represents a collection of questions within a section. It allows for the dynamic addition and removal of questions.&lt;/li>
+&lt;li>&lt;strong>Responsibilities&lt;/strong>:
+&lt;ul>
+&lt;li>Renders multiple &lt;code>Question&lt;/code> components.&lt;/li>
+&lt;li>Manages the order of questions and provides controls for adding or removing questions.&lt;/li>
+&lt;li>Might handle validation logic for the questions contained within it.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="5-question">5. &lt;strong>Question&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Description&lt;/strong>: The &lt;code>Question&lt;/code> component represents an individual question within the form. It is the lowest level in the hierarchy and is responsible for rendering the question interface (e.g., text input, dropdown, etc.).&lt;/li>
+&lt;li>&lt;strong>Responsibilities&lt;/strong>:
+&lt;ul>
+&lt;li>Renders the question text and associated input fields (e.g., &lt;code>Field&lt;/code>, &lt;code>TextField&lt;/code>, etc.).&lt;/li>
+&lt;li>Handles local state management for the question, including user input and validation errors.&lt;/li>
+&lt;li>Can provide features such as conditional rendering based on user input or validation criteria.&lt;/li>
+&lt;li>Includes controls for editing, deleting, or configuring question-specific options.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="benefits-of-this-hierarchy">&lt;strong>Benefits of This Hierarchy&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Modularity&lt;/strong>: Each component has a specific responsibility, making the codebase easier to manage and reason about.&lt;/li>
+&lt;li>&lt;strong>Reusability&lt;/strong>: Components can be reused in different contexts (e.g., you can use the &lt;code>MultiQuestion&lt;/code> component in other forms if needed).&lt;/li>
+&lt;li>&lt;strong>Separation of Concerns&lt;/strong>: Each component handles its own state and logic, reducing complexity in the top-level &lt;code>FormBuilder&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Dynamic Capabilities&lt;/strong>: The hierarchical structure allows for easy addition and removal of sections and questions, facilitating dynamic form-building experiences.&lt;/li>
+&lt;/ul></description></item><item><title>MultiQuestion</title><link>/360-whims/360-whims/formbuilder/multiquestion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/formbuilder/multiquestion/</guid><description>&lt;h2 id="multiquestion-component-documentation">MultiQuestion Component Documentation&lt;/h2>
+&lt;h3 id="description">&lt;strong>Description&lt;/strong>&lt;/h3>
+&lt;p>The &lt;code>MultiQuestion&lt;/code> component dynamically manages a list of questions within a section of a form using &lt;strong>Formik&amp;rsquo;s &lt;code>FieldArray&lt;/code>&lt;/strong>. It allows users to add, remove, and edit questions through child components. It provides flexibility for question management inside each section and integrates error handling.&lt;/p></description></item><item><title>MultiSection</title><link>/360-whims/360-whims/formbuilder/multisection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/formbuilder/multisection/</guid><description>&lt;h3 id="code-documentation-multisection-component">&lt;strong>Code Documentation: MultiSection Component&lt;/strong>&lt;/h3>
+&lt;p>The &lt;code>MultiSection&lt;/code> component is a React functional component that leverages &lt;code>formik&lt;/code>&amp;rsquo;s &lt;code>FieldArray&lt;/code> to dynamically render multiple sections and manage form fields. The component supports adding and removing sections with custom logic for each section. It also features a modal toggle mechanism using the React &lt;code>useState&lt;/code> hook.&lt;/p></description></item><item><title>Question</title><link>/360-whims/360-whims/formbuilder/question/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/formbuilder/question/</guid><description>&lt;h3 id="code-documentation-question-component">&lt;strong>Code Documentation: Question Component&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>Key Components and Structure&lt;/li>
+&lt;/ul>
+&lt;h4 id="1-question-header-section">1. &lt;strong>Question Header Section&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-flex w-100&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`fs-2 form-label mb-5 &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questionRequired&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="s2">&amp;#34;required&amp;#34;&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">}&amp;gt;&lt;/span>&lt;span class="nx">Question&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="nx">index&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">}&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">position&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;relative&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="na">...provided.dragHandleProps&lt;/span>&lt;span class="p">}&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">position&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;absolute&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;400px&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">cursor&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;move&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;fs-2 fas fa-grip-lines text-muted&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">i&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Purpose:&lt;/strong> Displays the question header along with a drag icon for rearranging questions.&lt;/li>
+&lt;li>&lt;strong>&lt;code>className&lt;/code> Handling:&lt;/strong> Conditionally applies the &lt;code>required&lt;/code> class if the question is marked as required.&lt;/li>
+&lt;li>&lt;strong>Drag and Drop:&lt;/strong>
+&lt;ul>
+&lt;li>Uses &lt;code>provided.dragHandleProps&lt;/code> to enable draggable functionality.&lt;/li>
+&lt;li>The &lt;strong>icon&lt;/strong> (&lt;code>fa-grip-lines&lt;/code>) helps users visually identify draggable items.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="2-question-input-section">2. &lt;strong>Question Input Section&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-flex fv-row h-60px&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="cm">/* Question Name */&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;fv-row col-lg-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Field&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questionName`&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">placeholder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enter the question&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;form-control form-control-lg form-control-solid&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;text-danger mb-5&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ErrorMessage&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questionName`&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Question Input:&lt;/strong>
+&lt;ul>
+&lt;li>Renders a text field using &lt;code>Formik&lt;/code>&amp;rsquo;s &lt;code>&amp;lt;Field&amp;gt;&lt;/code> component for entering the question.&lt;/li>
+&lt;li>If validation fails, &lt;strong>&lt;code>ErrorMessage&lt;/code>&lt;/strong> displays error messages in red (&lt;code>text-danger&lt;/code>).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="3-question-type-selector">3. &lt;strong>Question Type Selector&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;fv-row w-450px ms-5&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Field&lt;/span> &lt;span class="na">as&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;select&amp;#34;&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questionType`&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;form-select form-select-lg form-select-solid cursor-pointer&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;TextField&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">TextField&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Date&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nb">Date&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Image&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Image&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Dropdown&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Dropdown&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Checkbox&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Checkbox&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">option&lt;/span> &lt;span class="na">value&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Radio&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Radio&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">option&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">Field&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;text-danger mt-2&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ErrorMessage&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questionType`&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Dropdown Menu:&lt;/strong>
+&lt;ul>
+&lt;li>Allows users to select a question type (e.g., TextField, Date, Image).&lt;/li>
+&lt;li>Uses &lt;code>Formik&lt;/code>&amp;rsquo;s &lt;code>&amp;lt;Field&amp;gt;&lt;/code> with &lt;code>as=&amp;quot;select&amp;quot;&lt;/code> to create a dropdown.&lt;/li>
+&lt;li>If validation errors occur, the &lt;strong>error message&lt;/strong> is displayed below the dropdown.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="4-hover-based-action-button">4. &lt;strong>Hover-based Action Button&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">hoverEffect&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">position&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;absolute&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;40%&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;-25px&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;card p-5 d-flex align-items-center justify-content-center&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">onClick&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">push&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">questionName&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">questionType&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;TextField&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">validations&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">dataType&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;Text&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">minValue&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">maxValue&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">minLength&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">maxLength&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">options&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[{&lt;/span> &lt;span class="nx">option&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> &lt;span class="p">}],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">questionRequired&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">descriptionRequired&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;fs-2 fas fa-plus text-hover-primary cursor-pointer&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">i&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Hover Button:&lt;/strong>
+&lt;ul>
+&lt;li>Displays an &lt;strong>add button&lt;/strong> (&lt;code>fa-plus icon&lt;/code>) on hover, allowing users to add a new question with default configurations.&lt;/li>
+&lt;li>The &lt;code>push&lt;/code> function from &lt;code>Formik&lt;/code>&amp;rsquo;s &lt;code>FieldArray&lt;/code> is used to append a new question object.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="5-options-management-section">5. &lt;strong>Options Management Section&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questionType&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="s2">&amp;#34;TextField&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questionType&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="s2">&amp;#34;Date&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questionType&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="s2">&amp;#34;Image&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">FieldArray&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].options`&lt;/span>&lt;span class="p">}&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{(&lt;/span>&lt;span class="nx">fieldArrayProps&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">push&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">remove&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">form&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">fieldArrayProps&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">values&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">form&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-flex flex-column&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">options&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">category&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">valueIndex&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-flex mb-5 align-items-center&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Field&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].options[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">valueIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].option`&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="na">placeholder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enter the value&amp;#34;&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;form-control form-control-lg form-control-solid w-500px&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ms-5 btn btn-primary&amp;#34;&lt;/span> &lt;span class="na">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;button&amp;#34;&lt;/span> &lt;span class="na">onClick&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">push&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)}&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Add&lt;/span> &lt;span class="nx">Option&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>&lt;span class="nx">valueIndex&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ms-5 btn btn-danger&amp;#34;&lt;/span> &lt;span class="na">type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;button&amp;#34;&lt;/span> &lt;span class="na">onClick&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">remove&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">valueIndex&lt;/span>&lt;span class="p">)}&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Cancel&lt;/span> &lt;span class="nx">Option&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">))}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">FieldArray&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Dynamic Options Handling:&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>FieldArray&lt;/strong> from Formik manages dynamic options for non-text-based question types (e.g., Dropdown, Checkbox).&lt;/li>
+&lt;li>&lt;strong>Add/Remove Buttons:&lt;/strong> Users can add or remove options using the &lt;code>push&lt;/code> and &lt;code>remove&lt;/code> methods.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="6-description-field-conditional-rendering">6. &lt;strong>Description Field (Conditional Rendering)&lt;/strong>&lt;/h4>
+
+
+
+&lt;div class="expressive-code">
+ &lt;figure class="frame not-content">
+ &lt;figcaption class="header">
+ &lt;span class="title">&lt;/span>
+ &lt;/figcaption>
+ &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">values&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">sections&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">questions&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">descriptionRequired&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-flex align-items-center mb-5&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;fv-row col-lg-12&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Field&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="sb">`sections[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">sectionIndex&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].questions[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">].description`&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="na">placeholder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Description for the question&amp;#34;&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;form-control form-control-lg form-control-solid&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">className&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;text-danger mt-2&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ErrorMessage&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;description&amp;#34;&lt;/span> &lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+ &lt;/figure>
+&lt;/div>
+&lt;ul>
+&lt;li>&lt;strong>Conditional Description Field:&lt;/strong>
+&lt;ul>
+&lt;li>If &lt;code>descriptionRequired&lt;/code> is set to true, a description field is rendered.&lt;/li>
+&lt;li>&lt;strong>Error Handling:&lt;/strong> Displays error messages if validation fails.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="dynamic-form-built-using-formik-with-features-like-validation">Dynamic form built using &lt;strong>Formik&lt;/strong> with features like &lt;strong>validation&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>skip logic&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>conditional rendering&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Dynamic Validation based on Question Type:&lt;/strong>&lt;/p></description></item><item><title>Sections</title><link>/360-whims/360-whims/formbuilder/sections/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/formbuilder/sections/</guid><description>&lt;h2 id="sections-component-documentation">&lt;code>Sections&lt;/code> Component Documentation&lt;/h2>
+&lt;h3 id="description">&lt;strong>Description&lt;/strong>&lt;/h3>
+&lt;p>The &lt;code>Sections&lt;/code> component renders a dynamic section within a form using &lt;code>Formik&lt;/code> with drag-and-drop functionality. It allows users to create, edit, reorder, and remove sections, as well as toggle pagination options between sections.&lt;/p></description></item></channel></rss>

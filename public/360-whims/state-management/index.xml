@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>State Management in WHIMS 360 portal on DSA Prep</title><link>/360-whims/state-management/</link><description>Recent content in State Management in WHIMS 360 portal on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/360-whims/state-management/index.xml" rel="self" type="application/rss+xml"/><item><title>Context API</title><link>/360-whims/360-whims/state-management/context-api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/state-management/context-api/</guid><description>&lt;h1 id="state-management-in-whims-360-portal-using-context-api">State management in WHIMS 360 portal using Context API&lt;/h1>
+&lt;hr>
+&lt;h2 id="what-is-context-api">&lt;strong>What is Context API?&lt;/strong>&lt;/h2>
+&lt;ul>
+&lt;li>Context API provides a way to pass data through the component tree without passing props at every level.&lt;/li>
+&lt;li>It helps when some global state (like user authentication, theme, etc.) needs to be accessed by many components.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Let’s transform this into a &lt;strong>UserRoleContext&lt;/strong> to focus entirely on managing user roles, such as &lt;code>facility_manager&lt;/code> or &lt;code>admin&lt;/code>, retrieved from an API.&lt;/p></description></item></channel></rss>

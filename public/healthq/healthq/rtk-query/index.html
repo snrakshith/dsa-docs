@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/healthq/healthq/rtk-query/">
+  <link rel="canonical" href="http://localhost:1313/healthq/healthq/rtk-query/">
+<title>  |  ikure developer docs</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="">
+<meta property="og:description" content="Fetching data in healthq via RTK Query
+Overview
+RTK Query is a powerful data-fetching and caching tool included in Redux Toolkit. It separates data management concerns from state management, streamlining the way developers handle server-side data in React applications.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/healthq/healthq/rtk-query/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="healthq">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="Fetching data in healthq via RTK Query
+Overview
+RTK Query is a powerful data-fetching and caching tool included in Redux Toolkit. It separates data management concerns from state management, streamlining the way developers handle server-side data in React applications.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "360 Whims",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/healthq/",
+       "name": "Healthq",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/healthq/rtk-query/",
+       "name": "Rtk Query Overview",
+       "position": 3
+     },
+     {
+       "@type": "ListItem",
+       "name": "",
+       "position": 4
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section healthq" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">ikure developer docs</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">ikure developer docs</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/360-whims">360-whims</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/healthq/">healthq</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-chw-webview-fe/">webview</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/ikure-whims-usermanual/">whims-usermanual</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/thuliteio/doks"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#fetching-data-in-healthq-via-rtk-query">Fetching data in healthq via RTK Query</a>
+      <ul>
+        <li></li>
+        <li><a href="#4-creating-sample-endpoints-for-mutations">4. <strong>Creating sample Endpoints for Mutations</strong></a></li>
+        <li><a href="#4-using-the-mutations-in-components">4. <strong>Using the Mutations in Components</strong></a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1></h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fetching-data-in-healthq-via-rtk-query">Fetching data in healthq via RTK Query</a>
+      <ul>
+        <li></li>
+        <li><a href="#4-creating-sample-endpoints-for-mutations">4. <strong>Creating sample Endpoints for Mutations</strong></a></li>
+        <li><a href="#4-using-the-mutations-in-components">4. <strong>Using the Mutations in Components</strong></a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<h2 id="fetching-data-in-healthq-via-rtk-query">Fetching data in healthq via RTK Query<a href="#fetching-data-in-healthq-via-rtk-query" class="anchor" aria-hidden="true">#</a> </h2>
+<h4 id="overview">Overview<a href="#overview" class="anchor" aria-hidden="true">#</a> </h4>
+<p>RTK Query is a powerful data-fetching and caching tool included in Redux Toolkit. It separates data management concerns from state management, streamlining the way developers handle server-side data in React applications.</p>
+<h4 id="key-features">Key Features<a href="#key-features" class="anchor" aria-hidden="true">#</a> </h4>
+<ul>
+<li><strong>Integrated with Redux Toolkit</strong>: Built on top of Redux, it uses <code>createSlice</code> and <code>createAsyncThunk</code>.</li>
+<li><strong>Auto-generated Hooks</strong>: Simplifies component usage by automatically generating hooks for defined endpoints.</li>
+<li><strong>Cache Management</strong>: Offers fine-grained control over cache lifecycles, including automated refetching and cache invalidation.</li>
+<li><strong>TypeScript Support</strong>: Fully written in TypeScript, providing strong type safety.</li>
+</ul>
+<h4 id="api-essentials">API Essentials<a href="#api-essentials" class="anchor" aria-hidden="true">#</a> </h4>
+<ol>
+<li>
+<p><strong>createApi</strong>: The core function for defining API slices.</p>
+<ul>
+<li><strong>baseQuery</strong>: Use <code>fetchBaseQuery</code> to simplify requests.</li>
+<li><strong>endpoints</strong>: Define the available API endpoints.</li>
+</ul>
+<p>Example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createApi</span><span class="p">,</span> <span class="nx">fetchBaseQuery</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@reduxjs/toolkit/query/react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">createApi</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">reducerPath</span><span class="o">:</span> <span class="s2">&#34;api&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">baseQuery</span>: <span class="kt">fetchBaseQuery</span><span class="p">({</span> <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&#34;/api&#34;</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">endpoints</span><span class="o">:</span> <span class="p">(</span><span class="nx">builder</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getItems</span>: <span class="kt">builder.query</span><span class="p">&lt;</span><span class="nt">Item</span><span class="err">[],</span> <span class="na">void</span><span class="p">&gt;({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">query</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s2">&#34;items&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}),</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="p">{</span> <span class="nx">useGetItemsQuery</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">api</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+</li>
+<li>
+<p><strong>Setting Up the Store</strong>: Integrate the API slice with Redux store.</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">configureStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">setupListeners</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@reduxjs/toolkit/query&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">api</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;./api&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">api</span><span class="p">.</span><span class="nx">reducerPath</span><span class="p">]</span><span class="o">:</span> <span class="nx">api</span><span class="p">.</span><span class="nx">reducer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">middleware</span><span class="o">:</span> <span class="p">(</span><span class="nx">getDefaultMiddleware</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getDefaultMiddleware</span><span class="p">().</span><span class="nx">concat</span><span class="p">(</span><span class="nx">api</span><span class="p">.</span><span class="nx">middleware</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">setupListeners</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+</li>
+<li>
+<p><strong>Using Queries in Components</strong>:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useGetItemsQuery</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;./api&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ItemsList</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span>: <span class="kt">items</span><span class="p">,</span> <span class="nx">error</span><span class="p">,</span> <span class="nx">isLoading</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useGetItemsQuery</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">Loading</span><span class="p">...&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nb">Error</span> <span class="nx">loading</span> <span class="nx">items</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">}&gt;{</span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">))}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+</li>
+</ol>
+<h3 id="4-creating-sample-endpoints-for-mutations">4. <strong>Creating sample Endpoints for Mutations</strong><a href="#4-creating-sample-endpoints-for-mutations" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can define endpoints for POST, PATCH, and DELETE operations in your API slice using the <code>mutation</code> builder method. Here’s how you can do that:</p>
+<h4 id="example-api-slice-for-post-patch--delete">Example API Slice for <code>post</code>, <code>patch</code> &amp; <code>delete</code><a href="#example-api-slice-for-post-patch--delete" class="anchor" aria-hidden="true">#</a> </h4>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createApi</span><span class="p">,</span> <span class="nx">fetchBaseQuery</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;@reduxjs/toolkit/query/react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">createApi</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">reducerPath</span><span class="o">:</span> <span class="s2">&#34;api&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">baseQuery</span>: <span class="kt">fetchBaseQuery</span><span class="p">({</span> <span class="nx">baseUrl</span><span class="o">:</span> <span class="s2">&#34;/api&#34;</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">endpoints</span><span class="o">:</span> <span class="p">(</span><span class="nx">builder</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// GET request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">getItems</span>: <span class="kt">builder.query</span><span class="p">&lt;</span><span class="nt">Item</span><span class="err">[],</span> <span class="na">void</span><span class="p">&gt;({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">query</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s2">&#34;items&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// POST request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">createItem</span>: <span class="kt">builder.mutation</span><span class="p">&lt;</span><span class="nt">Item</span><span class="err">,</span> <span class="na">Partial</span><span class="err">&lt;</span><span class="na">Item</span><span class="p">&gt;</span><span class="o">&gt;</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">query</span><span class="o">:</span> <span class="p">(</span><span class="nx">newItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;items&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;POST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">body</span>: <span class="kt">newItem</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// PATCH request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">updateItem</span>: <span class="kt">builder.mutation</span><span class="p">&lt;</span><span class="nt">Item</span><span class="err">,</span> <span class="na">Partial</span><span class="err">&lt;</span><span class="na">Item</span><span class="p">&gt;</span> <span class="o">&amp;</span> <span class="p">{</span> <span class="nx">id</span>: <span class="kt">string</span> <span class="p">}</span><span class="o">&gt;</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">query</span><span class="o">:</span> <span class="p">({</span> <span class="nx">id</span><span class="p">,</span> <span class="p">...</span><span class="nx">patch</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="sb">`items/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;PATCH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">body</span>: <span class="kt">patch</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// DELETE request
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">deleteItem</span>: <span class="kt">builder.mutation</span><span class="p">&lt;</span><span class="nt">void</span><span class="err">,</span> <span class="na">string</span><span class="p">&gt;({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">query</span><span class="o">:</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="sb">`items/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;DELETE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}),</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Export hooks for usage in functional components
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kr">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">useGetItemsQuery</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">useCreateItemMutation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">useUpdateItemMutation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">useDeleteItemMutation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="o">=</span> <span class="nx">api</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<h3 id="4-using-the-mutations-in-components">4. <strong>Using the Mutations in Components</strong><a href="#4-using-the-mutations-in-components" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can now use the generated hooks in your components to perform the respective operations:</p>
+<h4 id="a-example-component">A example component<a href="#a-example-component" class="anchor" aria-hidden="true">#</a> </h4>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ItemsComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span>: <span class="kt">items</span><span class="p">,</span> <span class="nx">error</span><span class="p">,</span> <span class="nx">isLoading</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useGetItemsQuery</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">createItem</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useCreateItemMutation</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">updateItem</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useUpdateItemMutation</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">deleteItem</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useDeleteItemMutation</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleCreate</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">newItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="nx">createItem</span><span class="p">(</span><span class="nx">newItem</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleUpdate</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="nx">updateItem</span><span class="p">({</span> <span class="nx">id</span>: <span class="kt">item.id</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">item.name</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleDelete</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="nx">deleteItem</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">Loading</span><span class="p">...&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nb">Error</span> <span class="nx">loading</span> <span class="nx">items</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">li</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">item</span><span class="p">)}&gt;</span><span class="nx">Update</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">handleDelete</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">)}&gt;</span><span class="nx">Delete</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">))}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">handleCreate</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;New Item&#34;</span> <span class="p">})}&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Create</span> <span class="nx">Item</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<h3 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li><strong>POST</strong>: Use <code>createItem</code> to add new items.</li>
+<li><strong>PATCH</strong>: Use <code>updateItem</code> to modify existing items.</li>
+<li><strong>DELETE</strong>: Use <code>deleteItem</code> to remove items.</li>
+</ul>
+<h4 id="best-practices">Best Practices<a href="#best-practices" class="anchor" aria-hidden="true">#</a> </h4>
+<ul>
+<li><strong>Single API Slice</strong>: Aim for one API slice per base URL to maintain clarity and organization.</li>
+<li><strong>Split Endpoints</strong>: modularize your code while keeping a unified API slice.</li>
+<li><strong>Error Handling</strong>: Always implement error handling in your components to enhance user experience.</li>
+</ul>
+<h4 id="additional-resources">Additional Resources<a href="#additional-resources" class="anchor" aria-hidden="true">#</a> </h4>
+<ul>
+<li><a href="https://redux-toolkit.js.org/rtk-query/overview">Redux Toolkit Documentation</a></li>
+<li><a href="https://medium.com/reactnativepro/mastering-rtk-query-a-comprehensive-guide-for-efficient-server-side-data-management-in-react-a61662c8d9ed">Medium Article on RTK Query</a></li>
+</ul>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/healthq/healthq/auth/app-component-overview/" class="stretched-link text-reset text-decoration-none">App component overview</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by Ikure Engineering Team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.09facf94aef13bf0642262b974e50790861baf8a71a51f2ce3a1b08ac22183fb.js"
+  integrity="sha256-CfrPlK7xO/BkImK5dOUHkIYbr4pxpR8s46GwisIhg/s=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

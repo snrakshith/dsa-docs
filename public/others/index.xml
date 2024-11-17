@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other usefull resources on ikure developer docs</title>
+    <link>http://localhost:1313/others/</link>
+    <description>Recent content in Other usefull resources on ikure developer docs</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2010-2024 Ikure</copyright>
+    <atom:link href="http://localhost:1313/others/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guide to run monorepo with turborepo</title>
+      <link>http://localhost:1313/others/others/guide-to-run-monorepo-with-turborepo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/others/others/guide-to-run-monorepo-with-turborepo/</guid>
+      <description>&lt;h1 id=&#34;360-app-fe&#34;&gt;360-app-fe&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;This is an repo is powered by Turborepo.&lt;/li&gt;&#xA;&lt;li&gt;Versioning and package publishing is handled by &lt;a href=&#34;https://github.com/changesets/changesets&#34;&gt;Changesets&lt;/a&gt; and fully automated with GitHub Actions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;!-- ## Using this example&#xD;&#xA;&#xD;&#xA;Run the following command:&#xD;&#xA;&#xD;&#xA;```sh&#xD;&#xA;npx create-turbo@latest -e with-changesets&#xD;&#xA;``` --&gt;&#xD;&#xA;&lt;h2 id=&#34;whats-inside&#34;&gt;What&amp;rsquo;s inside?&lt;/h2&gt;&#xA;&lt;p&gt;This Turborepo includes the following:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auth on ikure developer docs</title>
+    <link>http://localhost:1313/healthq/auth/</link>
+    <description>Recent content in Auth on ikure developer docs</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2010-2024 Ikure</copyright>
+    <atom:link href="http://localhost:1313/healthq/auth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>App component overview</title>
+      <link>http://localhost:1313/healthq/healthq/auth/app-component-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/auth/app-component-overview/</guid>
+      <description>&lt;p&gt;This component serves as the &lt;strong&gt;root entry point&lt;/strong&gt; of the application, setting up essential providers and routing to ensure state management, authentication, and navigation work seamlessly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Authentication Flow with CustomRoutes component</title>
+      <link>http://localhost:1313/healthq/healthq/auth/authentication-flow-with-customroutes-component/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/auth/authentication-flow-with-customroutes-component/</guid>
+      <description>&lt;p&gt;This section describes how routing works in our web app using &lt;strong&gt;React Router&lt;/strong&gt; with &lt;strong&gt;authentication&lt;/strong&gt; handled via &lt;code&gt;react-oidc-context&lt;/code&gt;. We ensure that only authenticated users can access private routes, and we handle loading states, sign-in redirection, and error pages.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OICD setup &amp; usage</title>
+      <link>http://localhost:1313/healthq/healthq/auth/oicd-setup-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/auth/oicd-setup-usage/</guid>
+      <description>&lt;p&gt;We’ve implemented &lt;strong&gt;OpenID Connect (OIDC)&lt;/strong&gt; using &lt;code&gt;oidc-client-ts&lt;/code&gt; to manage user authentication.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-what-is-oidc-and-why-are-we-using-it&#34;&gt;1. &lt;strong&gt;What is OIDC and why are we using it?&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;OIDC (OpenID Connect) is a protocol built on OAuth 2.0, providing identity verification and authentication. We&amp;rsquo;re using this for:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PrivateRoutes Component Overview</title>
+      <link>http://localhost:1313/healthq/healthq/auth/privateroutes-component-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/auth/privateroutes-component-overview/</guid>
+      <description>&lt;p&gt;This component ensures that only &lt;strong&gt;authenticated users&lt;/strong&gt; can access certain routes. It uses the &lt;strong&gt;&lt;code&gt;useAuth&lt;/code&gt;&lt;/strong&gt; hook from &lt;code&gt;react-oidc-context&lt;/code&gt; to check the authentication status. If authenticated, the component renders the content within the &lt;strong&gt;MasterLayout&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Routes Config overview</title>
+      <link>http://localhost:1313/healthq/healthq/auth/routes-config-overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/auth/routes-config-overview/</guid>
+      <description>&lt;p&gt;This configuration defines the &lt;strong&gt;routes&lt;/strong&gt; used in the app, mapping URLs to components or pages. It also merges routes from different modules to keep things modular.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

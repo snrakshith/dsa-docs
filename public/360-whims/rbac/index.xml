@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RBAC on DSA Prep</title><link>/360-whims/rbac/</link><description>Recent content in RBAC on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/360-whims/rbac/index.xml" rel="self" type="application/rss+xml"/><item><title>An overview of RBAC Component</title><link>/360-whims/360-whims/rbac/an-overview-of-rbac-component/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/rbac/an-overview-of-rbac-component/</guid><description>&lt;h3 id="description">Description&lt;/h3>
+&lt;p>The &lt;code>RBACComponent&lt;/code> is a React component that utilizes Role-Based Access Control (RBAC) to conditionally render its children based on the user&amp;rsquo;s role. It checks if the user has the necessary permissions to view the component&amp;rsquo;s content.&lt;/p></description></item><item><title>An overview of RBAC usage in whims portal</title><link>/360-whims/360-whims/rbac/an-overview-of-rbac-usage-in-whims-portal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/rbac/an-overview-of-rbac-usage-in-whims-portal/</guid><description>&lt;h1 id="technical-documentation-for-rbac">technical documentation for RBAC&lt;/h1>
+&lt;p>RBAC at many level&lt;/p>
+&lt;ul>
+&lt;li>Component level&lt;/li>
+&lt;li>Feature level (toggle feature)&lt;/li>
+&lt;li>Sidebar level&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>get the logged in user&amp;rsquo;s&lt;/p></description></item></channel></rss>

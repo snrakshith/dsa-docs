@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RTK Query Overview on ikure developer docs</title>
+    <link>http://localhost:1313/healthq/rtk-query/</link>
+    <description>Recent content in RTK Query Overview on ikure developer docs</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2010-2024 Ikure</copyright>
+    <atom:link href="http://localhost:1313/healthq/rtk-query/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fetching data in healthq via RTK Query</title>
+      <link>http://localhost:1313/healthq/healthq/rtk-query/fetching-data-in-healthq-via-rtk-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/healthq/healthq/rtk-query/fetching-data-in-healthq-via-rtk-query/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;&#xA;&lt;p&gt;RTK Query is a powerful data-fetching and caching tool included in Redux Toolkit. It separates data management concerns from state management, streamlining the way developers handle server-side data in React applications.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
