@@ -2,7 +2,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>http://localhost:1313/resources/react/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
       <loc>http://localhost:1313/resources/handbook/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/resources/ts/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
