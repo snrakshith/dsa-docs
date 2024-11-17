@@ -1,5 +1,51 @@
-<!doctype html><html lang=en data-bs-theme=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-regular.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-500.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/vendor/jost/jost-v4-latin-700.woff2 as=font type=font/woff2 crossorigin><script src=/js/color-mode.86a91f050a481d0a3f0c72ac26543cb6228c770875981c58dcbc008fd3f875c8.js integrity="sha256-hqkfBQpIHQo/DHKsJlQ8tiKMdwh1mBxY3LwAj9P4dcg="></script><link rel=stylesheet href="/main.eb5cf9072ad95ac67c6ca1fefcd2e63637b88d048b46d85f3ef334e646f23c90c6de481184ca931b51c285f5184af7a2b24a3db4fb9dbdde35bc9343f2648577.css" integrity="sha512-61z5ByrZWsZ8bKH+/NLmNje4jQSLRthfPvM05kbyPJDG3kgRhMqTG1HChfUYSveisko9tPudvd41vJND8mSFdw==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><base href=/prep-1/prep-1/><link rel=canonical href=/prep-1/prep-1/><title>| DSA Prep</title>
-<meta name=description content="Congrats on setting up a new Doks project!"><link rel=icon href=/favicon.ico sizes=32x32><link rel=icon href=/favicon.svg type=image/svg+xml><link rel=apple-touch-icon href=/apple-touch-icon.png sizes=180x180 type=image/png><link rel=icon href=/favicon-192x192.png sizes=192x192 type=image/png><link rel=icon href=/favicon-512x512.png sizes=512x512 type=image/png><link rel=manifest href=/manifest.webmanifest><meta property="og:title" content><meta property="og:description" content='Here are JavaScript/ES6 implementations for these problems:
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/prep-1/prep-1/">
+  <link rel="canonical" href="http://localhost:1313/prep-1/prep-1/">
+<title>  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="">
+<meta property="og:description" content="Here are JavaScript/ES6 implementations for these problems:
 
 31. Generating Pascal’s Triangle
 
@@ -12,14 +58,14 @@
   
   function generatePascalsTriangle(rows) {
   const triangle = [];
-  for (let i = 0; i < rows; i++) {
-    const row = Array(i + 1).fill(1);
-    for (let j = 1; j < i; j++) {
-      row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+  for (let i = 0; i &lt; rows; i&#43;&#43;) {
+    const row = Array(i &#43; 1).fill(1);
+    for (let j = 1; j &lt; i; j&#43;&#43;) {
+      row[j] = triangle[i - 1][j - 1] &#43; triangle[i - 1][j];
     }
     triangle.push(row);
   }
-  return triangle.map((row) => row.join(" ")).join("\n");
+  return triangle.map((row) =&gt; row.join(&#34; &#34;)).join(&#34;\n&#34;);
 }
 
 console.log(generatePascalsTriangle(4));
@@ -36,10 +82,10 @@ console.log(generatePascalsTriangle(4));
     
   
   function findMedian(array) {
-  const sorted = array.slice().sort((a, b) => a - b);
+  const sorted = array.slice().sort((a, b) =&gt; a - b);
   const mid = Math.floor(sorted.length / 2);
   return sorted.length % 2 === 0
-    ? (sorted[mid - 1] + sorted[mid]) / 2
+    ? (sorted[mid - 1] &#43; sorted[mid]) / 2
     : sorted[mid];
 }
 
@@ -57,7 +103,7 @@ console.log(findMedian([3, 1, 2, 4, 5])); // 3
   
     
   
-  const power = (base, exponent) => base ** exponent;
+  const power = (base, exponent) =&gt; base ** exponent;
 
 console.log(power(2, 3)); // 8
 
@@ -74,11 +120,11 @@ console.log(power(2, 3)); // 8
     
   
   function areAnagrams(string1, string2) {
-  const normalize = (str) => str.split("").sort().join("");
+  const normalize = (str) =&gt; str.split(&#34;&#34;).sort().join(&#34;&#34;);
   return normalize(string1) === normalize(string2);
 }
 
-console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams(&#34;listen&#34;, &#34;silent&#34;)); // true
 
   
 
@@ -93,8 +139,8 @@ console.log(areAnagrams("listen", "silent")); // true
     
   
   function isPrime(num) {
-  if (num < 2) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
+  if (num &lt; 2) return false;
+  for (let i = 2; i &lt;= Math.sqrt(num); i&#43;&#43;) {
     if (num % i === 0) return false;
   }
   return true;
@@ -103,8 +149,8 @@ console.log(areAnagrams("listen", "silent")); // true
 function sumOfPrimes(range) {
   const [start, end] = range;
   let sum = 0;
-  for (let i = start; i <= end; i++) {
-    if (isPrime(i)) sum += i;
+  for (let i = start; i &lt;= end; i&#43;&#43;) {
+    if (isPrime(i)) sum &#43;= i;
   }
   return sum;
 }
@@ -123,7 +169,7 @@ console.log(sumOfPrimes([1, 10])); // 17
   
     
   
-  const triangularNumber = (n) => (n * (n + 1)) / 2;
+  const triangularNumber = (n) =&gt; (n * (n &#43; 1)) / 2;
 
 console.log(triangularNumber(4)); // 10
 
@@ -139,7 +185,7 @@ console.log(triangularNumber(4)); // 10
   
     
   
-  const isPerfectSquare = (number) => Number.isInteger(Math.sqrt(number));
+  const isPerfectSquare = (number) =&gt; Number.isInteger(Math.sqrt(number));
 
 console.log(isPerfectSquare(16)); // true
 
@@ -157,8 +203,8 @@ console.log(isPerfectSquare(16)); // true
   
   function sumOfSquares(number) {
   return String(number)
-    .split("")
-    .reduce((sum, digit) => sum + Math.pow(Number(digit), 2), 0);
+    .split(&#34;&#34;)
+    .reduce((sum, digit) =&gt; sum &#43; Math.pow(Number(digit), 2), 0);
 }
 
 console.log(sumOfSquares(123)); // 14
@@ -177,8 +223,8 @@ console.log(sumOfSquares(123)); // 14
   
   function generateMatrix(size) {
   let num = 1;
-  return Array.from({ length: size }, () =>
-    Array.from({ length: size }, () => num++)
+  return Array.from({ length: size }, () =&gt;
+    Array.from({ length: size }, () =&gt; num&#43;&#43;)
   );
 }
 
@@ -196,10 +242,10 @@ console.log(generateMatrix(3));
     
   
   function sumUntilSingleDigit(number) {
-  while (number > 9) {
+  while (number &gt; 9) {
     number = String(number)
-      .split("")
-      .reduce((sum, digit) => sum + Number(digit), 0);
+      .split(&#34;&#34;)
+      .reduce((sum, digit) =&gt; sum &#43; Number(digit), 0);
   }
   return number;
 }
@@ -220,8 +266,8 @@ console.log(sumUntilSingleDigit(9875)); // 2
   
   function countDigit(number, digit) {
   return String(number)
-    .split("")
-    .filter((d) => Number(d) === digit).length;
+    .split(&#34;&#34;)
+    .filter((d) =&gt; Number(d) === digit).length;
 }
 
 console.log(countDigit(122333, 3)); // 3
@@ -239,11 +285,11 @@ console.log(countDigit(122333, 3)); // 3
     
   
   function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
+  if (n &lt;= 1) return n;
+  return fibonacci(n - 1) &#43; fibonacci(n - 2);
 }
 
-console.log(Array.from({ length: 5 }, (_, i) => fibonacci(i))); // [0, 1, 1, 2, 3]
+console.log(Array.from({ length: 5 }, (_, i) =&gt; fibonacci(i))); // [0, 1, 1, 2, 3]
 
   
 
@@ -258,8 +304,8 @@ console.log(Array.from({ length: 5 }, (_, i) => fibonacci(i))); // [0, 1, 1, 2, 
     
   
   function findDivisors(number) {
-  return Array.from({ length: number }, (_, i) => i + 1).filter(
-    (i) => number % i === 0
+  return Array.from({ length: number }, (_, i) =&gt; i &#43; 1).filter(
+    (i) =&gt; number % i === 0
   );
 }
 
@@ -277,8 +323,8 @@ console.log(findDivisors(12)); // [1, 2, 3, 4, 6, 12]
   
     
   
-  const average = (array) =>
-  array.reduce((sum, num) => sum + num, 0) / array.length;
+  const average = (array) =&gt;
+  array.reduce((sum, num) =&gt; sum &#43; num, 0) / array.length;
 
 console.log(average([1, 2, 3, 4, 5])); // 3
 
@@ -296,11 +342,11 @@ console.log(average([1, 2, 3, 4, 5])); // 3
   
   function findMode(array) {
   const freqMap = array.reduce(
-    (map, num) => ((map[num] = (map[num] || 0) + 1), map),
+    (map, num) =&gt; ((map[num] = (map[num] || 0) &#43; 1), map),
     {}
   );
   const maxFreq = Math.max(...Object.values(freqMap));
-  return +Object.keys(freqMap).find((key) => freqMap[key] === maxFreq);
+  return &#43;Object.keys(freqMap).find((key) =&gt; freqMap[key] === maxFreq);
 }
 
 console.log(findMode([1, 2, 2, 3, 4, 4, 4])); // 4
@@ -319,11 +365,11 @@ console.log(findMode([1, 2, 2, 3, 4, 4, 4])); // 4
   
   function stringLength(str) {
   let length = 0;
-  for (let char of str) length++;
+  for (let char of str) length&#43;&#43;;
   return length;
 }
 
-console.log(stringLength("hello")); // 5
+console.log(stringLength(&#34;hello&#34;)); // 5
 
   
 
@@ -338,9 +384,9 @@ console.log(stringLength("hello")); // 5
     
   
   function generatePyramid(rows) {
-  return Array.from({ length: rows }, (_, i) =>
-    Array.from({ length: i + 1 }, (_, j) => j + 1).join("")
-  ).join("\n");
+  return Array.from({ length: rows }, (_, i) =&gt;
+    Array.from({ length: i &#43; 1 }, (_, j) =&gt; j &#43; 1).join(&#34;&#34;)
+  ).join(&#34;\n&#34;);
 }
 
 console.log(generatePyramid(4));
@@ -358,13 +404,13 @@ console.log(generatePyramid(4));
   
   function sumOfPrimeFactors(number) {
   const factors = [];
-  for (let i = 2; i <= number; i++) {
+  for (let i = 2; i &lt;= number; i&#43;&#43;) {
     while (number % i === 0) {
       factors.push(i);
       number /= i;
     }
   }
-  return [...new Set(factors)].reduce((sum, factor) => sum + factor, 0);
+  return [...new Set(factors)].reduce((sum, factor) =&gt; sum &#43; factor, 0);
 }
 
 console.log(sumOfPrimeFactors(12)); // 5
@@ -383,7 +429,7 @@ console.log(sumOfPrimeFactors(12)); // 5
   
   function secondLargest(array) {
   const unique = [...new Set(array)];
-  unique.sort((a, b) => b - a);
+  unique.sort((a, b) =&gt; b - a);
   return unique[1];
 }
 
@@ -405,27 +451,35 @@ console.log(secondLargest([10, 20, 4, 45, 99])); // 45
   let max = 0,
     start = 0,
     seen = {},
-    longest = "";
-  for (let end = 0; end < string.length; end++) {
+    longest = &#34;&#34;;
+  for (let end = 0; end &lt; string.length; end&#43;&#43;) {
     const char = string[end];
-    if (char in seen && seen[char] >= start) {
-      start = seen[char] + 1;
+    if (char in seen &amp;&amp; seen[char] &gt;= start) {
+      start = seen[char] &#43; 1;
     }
     seen[char] = end;
-    if (end - start + 1 > max) {
-      max = end - start + 1;
-      longest = string.slice(start, end + 1);
+    if (end - start &#43; 1 &gt; max) {
+      max = end - start &#43; 1;
+      longest = string.slice(start, end &#43; 1);
     }
   }
   return longest;
 }
 
-console.log(longestUniqueSubstring("abcabcbb")); // "abc"
+console.log(longestUniqueSubstring(&#34;abcabcbb&#34;)); // &#34;abc&#34;
 
   
 
 
-Let me know if you&rsquo;d like explanations for any of these!'><meta property="og:type" content="article"><meta property="og:url" content="/prep-1/prep-1/"><meta property="og:image" content="/cover.png"><meta property="article:section" content="prep-1"><meta property="og:site_name" content="Frontend documentation site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/cover.png"><meta name=twitter:title content><meta name=twitter:description content='Here are JavaScript/ES6 implementations for these problems:
+Let me know if you&rsquo;d like explanations for any of these!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/prep-1/prep-1/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="prep-1">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="">
+<meta name="twitter:description" content="Here are JavaScript/ES6 implementations for these problems:
 
 31. Generating Pascal’s Triangle
 
@@ -438,14 +492,14 @@ Let me know if you&rsquo;d like explanations for any of these!'><meta property="
   
   function generatePascalsTriangle(rows) {
   const triangle = [];
-  for (let i = 0; i < rows; i++) {
-    const row = Array(i + 1).fill(1);
-    for (let j = 1; j < i; j++) {
-      row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+  for (let i = 0; i &lt; rows; i&#43;&#43;) {
+    const row = Array(i &#43; 1).fill(1);
+    for (let j = 1; j &lt; i; j&#43;&#43;) {
+      row[j] = triangle[i - 1][j - 1] &#43; triangle[i - 1][j];
     }
     triangle.push(row);
   }
-  return triangle.map((row) => row.join(" ")).join("\n");
+  return triangle.map((row) =&gt; row.join(&#34; &#34;)).join(&#34;\n&#34;);
 }
 
 console.log(generatePascalsTriangle(4));
@@ -462,10 +516,10 @@ console.log(generatePascalsTriangle(4));
     
   
   function findMedian(array) {
-  const sorted = array.slice().sort((a, b) => a - b);
+  const sorted = array.slice().sort((a, b) =&gt; a - b);
   const mid = Math.floor(sorted.length / 2);
   return sorted.length % 2 === 0
-    ? (sorted[mid - 1] + sorted[mid]) / 2
+    ? (sorted[mid - 1] &#43; sorted[mid]) / 2
     : sorted[mid];
 }
 
@@ -483,7 +537,7 @@ console.log(findMedian([3, 1, 2, 4, 5])); // 3
   
     
   
-  const power = (base, exponent) => base ** exponent;
+  const power = (base, exponent) =&gt; base ** exponent;
 
 console.log(power(2, 3)); // 8
 
@@ -500,11 +554,11 @@ console.log(power(2, 3)); // 8
     
   
   function areAnagrams(string1, string2) {
-  const normalize = (str) => str.split("").sort().join("");
+  const normalize = (str) =&gt; str.split(&#34;&#34;).sort().join(&#34;&#34;);
   return normalize(string1) === normalize(string2);
 }
 
-console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams(&#34;listen&#34;, &#34;silent&#34;)); // true
 
   
 
@@ -519,8 +573,8 @@ console.log(areAnagrams("listen", "silent")); // true
     
   
   function isPrime(num) {
-  if (num < 2) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
+  if (num &lt; 2) return false;
+  for (let i = 2; i &lt;= Math.sqrt(num); i&#43;&#43;) {
     if (num % i === 0) return false;
   }
   return true;
@@ -529,8 +583,8 @@ console.log(areAnagrams("listen", "silent")); // true
 function sumOfPrimes(range) {
   const [start, end] = range;
   let sum = 0;
-  for (let i = start; i <= end; i++) {
-    if (isPrime(i)) sum += i;
+  for (let i = start; i &lt;= end; i&#43;&#43;) {
+    if (isPrime(i)) sum &#43;= i;
   }
   return sum;
 }
@@ -549,7 +603,7 @@ console.log(sumOfPrimes([1, 10])); // 17
   
     
   
-  const triangularNumber = (n) => (n * (n + 1)) / 2;
+  const triangularNumber = (n) =&gt; (n * (n &#43; 1)) / 2;
 
 console.log(triangularNumber(4)); // 10
 
@@ -565,7 +619,7 @@ console.log(triangularNumber(4)); // 10
   
     
   
-  const isPerfectSquare = (number) => Number.isInteger(Math.sqrt(number));
+  const isPerfectSquare = (number) =&gt; Number.isInteger(Math.sqrt(number));
 
 console.log(isPerfectSquare(16)); // true
 
@@ -583,8 +637,8 @@ console.log(isPerfectSquare(16)); // true
   
   function sumOfSquares(number) {
   return String(number)
-    .split("")
-    .reduce((sum, digit) => sum + Math.pow(Number(digit), 2), 0);
+    .split(&#34;&#34;)
+    .reduce((sum, digit) =&gt; sum &#43; Math.pow(Number(digit), 2), 0);
 }
 
 console.log(sumOfSquares(123)); // 14
@@ -603,8 +657,8 @@ console.log(sumOfSquares(123)); // 14
   
   function generateMatrix(size) {
   let num = 1;
-  return Array.from({ length: size }, () =>
-    Array.from({ length: size }, () => num++)
+  return Array.from({ length: size }, () =&gt;
+    Array.from({ length: size }, () =&gt; num&#43;&#43;)
   );
 }
 
@@ -622,10 +676,10 @@ console.log(generateMatrix(3));
     
   
   function sumUntilSingleDigit(number) {
-  while (number > 9) {
+  while (number &gt; 9) {
     number = String(number)
-      .split("")
-      .reduce((sum, digit) => sum + Number(digit), 0);
+      .split(&#34;&#34;)
+      .reduce((sum, digit) =&gt; sum &#43; Number(digit), 0);
   }
   return number;
 }
@@ -646,8 +700,8 @@ console.log(sumUntilSingleDigit(9875)); // 2
   
   function countDigit(number, digit) {
   return String(number)
-    .split("")
-    .filter((d) => Number(d) === digit).length;
+    .split(&#34;&#34;)
+    .filter((d) =&gt; Number(d) === digit).length;
 }
 
 console.log(countDigit(122333, 3)); // 3
@@ -665,11 +719,11 @@ console.log(countDigit(122333, 3)); // 3
     
   
   function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
+  if (n &lt;= 1) return n;
+  return fibonacci(n - 1) &#43; fibonacci(n - 2);
 }
 
-console.log(Array.from({ length: 5 }, (_, i) => fibonacci(i))); // [0, 1, 1, 2, 3]
+console.log(Array.from({ length: 5 }, (_, i) =&gt; fibonacci(i))); // [0, 1, 1, 2, 3]
 
   
 
@@ -684,8 +738,8 @@ console.log(Array.from({ length: 5 }, (_, i) => fibonacci(i))); // [0, 1, 1, 2, 
     
   
   function findDivisors(number) {
-  return Array.from({ length: number }, (_, i) => i + 1).filter(
-    (i) => number % i === 0
+  return Array.from({ length: number }, (_, i) =&gt; i &#43; 1).filter(
+    (i) =&gt; number % i === 0
   );
 }
 
@@ -703,8 +757,8 @@ console.log(findDivisors(12)); // [1, 2, 3, 4, 6, 12]
   
     
   
-  const average = (array) =>
-  array.reduce((sum, num) => sum + num, 0) / array.length;
+  const average = (array) =&gt;
+  array.reduce((sum, num) =&gt; sum &#43; num, 0) / array.length;
 
 console.log(average([1, 2, 3, 4, 5])); // 3
 
@@ -722,11 +776,11 @@ console.log(average([1, 2, 3, 4, 5])); // 3
   
   function findMode(array) {
   const freqMap = array.reduce(
-    (map, num) => ((map[num] = (map[num] || 0) + 1), map),
+    (map, num) =&gt; ((map[num] = (map[num] || 0) &#43; 1), map),
     {}
   );
   const maxFreq = Math.max(...Object.values(freqMap));
-  return +Object.keys(freqMap).find((key) => freqMap[key] === maxFreq);
+  return &#43;Object.keys(freqMap).find((key) =&gt; freqMap[key] === maxFreq);
 }
 
 console.log(findMode([1, 2, 2, 3, 4, 4, 4])); // 4
@@ -745,11 +799,11 @@ console.log(findMode([1, 2, 2, 3, 4, 4, 4])); // 4
   
   function stringLength(str) {
   let length = 0;
-  for (let char of str) length++;
+  for (let char of str) length&#43;&#43;;
   return length;
 }
 
-console.log(stringLength("hello")); // 5
+console.log(stringLength(&#34;hello&#34;)); // 5
 
   
 
@@ -764,9 +818,9 @@ console.log(stringLength("hello")); // 5
     
   
   function generatePyramid(rows) {
-  return Array.from({ length: rows }, (_, i) =>
-    Array.from({ length: i + 1 }, (_, j) => j + 1).join("")
-  ).join("\n");
+  return Array.from({ length: rows }, (_, i) =&gt;
+    Array.from({ length: i &#43; 1 }, (_, j) =&gt; j &#43; 1).join(&#34;&#34;)
+  ).join(&#34;\n&#34;);
 }
 
 console.log(generatePyramid(4));
@@ -784,13 +838,13 @@ console.log(generatePyramid(4));
   
   function sumOfPrimeFactors(number) {
   const factors = [];
-  for (let i = 2; i <= number; i++) {
+  for (let i = 2; i &lt;= number; i&#43;&#43;) {
     while (number % i === 0) {
       factors.push(i);
       number /= i;
     }
   }
-  return [...new Set(factors)].reduce((sum, factor) => sum + factor, 0);
+  return [...new Set(factors)].reduce((sum, factor) =&gt; sum &#43; factor, 0);
 }
 
 console.log(sumOfPrimeFactors(12)); // 5
@@ -809,7 +863,7 @@ console.log(sumOfPrimeFactors(12)); // 5
   
   function secondLargest(array) {
   const unique = [...new Set(array)];
-  unique.sort((a, b) => b - a);
+  unique.sort((a, b) =&gt; b - a);
   return unique[1];
 }
 
@@ -831,196 +885,787 @@ console.log(secondLargest([10, 20, 4, 45, 99])); // 45
   let max = 0,
     start = 0,
     seen = {},
-    longest = "";
-  for (let end = 0; end < string.length; end++) {
+    longest = &#34;&#34;;
+  for (let end = 0; end &lt; string.length; end&#43;&#43;) {
     const char = string[end];
-    if (char in seen && seen[char] >= start) {
-      start = seen[char] + 1;
+    if (char in seen &amp;&amp; seen[char] &gt;= start) {
+      start = seen[char] &#43; 1;
     }
     seen[char] = end;
-    if (end - start + 1 > max) {
-      max = end - start + 1;
-      longest = string.slice(start, end + 1);
+    if (end - start &#43; 1 &gt; max) {
+      max = end - start &#43; 1;
+      longest = string.slice(start, end &#43; 1);
     }
   }
   return longest;
 }
 
-console.log(longestUniqueSubstring("abcabcbb")); // "abc"
+console.log(longestUniqueSubstring(&#34;abcabcbb&#34;)); // &#34;abc&#34;
 
   
 
 
-Let me know if you&rsquo;d like explanations for any of these!'><meta name=twitter:site content="@getdoks"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"/","name":"Preperation Sheet","position":1},{"@type":"ListItem","item":"/prep-1/","name":"Prep 1","position":2},{"@type":"ListItem","name":"","position":3}]}</script></head><body class="single section prep-1" data-bs-spy=scroll data-bs-target=#toc data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll=true tabindex=0><div class=sticky-top><header class="navbar navbar-expand-lg"><div class=container-lg><a class="navbar-brand me-auto me-lg-3" href=/>DSA Prep</a>
-<button type=button id=searchToggleMobile class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
-<svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-</button>
-<button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasNavMain aria-controls=offcanvasNavMain aria-label="Open main navigation menu"><svg class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg></button><div class="offcanvas offcanvas-end h-auto" tabindex=-1 id=offcanvasNavMain aria-labelledby=offcanvasNavMainLabel><div class=offcanvas-header><h5 class=offcanvas-title id=offcanvasNavMainLabel>DSA Prep</h5><button type=button class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss=offcanvas aria-label=Close><svg class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg></button></div><div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between"><ul class="navbar-nav flex-grow-1"><li class=nav-item><a class=nav-link href=/360-whims/>360-whims</a></li><li class=nav-item><a class=nav-link href=/prep-1/>Prep set-1</a></li><li class=nav-item><a class=nav-link href=/ikure-whims-usermanual/>whims-usermanual</a></li></ul><button type=button id=searchToggleDesktop class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
-<svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-</button>
-<button id=buttonColorMode class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type=button aria-label="Toggle theme"><svg data-bs-theme-value="dark" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132.0.263.0.393.0a7.5 7.5.0 007.92 12.446A9 9 0 1112 2.992z"/></svg><svg data-bs-theme-value="light" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 108 0 4 4 0 10-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg></button><ul id=socialMenu class="nav mx-auto flex-row order-lg-4"><li class=nav-item><a class="nav-link social-link" href=https://github.com/thuliteio/doks><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><small class="ms-2 visually-hidden">GitHub</small></a></li></ul></div></div></div></header></div><div class=modal id=searchModal tabindex=-1 aria-labelledby=searchModalLabel aria-hidden=true><div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down"><div class=modal-content><div class=modal-header><h1 class="modal-title fs-5 visually-hidden" id=searchModalLabel>Search</h1><button type=button class="btn-close visually-hidden" data-bs-dismiss=modal aria-label=Close></button><div class="search-input flex-grow-1 d-none"><form id=search-form class=search-form action=# method=post accept-charset=UTF-8 role=search><label for=query class=visually-hidden>Search</label><div class=d-flex><input type=search id=query name=query class="search-text form-control form-control-lg" placeholder=Search aria-label=Search maxlength=128 autocomplete=off>
-<button type=button class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss=modal aria-label=Close>Cancel</button></div></form></div></div><div class=modal-body><p class="search-loading status message d-none mt-3 text-center">Loading search index…</p><p class="search-no-recent message d-none mt-3 text-center">No recent searches</p><p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class=query-no-results>Query here</span></strong>"</p><div id=searchResults class=search-results></div><template><article class="search-result list-view"><div class="card my-3"><div class=card-body><header><h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href=#>Title here</a></h2><div class="submitted d-none"><time class=created-date>Date here</time></div></header><div class=content>Summary here</div></div></div></article></template></div><div class=modal-footer><ul class="list-inline me-auto d-none d-md-block"><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4m3 3-3-3 3-3"/></g></svg></kbd><span class=DocSearch-Label>to select</span></li><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8m3-3-3 3-3-3"/></g></svg></kbd><kbd class=me-2><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8m3 3-3-3-3 3"/></g></svg></kbd><span class=DocSearch-Label>to navigate</span></li><li class=list-inline-item><kbd class=me-2><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993.0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016s1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5s-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864.0 1.6425 1.031 1.5443 2.2492h-2.956"/></g></svg></kbd><span class=DocSearch-Label>to close</span></li></ul><p class=d-md-none>Search by <a class=text-decoration-none href=https://github.com/nextapps-de/flexsearch>FlexSearch</a></p></div></div></div></div><div class="wrap container-lg" role=document><div class=content><div class="row flex-xl-nowrap"><nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links><h3>On this page</h3><nav id=toc><ul><li><ul><li><a href=#31-generating-pascals-triangle><strong>31. Generating Pascal’s Triangle</strong></a></li><li><a href=#32-finding-the-median-of-an-array><strong>32. Finding the Median of an Array</strong></a></li><li><a href=#33-calculating-the-power-of-a-number><strong>33. Calculating the Power of a Number</strong></a></li><li><a href=#34-checking-for-an-anagram><strong>34. Checking for an Anagram</strong></a></li><li><a href=#35-finding-the-sum-of-prime-numbers-in-a-range><strong>35. Finding the Sum of Prime Numbers in a Range</strong></a></li><li><a href=#36-finding-the-n-th-triangular-number><strong>36. Finding the N-th Triangular Number</strong></a></li><li><a href=#37-checking-for-perfect-squares><strong>37. Checking for Perfect Squares</strong></a></li><li><a href=#38-finding-the-sum-of-squares-of-digits><strong>38. Finding the Sum of Squares of Digits</strong></a></li><li><a href=#39-generating-a-square-matrix><strong>39. Generating a Square Matrix</strong></a></li><li><a href=#40-sum-of-digits-until-single-digit><strong>40. Sum of Digits Until Single Digit</strong></a></li><li><a href=#41-count-specific-digits><strong>41. Count Specific Digits</strong></a></li><li><a href=#42-generating-fibonacci-sequence-using-recursion><strong>42. Generating Fibonacci Sequence Using Recursion</strong></a></li><li><a href=#43-finding-all-divisors><strong>43. Finding All Divisors</strong></a></li><li><a href=#44-finding-the-average-of-numbers><strong>44. Finding the Average of Numbers</strong></a></li><li><a href=#45-finding-the-mode><strong>45. Finding the Mode</strong></a></li><li><a href=#46-string-length-without-built-in-functions><strong>46. String Length Without Built-In Functions</strong></a></li><li><a href=#47-generating-a-number-pyramid><strong>47. Generating a Number Pyramid</strong></a></li><li><a href=#48-sum-of-prime-factors><strong>48. Sum of Prime Factors</strong></a></li><li><a href=#49-finding-the-second-largest-number><strong>49. Finding the Second Largest Number</strong></a></li><li><a href=#50-longest-substring-without-repeating-characters><strong>50. Longest Substring Without Repeating Characters</strong></a></li></ul></li></ul></nav></div></nav><main class="docs-content col-lg-11 col-xl-9 mx-xl-auto"><h1></h1><nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation"><details><summary>On this page</summary><div class=page-links><nav id=TableOfContents><ul><li><ul><li><a href=#31-generating-pascals-triangle><strong>31. Generating Pascal’s Triangle</strong></a></li><li><a href=#32-finding-the-median-of-an-array><strong>32. Finding the Median of an Array</strong></a></li><li><a href=#33-calculating-the-power-of-a-number><strong>33. Calculating the Power of a Number</strong></a></li><li><a href=#34-checking-for-an-anagram><strong>34. Checking for an Anagram</strong></a></li><li><a href=#35-finding-the-sum-of-prime-numbers-in-a-range><strong>35. Finding the Sum of Prime Numbers in a Range</strong></a></li><li><a href=#36-finding-the-n-th-triangular-number><strong>36. Finding the N-th Triangular Number</strong></a></li><li><a href=#37-checking-for-perfect-squares><strong>37. Checking for Perfect Squares</strong></a></li><li><a href=#38-finding-the-sum-of-squares-of-digits><strong>38. Finding the Sum of Squares of Digits</strong></a></li><li><a href=#39-generating-a-square-matrix><strong>39. Generating a Square Matrix</strong></a></li><li><a href=#40-sum-of-digits-until-single-digit><strong>40. Sum of Digits Until Single Digit</strong></a></li><li><a href=#41-count-specific-digits><strong>41. Count Specific Digits</strong></a></li><li><a href=#42-generating-fibonacci-sequence-using-recursion><strong>42. Generating Fibonacci Sequence Using Recursion</strong></a></li><li><a href=#43-finding-all-divisors><strong>43. Finding All Divisors</strong></a></li><li><a href=#44-finding-the-average-of-numbers><strong>44. Finding the Average of Numbers</strong></a></li><li><a href=#45-finding-the-mode><strong>45. Finding the Mode</strong></a></li><li><a href=#46-string-length-without-built-in-functions><strong>46. String Length Without Built-In Functions</strong></a></li><li><a href=#47-generating-a-number-pyramid><strong>47. Generating a Number Pyramid</strong></a></li><li><a href=#48-sum-of-prime-factors><strong>48. Sum of Prime Factors</strong></a></li><li><a href=#49-finding-the-second-largest-number><strong>49. Finding the Second Largest Number</strong></a></li><li><a href=#50-longest-substring-without-repeating-characters><strong>50. Longest Substring Without Repeating Characters</strong></a></li></ul></li></ul></nav></div></details></nav><p>Here are JavaScript/ES6 implementations for these problems:</p><hr><h3 id=31-generating-pascals-triangle><strong>31. Generating Pascal’s Triangle</strong><a href=#31-generating-pascals-triangle class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>generatePascalsTriangle</span><span class=p>(</span><span class=nx>rows</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>triangle</span> <span class=o>=</span> <span class=p>[];</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>rows</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>row</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>).</span><span class=nx>fill</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=nx>i</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=nx>row</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>triangle</span><span class=p>[</span><span class=nx>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>][</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=nx>triangle</span><span class=p>[</span><span class=nx>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>][</span><span class=nx>j</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>triangle</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>row</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>triangle</span><span class=p>.</span><span class=nx>map</span><span class=p>((</span><span class=nx>row</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>row</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34; &#34;</span><span class=p>)).</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34;\n&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>generatePascalsTriangle</span><span class=p>(</span><span class=mi>4</span><span class=p>));</span></span></span></code></pre></div></figure></div><hr><h3 id=32-finding-the-median-of-an-array><strong>32. Finding the Median of an Array</strong><a href=#32-finding-the-median-of-an-array class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>findMedian</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>sorted</span> <span class=o>=</span> <span class=nx>array</span><span class=p>.</span><span class=nx>slice</span><span class=p>().</span><span class=nx>sort</span><span class=p>((</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>mid</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>sorted</span><span class=p>.</span><span class=nx>length</span> <span class=o>/</span> <span class=mi>2</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>sorted</span><span class=p>.</span><span class=nx>length</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>===</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>    <span class=o>?</span> <span class=p>(</span><span class=nx>sorted</span><span class=p>[</span><span class=nx>mid</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>+</span> <span class=nx>sorted</span><span class=p>[</span><span class=nx>mid</span><span class=p>])</span> <span class=o>/</span> <span class=mi>2</span>
-</span></span><span class=line><span class=cl>    <span class=o>:</span> <span class=nx>sorted</span><span class=p>[</span><span class=nx>mid</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>findMedian</span><span class=p>([</span><span class=mi>3</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]));</span> <span class=c1>// 3
-</span></span></span></code></pre></div></figure></div><hr><h3 id=33-calculating-the-power-of-a-number><strong>33. Calculating the Power of a Number</strong><a href=#33-calculating-the-power-of-a-number class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>power</span> <span class=o>=</span> <span class=p>(</span><span class=nx>base</span><span class=p>,</span> <span class=nx>exponent</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>base</span> <span class=o>**</span> <span class=nx>exponent</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>power</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>));</span> <span class=c1>// 8
-</span></span></span></code></pre></div></figure></div><hr><h3 id=34-checking-for-an-anagram><strong>34. Checking for an Anagram</strong><a href=#34-checking-for-an-anagram class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>areAnagrams</span><span class=p>(</span><span class=nx>string1</span><span class=p>,</span> <span class=nx>string2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>normalize</span> <span class=o>=</span> <span class=p>(</span><span class=nx>str</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>str</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>).</span><span class=nx>sort</span><span class=p>().</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>normalize</span><span class=p>(</span><span class=nx>string1</span><span class=p>)</span> <span class=o>===</span> <span class=nx>normalize</span><span class=p>(</span><span class=nx>string2</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>areAnagrams</span><span class=p>(</span><span class=s2>&#34;listen&#34;</span><span class=p>,</span> <span class=s2>&#34;silent&#34;</span><span class=p>));</span> <span class=c1>// true
-</span></span></span></code></pre></div></figure></div><hr><h3 id=35-finding-the-sum-of-prime-numbers-in-a-range><strong>35. Finding the Sum of Prime Numbers in a Range</strong><a href=#35-finding-the-sum-of-prime-numbers-in-a-range class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>isPrime</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>num</span> <span class=o>&lt;</span> <span class=mi>2</span><span class=p>)</span> <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>sqrt</span><span class=p>(</span><span class=nx>num</span><span class=p>);</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>num</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sumOfPrimes</span><span class=p>(</span><span class=nx>range</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=p>[</span><span class=nx>start</span><span class=p>,</span> <span class=nx>end</span><span class=p>]</span> <span class=o>=</span> <span class=nx>range</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>start</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>end</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>isPrime</span><span class=p>(</span><span class=nx>i</span><span class=p>))</span> <span class=nx>sum</span> <span class=o>+=</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>sum</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>sumOfPrimes</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>10</span><span class=p>]));</span> <span class=c1>// 17
-</span></span></span></code></pre></div></figure></div><hr><h3 id=36-finding-the-n-th-triangular-number><strong>36. Finding the N-th Triangular Number</strong><a href=#36-finding-the-n-th-triangular-number class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>triangularNumber</span> <span class=o>=</span> <span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>(</span><span class=nx>n</span> <span class=o>*</span> <span class=p>(</span><span class=nx>n</span> <span class=o>+</span> <span class=mi>1</span><span class=p>))</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>triangularNumber</span><span class=p>(</span><span class=mi>4</span><span class=p>));</span> <span class=c1>// 10
-</span></span></span></code></pre></div></figure></div><hr><h3 id=37-checking-for-perfect-squares><strong>37. Checking for Perfect Squares</strong><a href=#37-checking-for-perfect-squares class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>isPerfectSquare</span> <span class=o>=</span> <span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nb>Number</span><span class=p>.</span><span class=nx>isInteger</span><span class=p>(</span><span class=nb>Math</span><span class=p>.</span><span class=nx>sqrt</span><span class=p>(</span><span class=nx>number</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>isPerfectSquare</span><span class=p>(</span><span class=mi>16</span><span class=p>));</span> <span class=c1>// true
-</span></span></span></code></pre></div></figure></div><hr><h3 id=38-finding-the-sum-of-squares-of-digits><strong>38. Finding the Sum of Squares of Digits</strong><a href=#38-finding-the-sum-of-squares-of-digits class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sumOfSquares</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>String</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>digit</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>pow</span><span class=p>(</span><span class=nb>Number</span><span class=p>(</span><span class=nx>digit</span><span class=p>),</span> <span class=mi>2</span><span class=p>),</span> <span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>sumOfSquares</span><span class=p>(</span><span class=mi>123</span><span class=p>));</span> <span class=c1>// 14
-</span></span></span></code></pre></div></figure></div><hr><h3 id=39-generating-a-square-matrix><strong>39. Generating a Square Matrix</strong><a href=#39-generating-a-square-matrix class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>generateMatrix</span><span class=p>(</span><span class=nx>size</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>num</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>size</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span>
-</span></span><span class=line><span class=cl>    <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>size</span> <span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>num</span><span class=o>++</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>generateMatrix</span><span class=p>(</span><span class=mi>3</span><span class=p>));</span></span></span></code></pre></div></figure></div><hr><h3 id=40-sum-of-digits-until-single-digit><strong>40. Sum of Digits Until Single Digit</strong><a href=#40-sum-of-digits-until-single-digit class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sumUntilSingleDigit</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nx>number</span> <span class=o>&gt;</span> <span class=mi>9</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>number</span> <span class=o>=</span> <span class=nb>String</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>      <span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>      <span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>digit</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nb>Number</span><span class=p>(</span><span class=nx>digit</span><span class=p>),</span> <span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>number</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>sumUntilSingleDigit</span><span class=p>(</span><span class=mi>9875</span><span class=p>));</span> <span class=c1>// 2
-</span></span></span></code></pre></div></figure></div><hr><h3 id=41-count-specific-digits><strong>41. Count Specific Digits</strong><a href=#41-count-specific-digits class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>countDigit</span><span class=p>(</span><span class=nx>number</span><span class=p>,</span> <span class=nx>digit</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>String</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>filter</span><span class=p>((</span><span class=nx>d</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nb>Number</span><span class=p>(</span><span class=nx>d</span><span class=p>)</span> <span class=o>===</span> <span class=nx>digit</span><span class=p>).</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>countDigit</span><span class=p>(</span><span class=mi>122333</span><span class=p>,</span> <span class=mi>3</span><span class=p>));</span> <span class=c1>// 3
-</span></span></span></code></pre></div></figure></div><hr><h3 id=42-generating-fibonacci-sequence-using-recursion><strong>42. Generating Fibonacci Sequence Using Recursion</strong><a href=#42-generating-fibonacci-sequence-using-recursion class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>)</span> <span class=k>return</span> <span class=nx>n</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=mi>5</span> <span class=p>},</span> <span class=p>(</span><span class=nx>_</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>i</span><span class=p>)));</span> <span class=c1>// [0, 1, 1, 2, 3]
-</span></span></span></code></pre></div></figure></div><hr><h3 id=43-finding-all-divisors><strong>43. Finding All Divisors</strong><a href=#43-finding-all-divisors class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>findDivisors</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>number</span> <span class=p>},</span> <span class=p>(</span><span class=nx>_</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>).</span><span class=nx>filter</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=nx>i</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>number</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>===</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>  <span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>findDivisors</span><span class=p>(</span><span class=mi>12</span><span class=p>));</span> <span class=c1>// [1, 2, 3, 4, 6, 12]
-</span></span></span></code></pre></div></figure></div><hr><h3 id=44-finding-the-average-of-numbers><strong>44. Finding the Average of Numbers</strong><a href=#44-finding-the-average-of-numbers class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>average</span> <span class=o>=</span> <span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>=&gt;</span>
-</span></span><span class=line><span class=cl>  <span class=nx>array</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>num</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nx>num</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span> <span class=o>/</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>average</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>]));</span> <span class=c1>// 3
-</span></span></span></code></pre></div></figure></div><hr><h3 id=45-finding-the-mode><strong>45. Finding the Mode</strong><a href=#45-finding-the-mode class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>findMode</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>freqMap</span> <span class=o>=</span> <span class=nx>array</span><span class=p>.</span><span class=nx>reduce</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=nx>map</span><span class=p>,</span> <span class=nx>num</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>((</span><span class=nx>map</span><span class=p>[</span><span class=nx>num</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=nx>map</span><span class=p>[</span><span class=nx>num</span><span class=p>]</span> <span class=o>||</span> <span class=mi>0</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>),</span> <span class=nx>map</span><span class=p>),</span>
-</span></span><span class=line><span class=cl>    <span class=p>{}</span>
-</span></span><span class=line><span class=cl>  <span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>maxFreq</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(...</span><span class=nb>Object</span><span class=p>.</span><span class=nx>values</span><span class=p>(</span><span class=nx>freqMap</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=o>+</span><span class=nb>Object</span><span class=p>.</span><span class=nx>keys</span><span class=p>(</span><span class=nx>freqMap</span><span class=p>).</span><span class=nx>find</span><span class=p>((</span><span class=nx>key</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>freqMap</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>===</span> <span class=nx>maxFreq</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>findMode</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>4</span><span class=p>]));</span> <span class=c1>// 4
-</span></span></span></code></pre></div></figure></div><hr><h3 id=46-string-length-without-built-in-functions><strong>46. String Length Without Built-In Functions</strong><a href=#46-string-length-without-built-in-functions class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>stringLength</span><span class=p>(</span><span class=nx>str</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>length</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=kr>char</span> <span class=k>of</span> <span class=nx>str</span><span class=p>)</span> <span class=nx>length</span><span class=o>++</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>stringLength</span><span class=p>(</span><span class=s2>&#34;hello&#34;</span><span class=p>));</span> <span class=c1>// 5
-</span></span></span></code></pre></div></figure></div><hr><h3 id=47-generating-a-number-pyramid><strong>47. Generating a Number Pyramid</strong><a href=#47-generating-a-number-pyramid class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>generatePyramid</span><span class=p>(</span><span class=nx>rows</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>rows</span> <span class=p>},</span> <span class=p>(</span><span class=nx>_</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span> <span class=p>=&gt;</span>
-</span></span><span class=line><span class=cl>    <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>({</span> <span class=nx>length</span><span class=o>:</span> <span class=nx>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=p>},</span> <span class=p>(</span><span class=nx>_</span><span class=p>,</span> <span class=nx>j</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>).</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=p>).</span><span class=nx>join</span><span class=p>(</span><span class=s2>&#34;\n&#34;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>generatePyramid</span><span class=p>(</span><span class=mi>4</span><span class=p>));</span></span></span></code></pre></div></figure></div><hr><h3 id=48-sum-of-prime-factors><strong>48. Sum of Prime Factors</strong><a href=#48-sum-of-prime-factors class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sumOfPrimeFactors</span><span class=p>(</span><span class=nx>number</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>factors</span> <span class=o>=</span> <span class=p>[];</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>number</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=p>(</span><span class=nx>number</span> <span class=o>%</span> <span class=nx>i</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=nx>factors</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>i</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>      <span class=nx>number</span> <span class=o>/=</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>[...</span><span class=k>new</span> <span class=nx>Set</span><span class=p>(</span><span class=nx>factors</span><span class=p>)].</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>sum</span><span class=p>,</span> <span class=nx>factor</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>sum</span> <span class=o>+</span> <span class=nx>factor</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>sumOfPrimeFactors</span><span class=p>(</span><span class=mi>12</span><span class=p>));</span> <span class=c1>// 5
-</span></span></span></code></pre></div></figure></div><hr><h3 id=49-finding-the-second-largest-number><strong>49. Finding the Second Largest Number</strong><a href=#49-finding-the-second-largest-number class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>secondLargest</span><span class=p>(</span><span class=nx>array</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>unique</span> <span class=o>=</span> <span class=p>[...</span><span class=k>new</span> <span class=nx>Set</span><span class=p>(</span><span class=nx>array</span><span class=p>)];</span>
-</span></span><span class=line><span class=cl>  <span class=nx>unique</span><span class=p>.</span><span class=nx>sort</span><span class=p>((</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>b</span> <span class=o>-</span> <span class=nx>a</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>unique</span><span class=p>[</span><span class=mi>1</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>secondLargest</span><span class=p>([</span><span class=mi>10</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>45</span><span class=p>,</span> <span class=mi>99</span><span class=p>]));</span> <span class=c1>// 45
-</span></span></span></code></pre></div></figure></div><hr><h3 id=50-longest-substring-without-repeating-characters><strong>50. Longest Substring Without Repeating Characters</strong><a href=#50-longest-substring-without-repeating-characters class=anchor aria-hidden=true>#</a></h3><div class=expressive-code><figure class="frame not-content"><figcaption class=header><span class=title></span></figcaption><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>longestUniqueSubstring</span><span class=p>(</span><span class=nx>string</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>max</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=nx>start</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=nx>seen</span> <span class=o>=</span> <span class=p>{},</span>
-</span></span><span class=line><span class=cl>    <span class=nx>longest</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>end</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>end</span> <span class=o>&lt;</span> <span class=nx>string</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>end</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=kr>char</span> <span class=o>=</span> <span class=nx>string</span><span class=p>[</span><span class=nx>end</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=kr>char</span> <span class=k>in</span> <span class=nx>seen</span> <span class=o>&amp;&amp;</span> <span class=nx>seen</span><span class=p>[</span><span class=kr>char</span><span class=p>]</span> <span class=o>&gt;=</span> <span class=nx>start</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=nx>start</span> <span class=o>=</span> <span class=nx>seen</span><span class=p>[</span><span class=kr>char</span><span class=p>]</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>seen</span><span class=p>[</span><span class=kr>char</span><span class=p>]</span> <span class=o>=</span> <span class=nx>end</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>end</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&gt;</span> <span class=nx>max</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=nx>max</span> <span class=o>=</span> <span class=nx>end</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=nx>longest</span> <span class=o>=</span> <span class=nx>string</span><span class=p>.</span><span class=nx>slice</span><span class=p>(</span><span class=nx>start</span><span class=p>,</span> <span class=nx>end</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>longest</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>longestUniqueSubstring</span><span class=p>(</span><span class=s2>&#34;abcabcbb&#34;</span><span class=p>));</span> <span class=c1>// &#34;abc&#34;
-</span></span></span></code></pre></div></figure></div><hr><p>Let me know if you&rsquo;d like explanations for any of these!</p><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"></div><div class="page-nav d-flex flex-column flex-sm-row"><div class="card w-100"><div class="card-body d-flex"><div class="d-flex flex-column justify-content-center"><svg class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M5 12l6 6"/><path d="M5 12l6-6"/></svg></div><div class="d-flex flex-column"><div class=text-body-secondary>Prev</div><a href=/prep-1/prep-1/ class="stretched-link text-reset text-decoration-none"></a></div></div></div><div class=m-2></div><div class="card text-end w-100"><div class="card-body d-flex justify-content-end"><div class="d-flex flex-column"><div class=text-body-secondary>Next</div><a href=/prep-1/prep-1/1-to-10/1.-determining-even/odd-numbers/ class="stretched-link text-reset text-decoration-none">1. Determining Even/Odd Numbers</a></div><div class="d-flex flex-column justify-content-center"><svg class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12h14"/><path d="M13 18l6-6"/><path d="M13 6l6 6"/></svg></div></div></div></div></main></div></div></div><footer class="footer text-muted"><div class=container-lg><div class=row><div class="col-lg-8 text-center text-lg-start"><ul class=list-inline><li class=list-inline-item><a class=text-muted href=/privacy/>Privacy Policy</a></li></ul></div><div class="col-lg-8 text-center text-lg-end"><ul class=list-inline><li class=list-inline-item>Brought to you by Ikure Engineering Team</li></ul></div></div></div></footer><script async src=/js/app.c17553444ec7c62f781ddbaa011948f6d85a1bab49420047d68a2b89852a8b36.js integrity="sha256-wXVTRE7Hxi94HduqARlI9thaG6tJQgBH1ooriYUqizY="></script><script async src=/js/flexsearch.7b25ae2da7ab3cc745d4f8536e3f914f92ea8b1afad96ab9249c160c35e0648c.js integrity="sha256-eyWuLaerPMdF1PhTbj+RT5Lqixr62Wq5JJwWDDXgZIw="></script><script async src=/js/search-modal.0415aa45353ab123a509f6ddc6861549ece898b90872fcf757cd2663041dac96.js integrity="sha256-BBWqRTU6sSOlCfbdxoYVSezomLkIcvz3V80mYwQdrJY="></script></body></html>
+Let me know if you&rsquo;d like explanations for any of these!">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/prep-1/",
+       "name": "Prep 1",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section prep-1" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#31-generating-pascals-triangle"><strong>31. Generating Pascal’s Triangle</strong></a></li>
+        <li><a href="#32-finding-the-median-of-an-array"><strong>32. Finding the Median of an Array</strong></a></li>
+        <li><a href="#33-calculating-the-power-of-a-number"><strong>33. Calculating the Power of a Number</strong></a></li>
+        <li><a href="#34-checking-for-an-anagram"><strong>34. Checking for an Anagram</strong></a></li>
+        <li><a href="#35-finding-the-sum-of-prime-numbers-in-a-range"><strong>35. Finding the Sum of Prime Numbers in a Range</strong></a></li>
+        <li><a href="#36-finding-the-n-th-triangular-number"><strong>36. Finding the N-th Triangular Number</strong></a></li>
+        <li><a href="#37-checking-for-perfect-squares"><strong>37. Checking for Perfect Squares</strong></a></li>
+        <li><a href="#38-finding-the-sum-of-squares-of-digits"><strong>38. Finding the Sum of Squares of Digits</strong></a></li>
+        <li><a href="#39-generating-a-square-matrix"><strong>39. Generating a Square Matrix</strong></a></li>
+        <li><a href="#40-sum-of-digits-until-single-digit"><strong>40. Sum of Digits Until Single Digit</strong></a></li>
+        <li><a href="#41-count-specific-digits"><strong>41. Count Specific Digits</strong></a></li>
+        <li><a href="#42-generating-fibonacci-sequence-using-recursion"><strong>42. Generating Fibonacci Sequence Using Recursion</strong></a></li>
+        <li><a href="#43-finding-all-divisors"><strong>43. Finding All Divisors</strong></a></li>
+        <li><a href="#44-finding-the-average-of-numbers"><strong>44. Finding the Average of Numbers</strong></a></li>
+        <li><a href="#45-finding-the-mode"><strong>45. Finding the Mode</strong></a></li>
+        <li><a href="#46-string-length-without-built-in-functions"><strong>46. String Length Without Built-In Functions</strong></a></li>
+        <li><a href="#47-generating-a-number-pyramid"><strong>47. Generating a Number Pyramid</strong></a></li>
+        <li><a href="#48-sum-of-prime-factors"><strong>48. Sum of Prime Factors</strong></a></li>
+        <li><a href="#49-finding-the-second-largest-number"><strong>49. Finding the Second Largest Number</strong></a></li>
+        <li><a href="#50-longest-substring-without-repeating-characters"><strong>50. Longest Substring Without Repeating Characters</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1></h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#31-generating-pascals-triangle"><strong>31. Generating Pascal’s Triangle</strong></a></li>
+        <li><a href="#32-finding-the-median-of-an-array"><strong>32. Finding the Median of an Array</strong></a></li>
+        <li><a href="#33-calculating-the-power-of-a-number"><strong>33. Calculating the Power of a Number</strong></a></li>
+        <li><a href="#34-checking-for-an-anagram"><strong>34. Checking for an Anagram</strong></a></li>
+        <li><a href="#35-finding-the-sum-of-prime-numbers-in-a-range"><strong>35. Finding the Sum of Prime Numbers in a Range</strong></a></li>
+        <li><a href="#36-finding-the-n-th-triangular-number"><strong>36. Finding the N-th Triangular Number</strong></a></li>
+        <li><a href="#37-checking-for-perfect-squares"><strong>37. Checking for Perfect Squares</strong></a></li>
+        <li><a href="#38-finding-the-sum-of-squares-of-digits"><strong>38. Finding the Sum of Squares of Digits</strong></a></li>
+        <li><a href="#39-generating-a-square-matrix"><strong>39. Generating a Square Matrix</strong></a></li>
+        <li><a href="#40-sum-of-digits-until-single-digit"><strong>40. Sum of Digits Until Single Digit</strong></a></li>
+        <li><a href="#41-count-specific-digits"><strong>41. Count Specific Digits</strong></a></li>
+        <li><a href="#42-generating-fibonacci-sequence-using-recursion"><strong>42. Generating Fibonacci Sequence Using Recursion</strong></a></li>
+        <li><a href="#43-finding-all-divisors"><strong>43. Finding All Divisors</strong></a></li>
+        <li><a href="#44-finding-the-average-of-numbers"><strong>44. Finding the Average of Numbers</strong></a></li>
+        <li><a href="#45-finding-the-mode"><strong>45. Finding the Mode</strong></a></li>
+        <li><a href="#46-string-length-without-built-in-functions"><strong>46. String Length Without Built-In Functions</strong></a></li>
+        <li><a href="#47-generating-a-number-pyramid"><strong>47. Generating a Number Pyramid</strong></a></li>
+        <li><a href="#48-sum-of-prime-factors"><strong>48. Sum of Prime Factors</strong></a></li>
+        <li><a href="#49-finding-the-second-largest-number"><strong>49. Finding the Second Largest Number</strong></a></li>
+        <li><a href="#50-longest-substring-without-repeating-characters"><strong>50. Longest Substring Without Repeating Characters</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>Here are JavaScript/ES6 implementations for these problems:</p>
+<hr>
+<h3 id="31-generating-pascals-triangle"><strong>31. Generating Pascal’s Triangle</strong><a href="#31-generating-pascals-triangle" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">generatePascalsTriangle</span><span class="p">(</span><span class="nx">rows</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">triangle</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">rows</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">row</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">row</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">triangle</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">triangle</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">triangle</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">row</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">triangle</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">row</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;\n&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generatePascalsTriangle</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="32-finding-the-median-of-an-array"><strong>32. Finding the Median of an Array</strong><a href="#32-finding-the-median-of-an-array" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">findMedian</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">sorted</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">().</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">sorted</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sorted</span><span class="p">.</span><span class="nx">length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="o">?</span> <span class="p">(</span><span class="nx">sorted</span><span class="p">[</span><span class="nx">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">sorted</span><span class="p">[</span><span class="nx">mid</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="o">:</span> <span class="nx">sorted</span><span class="p">[</span><span class="nx">mid</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">findMedian</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="33-calculating-the-power-of-a-number"><strong>33. Calculating the Power of a Number</strong><a href="#33-calculating-the-power-of-a-number" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">power</span> <span class="o">=</span> <span class="p">(</span><span class="nx">base</span><span class="p">,</span> <span class="nx">exponent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">base</span> <span class="o">**</span> <span class="nx">exponent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 8
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="34-checking-for-an-anagram"><strong>34. Checking for an Anagram</strong><a href="#34-checking-for-an-anagram" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">areAnagrams</span><span class="p">(</span><span class="nx">string1</span><span class="p">,</span> <span class="nx">string2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">normalize</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">sort</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">normalize</span><span class="p">(</span><span class="nx">string1</span><span class="p">)</span> <span class="o">===</span> <span class="nx">normalize</span><span class="p">(</span><span class="nx">string2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">areAnagrams</span><span class="p">(</span><span class="s2">&#34;listen&#34;</span><span class="p">,</span> <span class="s2">&#34;silent&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="35-finding-the-sum-of-prime-numbers-in-a-range"><strong>35. Finding the Sum of Prime Numbers in a Range</strong><a href="#35-finding-the-sum-of-prime-numbers-in-a-range" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">isPrime</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">%</span> <span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sumOfPrimes</span><span class="p">(</span><span class="nx">range</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">]</span> <span class="o">=</span> <span class="nx">range</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">end</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">isPrime</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumOfPrimes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]));</span> <span class="c1">// 17
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="36-finding-the-n-th-triangular-number"><strong>36. Finding the N-th Triangular Number</strong><a href="#36-finding-the-n-th-triangular-number" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">triangularNumber</span> <span class="o">=</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span> <span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">triangularNumber</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// 10
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="37-checking-for-perfect-squares"><strong>37. Checking for Perfect Squares</strong><a href="#37-checking-for-perfect-squares" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">isPerfectSquare</span> <span class="o">=</span> <span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">number</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isPerfectSquare</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="38-finding-the-sum-of-squares-of-digits"><strong>38. Finding the Sum of Squares of Digits</strong><a href="#38-finding-the-sum-of-squares-of-digits" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sumOfSquares</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">digit</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">digit</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumOfSquares</span><span class="p">(</span><span class="mi">123</span><span class="p">));</span> <span class="c1">// 14
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="39-generating-a-square-matrix"><strong>39. Generating a Square Matrix</strong><a href="#39-generating-a-square-matrix" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">generateMatrix</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">size</span> <span class="p">},</span> <span class="p">()</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">size</span> <span class="p">},</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">num</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generateMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="40-sum-of-digits-until-single-digit"><strong>40. Sum of Digits Until Single Digit</strong><a href="#40-sum-of-digits-until-single-digit" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sumUntilSingleDigit</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">number</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">number</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">digit</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">digit</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumUntilSingleDigit</span><span class="p">(</span><span class="mi">9875</span><span class="p">));</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="41-count-specific-digits"><strong>41. Count Specific Digits</strong><a href="#41-count-specific-digits" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">countDigit</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="nx">digit</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">d</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">===</span> <span class="nx">digit</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">countDigit</span><span class="p">(</span><span class="mi">122333</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="42-generating-fibonacci-sequence-using-recursion"><strong>42. Generating Fibonacci Sequence Using Recursion</strong><a href="#42-generating-fibonacci-sequence-using-recursion" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="mi">5</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">fibonacci</span><span class="p">(</span><span class="nx">i</span><span class="p">)));</span> <span class="c1">// [0, 1, 1, 2, 3]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="43-finding-all-divisors"><strong>43. Finding All Divisors</strong><a href="#43-finding-all-divisors" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">findDivisors</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">number</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">number</span> <span class="o">%</span> <span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">findDivisors</span><span class="p">(</span><span class="mi">12</span><span class="p">));</span> <span class="c1">// [1, 2, 3, 4, 6, 12]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="44-finding-the-average-of-numbers"><strong>44. Finding the Average of Numbers</strong><a href="#44-finding-the-average-of-numbers" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">average</span> <span class="o">=</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">array</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">num</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="45-finding-the-mode"><strong>45. Finding the Mode</strong><a href="#45-finding-the-mode" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">findMode</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">freqMap</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nx">map</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">((</span><span class="nx">map</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="nx">map</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">maxFreq</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">freqMap</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">+</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">freqMap</span><span class="p">).</span><span class="nx">find</span><span class="p">((</span><span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">freqMap</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">===</span> <span class="nx">maxFreq</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">findMode</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]));</span> <span class="c1">// 4
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="46-string-length-without-built-in-functions"><strong>46. String Length Without Built-In Functions</strong><a href="#46-string-length-without-built-in-functions" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">stringLength</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="kr">char</span> <span class="k">of</span> <span class="nx">str</span><span class="p">)</span> <span class="nx">length</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringLength</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="47-generating-a-number-pyramid"><strong>47. Generating a Number Pyramid</strong><a href="#47-generating-a-number-pyramid" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">generatePyramid</span><span class="p">(</span><span class="nx">rows</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">rows</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;\n&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generatePyramid</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="48-sum-of-prime-factors"><strong>48. Sum of Prime Factors</strong><a href="#48-sum-of-prime-factors" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sumOfPrimeFactors</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">factors</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">number</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nx">number</span> <span class="o">%</span> <span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">factors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">number</span> <span class="o">/=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">factors</span><span class="p">)].</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">factor</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">factor</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumOfPrimeFactors</span><span class="p">(</span><span class="mi">12</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="49-finding-the-second-largest-number"><strong>49. Finding the Second Largest Number</strong><a href="#49-finding-the-second-largest-number" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">secondLargest</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">unique</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">unique</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">unique</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondLargest</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">99</span><span class="p">]));</span> <span class="c1">// 45
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="50-longest-substring-without-repeating-characters"><strong>50. Longest Substring Without Repeating Characters</strong><a href="#50-longest-substring-without-repeating-characters" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">longestUniqueSubstring</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">seen</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">longest</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">end</span> <span class="o">&lt;</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">end</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="kr">char</span> <span class="o">=</span> <span class="nx">string</span><span class="p">[</span><span class="nx">end</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="kr">char</span> <span class="k">in</span> <span class="nx">seen</span> <span class="o">&amp;&amp;</span> <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">start</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">start</span> <span class="o">=</span> <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]</span> <span class="o">=</span> <span class="nx">end</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">max</span> <span class="o">=</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">longest</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">longestUniqueSubstring</span><span class="p">(</span><span class="s2">&#34;abcabcbb&#34;</span><span class="p">));</span> <span class="c1">// &#34;abc&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Let me know if you&rsquo;d like explanations for any of these!</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/prep-1/prep-1/" class="stretched-link text-reset text-decoration-none"></a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/prep-1/prep-1/1-to-10/1.-determining-even/odd-numbers/" class="stretched-link text-reset text-decoration-none">1. Determining Even/Odd Numbers</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

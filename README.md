@@ -1,4 +1,6 @@
-# dsa developer docs
+# DSA developer docs
+
+- Using https://github.com/thuliteio/doks to bootstrap
 
 ### Table of Contents
 

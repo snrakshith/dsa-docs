@@ -1,39 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ikure whims usermanual on DSA Prep</title><link>/ikure-whims-usermanual/</link><description>Recent content in ikure whims usermanual on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/ikure-whims-usermanual/index.xml" rel="self" type="application/rss+xml"/><item><title>Commands</title><link>/ikure-whims-usermanual/ikure-whims-usermanual/commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/ikure-whims-usermanual/ikure-whims-usermanual/commands/</guid><description>&lt;h1 id="website">Website&lt;/h1>
-&lt;p>This website is built using &lt;a href="https://docusaurus.io/">Docusaurus 2&lt;/a>, a modern static website generator.&lt;/p>
-&lt;h3 id="installation">Installation&lt;/h3>
-
-
-
-&lt;div class="expressive-code">
- &lt;figure class="frame not-content">
- &lt;figcaption class="header">
- &lt;span class="title">&lt;/span>
- &lt;/figcaption>
- &lt;pre tabindex="0">&lt;code>$ npm&lt;/code>&lt;/pre>
- &lt;/figure>
-&lt;/div>
-&lt;h3 id="local-development">Local Development&lt;/h3>
-
-
-
-&lt;div class="expressive-code">
- &lt;figure class="frame not-content">
- &lt;figcaption class="header">
- &lt;span class="title">&lt;/span>
- &lt;/figcaption>
- &lt;pre tabindex="0">&lt;code>$ npm start&lt;/code>&lt;/pre>
- &lt;/figure>
-&lt;/div>
-&lt;p>This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.&lt;/p></description></item><item><title>Introduction</title><link>/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</guid><description>&lt;h1 id="documentation">Documentation&lt;/h1>
-&lt;p>Repo link &lt;a href="https://github.com/ikuretechsoft/ikure-whims-usermanual">ikure-whims-usermanual&lt;/a>&lt;/p>
-&lt;h3 id="table-of-contents">Table of Contents&lt;/h3>
-&lt;ol>
-&lt;li>&lt;a href="#1">What is the scope of this repo?&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#2">Technical choices made&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#3">Commands to run the project&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;div id="1">&lt;/div>
-&lt;h2 id="what-is-the-scope-of-this-repo">What is the scope of this repo&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>It covers the end to end documentation of the features available in the &lt;code>whims 360&lt;/code> portal&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ikure whims usermanual on DSA Prep</title>
+    <link>http://localhost:1313/ikure-whims-usermanual/</link>
+    <description>Recent content in ikure whims usermanual on DSA Prep</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2024 Rakshith</copyright>
+    <atom:link href="http://localhost:1313/ikure-whims-usermanual/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commands</title>
+      <link>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/commands/</guid>
+      <description>&lt;h1 id=&#34;website&#34;&gt;Website&lt;/h1&gt;&#xA;&lt;p&gt;This website is built using &lt;a href=&#34;https://docusaurus.io/&#34;&gt;Docusaurus 2&lt;/a&gt;, a modern static website generator.&lt;/p&gt;&#xA;&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;div class=&#34;expressive-code&#34;&gt;&#xD;&#xA;  &lt;figure class=&#34;frame not-content&#34;&gt;&#xD;&#xA;  &lt;figcaption class=&#34;header&#34;&gt;&#xD;&#xA;    &lt;span class=&#34;title&#34;&gt;&lt;/span&gt;&#xD;&#xA;  &lt;/figcaption&gt;&#xD;&#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ npm&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;  &lt;/figure&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;h3 id=&#34;local-development&#34;&gt;Local Development&lt;/h3&gt;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;div class=&#34;expressive-code&#34;&gt;&#xD;&#xA;  &lt;figure class=&#34;frame not-content&#34;&gt;&#xD;&#xA;  &lt;figcaption class=&#34;header&#34;&gt;&#xD;&#xA;    &lt;span class=&#34;title&#34;&gt;&lt;/span&gt;&#xD;&#xA;  &lt;/figcaption&gt;&#xD;&#xA;  &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ npm start&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;  &lt;/figure&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;p&gt;This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</guid>
+      <description>&lt;h1 id=&#34;documentation&#34;&gt;Documentation&lt;/h1&gt;&#xA;&lt;p&gt;Repo link &lt;a href=&#34;https://github.com/ikuretechsoft/ikure-whims-usermanual&#34;&gt;ikure-whims-usermanual&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#1&#34;&gt;What is the scope of this repo?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#2&#34;&gt;Technical choices made&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#3&#34;&gt;Commands to run the project&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div id=&#34;1&#34;&gt;&lt;/div&gt;&#xD;&#xA;&lt;h2 id=&#34;what-is-the-scope-of-this-repo&#34;&gt;What is the scope of this repo&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;It covers the end to end documentation of the features available in the &lt;code&gt;whims 360&lt;/code&gt; portal&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

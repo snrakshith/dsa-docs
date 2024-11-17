@@ -1,30 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Auth module in 360 portal on DSA Prep</title><link>/360-whims/auth/</link><description>Recent content in Auth module in 360 portal on DSA Prep</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2024 Rakshith</copyright><atom:link href="/360-whims/auth/index.xml" rel="self" type="application/rss+xml"/><item><title>Auth</title><link>/360-whims/360-whims/auth/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/auth/auth/</guid><description>&lt;h2 id="axios-configuration">Axios Configuration&lt;/h2>
-&lt;blockquote>
-&lt;p>&lt;code>path&lt;/code> src\common\utils\axiosUtils.ts&lt;/p>
-&lt;/blockquote>
-&lt;p>This module configures Axios instances for public and protected API calls, handles token refreshing, and manages user session state.&lt;/p></description></item><item><title>Chore Utils Documentation</title><link>/360-whims/360-whims/auth/chore-utils-documentation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/auth/chore-utils-documentation/</guid><description>&lt;h3 id="description">Description&lt;/h3>
-&lt;p>This module provides utility functions for handling date/time calculations.&lt;/p>
-&lt;h3 id="dependencies">Dependencies&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>dayjs&lt;/strong>: A lightweight date manipulation library.&lt;/li>
-&lt;/ul>
-&lt;h3 id="functions">Functions&lt;/h3>
-&lt;h4 id="getelapsedmins">&lt;code>getElapsedMins&lt;/code>&lt;/h4>
-
-
-
-&lt;div class="expressive-code">
- &lt;figure class="frame not-content">
- &lt;figcaption class="header">
- &lt;span class="title">&lt;/span>
- &lt;/figcaption>
- &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-typescript" data-lang="typescript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="kr">const&lt;/span> &lt;span class="nx">getElapsedMins&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">startTime&lt;/span>: &lt;span class="kt">number&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">endTime&lt;/span>: &lt;span class="kt">number&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
- &lt;/figure>
-&lt;/div>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>Parameters&lt;/strong>:&lt;/p></description></item><item><title>Token Management</title><link>/360-whims/360-whims/auth/token-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/360-whims/360-whims/auth/token-management/</guid><description>&lt;blockquote>
-&lt;p>&lt;strong>File Path&lt;/strong>: &lt;code>src/common/utils/TokenService.ts&lt;/code>&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="description">Description&lt;/h3>
-&lt;p>The &lt;code>TokenService&lt;/code> module provides functionality for managing user authentication tokens in the browser&amp;rsquo;s local storage. It primarily includes a method to remove user-related data upon logout or session expiration.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auth module in 360 portal on DSA Prep</title>
+    <link>http://localhost:1313/360-whims/auth/</link>
+    <description>Recent content in Auth module in 360 portal on DSA Prep</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2024 Rakshith</copyright>
+    <atom:link href="http://localhost:1313/360-whims/auth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Auth</title>
+      <link>http://localhost:1313/360-whims/360-whims/auth/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/360-whims/360-whims/auth/auth/</guid>
+      <description>&lt;h2 id=&#34;axios-configuration&#34;&gt;Axios Configuration&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;path&lt;/code&gt; src\common\utils\axiosUtils.ts&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This module configures Axios instances for public and protected API calls, handles token refreshing, and manages user session state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chore Utils Documentation</title>
+      <link>http://localhost:1313/360-whims/360-whims/auth/chore-utils-documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/360-whims/360-whims/auth/chore-utils-documentation/</guid>
+      <description>&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;&#xA;&lt;p&gt;This module provides utility functions for handling date/time calculations.&lt;/p&gt;&#xA;&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;dayjs&lt;/strong&gt;: A lightweight date manipulation library.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;functions&#34;&gt;Functions&lt;/h3&gt;&#xA;&lt;h4 id=&#34;getelapsedmins&#34;&gt;&lt;code&gt;getElapsedMins&lt;/code&gt;&lt;/h4&gt;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;div class=&#34;expressive-code&#34;&gt;&#xD;&#xA;  &lt;figure class=&#34;frame not-content&#34;&gt;&#xD;&#xA;  &lt;figcaption class=&#34;header&#34;&gt;&#xD;&#xA;    &lt;span class=&#34;title&#34;&gt;&lt;/span&gt;&#xD;&#xA;  &lt;/figcaption&gt;&#xD;&#xA;  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getElapsedMins&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startTime&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;endTime&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xD;&#xA;  &lt;/figure&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Parameters&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Token Management</title>
+      <link>http://localhost:1313/360-whims/360-whims/auth/token-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/360-whims/360-whims/auth/token-management/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;File Path&lt;/strong&gt;: &lt;code&gt;src/common/utils/TokenService.ts&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;code&gt;TokenService&lt;/code&gt; module provides functionality for managing user authentication tokens in the browser&amp;rsquo;s local storage. It primarily includes a method to remove user-related data upon logout or session expiration.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
