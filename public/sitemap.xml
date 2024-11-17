@@ -124,6 +124,46 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/1-to-10/1.-determining-even/odd-numbers/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -137,6 +177,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/11-to-20/12.-counting-vowels-and-consonants-in-a-string/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/123-javascript-interview-questions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -212,6 +256,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/others/others/awesome-component-driven-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -229,6 +277,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/contributors/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/design-patterns/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -252,6 +304,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/others/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/resources/handbook/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/prep-1/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -261,6 +321,14 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/360-whims/rbac/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/resources/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/reverse-interview-questions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -281,6 +349,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/prep-1/31-to-40/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/41-to-50/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
