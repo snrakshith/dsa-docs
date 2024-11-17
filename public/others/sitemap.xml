@@ -2,45 +2,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>http://localhost:1313/others/others/guide-to-run-monorepo-with-turborepo/</loc>
+      <loc>http://localhost:1313/others/others/123-javascript-interview-questions/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/others/recanteur-be/</loc>
+      <loc>http://localhost:1313/others/others/awesome-component-driven-development/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/others/ui-library/</loc>
+      <loc>http://localhost:1313/others/others/design-patterns/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
+    
     <url>
-        <loc>http://localhost:1313/others/others/recanteur-be/general-introduction/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      <url>
-        <loc>http://localhost:1313/others/others/recanteur-be/list-of-apis/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      <url>
-        <loc>http://localhost:1313/others/others/ui-library/document-components-with-storybook/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      <url>
-        <loc>http://localhost:1313/others/others/ui-library/sample-ui-tokens/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      <url>
-        <loc>http://localhost:1313/others/others/ui-library/uikit-react-ui-library-for-ikure-design-system/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-      </url>
-      </urlset>
+      <loc>http://localhost:1313/others/others/reverse-interview-questions/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    </urlset>

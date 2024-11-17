@@ -3,10 +3,20 @@
 #  url = "/360-whims/"
 #  weight = 30
 
+[[main]]
+ name = "others"
+ url = "/others/"
+ weight = 30
+
 
 [[main]]
   name = "Set 1"
   url = "/prep-1/"
+  weight = 30
+
+[[main]]
+  name = "Resources"
+  url = "/resources/"
   weight = 30
 
 # [[social]]
