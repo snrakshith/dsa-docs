@@ -2,30 +2,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-    </url>
-    
-    <url>
-      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-    </url>
-    
-    <url>
-      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-    </url>
-    
-    <url>
-      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-    </url>
-    
-    <url>
       <loc>http://localhost:1313/prep-1/prep-1/11-to-20/11.-finding-the-least-common-multiple-lcm/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
@@ -57,6 +33,30 @@
     
     <url>
       <loc>http://localhost:1313/prep-1/prep-1/11-to-20/16.-finding-the-sum-of-elements-in-an-array/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/17.-checking-for-armstrong-numbers-in-a-range/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/18.-generating-multiplication-tables/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/19.-finding-prime-numbers-in-a-range/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/prep-1/prep-1/11-to-20/20.-checking-for-perfect-numbers/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>

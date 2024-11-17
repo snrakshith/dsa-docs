@@ -12,67 +12,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -161,6 +105,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/41-to-50/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/resources/react/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -200,11 +148,67 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/17.-checking-for-armstrong-numbers-in-a-range/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/18.-generating-multiplication-tables/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/19.-finding-prime-numbers-in-a-range/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/1-to-10/2.-checking-for-prime-numbers/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/11-to-20/20.-checking-for-perfect-numbers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/21.-sum-of-even-numbers-in-a-range/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/22.-sum-of-odd-numbers-in-a-range/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/23.-fibonacci-number-at-specific-position/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/24.-prime-numbers-less-than-given-number/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/25.-number-of-digits-in-a-number/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/26.-checking-if-a-number-is-narcissistic/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/27.-generating-a-pattern-of-numbers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/28.-sum-of-the-digits-of-the-factorial-of-a-number/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/29.-largest-palindrome-in-a-string/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/prep-1/prep-1/1-to-10/3.-validating-leap-years/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/prep-1/prep-1/21-to-30/30.-finding-missing-numbers-in-a-sequence/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -365,6 +369,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/360-whims/360-whims/auth/token-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/resources/ts/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
