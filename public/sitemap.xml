@@ -252,6 +252,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/code-snippets/arrays/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/360-whims/360-whims/auth/auth/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -272,6 +276,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/code-snippets/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/commands/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -288,7 +296,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/code-snippets/dom-events/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/360-whims/360-whims/formbuilder/formbuilder/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/frontend-system-design-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/code-snippets/functions/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/code-snippets/hoisting/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -296,7 +320,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/others/others/interview-algorithm-questions-in-javascript/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/ikure-whims-usermanual/ikure-whims-usermanual/introduction/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/javascript-leetcode/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -305,6 +337,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/360-whims/360-whims/formbuilder/multisection/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/code-snippets/objects/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -317,6 +353,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/prep-1/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/code-snippets/promises/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -333,6 +373,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/others/others/reverse-interview-questions/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/code-snippets/scopesclosures/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -361,6 +405,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/360-whims/state-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/others/others/system-design-react-code-examples/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
