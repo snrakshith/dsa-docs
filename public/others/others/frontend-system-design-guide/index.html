@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/others/others/frontend-system-design-guide/">
+  <link rel="canonical" href="http://localhost:1313/others/others/frontend-system-design-guide/">
+<title>Frontend System Design Guide  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="Frontend System Design Guide">
+<meta property="og:description" content="What is this Frontend System Design guide about?
+Frontend System Design guide attempts to cover the various factors to be considered while architecting a complex large-scale frontend application from scratch. Also the guide acts like a checklist that can be used as a reference for frontend system design. The guide aims to contain the breadth of the frontend systems while giving the directions to explore in depth for both individual contributors and system architects.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/others/others/frontend-system-design-guide/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="others">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="Frontend System Design Guide">
+<meta name="twitter:description" content="What is this Frontend System Design guide about?
+Frontend System Design guide attempts to cover the various factors to be considered while architecting a complex large-scale frontend application from scratch. Also the guide acts like a checklist that can be used as a reference for frontend system design. The guide aims to contain the breadth of the frontend systems while giving the directions to explore in depth for both individual contributors and system architects.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/others/",
+       "name": "Others",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Frontend System Design Guide",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section others" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:1313/others/" aria-current="true">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-this-frontend-system-design-guide-about">What is this Frontend System Design guide about?</a></li>
+        <li><a href="#engineering-design">Engineering Design</a></li>
+        <li><a href="#high-level-design">High Level Design</a></li>
+        <li><a href="#low-level-design">Low Level Design</a></li>
+        <li><a href="#architecture-considerations">Architecture Considerations</a></li>
+        <li><a href="#high-level-design-details">High Level Design details</a></li>
+        <li><a href="#license">License</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>Frontend System Design Guide</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-is-this-frontend-system-design-guide-about">What is this Frontend System Design guide about?</a></li>
+        <li><a href="#engineering-design">Engineering Design</a></li>
+        <li><a href="#high-level-design">High Level Design</a></li>
+        <li><a href="#low-level-design">Low Level Design</a></li>
+        <li><a href="#architecture-considerations">Architecture Considerations</a></li>
+        <li><a href="#high-level-design-details">High Level Design details</a></li>
+        <li><a href="#license">License</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<h3 id="what-is-this-frontend-system-design-guide-about">What is this Frontend System Design guide about?<a href="#what-is-this-frontend-system-design-guide-about" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Frontend System Design guide attempts to cover the various factors to be considered while architecting a complex large-scale frontend application from scratch. Also the guide acts like a checklist that can be used as a reference for frontend system design. The guide aims to contain the breadth of the frontend systems while giving the directions to explore in depth for both individual contributors and system architects.</p>
+<pre><code>Guide is generic and not biased towards any library or framework
+</code></pre>
+<ul>
+<li><a href="#engineering-design">Engineering Design</a></li>
+<li><a href="#high-level-design">High Level Design</a></li>
+<li><a href="#low-level-design">Low level Design</a></li>
+</ul>
+<hr>
+<h3 id="engineering-design">Engineering Design<a href="#engineering-design" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li>Team size</li>
+<li>User base</li>
+<li>Knowledge base</li>
+<li>Compliance/Governance</li>
+<li>User/Client expectations</li>
+<li>Open source vs proprietary</li>
+<li>Documentation / PRD</li>
+<li>Future Roadmaps</li>
+</ul>
+<hr>
+<h3 id="high-level-design">High Level Design<a href="#high-level-design" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li>Platform identification</li>
+<li>SPA vs MPA</li>
+<li>SSR, SSG, CSR</li>
+<li>Tech stack</li>
+<li>Search Engine Optimization</li>
+<li>CI/CD</li>
+<li>User Experience</li>
+<li><a href="https://philipwalton.com/articles/performant-a-b-testing-with-cloudflare-workers/">A/B testing</a></li>
+<li>MVP planning</li>
+<li>Server Side Architecture</li>
+<li>Security</li>
+<li>State Management</li>
+<li>Internationalization</li>
+<li>E2E testing</li>
+<li>Tools Integration</li>
+<li>Authentication &amp; Authorization</li>
+<li>Quality Assurance &amp; Control</li>
+<li>User role management</li>
+</ul>
+<hr>
+<h3 id="low-level-design">Low Level Design<a href="#low-level-design" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li>Code/Folder architecture</li>
+<li>Desktop/Mobile first approach</li>
+<li>System breakdown</li>
+<li>Component Design</li>
+<li>Form development</li>
+<li>Storage management</li>
+<li>API Design</li>
+<li>Instrumentation</li>
+<li>Design system</li>
+<li>Routing management</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Performance/CSS">CSS optimizations</a></li>
+<li><a href="https://web.dev/fast/#lazy-load-images-and-video">Lazy loading of modules</a></li>
+<li><a href="https://www.w3.org/WAI/tips/developing/">Accessibility</a></li>
+<li><a href="https://web.dev/fast/#optimize-your-images">Image optimizations</a></li>
+<li>Pagination, Debouncing, Throttling</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance">Performance</a>: FCP, LCP, TTI, CLS</li>
+<li>Versioning</li>
+<li>Unit testing</li>
+</ul>
+<hr>
+<h3 id="architecture-considerations">Architecture Considerations<a href="#architecture-considerations" class="anchor" aria-hidden="true">#</a> </h3>
+<ul>
+<li><a href="https://khalilstemmler.com/articles/client-side-architecture/introduction/">Client-side Architecture Basics</a></li>
+<li><a href="https://github.com/rwaldron/idiomatic.js">idiomatic.js</a></li>
+</ul>
+<h3 id="high-level-design-details">High Level Design details<a href="#high-level-design-details" class="anchor" aria-hidden="true">#</a> </h3>
+<br>
+<p><strong>Product Requirement Document (PRD) / Design Document</strong></p>
+<ul>
+<li>Identify Scope/Requirement</li>
+<li>Review your understanding with stakeholders</li>
+</ul>
+<br>
+<p><strong>Discuss about Design/Wireframe</strong></p>
+<ul>
+<li>Think like an architect.</li>
+<li>We should not consider team bandwidth, capacity and time.</li>
+<li>Discuss about Edge cases.</li>
+<li>Robustness: Handle SPOF (Single Point of Failure) ex: Monitoring, Logging</li>
+</ul>
+<br>
+<p><strong>Identify Business</strong></p>
+<ul>
+<li>Is it B2B (business-to-business)?</li>
+<li>Is it B2C (business-to-consumer)?</li>
+<li>Is it Internal Product?</li>
+<li>Is it Customer facing product?</li>
+</ul>
+<br>
+<p><strong>Identify Platform</strong></p>
+<ul>
+<li>Desktop</li>
+<li>Mobile</li>
+<li>Tablet</li>
+</ul>
+<br>
+<p><strong>Identify Users (Know your audience)</strong></p>
+<ul>
+<li>Conduct surveys</li>
+<li>Discuss about Location and Devices</li>
+<li>Internet speed</li>
+<li>End Users knowledge base (ex: Technical user)</li>
+<li>Pilot Product (sometimes to understand audience)</li>
+</ul>
+<br>
+<p><strong>Identify Design Approach</strong></p>
+<ul>
+<li>Responsive vs Adaptive design</li>
+<li>Desktop first vs Mobile first</li>
+</ul>
+<br>
+<p><strong>Identify APIs</strong></p>
+<ul>
+<li>Rest APIs / Graph APIs / RPC</li>
+<li>JSON / Protocol buffers</li>
+</ul>
+<br>
+<p><strong>Role based management</strong></p>
+<ul>
+<li>Large system needs roles based access and permissions</li>
+<li>Authentication and Authorization</li>
+<li>Read/Write/View Permissions</li>
+<li>Discuss about Routes/Component access</li>
+</ul>
+<br>
+<p><strong>Identify Right Platform (compare frameworks based on the use case)</strong></p>
+<ul>
+<li>Single Page Applications (Unsuitable for Blogs/News based products)
+<ul>
+<li>No reloading of a page at navigation</li>
+<li>No SEO</li>
+</ul>
+</li>
+<li>Multi Page Applications
+<ul>
+<li>Reloading of a page at every page navigation.</li>
+</ul>
+</li>
+<li>Progressive Web Applications
+<ul>
+<li>Provides offline support and native like functionality.</li>
+</ul>
+</li>
+<li>Server Side Rendering
+<ul>
+<li>Better SEO</li>
+</ul>
+</li>
+<li>Important points to discuss:
+<ul>
+<li>Are users on mobile?</li>
+<li>Is SEO needed?</li>
+<li>Is SPA enough?</li>
+<li>Is PWA enough? (Service worker, Web Worker)</li>
+<li>Compare SSR / SSG / CSR</li>
+<li>Any Pricing model? (optional) - Subscriptions based, Paid APIs</li>
+<li>Will my app be Frontend heavy? (or backend heavy)</li>
+<li>Do I have resources for this skill?</li>
+<li>Is your application Canvas (or SVG) heavy? (Figma, Draw.io)</li>
+<li>Is your application webRTC heavy? (Video streaming)</li>
+</ul>
+</li>
+</ul>
+<br>
+<p><strong>Identify User Flow</strong></p>
+<ul>
+<li>Discuss vision of a product.</li>
+<li>Do we need to build from scratch or we can leverage some existing functionalities</li>
+<li>Discuss about authentication and authorization (Google auth / OAuth)</li>
+<li>Interact with the Product manager to understand the scope before designing the application.</li>
+<li>Discuss happy scenarios.</li>
+<li>Discuss edge cases.</li>
+<li>Discuss failing scenarios</li>
+</ul>
+<br>
+<p><strong>Identify MVP (Minimum Viable Product)</strong></p>
+<ul>
+<li>Problem -&gt; Solution -&gt; Build MVP -&gt; MVP to Customers</li>
+<li>Discuss MVP phase with product manager</li>
+<li>Discuss roadmaps and divide product in milestones</li>
+<li>After MVP release there can be a slight change in design/approach to make the product better</li>
+</ul>
+<br>
+<p><strong>Volume of Operations</strong></p>
+<ul>
+<li>Discuss about the end users of the product</li>
+<li>Identify QPS (Queries per second)</li>
+<li>Discuss about Load testing/Stress testing</li>
+<li>Inject analytics in application (ex: Google analytics, Sentry, NewRelic)</li>
+<li>Analytics data helps us to scale the system</li>
+</ul>
+<br>
+<p><a href="https://github.com/marcobiedermann/search-engine-optimization"><strong>SEO (Search Engine Optimization)</strong></a></p>
+<ul>
+<li>Crawling</li>
+<li>Use of Heading tags</li>
+<li><a href="https://htmlreference.io/">Semantic tags</a></li>
+<li>Site Ranking</li>
+<li>Sitemap</li>
+<li>Meta Keywords</li>
+<li>Organic approach vs Inorganic approach</li>
+<li>Use of alt tags</li>
+<li>301 Redirects (bad for SEO)</li>
+<li>Robots.txt</li>
+<li><a href="https://ogp.me/">Open graph protocol</a> for social graph</li>
+</ul>
+<br>
+<p><strong>Component Based Design</strong></p>
+<ul>
+<li>Component wise deployment cycle (CI/CD)</li>
+<li>Monolith vs Microservice architecture</li>
+<li><a href="https://blog.bitsrc.io/how-we-build-micro-front-ends-d3eeeac0acfc">Micro Frontend (independent dev &amp; deployment for scalability)</a></li>
+<li>Static components vs Dynamic components</li>
+<li>IFrame/<a href="https://github.com/GoogleChromeLabs/sw-precache/tree/master/app-shell-demo">Shell</a> approach</li>
+</ul>
+<br>
+<p><strong>State Management</strong></p>
+<ul>
+<li>How to maintain state through the application?</li>
+<li>How to manage users&rsquo; data?</li>
+<li>State management Libraries (Redux, Flux, NgRX)</li>
+</ul>
+<br>
+<p><strong>Handling APIs</strong></p>
+<ul>
+<li>Polling (Short and Long)</li>
+<li>Web Sockets (Real-time) (ex: chat, shared editors)</li>
+<li>Batch requests</li>
+<li>GraphQL</li>
+<li>Caching GET APIs (Middleware concepts to cache response)</li>
+<li><a href="https://germano.dev/sse-websockets/">Server-Sent Events (SSE)</a></li>
+</ul>
+<br>
+<p><strong>Optimizing Images</strong></p>
+<ul>
+<li>Add alt attributes (Images should be descriptive for SEO)</li>
+<li>Load images based on screen size (img srcset)</li>
+<li>Image compression (ex: JPEG 2000)</li>
+<li>Image sitemaps</li>
+<li>Use SVGs for generic dimensions (in case of stretching of images)</li>
+<li>Discuss about image Sprites for icons</li>
+<li>Discuss about progressive images (ex: Medium.com) - e.g. <a href="https://github.com/woltapp/blurhash">blurhash</a></li>
+</ul>
+<br>
+<p><strong>Instrumentation</strong></p>
+<ul>
+<li>Measurement and tracking are key for a stable system</li>
+<li>Monitoring</li>
+<li>Error logging (for tracing)</li>
+<li>Debugging</li>
+<li>Logs/Track all events happened in the application</li>
+<li>Implement Analytics (GA)</li>
+<li>Sentry (to capture errors)</li>
+<li>Newrelic (to detect failures)</li>
+</ul>
+<br>
+<p><strong>Versioning of artifacts</strong></p>
+<ul>
+<li>Artifacts tracking (ex: Confluence)</li>
+<li>Rollback &amp; backup mechanisms</li>
+</ul>
+<br>
+<p><strong>Performance Optimization Techniques</strong></p>
+<ul>
+<li>Webpack to optimized/compressed pages (Code splitting, <a href="https://www.fastfwd.com/improve-http-compression-with-brotli/">Brotli Compression</a>, <a href="https://www.keycdn.com/support/enable-gzip-compression">Gzip Compression</a>)</li>
+<li><a href="https://10up.github.io/Engineering-Best-Practices/performance/#core-web-vitals">Web Vitals (FP, LCP, CLS, etc)</a></li>
+<li>Lighthouse / PageSpeed Insights</li>
+<li><a href="https://web.dev/fast/">Fast Loading (Initial load should be fast)</a></li>
+<li>Smooth Operations (Loading indicators / Light/Smooth/Meaningful animations (to avoid jerks in transitions) / Splash screens) - (dialog with light animations)</li>
+<li>Animation directions should be the same (dialog coming from bottom should close in bottom) - (smooth animation should be added in sidebars for better UX)</li>
+<li>Animation between data fetching(APIs request) - Skeletal Loaders, Blurhash etc</li>
+<li><a href="https://roadmap.sh/guides/http-caching">Discuss about Caching - ex: API, resource cache (Browser cache / Memory / CDN / Disk Cache)</a></li>
+<li>Pagination vs Infinite Scroll</li>
+<li>Meaningful animation</li>
+<li><a href="https://userguiding.com/blog/microinteraction/">Micro interactions</a></li>
+</ul>
+<br>
+<p><strong>Internationalization (i18n) / Localization (i10n)</strong></p>
+<ul>
+<li>Localization</li>
+<li>Numeric, date and time formats</li>
+<li>Singular &amp; Plurals</li>
+<li>Use of currency</li>
+<li>Keyboard usage</li>
+<li>Symbols, icons and colors</li>
+<li>Text and graphics vary with different languages and religions, may be subject to misinterpretation or viewed as insensitive</li>
+<li>Varying legal requirements</li>
+</ul>
+<br>
+<p><strong>Accessibility</strong></p>
+<ul>
+<li>Alt attributes</li>
+<li>Aria-labels</li>
+<li>Multi-device support, <a href="https://addyosmani.com/blog/adaptive-loading/">slow network speed</a></li>
+<li>Color contrast, semantics tags</li>
+</ul>
+<br>
+<p><strong>Security</strong></p>
+<ul>
+<li>MITM</li>
+<li><a href="https://auth0.com/blog/cross-site-scripting-xss/">XSS</a></li>
+<li>CSRF</li>
+<li>Clickjacking</li>
+<li><a href="https://ponyfoo.com/articles/content-security-policy-in-express-apps#to-get-started-let-s-use-report-only">Content Security Policy (CSP)</a></li>
+<li>CORS</li>
+<li><a href="https://securityheaders.com/">Security headers</a></li>
+<li>Helpful Tools
+<ul>
+<li><a href="https://www.ssllabs.com/ssltest/analyze.html">Testing your SSL web server</a></li>
+<li><a href="https://tools.keycdn.com/http2-test">HTTP/2 Test</a></li>
+<li><a href="https://tools.keycdn.com/curl">HTTP Header Checker</a></li>
+<li><a href="https://tools.keycdn.com/speed">Website Speed Test</a></li>
+<li><a href="https://tools.keycdn.com/performance">Performance Test</a></li>
+<li><a href="https://whatdoesmysitecost.com/">What Does my site cost?</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html">HTML5 Security Cheat Sheet</a></li>
+<li><a href="https://expressjs.com/en/advanced/best-practice-security.html">Production Best Practices : Security</a></li>
+<li><a href="https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/">Web Application Vulnerabiliies Index</a></li>
+</ul>
+</li>
+</ul>
+<br>
+<p><strong>Quality assurance and control</strong></p>
+<ul>
+<li>Stable products are successful</li>
+<li>Specify standards - Code level / Artifacts level / Asset level</li>
+<li>Git Hooks (pre commit hooks, husky)</li>
+<li>Linters / Static Analyzers</li>
+<li>Unit testing</li>
+<li>Workflow testing (User level flows) (Tools - Cypress)</li>
+<li>Integration testing</li>
+<li>Automation suite</li>
+<li><a href="https://github.com/philipwalton/blog/blob/main/articles/learning-how-to-set-up-automated-cross-browser-javascript-unit-testing.md">Cross browsers testing</a></li>
+<li>Cross platform testing</li>
+</ul>
+<br>
+<p><strong>Governance</strong></p>
+<ul>
+<li>Controlling the workflows and protecting the assets</li>
+<li>UX Design -&gt; Developers -&gt; Product Managers -&gt; UX Designing -&gt; QA</li>
+<li>Code level governance - like PRs approval (sets standard in your team) - e.g. <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow</a></li>
+<li>Artifacts/Assets level governance (before go live)</li>
+<li>like Product Manager approval, Stakeholders approvals</li>
+</ul>
+<br>
+<p><strong>Experiment based release cycle</strong></p>
+<ul>
+<li>Experiment flag, which can help in the release cycle</li>
+</ul>
+<br>
+<p><strong>NFR (Non Functional Requirement)</strong></p>
+<ul>
+<li>Discuss about CI/CD (Docker, Pipeline)
+<br></li>
+</ul>
+<hr>
+<h3 id="license">License<a href="#license" class="anchor" aria-hidden="true">#</a> </h3>
+<p>This repository is MIT licensed. <a href="./LICENSE">Read more</a></p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/others/others/design-patterns/" class="stretched-link text-reset text-decoration-none">Design patterns</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/others/others/interview-algorithm-questions-in-javascript/" class="stretched-link text-reset text-decoration-none">Interview Algorithm Questions in Javascript</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

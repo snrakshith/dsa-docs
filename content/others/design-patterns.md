@@ -3,8 +3,6 @@ title: "Design patterns"
 description: "commands associated with whims-usermanual portal"
 ---
 
----
-
 <p align="center">
 🎉 Ultra-simplified explanation to design patterns! 🎉
 </p>

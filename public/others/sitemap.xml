@@ -20,7 +20,31 @@
     </url>
     
     <url>
+      <loc>http://localhost:1313/others/others/frontend-system-design-guide/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/others/others/interview-algorithm-questions-in-javascript/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/others/others/javascript-leetcode/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
       <loc>http://localhost:1313/others/others/reverse-interview-questions/</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    
+    <url>
+      <loc>http://localhost:1313/others/others/system-design-react-code-examples/</loc>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>

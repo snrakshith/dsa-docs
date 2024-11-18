@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/others/others/javascript-leetcode/">
+  <link rel="canonical" href="http://localhost:1313/others/others/javascript-leetcode/">
+<title>Javascript-leetcode  |  DSA Prep</title>
+<meta name="description" content="https://github.com/kennymkchan/interview-questions-in-javascript/">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="Javascript-leetcode">
+<meta property="og:description" content="https://github.com/kennymkchan/interview-questions-in-javascript/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/others/others/javascript-leetcode/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="others">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="Javascript-leetcode">
+<meta name="twitter:description" content="https://github.com/kennymkchan/interview-questions-in-javascript/">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/others/",
+       "name": "Others",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Javascript Leetcode",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section others" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:1313/others/" aria-current="true">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#code-1-remove-duplicate-characters-from-string">Code 1: Remove Duplicate characters from String</a></li>
+        <li><a href="#code-2-remove-duplicate-characters-from-array-of-element-and-find-the-count-of-an-elements-using-set-object">Code 2: Remove Duplicate characters from array of element and find the count of an elements using set object:</a></li>
+        <li><a href="#code-3-remove-duplicate-characters-from-array-of-element-using-filter">Code 3: Remove Duplicate characters from array of element using filter</a></li>
+        <li><a href="#code-4string-reverse-without-reversing-of-individual-words-array-of-elements-can-be-reversed-with-the-reverse-method-but-for-string">Code 4:String reverse without reversing of individual words (Array of elements can be reversed with the reverse() method but for string,</a></li>
+        <li><a href="#code-5string-reverse-with-reversing-of-individual-words">Code 5:String reverse with reversing of individual words</a></li>
+        <li><a href="#code-6string-reverse-without-using-inbult-function">Code 6:String reverse without using inbult function</a></li>
+        <li><a href="#code-7-find-factorial-of-user-input-number">Code 7: Find factorial of user input number</a></li>
+        <li><a href="#code-8anagram">Code 8:Anagram</a></li>
+        <li><a href="#code-9-swapping-of-2-numbers-with-third-variable">Code 9: Swapping of 2 numbers with third variable</a></li>
+        <li><a href="#code-10-swapping-of-2-numbers-without-third-variable">Code 10: Swapping of 2 numbers without third variable</a></li>
+        <li><a href="#code-11-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-reverse-method">Code 11: To check the string or number is palindrome or not( ex: 121,madam,anna) using reverse method</a></li>
+        <li><a href="#code-12-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-diving-length-by-2-and-then-comparing">Code 12: To check the string or number is palindrome or not( ex: 121,madam,anna) using diving length by 2 and then comparing</a></li>
+        <li><a href="#code-13-to-find-longest-word-from-a-string-using-for-of-_forvar-i0-inum-i-means-iterate-by-indexing_-_for-var-word-of-words-means-iterate-by-an-elements-not-by-indexing_">Code 13: To find longest word from a string using (for of) /<em>for(var i=0; i&gt;=num; i++) means iterate by indexing</em>/ /_for (var word of words) means iterate by an elements not by indexing_/</a></li>
+        <li><a href="#code-14-to-find-longest-word-from-a-string-using-functions">Code 14: To find longest word from a string using functions</a></li>
+        <li><a href="#code-15-to-find-longest-word-from-a-string-using-custom--code">Code 15: To find longest word from a string using custom ### code</a></li>
+        <li><a href="#code-16-to-find-longest-common-string-from-array-of-strings">Code 16: To find longest common string from array of strings</a></li>
+        <li><a href="#code-17-to-find-vowels-and-its-count-in-a-given-string">Code 17: To find vowels and its count in a given string</a></li>
+        <li><a href="#code-18to-find-character-occurance-fro-the-string">Code 18:To find character occurance fro the string</a></li>
+        <li><a href="#code-21-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-unsorted-elements">Code 21: To find the largest pair of the 2 elements using indexing with unsorted elements</a></li>
+        <li><a href="#code-22-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-sorted-elements">Code 22: To find the largest pair of the 2 elements using indexing with sorted elements</a></li>
+        <li><a href="#code-23-to-find-the-index-of-an-element-from-an-array">Code 23: To find the index of an element from an array</a></li>
+        <li><a href="#code-24-fibonacci-series-011235813">Code 24: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.)</a></li>
+        <li><a href="#code-25-fibonacci-series-011235813-where-keeping-in-array">Code 25: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.) where keeping in array</a></li>
+        <li><a href="#code-26-finding-a-missing-elements-in-an-array-and-then-add-with-existing-elements--1-means-if-elements-not-found-then-it-will-return-always--1-as-per-rule">Code 26: Finding a missing elements in an array and then add with existing elements. (-1 means if elements not found then it will return always -1 as per rule)</a></li>
+        <li><a href="#code-27-find-the-missing-no-in-an-array">Code 27: Find the missing no. in an array</a></li>
+        <li><a href="#code-28-sorting-of-an-stringcharacter">Code 28: Sorting of an string/character</a></li>
+        <li><a href="#code-29-sorting-of-an-number">Code 29: Sorting of an number</a></li>
+        <li><a href="#code-30-to-check-if-given-number-is-prime-or-not">Code 30: To check if given number is prime or not</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>Javascript-leetcode</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#code-1-remove-duplicate-characters-from-string">Code 1: Remove Duplicate characters from String</a></li>
+        <li><a href="#code-2-remove-duplicate-characters-from-array-of-element-and-find-the-count-of-an-elements-using-set-object">Code 2: Remove Duplicate characters from array of element and find the count of an elements using set object:</a></li>
+        <li><a href="#code-3-remove-duplicate-characters-from-array-of-element-using-filter">Code 3: Remove Duplicate characters from array of element using filter</a></li>
+        <li><a href="#code-4string-reverse-without-reversing-of-individual-words-array-of-elements-can-be-reversed-with-the-reverse-method-but-for-string">Code 4:String reverse without reversing of individual words (Array of elements can be reversed with the reverse() method but for string,</a></li>
+        <li><a href="#code-5string-reverse-with-reversing-of-individual-words">Code 5:String reverse with reversing of individual words</a></li>
+        <li><a href="#code-6string-reverse-without-using-inbult-function">Code 6:String reverse without using inbult function</a></li>
+        <li><a href="#code-7-find-factorial-of-user-input-number">Code 7: Find factorial of user input number</a></li>
+        <li><a href="#code-8anagram">Code 8:Anagram</a></li>
+        <li><a href="#code-9-swapping-of-2-numbers-with-third-variable">Code 9: Swapping of 2 numbers with third variable</a></li>
+        <li><a href="#code-10-swapping-of-2-numbers-without-third-variable">Code 10: Swapping of 2 numbers without third variable</a></li>
+        <li><a href="#code-11-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-reverse-method">Code 11: To check the string or number is palindrome or not( ex: 121,madam,anna) using reverse method</a></li>
+        <li><a href="#code-12-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-diving-length-by-2-and-then-comparing">Code 12: To check the string or number is palindrome or not( ex: 121,madam,anna) using diving length by 2 and then comparing</a></li>
+        <li><a href="#code-13-to-find-longest-word-from-a-string-using-for-of-_forvar-i0-inum-i-means-iterate-by-indexing_-_for-var-word-of-words-means-iterate-by-an-elements-not-by-indexing_">Code 13: To find longest word from a string using (for of) /<em>for(var i=0; i&gt;=num; i++) means iterate by indexing</em>/ /_for (var word of words) means iterate by an elements not by indexing_/</a></li>
+        <li><a href="#code-14-to-find-longest-word-from-a-string-using-functions">Code 14: To find longest word from a string using functions</a></li>
+        <li><a href="#code-15-to-find-longest-word-from-a-string-using-custom--code">Code 15: To find longest word from a string using custom ### code</a></li>
+        <li><a href="#code-16-to-find-longest-common-string-from-array-of-strings">Code 16: To find longest common string from array of strings</a></li>
+        <li><a href="#code-17-to-find-vowels-and-its-count-in-a-given-string">Code 17: To find vowels and its count in a given string</a></li>
+        <li><a href="#code-18to-find-character-occurance-fro-the-string">Code 18:To find character occurance fro the string</a></li>
+        <li><a href="#code-21-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-unsorted-elements">Code 21: To find the largest pair of the 2 elements using indexing with unsorted elements</a></li>
+        <li><a href="#code-22-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-sorted-elements">Code 22: To find the largest pair of the 2 elements using indexing with sorted elements</a></li>
+        <li><a href="#code-23-to-find-the-index-of-an-element-from-an-array">Code 23: To find the index of an element from an array</a></li>
+        <li><a href="#code-24-fibonacci-series-011235813">Code 24: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.)</a></li>
+        <li><a href="#code-25-fibonacci-series-011235813-where-keeping-in-array">Code 25: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.) where keeping in array</a></li>
+        <li><a href="#code-26-finding-a-missing-elements-in-an-array-and-then-add-with-existing-elements--1-means-if-elements-not-found-then-it-will-return-always--1-as-per-rule">Code 26: Finding a missing elements in an array and then add with existing elements. (-1 means if elements not found then it will return always -1 as per rule)</a></li>
+        <li><a href="#code-27-find-the-missing-no-in-an-array">Code 27: Find the missing no. in an array</a></li>
+        <li><a href="#code-28-sorting-of-an-stringcharacter">Code 28: Sorting of an string/character</a></li>
+        <li><a href="#code-29-sorting-of-an-number">Code 29: Sorting of an number</a></li>
+        <li><a href="#code-30-to-check-if-given-number-is-prime-or-not">Code 30: To check if given number is prime or not</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<h3 id="code-1-remove-duplicate-characters-from-string">Code 1: Remove Duplicate characters from String<a href="#code-1-remove-duplicate-characters-from-string" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">removeDuplicateCharacters</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;priya riya supriya&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">==</span> <span class="nx">index</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removeDuplicateCharacters</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-2-remove-duplicate-characters-from-array-of-element-and-find-the-count-of-an-elements-using-set-object">Code 2: Remove Duplicate characters from array of element and find the count of an elements using set object:<a href="#code-2-remove-duplicate-characters-from-array-of-element-and-find-the-count-of-an-elements-using-set-object" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">unique</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unique</span><span class="p">);</span> <span class="c1">//output: [55, 44, 67, 8, 65, 1, 2, 3, 34, 5]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unique</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">//output: 10
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-3-remove-duplicate-characters-from-array-of-element-using-filter">Code 3: Remove Duplicate characters from array of element using filter<a href="#code-3-remove-duplicate-characters-from-array-of-element-using-filter" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&#34;1&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">unique</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">===</span> <span class="nx">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unique</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-4string-reverse-without-reversing-of-individual-words-array-of-elements-can-be-reversed-with-the-reverse-method-but-for-string">Code 4:String reverse without reversing of individual words (Array of elements can be reversed with the reverse() method but for string,<a href="#code-4string-reverse-without-reversing-of-individual-words-array-of-elements-can-be-reversed-with-the-reverse-method-but-for-string" class="anchor" aria-hidden="true">#</a> </h3>
+<p>it is won&rsquo;t possible so required to split and then join().</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">removeDuplicates</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;India is my country&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removeDuplicates</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">output</span> <span class="o">=</span> <span class="s2">&#34;aidnI si ym yrtnuoc&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">output</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-5string-reverse-with-reversing-of-individual-words">Code 5:String reverse with reversing of individual words<a href="#code-5string-reverse-with-reversing-of-individual-words" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">withoutReverse</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;India is my country&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">withoutReverse</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">output</span> <span class="o">=</span> <span class="s2">&#34;yrtnuoc ym si aidnI&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-6string-reverse-without-using-inbult-function">Code 6:String reverse without using inbult function<a href="#code-6string-reverse-without-using-inbult-function" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Reverse</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;India is my country&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="nx">string</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Reverse</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="nx">output</span> <span class="o">=</span> <span class="s2">&#34;yrtnuoc ym si aidnI&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-7-find-factorial-of-user-input-number">Code 7: Find factorial of user input number<a href="#code-7-find-factorial-of-user-input-number" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Enter a positive integer: &#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error! Factorial for negative number does not exist.&#39;</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`The factorial is 1.`</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fact</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">number</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fact</span> <span class="err">\</span><span class="o">*=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span> <span class="nx">log</span><span class="p">(</span><span class="sb">`The factorial is </span><span class="si">${</span><span class="nx">fact</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-8anagram">Code 8:Anagram<a href="#code-8anagram" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">checkStringsAnagram</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;Army&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">sort</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">sort</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span> <span class="o">===</span> <span class="nx">str2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;True&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;False&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">checkStringsAnagram</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-9-swapping-of-2-numbers-with-third-variable">Code 9: Swapping of 2 numbers with third variable<a href="#code-9-swapping-of-2-numbers-with-third-variable" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-10-swapping-of-2-numbers-without-third-variable">Code 10: Swapping of 2 numbers without third variable<a href="#code-10-swapping-of-2-numbers-without-third-variable" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//30
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-11-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-reverse-method">Code 11: To check the string or number is palindrome or not( ex: 121,madam,anna) using reverse method<a href="#code-11-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-reverse-method" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">checkPalindrome</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;anmna&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//console.log(arr)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">string</span> <span class="o">==</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Palindrome&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Not Palindrome&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">checkPalindrome</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-12-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-diving-length-by-2-and-then-comparing">Code 12: To check the string or number is palindrome or not( ex: 121,madam,anna) using diving length by 2 and then comparing<a href="#code-12-to-check-the-string-or-number-is-palindrome-or-not-ex-121madamanna-using-diving-length-by-2-and-then-comparing" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">checkPalindrome</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;12321&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">string</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">string</span><span class="p">[</span><span class="nx">len</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Not Palindrome&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34; Palindrome&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">checkPalindrome</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-13-to-find-longest-word-from-a-string-using-for-of-_forvar-i0-inum-i-means-iterate-by-indexing_-_for-var-word-of-words-means-iterate-by-an-elements-not-by-indexing_">Code 13: To find longest word from a string using (for of) /<em>for(var i=0; i&gt;=num; i++) means iterate by indexing</em>/ /_for (var word of words) means iterate by an elements not by indexing_/<a href="#code-13-to-find-longest-word-from-a-string-using-for-of-_forvar-i0-inum-i-means-iterate-by-indexing_-_for-var-word-of-words-means-iterate-by-an-elements-not-by-indexing_" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">longestWord</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;supriya is a masooooom good girl&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">longest</span> <span class="o">=</span> <span class="s2">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">word</span> <span class="k">of</span> <span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">word</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">longest</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">longest</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">longest</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">longestWord</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">longestWord</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;supriya is a hahahahaha good girl&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">longest</span> <span class="o">=</span> <span class="s2">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">longest</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">longest</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">longestWord</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-14-to-find-longest-word-from-a-string-using-functions">Code 14: To find longest word from a string using functions<a href="#code-14-to-find-longest-word-from-a-string-using-functions" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">findLongestWord</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;Priya is a goog girl and having hardworking skill&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">longestWord</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">).</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span> <span class="c1">//in desc order //from greater to smallest word
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">longestWord</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">longestWord</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">findLongestWord</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-15-to-find-longest-word-from-a-string-using-custom--code">Code 15: To find longest word from a string using custom ### code<a href="#code-15-to-find-longest-word-from-a-string-using-custom--code" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">longest</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;Priya is a good girl and having hardworking skills&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">longest</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">longest</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">longest</span> <span class="o">=</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">longest</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">longest</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">longest</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-16-to-find-longest-common-string-from-array-of-strings">Code 16: To find longest common string from array of strings<a href="#code-16-to-find-longest-common-string-from-array-of-strings" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">longestCommonString</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;go&#34;</span><span class="p">,</span> <span class="s2">&#34;google&#34;</span><span class="p">,</span> <span class="s2">&#34;gosh&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">charAt</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">charAt</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">));</span> <span class="c1">// &#34;go&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">longestCommonString</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-17-to-find-vowels-and-its-count-in-a-given-string">Code 17: To find vowels and its count in a given string<a href="#code-17-to-find-vowels-and-its-count-in-a-given-string" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">vowelCounts</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">vowels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;i&#34;</span><span class="p">,</span> <span class="s2">&#34;e&#34;</span><span class="p">,</span> <span class="s2">&#34;o&#34;</span><span class="p">,</span> <span class="s2">&#34;u&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&#34;priya&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">letter</span> <span class="k">of</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">vowels</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">letter</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">letter</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">vowelCounts</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-18to-find-character-occurance-fro-the-string">Code 18:To find character occurance fro the string<a href="#code-18to-find-character-occurance-fro-the-string" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">characterOccurance</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">letter</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">===</span> <span class="nx">letter</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">characterOccurance</span><span class="p">(</span><span class="s2">&#34;priyapri&#34;</span><span class="p">,</span> <span class="s2">&#34;p&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 19: To find a first pair whose sum is zero</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getSumPairZero</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">number</span> <span class="k">of</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">number</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="nx">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getSumPairZero</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getSumPairZero</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getSumPairZero</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 20: To find a first pair whose sum is zero using indexing</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getSumPairZero</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="o">=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">+</span> <span class="nx">array</span><span class="p">[</span><span class="nx">right</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">[</span><span class="nx">array</span><span class="p">[</span><span class="nx">left</span><span class="p">],</span> <span class="nx">array</span><span class="p">[</span><span class="nx">right</span><span class="p">]];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">right</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">left</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">getSumPairZero</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-21-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-unsorted-elements">Code 21: To find the largest pair of the 2 elements using indexing with unsorted elements<a href="#code-21-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-unsorted-elements" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">largestPairSumofTwo</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">num</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">largestPairSumofTwo</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-22-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-sorted-elements">Code 22: To find the largest pair of the 2 elements using indexing with sorted elements<a href="#code-22-to-find-the-largest-pair-of-the-2-elements-using-indexing-with-sorted-elements" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">largestPairSumofTwo</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num</span><span class="p">[</span><span class="nx">num</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">num</span><span class="p">[</span><span class="nx">num</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">largestPairSumofTwo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-23-to-find-the-index-of-an-element-from-an-array">Code 23: To find the index of an element from an array<a href="#code-23-to-find-the-index-of-an-element-from-an-array" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">letters</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span> <span class="c1">// `1`
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-24-fibonacci-series-011235813">Code 24: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.)<a href="#code-24-fibonacci-series-011235813" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fibonacciSeries</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Enter the number of terms: &#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">n1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">nextTerm</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">n1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">n2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">number</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">nextTerm</span> <span class="o">=</span> <span class="nx">n1</span> <span class="o">+</span> <span class="nx">n2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n1</span> <span class="o">=</span> <span class="nx">n2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n2</span> <span class="o">=</span> <span class="nx">nextTerm</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">nextTerm</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fibonacciSeries</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-25-fibonacci-series-011235813-where-keeping-in-array">Code 25: Fibonacci Series (0,1,1,2,3,5,8,13&hellip;.) where keeping in array<a href="#code-25-fibonacci-series-011235813-where-keeping-in-array" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">listFibonacci</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">listFibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-26-finding-a-missing-elements-in-an-array-and-then-add-with-existing-elements--1-means-if-elements-not-found-then-it-will-return-always--1-as-per-rule">Code 26: Finding a missing elements in an array and then add with existing elements. (-1 means if elements not found then it will return always -1 as per rule)<a href="#code-26-finding-a-missing-elements-in-an-array-and-then-add-with-existing-elements--1-means-if-elements-not-found-then-it-will-return-always--1-as-per-rule" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">missingElement</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">missing</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">missing</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">missing</span><span class="p">);</span> <span class="c1">//missing array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">missing</span><span class="p">).</span><span class="nx">sort</span><span class="p">());</span> <span class="c1">//actual+missing elements
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">missingElement</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-27-find-the-missing-no-in-an-array">Code 27: Find the missing no. in an array<a href="#code-27-find-the-missing-no-in-an-array" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">missing</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">//9
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">missing</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">missing</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span><span class="p">,</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//index value comparing with pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">//9
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">missing</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-28-sorting-of-an-stringcharacter">Code 28: Sorting of an string/character<a href="#code-28-sorting-of-an-stringcharacter" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sorting</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sorting</span><span class="p">([</span><span class="s2">&#34;d&#34;</span><span class="p">,</span> <span class="s2">&#34;g&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="s2">&#34;e&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="s2">&#34;p&#34;</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-29-sorting-of-an-number">Code 29: Sorting of an number<a href="#code-29-sorting-of-an-number" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sorting</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sorting</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">78</span><span class="p">]));</span> <span class="c1">//[1, 2, 23, 34, 76, 78]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<h3 id="code-30-to-check-if-given-number-is-prime-or-not">Code 30: To check if given number is prime or not<a href="#code-30-to-check-if-given-number-is-prime-or-not" class="anchor" aria-hidden="true">#</a> </h3>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">isPrime</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">%</span> <span class="nx">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isPrime</span><span class="p">(</span><span class="mi">17</span><span class="p">));</span> <span class="c1">//true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 31: To print all the numbers from 2 to 100
+for (let i = 2; i &lt;= 100; i++) {
+let flag = 0;
+for (let j = 2; j &lt; i; j++) {
+if (i % j == 0) {
+flag = 1;
+break;
+}
+}
+if (i &gt; 1 &amp;&amp; flag == 0) {
+console.log(i);
+}
+}</p>
+<hr>
+<p>for (let i = 2; i &lt;= 100; i++)
+{
+let flag = 0;
+for (let j = 2; j &lt; i; j++) { //2&lt;2 //2&lt;3 //3&lt;4
+if (i % j == 0) {
+flag = 1;
+break;
+}
+}
+if (i &gt; 1 &amp;&amp; flag == 0)
+{
+document.write(i+ &ldquo;</br>&rdquo;);
+}
+}</p>
+<hr>
+<p>Code 32: To find unique values from 2 arrays and keep into one array.
+function uniqueElements(arr1,arr2){
+let arr =[&hellip;arr1,&hellip;arr2];
+let array =[&hellip;new Set(arr)]
+console.log(array)
+}
+uniqueElements([1,2,3,4,4],[2,3,4,5,6])</p>
+<hr>
+<p>Code 33: Find first duplicate element from an array
+function firstDuplicate() {
+let arr = [1,2,2,5,5];
+let data = [];
+for (var item of arr) {
+if (data[item]) {
+return item
+} else {
+data[item] = item
+console.log(data[item])
+}
+}
+return -1
+}
+console.log(firstDuplicate())</p>
+<hr>
+<p>Code 34: Write a program that prints the numbers from 1 to 100. But for multiples of three, print &ldquo;Fizz&rdquo; instead of the number, and for the multiples of five, print &ldquo;Buzz&rdquo;.
+For numbers which are multiples of both three and five, print &ldquo;FizzBuzz&rdquo;
+for (var i=1; i &lt;= 20; i++)
+{
+if (i % 15 == 0)
+console.log(&ldquo;FizzBuzz&rdquo;);
+else if (i % 3 == 0)
+console.log(&ldquo;Fizz&rdquo;);
+else if (i % 5 == 0)
+console.log(&ldquo;Buzz&rdquo;);
+else
+console.log(i);
+}</p>
+<hr>
+<p>Code 35: Uppercase of each first letter of a words
+function upperCaseFirsstLetter(){
+var string =&ldquo;India is my country&rdquo;;
+var words = string.toLowerCase().split(&quot; &ldquo;)
+for( var i=0; i&lt;words.length; i++) {
+words[i]=words[i][0].toUpperCase() + words[i].slice(1) //slice is used here to give all the letters except first letter.
+}
+return words.join(&rdquo; &ldquo;)
+}
+console.log(upperCaseFirsstLetter())</p>
+<hr>
+<p>Code 36: Uppercase of each first letter of a words using map function
+function upperCaseFirsstLetter(){
+var string =&ldquo;India is my country&rdquo;;
+var words = string.toLowerCase().split(&rdquo; &ldquo;).map((ele)=&gt;{
+return ele[0].toUpperCase() + ele.slice(1)
+})
+return words.join(&rdquo; &ldquo;)
+}
+console.log(upperCaseFirsstLetter())</p>
+<hr>
+<h1 id="consolelogconfirmendingpriyaa">Code 37: To check ending of the string with given character/s using inbuild function
+function confirmEnding(str,target){
+return str.endsWith(target) //true
+}
+console.log(confirmEnding(&ldquo;priya&rdquo;,&ldquo;a&rdquo;))</h1>
+<h1 id="consolelogconfirmendingpriyaa-1">Code 38: To check ending of the string with given character/s using custom
+function confirmEnding(str,target){
+return str.substr(-target.length)===target
+}
+console.log(confirmEnding(&ldquo;priya&rdquo;,&ldquo;a&rdquo;))</h1>
+<p>Code 39: To find the largest elements fro the 2 diensional array
+function largestFromArray(arr){
+var max=[];
+for(var i=0; i&lt;arr.length;i++){
+var tempMax =arr[i][0] //first elements of the 4 internal arrays i,e(1,5,45,89
+for(var j=0; j&lt;arr[i].length; j++){
+var currElement = arr[i][j];
+if(currElement&gt;=tempMax){
+tempMax = currElement
+}
+}
+max.push(tempMax)
+}
+console.log(max)
+return max;
+}
+largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])</p>
+<hr>
+<p>Code 40: To find the largest elements fro the 2 diensional array in another way
+function largestFromArray(arr){
+var max=[0,0,0,0];
+for(var i=0; i&lt;arr.length;i++){
+for(var j=0; j&lt;arr[i].length; j++)
+{
+if(arr[i][j]&gt;=max[i]){
+max[i] = arr[i][j]
+}
+}
+}
+console.log(max)
+return max;
+}
+largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])</p>
+<hr>
+<p>Code 41: Print string n times using inbuilt function
+function repeatStrinNumTimes(str, num){
+if (num&lt;1) return &quot;&rdquo;
+return str.repeat(num)
+}
+console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
+<hr>
+<p>Code 42: Print string n times in custom way
+function repeatStrinNumTimes(str, num){
+var final=&quot;&quot;;
+if(num&lt;0) return &quot;&quot;
+for(var i=0; i&lt;num;i++)
+{
+final=final+str
+}
+return final
+}
+console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
+<hr>
+<p>Code 43:Print string n times in custom way
+function repeatStrinNumTimes(str, num){
+if(num&lt;0) return &quot;&quot;
+if(num===1) return str
+return str+ repeatStrinNumTimes(str, num-1)
+}
+console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
+<hr>
+<p>Code 44: Truncate the string
+function truncateString(str, num){
+if(num&lt;=3) return str.slice(0,num)
+return str.slice(0,num-3)+&quot;&hellip;&quot; //retuen only 4 digits thats why subtracted from 3
+}
+console.log(truncateString(&ldquo;priyabagde&rdquo;,2)) //pr
+console.log(truncateString(&ldquo;priyabagde&rdquo;,4)) //p&hellip; //retuen only 4 digits</p>
+<hr>
+<p>Code 45: Converting one dimensional array into n dimensional array using slice
+function chunkArrayInGroup(arr, size){
+var group=[]
+while(arr.length&gt;0){
+group.push(arr.slice(0, size))
+arr = arr.slice(size)
+}
+return group
+}
+console.log (chunkArrayInGroup([&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;],2)) //[[&ldquo;a&rdquo;, &ldquo;b&rdquo;], [&ldquo;c&rdquo;, &ldquo;d&rdquo;]]</p>
+<hr>
+<p>Code 46: Converting one dimensional array into n dimensional array using splice
+function chunkArrayInGroup(arr, size){
+var group=[]
+while(arr.length&gt;0){
+group.push(arr.splice(0, size))
+}
+return group
+}
+console.log (chunkArrayInGroup([&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;],2)) //[[&ldquo;a&rdquo;, &ldquo;b&rdquo;], [&ldquo;c&rdquo;, &ldquo;d&rdquo;]]</p>
+<hr>
+<p>Code 47: To find only truthy values
+function removeFalseValue(arr){
+var trueth = []
+for (var item of arr){
+if(item){
+trueth.push(item)
+}
+}
+return trueth
+}
+console.log(removeFalseValue([&ldquo;priya&rdquo;, 0 ,&quot;&quot;, false, null,undefined, &ldquo;ate&rdquo;, Nan ,9 ])) //[&ldquo;priya&rdquo;,&ldquo;ate&rdquo;,9]</p>
+<hr>
+<p>Code 49: To find only truthy values using filter
+function removeFalseValue(arr){
+return arr.filter((item)=&gt;{
+return item})
+}
+console.log(removeFalseValue([&ldquo;priya&rdquo;, 0 ,&quot;&quot;, false, null,undefined, &ldquo;ate&rdquo;, 9 ]))</p>
+<hr>
+<p>Code 50: Checking all letters of second words should present in first word, in the same order using include function
+function characterPresent(arr){
+var first = arr[0].toLowerCase()
+var second = arr[1].toLowerCase()
+for (var letter of second){
+if(!first.includes(letter)){
+return false
+}
+}
+return true
+}
+console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;hey&rdquo;]))</p>
+<hr>
+<p>Code 51: Checking all letters of second words should present in first word, in the same order using indexOf without indexing i.e for-of loop
+function characterPresent(arr){
+var first = arr[0].toLowerCase()
+var second = arr[1].toLowerCase()
+for (var letter of second){
+if(first.indexOf(letter)== -1){ //-1 means not found in array
+return false
+}
+}
+return true
+}
+console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
+<hr>
+<p>function characterPresent(arr){
+var first = arr[0].toLowerCase()
+var second = arr[1].toLowerCase()
+for (var i=0; i&lt;second.length; i++){
+if(!first.includes(second[i])){ //-1 means not found in array
+return false
+}
+}
+return true
+}
+console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
+<hr>
+<p>Code 52: Checking all letters of second words should present in first word, in the same order using indexOf with indexing
+function characterPresent(arr){
+var first = arr[0].toLowerCase()
+var second = arr[1].toLowerCase()
+for (var i=0; i&lt;second.length; i++){
+if(first.indexOf(second)== -1){ //-1 means not found in array
+return false
+}
+}
+return true
+}
+console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
+<hr>
+<p>Code 53: Unique values only from 2 arrays
+function diffArrayElement(arr1, arr2){
+var result =[]
+for(var i=0; i&lt;arr1.length; i++){
+if(arr2.indexOf(arr1[i]) === -1){
+result.push(arr1[i])
+}
+}
+for(var j=0; j&lt;arr2.length; j++){
+if(arr1.indexOf(arr2[j]) === -1){
+result.push(arr2[j])
+}
+}
+return result
+}
+console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) //[1,5]</p>
+<hr>
+<p>Code 54: Unique values only from 2 arrays
+function diffArrayElement(arr1, arr2){
+var combine = arr1.concat(arr2)
+return combine.filter( (num)=&gt;{
+if(arr1.indexOf(num)== -1 || arr2.indexOf(num)== -1 ) return num
+})
+}
+console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) [1,5]</p>
+<hr>
+<p>Code 55: Remove Duplicates from 2 arrays using Set
+function uniquefromArrays(arr1, arr2){
+let arr = [&hellip;arr1, &hellip;arr2]
+let unique = [&hellip;new Set(arr)];
+return unique
+}
+console.log(uniquefromArrays([1,2,3,4], [2,3,4,5])) //[1,2,3,4,5]</p>
+<hr>
+<p>code 56: Sum of all numbers from start to end given number
+function sumFromStartToEnd(arr){
+var start = Math.min(arr[0], arr[1])
+var end = Math.max(arr[0], arr[1])
+sum =0
+for(var i= start; i&lt;=end; i++){
+sum+=i
+}
+return sum
+}
+console.log(sumFromStartToEnd([1,4]))</p>
+<hr>
+<p>code 57: Remove or Delete elements from an array using various ways
+Way 1: Removing Elements from End of a JavaScript Array
+var ar = [1, 2, 3, 4, 5, 6];
+ar.length = 4; // set length to remove elements
+console.log( ar ); // [1, 2, 3, 4]</p>
+<p>Way 2: Removing Elements from Beginning of a JavaScript Array
+var ar = [&lsquo;zero&rsquo;, &lsquo;one&rsquo;, &rsquo;two&rsquo;, &rsquo;three&rsquo;];
+ar.shift(); // returns &ldquo;zero&rdquo;
+console.log( ar ); // [&ldquo;one&rdquo;, &ldquo;two&rdquo;, &ldquo;three&rdquo;]</p>
+<p>Way 3: Using Splice to Remove Array Elements in JavaScript
+var list = [&ldquo;bar&rdquo;, &ldquo;baz&rdquo;, &ldquo;foo&rdquo;, &ldquo;qux&rdquo;];
+list.splice(0, 2); // Starting at index position 0, remove two elements [&ldquo;bar&rdquo;, &ldquo;baz&rdquo;] and retains [&ldquo;foo&rdquo;, &ldquo;qux&rdquo;].</p>
+<p>Way 4: Removing Array Items By Value Using Splice
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+for( var i = 0; i &lt; arr.length; i++){
+if ( arr[i] === 5) {
+arr.splice(i, 1);
+}
+} // [1, 2, 3, 4, 6, 7, 8, 9, 0]</p>
+<pre><code>   OR
+
+    var arr = [1, 2, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
+    for( var i = 0; i &lt; arr.length; i++){
+    if ( arr[i] === 5) {
+        arr.splice(i, 1);
+        i--;
+      }
+    } // [1, 2, 3, 4, 6, 7, 8, 9, 0]
+</code></pre>
+<p>Way 5: Using the Array filter Method to Remove Items By Value
+var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var filtered = array.filter(function(value, index, arr){
+return value &gt; 5;
+}); //filtered =&gt; [6, 7, 8, 9]</p>
+<p>Way 6: Making a Remove Method
+function arrayRemove(arr, value) {
+return arr.filter(function(ele){
+return ele != value;
+});
+}
+var result = arrayRemove(array, 6); // result = [1, 2, 3, 4, 5, 7, 8, 9, 0]</p>
+<p>Way 7: Explicitly Remove Array Elements Using the Delete Operator
+var ar = [1, 2, 3, 4, 5, 6];
+delete ar[4]; // delete element with index 4
+console.log( ar ); // [1, 2, 3, 4, undefined, 6]</p>
+<hr>
+<p>Code 58 : Spiral Matrix Printing | Print the elements of a matrix in spiral form
+var input = [[1,  2,   3,  4],
+[5,  6,   7,  8],
+[9,  10, 11, 12],
+[13, 14, 15, 16]];
+function run(input, result) {
+// add the first row to result
+result = result.concat(input.shift());
+console.log(&ldquo;res1&rdquo;, result) //[1, 2, 3, 4] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7]
+console.log(&ldquo;in1&rdquo;, input) //[[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]] // [[10, 11]]</p>
+<pre><code>// add the last element of each remaining row
+input.forEach(function(rightEnd) {
+    result.push(rightEnd.pop());
+});
+console.log(&quot;res2&quot;, result) //[1, 2, 3, 4, 8, 12, 16] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11]
+console.log(&quot;in2&quot;, input)   //[[5, 6, 7], [9, 10, 11], [13, 14, 15]] // [[10]]
+
+// add the last row in reverse order
+result = result.concat(input.pop().reverse());
+console.log(&quot;res3&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+console.log(&quot;in3&quot;, input)   //[[5, 6, 7], [9, 10, 11]]
+
+// add the first element in each remaining row (going upwards)
+var tmp = [];
+input.forEach(function(leftEnd) {
+    tmp.push(leftEnd.shift());
+});
+console.log(&quot;res4&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13]
+console.log(&quot;in4&quot;, input)   //[[6, 7], [10, 11]]
+
+result = result.concat(tmp.reverse());
+console.log(&quot;temp&quot;, temp) //[9, 5]
+console.log(&quot;res5&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
+console.log(&quot;in5&quot;, input)   //[[6, 7], [10, 11]]
+
+//again start the function
+return run(input, result);
+</code></pre>
+<p>}
+console.log(&lsquo;result&rsquo;, run(input, [])); // [1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]</p>
+<hr>
+<p>Code 59: Currying function i.e sum of multiple argument functions //inner function can access outer function variables but outer functions can&rsquo;t able to acceess inner function.
+function sum(a){
+return function sum(b){
+return function sum(c){
+return function sum(d){
+return a+b+c+d;
+}
+}
+}
+}
+console.log(sum(1)(2)(3)(4))</p>
+<p>OR</p>
+<p>const sum = (a) =&gt; (b) =&gt; (c) =&gt; (d) =&gt; a+b+c+d // using ES6
+console.log(sum(1)(2)(3)(4))</p>
+<hr>
+<p>Code 60: Find SUM, PRODUCT AND AVERAGE of the numbers //accumulation means collection
+let arr=[1,2,3,4,5]
+let sum = arr.reduce((accum, curr) =&gt;{
+return accum + curr;
+})
+console.log(sum) //15</p>
+<p>OR</p>
+<p>let sum = arr.reduce((accum, curr) =&gt;{
+return accum + curr;
+},5) // can set initial value as 5 also
+console.log(sum) //20</p>
+<p>let product = arr.reduce((accum, curr) =&gt;{
+return accum * curr;
+})
+console.log(product)//120</p>
+<p>let average = arr.reduce((accum, curr, index, array) =&gt;{
+let total = accum + curr;
+if(index === array.length-1){
+return total/array.length
+}
+return total
+})
+console.log(average)//3</p>
+<hr>
+<p>Code 61: Convert 2D/3D array into 1D using reduce function and inbuilt function i.e flat
+const arr = [
+[&lsquo;a&rsquo;,&lsquo;b&rsquo;],
+[&lsquo;c&rsquo;,&rsquo;d&rsquo;],
+[&rsquo;e&rsquo;,&lsquo;f&rsquo;],
+]
+const flatArr = arr.reduce((accum, curr)=&gt;{
+return accum.concat(curr)
+})
+console.log(flatArr) //[&ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;, &ldquo;d&rdquo;, &ldquo;e&rdquo;, &ldquo;f&rdquo;]</p>
+<p>OR</p>
+<p>const arr = [
+[&lsquo;a&rsquo;,&lsquo;b&rsquo;],
+[&lsquo;c&rsquo;,&rsquo;d&rsquo;],
+[&rsquo;e&rsquo;,[&lsquo;f&rsquo;,&lsquo;g&rsquo;]],
+]
+console.log(arr.flat(2)) //[&ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;, &ldquo;d&rdquo;, &ldquo;e&rdquo;, &ldquo;f&rdquo;] //bydefault 1 hota h as a argument</p>
+<p>OR</p>
+<p>const arr = [
+[&lsquo;a&rsquo;,&lsquo;b&rsquo;],
+[&lsquo;c&rsquo;,&rsquo;d&rsquo;],
+[&rsquo;e&rsquo;,[&lsquo;f&rsquo;,[&lsquo;g&rsquo;,&lsquo;h&rsquo;]]],
+]
+console.log(arr.flat(3)) //[&ldquo;a&rdquo;, &ldquo;b&rdquo;, &ldquo;c&rdquo;, &ldquo;d&rdquo;, &ldquo;e&rdquo;, &ldquo;f&rdquo;, &ldquo;g&rdquo;, &ldquo;h&rdquo;]</p>
+<hr>
+<p>code 62: Reverse of a nuber using converting into string
+function reverseNumber(input){
+return(
+parseFloat(input.toString().split(&rsquo;&rsquo;).reverse().join(&rsquo;&rsquo;))*Math.sign(input)
+)
+}
+console.log(reverseNumber(123)) //321</p>
+<hr>
+<p>code 63: Reverse of a nuber
+function reverseNumber(input){
+var result=0;
+while(input!=0){ //123 //12 //1
+result = result <em>10; //0</em>10=0 //3<em>10=30 // 32</em>10 =320
+result = result + (input%10) //give reminder // 0+3=3 // 30+2=32 //320+1=321
+input = Math.floor(input/10) //12 //1
+// console.log(&ldquo;in&rdquo;, input)
+}</p>
+<p>return result
+}
+console.log(reverseNumber(123)) //321</p>
+<hr>
+<p>code 64: Check Armstrong Number
+function CheckArmstrongNum(num){ //153
+var temp = num;
+var result =0;
+var a;
+while(temp&gt;0){ //153 //15 //1
+a= temp%10; //3 //5 //1
+temp= parseInt(temp/10) //15 // 1
+result= result+a<em>a</em>a //0+3<em>3</em>3 // 27+ 5<em>5</em>5 // 27+ 5<em>5</em>5 +1<em>1</em>1
+}
+if(result==num){
+return true
+}
+return false
+}
+console.log(CheckArmstrongNum(153)) //3<em>3</em>3 + 5<em>5</em>5 + 1<em>1</em>1</p>
+<hr>
+<p>code 65: To find the closest number in an array
+const needle = 5;
+const numbers = [1, 10, 7, 2, 4, 9];
+numbers.sort((a, b) =&gt; {
+return Math.abs(needle - a) - Math.abs(needle - b);
+})
+console.log(numbers[0]);</p>
+<hr>
+<p>code 66: To find the second largest number
+function secondLargestNum(arr){
+return arr.sort((a, b)=&gt; b - a )[1]
+}
+console.log(secondLargestNum([&lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;4&rsquo;, &lsquo;9&rsquo;]))</p>
+<hr>
+<p>code 67: To check whether particular word/number present in sentence or not using inbuilt function
+function wordInSentence(str){
+return str.includes(&ldquo;world&rdquo;); //true
+}
+console.log(wordInSentence(&ldquo;Hello world, welcome to the universe.&rdquo;))
+OR
+var nums =[0,1,3,5,6,7,8,9,7]
+console.log(nums.includes(9)) //true
+OR
+var item=3
+console.log(nums.some(x =&gt; x === item)) //true</p>
+<hr>
+<p>code 68: To check whether particular word/number present in sentence or not using custom function
+function checkValueExist(arr, item){
+var status = &ldquo;Not Exist&rdquo;
+for(var i=0; i&lt;arr.length; i++){
+if(arr[i]===item){
+status = &ldquo;Exist&rdquo;
+break;
+}
+}
+return status
+}
+console.log(checkValueExist([&lsquo;priya&rsquo;, &lsquo;riya&rsquo;, &lsquo;supriya&rsquo;], &lsquo;priya&rsquo;))</p>
+<hr>
+<p>code 69: To check wheather property exist or not in object
+let student ={
+name : &ldquo;priya&rdquo;,
+age: 20
+}
+console.log(&rsquo;name&rsquo; in student)
+OR
+console.log(student.hasOwnProperty(&rsquo;name&rsquo;))</p>
+<hr>
+<p>code 70: To dlete the property of an object
+let student ={
+name : &ldquo;priya&rdquo;,
+age: 20,
+city: &ldquo;pune&rdquo;
+}
+delete student.age;
+console.log(student)
+OR
+delete student[&rsquo;name&rsquo;]
+console.log(student)</p>
+<hr>
+<p>code 71: To find the length of the array in custom way
+function findLength(arr){
+var len =0;
+while(arr[len]!==undefined){
+len++
+}
+return len;
+}
+console.log(findLength([50,60,70,80,90]))
+OR
+function findLength(arr){
+return arr.length;
+}
+console.log(findLength([50,60,70,80,90]))</p>
+<hr>
+<p>code 72: Star Pattern
+for(var i=1; i&lt;=5;i++){ //use to create new row
+for(var j=i; j&lt;=5; j++){ //use to add in existing row
+document.write(&quot;*&quot;)
+}
+document.write(&quot;<br/>&quot;)
+}</p>
+<hr>
+<hr>
+<hr>
+<p>**</p>
+<ul>
+<li>
+<hr>
+<p>code 73: Star Pattern
+for(var i=1; i&lt;=5;i++){ //use to create new row
+for(var j=1; j&lt;=5; j++){ //use to add in existing row
+document.write(&quot;*&quot;)
+}
+document.write(&quot;<br/>&quot;)
+}</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>code 74: Star Pattern
+for(var i=1; i&lt;=5;i++){ //use to create new row
+for(var j=i; j&lt;=5; j++){ //use to add in existing row
+document.write(i)
+}
+document.write(&quot;<br/>&quot;)
+}
+11111
+2222
+333
+44
+5</p>
+<hr>
+<p>code 75: Star Pattern
+for(var i=1; i&lt;=5;i++){ //use to create new row
+for(var j=i; j&lt;=5; j++){ //use to add in existing row
+document.write(j)
+}
+document.write(&quot;<br/>&quot;)
+}
+12345
+2345
+345
+45
+5</p>
+<hr>
+<p>code 76: Star Pattern
+for(var i=1; i&lt;=5;i++){ //use to create new row
+for(var j=1; j&lt;=i; j++){ //use to add in existing row
+document.write(&quot;*&quot;)
+}
+document.write(&quot;<br/>&quot;)
+}</p>
+</li>
+<li>
+<p>**</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>code 77: To find the square root
+var num = [4, 9, 16, 25, 36]
+var result = num.map(Math.sqrt)
+console.log(result) //[2,3,4,5,6]</p>
+<hr>
+<p>code 78: Make alternate character to upper case
+function alternateText(str){
+var char = str.toLowerCase().split(&rsquo;&rsquo;)
+for(var i=0; i &lt;char.length; i=i+2){
+char[i]=char[i].toUpperCase()
+}
+return char.join(&rsquo;&rsquo;)
+}
+console.log(alternateText(&ldquo;Priya Bagde&rdquo;)) //&ldquo;PrIyA BaGdE&rdquo;
+OR
+let alt = &ldquo;Priya Bagde&rdquo;
+alt = alt.split(&quot;&quot;)
+.map((letter,index)=&gt;(index%2)==0 ? letter.toUpperCase(): letter.toLowerCase())
+.join(&quot;&quot;)
+console.log(alt) //&ldquo;PrIyA BaGdE&rdquo;</p>
+<hr>
+<p>code 79: To find the negative values in an array or 2D Array
+function countNegative(arr){
+let count = 0;
+for(let i=0;i&lt;arr.length; i++){
+for(let j=0; j&lt;arr[i].length; j++){
+if(arr[i][j]&lt;0){
+count++
+}
+}
+}
+return count;
+}
+console.log(countNegative([[1,-1],[-1,-1]]))</p>
+<hr>
+<p>code 80: Find first repeating character with its index from an array
+function firstRepeatingIndex(arr){
+let count = {};
+for(let i=0;i&lt;arr.length; i++){
+if(count[arr[i]])
+{
+console.log(&ldquo;character&rdquo;, arr[i])
+console.log(&ldquo;index&rdquo;, count[arr[i]])
+return count[arr[i]] //if exist
+}
+else
+{
+count[arr[i]]=i //if not exist keep at count
+}
+console.log(&ldquo;count&rdquo;, count)
+}
+return count
+}
+firstRepeatingIndex([1,0,2,3,4,4,5,7,7])</p>
+<hr>
+<p>code 81: To find all the subsets of the set
+function generateSubsets (arr) { //[1,2]
+let subsets = [];
+for (const item of arr)
+{
+const tempSubsets = [&hellip;subsets];
+console.log(&ldquo;tempSubsets&rdquo;,tempSubsets) //[]//[[1]]
+for (const currSubset of tempSubsets)
+{
+subsets.push([&hellip;currSubset, item]);
+console.log(&ldquo;subsets&rdquo;,subsets) //not came//[[1], [1,2]]
+}
+subsets.push([item]);
+console.log(&ldquo;subsets1&rdquo;,subsets) //[[1]]//[[1], [1,2],[2]]
+}
+subsets.push([]);
+console.log(&ldquo;subsets2&rdquo;,subsets) //[[1], [1, 2], [2], []]
+return subsets;
+}
+generateSubsets([1, 2]);
+OR
+function generateSubsets (arr) {
+let subsets = [];
+for (const item of arr) //[1,2]
+{
+const tempSubsets = [&hellip;subsets];//[]//[[1]]
+for (const currSubset of tempSubsets)
+{
+subsets.push([&hellip;currSubset, item]);//not came//[[1], [1,2]]
+}
+subsets.push([item]); //[[1]]//[[1], [1,2],[2]]
+}
+subsets.push([]);//[[1], [1, 2], [2], []]
+return subsets;
+}
+generateSubsets([1, 2]);
+OR
+function findAllSubsetsoOfGivenSet(arr)
+{
+var result= arr.reduce((subsets, value) =&gt; subsets.concat(subsets.map(set =&gt; [value,&hellip;set])),
+[[]]) //[[]] is used to pass initial value
+return result
+}
+console.log(findAllSubsetsoOfGivenSet([8,9]));</p>
+<hr>
+<p>Code 82: To find the maximum repetation of the character in a string
+function maxRepeating(str)
+{
+let count = 0;
+let character = str[0];
+for (let i=0; i&lt;str.length; i++)
+{
+let tempCount = 1;
+for (let j=i+1; j&lt;str.length; j++)
+{
+if (str[i] == str[j]) //if a is equal to a
+tempCount++; //use to find out the counts of character i.e a
+}
+if (tempCount &gt; count)
+{
+count = tempCount;
+character = str[i];
+}
+}
+console.log(count, character)
+return character;
+}
+maxRepeating(&ldquo;aaaabbaaccccccccccccccccccde&rdquo;);</p>
+<hr>
+<p>Code 83: To find all the missing numbers from an array
+function MissingElements(arr)
+{
+for(let i = 0; i &lt; arr.length; i++)
+{
+if (arr[i] - i != arr[0]) //1-0==1 //2-1==1 //6-2!=1 //checking for consecutive numbers
+{
+while (arr[0] &lt; arr[i] - i)//1&lt;4 //2&lt;4 //3&lt;4 //finding missing numbers
+{
+console.log(i + arr[0]);//2+1 //3+1 //3+1
+arr[0]++; //2 //3 //4
+}
+}
+}
+}
+MissingElements([1,2,6]); //3,4,5</p>
+<hr>
+<p>Code 84: Adding an elements to the array when elements are consecutive numbers
+const as = [1,2,3,4];
+for (let index = 5; index &lt;= 10; ++index) {
+as.push(index);
+}
+console.log(as); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+<hr>
+<p>Code 85: Create a new array by adding one to each elements of the existing array
+function plusOne(arr){
+var output=[]
+for (let i = 0; i &lt; arr.length; ++i) {
+output.push(arr[i]+1);
+}
+return output
+}
+console.log(plusOne([1,2,3,4]));</p>
+<hr>
+<p>Code 86: To find kth smallest or largest element in an array
+function findKthSmallestOrLargest(arr, num) {
+arr.sort(function(a, b) { return a - b});
+console.log(arr)
+console.log(&ldquo;kth smallest&rdquo;, arr[num- 1]) //kth smallest
+console.log(&ldquo;kth largest&rdquo;, arr[arr.length-num]) //kth smallest</p>
+</li>
+</ul>
+<p>};
+console.log(findKthSmallestOrLargest([2,1,4,3,6,5,7], 3)); //kth is 3rd //3,5
+&mdash;====
+Code 87: sort by frequency of the letters
+function frequencySort(str) {
+let map = {}
+for (const letter of str) {
+map[letter] = (map[letter] || 0) + 1; //to count the occurance
+};
+console.log(map) //{a: 2,A: 2,b: 3,B: 3,c: 1,C: 1}
+let res = &ldquo;&rdquo;;
+let sorted = Object.keys(map).sort((a, b) =&gt; map[b] - map[a])
+console.log(&ldquo;sorted&rdquo;, sorted)// [&ldquo;b&rdquo;, &ldquo;B&rdquo;, &ldquo;a&rdquo;, &ldquo;A&rdquo;, &ldquo;c&rdquo;, &ldquo;C&rdquo;]
+for (let letter of sorted) {
+for (let count = 0; count &lt; map[letter]; count++) {
+res += letter
+console.log(res)
+}
+}
+return res;
+};
+console.log(frequencySort(&ldquo;cCaaAAbbbBBB&rdquo;)); //&ldquo;bbbBBBaaAAcC&rdquo;</p>
+<hr>
+<p>Code 88: To find the OCCURANCE of the character
+function frequencySort(str) {
+let map = {}
+for (var i=0; i&lt;str.length; i++)
+{
+map[str[i]] = map[str[i]] ? map[str[i]]+1 : 1; //Adding an element to the object, if already present then incrementing by 1
+}
+console.log(map)////{&ldquo;c&rdquo;:1, &ldquo;C:1&rdquo;, &ldquo;a&rdquo;:2, &ldquo;A&rdquo;:2, &ldquo;b&rdquo;:3, &ldquo;B&rdquo;:3}
+};
+frequencySort(&ldquo;cCaaAAbbbBBB&rdquo;);
+OR
+function frequencySortArr(arr) {
+let map = {}
+arr.forEach((element)=&gt;{map[element] = map[element]+1 || 1 }) // will get occurance of the number
+return [&hellip;arr].sort((a,b)=&gt; map[b]-map[a])
+};
+console.log(frequencySortArr([2,5,67,89,2,3,4,4,4])); //[4,4,4,2,2,5,67,89,3]</p>
+<hr>
+<p>Code 89: Permutation // Need to debug
+let perm= (str, result)=&gt; {
+if(str.length==0){console.log(&ldquo;result&rdquo;, result)} //let //lte //elt //etl //tle //tel</p>
+<p>for(var i=0; i&lt;str.length; i++){
+let rest= str.substring(0,i)+ str.substring(i+1)
+// console.log(&ldquo;rest&rdquo;, rest) //et//t//&quot;&quot; //e//&quot;&quot; //lt//t//&quot;&quot; //l//&quot;&quot; //le//e//&quot;&quot; //l//&quot;&quot;
+console.log(&ldquo;finalresult&rdquo;,result+str[i]) //l//le//let //lt//lte //e//el//elt //et//etl //t//tl//tle //te//tel
+perm(rest, result+str[i])
+}
+}
+perm(&rsquo;let&rsquo;,&rsquo;&rsquo;);
+//&ldquo;result&rdquo; &ldquo;let&rdquo;
+//&ldquo;result&rdquo; &ldquo;lte&rdquo;
+//&ldquo;result&rdquo; &ldquo;elt&rdquo;
+//&ldquo;result&rdquo; &ldquo;etl&rdquo;
+//&ldquo;result&rdquo; &ldquo;tle&rdquo;
+//&ldquo;result&rdquo; &ldquo;tel&rdquo;</p>
+<hr>
+<p>Code 90: To find the power of x
+var r = 1, i = 1;
+var b = 2;e =3 ;
+while(i &lt;= e) //1&lt;3//2&lt;3//3=3
+{
+r <em>= b; //1</em>2//2<em>2//4</em>2
+i++;
+}
+console.log(r) //8
+OR
+let number = 2;
+let exponent = 3;
+console.log( number ** exponent);
+console.log( Math.pow(number, exponent));</p>
+<hr>
+<p>Code 91: To find even and odd number by user input
+const number = prompt(&ldquo;Enter a number: &ldquo;);
+if(number % 2 == 0) {
+console.log(&ldquo;The number is even.&rdquo;);
+}
+else {
+console.log(&ldquo;The number is odd.&rdquo;);
+}</p>
+<hr>
+<p>Code 92: Grouping of an Anagram
+let collectAnagrams = (words) =&gt; {
+let anagrams = {}
+let collectedAnagrams = []
+for (let word of words)
+{
+let sortedWord = word.split(&rsquo;&rsquo;).sort().join(&rsquo;&rsquo;) //arrange ervery word in alphabetical order
+anagrams[sortedWord] = anagrams[sortedWord] || [] //console.log(&rdquo;.&quot;,anagrams) //creating keys
+anagrams[sortedWord].push(word) // assigning exact values to keys //console.log(&rdquo;..&quot;, anagrams)
+}
+console.log(anagrams)
+for (let item in anagrams)
+{
+collectedAnagrams.push(anagrams[item]) // add their values as subarrays of the collectedAnagrams array
+}
+return collectedAnagrams
+}
+console.log(collectAnagrams([&lsquo;bag&rsquo;, &lsquo;gab&rsquo;, &lsquo;foo&rsquo;, &lsquo;abg&rsquo;, &lsquo;oof&rsquo;, &lsquo;ofo&rsquo;])) //[[&ldquo;bag&rdquo;, &ldquo;gab&rdquo;, &ldquo;abg&rdquo;], [&ldquo;foo&rdquo;, &ldquo;oof&rdquo;, &ldquo;ofo&rdquo;]]</p>
+<hr>
+<p>Code 93: Sort an array of an element by parity means even then odd elements
+function sortByParity(arr){
+let even =[]
+let odd =[]
+let result=[]
+for(let i=0; i&lt;arr.length; i++){
+if(arr[i]%2 ===0 ) even.push(arr[i])
+else odd.push(arr[i])
+}
+result = even.concat(odd)
+return result
+}
+console.log(sortByParity([1,2,3,4,5,6,7,8,9]))</p>
+<hr>
+<p>Code 94: Move all the zeroes at the end of an elements
+var array = [1,0,2,0,0,9,0,6,7];
+array.sort(function(a, b) {
+if(a==0 &amp;&amp; b!=0)
+return 1;
+else if (a!=0 &amp;&amp; b==0)
+return -1;
+else
+return 0;
+});
+console.log(array)
+OR
+var moveZeroes = function(arr) {
+for ( var i = 0; i &lt; arr.length-1; i++)
+{
+if(arr[i] === 0) { //if place x here then move x last to the array
+var temp = arr.splice(i, 1);
+console.log(temp[0])
+arr.push(temp[0]);
+}
+}
+return arr;
+};
+console.log(moveZeroes([1,0,4,8,6,0,8,3,39,0])) //[1,4,8,6,8,3,39,0,0,0]</p>
+<hr>
+<p>Code 95: Print consecutive numbers
+function range(num)
+{
+var result =[]
+for(var i =0; i&lt;num; i++)
+{
+result.push(i)
+}
+return result
+};
+console.log(range(10)); //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+<hr>
+<p>Code 96: 4 Ways to empty an array
+var arrayList = [&lsquo;a&rsquo;, &lsquo;b&rsquo;, &lsquo;c&rsquo;, &rsquo;d&rsquo;, &rsquo;e&rsquo;, &lsquo;f&rsquo;];
+console.log(&ldquo;1&rdquo;, arrayList = [])
+console.log(&ldquo;2&rdquo;, arrayList.length = 0)
+console.log(&ldquo;3&rdquo;, arrayList.splice(0, arrayList.length))
+var result= function(){while(arrayList.length) {
+arrayList.pop();
+}}
+console.log(&ldquo;4&rdquo;, arrayList)</p>
+<hr>
+<p>Code 97: Create a function to calculate the sum of all the numbers in a jagged array
+function sumArray(ar)
+{
+var sum = 0;
+for(var el of ar)
+{
+if (Array.isArray(el))
+{
+el = sumArray(el); //recursion
+}
+sum += el;
+}
+return sum;
+}
+console.log(sumArray([1, 2, [3, [4], [5, 6]], [7]])) //28</p>
+<hr>
+<p>Code 98: To check weather perfect number or not
+function is_perfect(number)
+{
+var temp = 0;
+for(var i=1;i&lt;=number/2;i++)
+{
+if(number%i === 0)
+{
+console.log(i) //1,2,4,7,14
+temp += i;
+}
+}
+if(temp === number &amp;&amp; temp !== 0)
+{
+console.log(&ldquo;It is a perfect number.&rdquo;);
+}
+else
+{
+console.log(&ldquo;It is not a perfect number.&rdquo;);
+}
+}
+is_perfect(28);</p>
+<hr>
+<p>Code 99: Number of days between 2 dates calculation
+date1 = &ldquo;2020-01-01&rdquo;, date2 = &ldquo;2020-01-30&rdquo;
+function daysBetweenDates (date1, date2) {
+const days = (new Date(date2) - new Date(date1)) / (1000 _ 60 _ 60 * 24)
+return days
+}
+console.log(daysBetweenDates(date1,date2))</p>
+<hr>
+<p>Code 100: To find todays date
+var today = new Date();
+var date = today.getFullYear()+&rsquo;-&rsquo;+(today.getMonth()+1)+&rsquo;-&rsquo;+today.getDate();
+console.log(date)</p>
+<hr>
+<p>Code 100: String Compression (Microsoft, Amazon etc)
+function stringCompression (str) {
+if (str.length ==0) {
+console.log(&lsquo;Please enter valid string.&rsquo;);
+return;
+}
+var output = &lsquo;&rsquo;;
+var count = 0;
+for (var i = 0; i &lt; str.length; i++)
+{
+count++;
+if (str[i] != str[i+1]) //if a is not equal to b
+{
+output += str[i] + count; //a+4
+count = 0; //for b it will start from zero
+}
+}
+console.log(output);
+}
+stringCompression(&rsquo;&rsquo;); //Please enter valid string.
+stringCompression(&lsquo;aaaa&rsquo;); //a4
+stringCompression(&lsquo;aaaabbc&rsquo;); //a4b2c1
+stringCompression(&lsquo;aaaabbcaabb&rsquo;); //a4b2c1a2b2</p>
+<hr>
+<p>Code 102: Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot and false otherwise.
+A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node&rsquo;s descendants. The tree tree could also be considered as a subtree of itself.
+Given tree s:
+3
+/ <br>
+4 5
+/ <br>
+1 2
+Given tree t:
+4
+/ <br>
+1 2</p>
+<hr>
+<p>class Node {
+constructor(val) {
+this.data = val;
+this.left = null;
+this.right = null;
+}}
+var root1,root2;
+root1 = new Node(26); // TREE 1
+root1.right = new Node(3);
+root1.right.right = new Node(3);
+root1.left = new Node(10);
+root1.left.left = new Node(4);
+root1.left.left.right = new Node(30);
+root1.left.right = new Node(6);
+root2 = new Node(10); // TREE 2
+root2.right = new Node(6);
+root2.left = new Node(4);
+root2.left.right = new Node(30);
+function areIdentical(root1, root2) //to check for same
+{
+if (root1 == null &amp;&amp; root2 == null)
+return true;
+if (root1 == null || root2 == null)
+return false;
+return (root1.data == root2.data &amp;&amp; areIdentical(root1.left, root2.left) &amp;&amp; areIdentical(root1.right, root2.right));
+}
+function isSubtree(T, S) //main function
+{
+if (S == null)
+return true;
+if (T == null)
+return false;
+if (areIdentical(T, S))
+return true;
+return isSubtree(T.left, S) || isSubtree(T.right, S);
+}
+console.log(isSubtree(root1, root2))</p>
+<hr>
+<p>Find triplets whose sum is zero
+function findTriplets(arr, n) {
+arr.sort();
+for (var i = 0; i &lt; arr.length; i++) {
+var j = i + 1,
+k = arr.length - 1;
+while (j &lt; k) {
+if (arr[i] + arr[j] + arr[k] &lt; n) {
+j++;
+} else if (arr[i] + arr[j] + arr[k] &gt; n) {
+k&ndash;;
+} else {
+console.log(arr[i] + &ldquo;,&rdquo; + arr[j] + &ldquo;,&rdquo; + arr[k]);
+j++;
+k&ndash;;
+}
+}
+}
+return true;
+}
+var arr = [-1, -4, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+findTriplets(arr, 0);</p>
+<hr>
+<p>Convert Array into object:-
+const arr = [&ldquo;John&rdquo;, &ldquo;Peter&rdquo;, &ldquo;Sally&rdquo;, &ldquo;Jane&rdquo;];
+const updatedArr={&hellip;arr};
+console.log(updatedArr)//{0: &lsquo;John&rsquo;, 1: &lsquo;Peter&rsquo;, 2: &lsquo;Sally&rsquo;, 3: &lsquo;Jane&rsquo;}</p>
+<hr>
+<p>3 main use-cases of #map( ) function:-
+1 . Used for rendering a list of data to the Dom in React 2. Used to modify an element in array depending on some requirement, which means calling a function on each item in Array 3. Used to convert String to Array</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>JAVASCRIPTS Inbuilt Functions:</p>
+<p>Code : JAVASCRIPT substr concept
+var sentence =&ldquo;I&rsquo;m priya and having sounds kowledge.&rdquo;
+console.log(sentence.substr(0,5)) //(startigIndex, NoOfCharatersWants&ndash;&gt;take 1 less)//I&rsquo;m p
+console.log(sentence.substr(2,5)) //m pri
+console.log(sentence.substr(2)) //m priya and having sounds kowledge.
+console.log(sentence.substr(4)) //priya and having sounds kowledge.
+console.log(sentence.substr(-4)) //Negative goes From ending of the string //dge.
+console.log(sentence.substr(-5)) //edge.</p>
+<hr>
+<p>Code : JAVASCRIPT slice concept i.e, it doesn&rsquo;t change the original array
+var sentence =&ldquo;I&rsquo;m priya and having sounds kowledge.&rdquo;
+console.log(sentence.slice(0,5)) //&ldquo;I&rsquo;m p&rdquo;
+console.log(sentence.slice(2,5)) //&ldquo;m p&rdquo;
+console.log(sentence.slice(2)) //&ldquo;m priya and having sounds kowledge.&rdquo;
+console.log(sentence.slice(4)) //&ldquo;priya and having sounds kowledge.&rdquo;
+console.log(sentence.slice(-4)) //&ldquo;dge.&rdquo;
+console.log(sentence.slice(-5)) //&ldquo;edge.&rdquo;</p>
+<p>var sentence =[&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;]
+console.log(sentence.slice(0,2)) //[&lsquo;a&rsquo;,&lsquo;b&rsquo;]
+console.log(sentence) //[&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;]</p>
+<hr>
+<p>Code : JAVASCRIPT splice concept i.e, it changes the original array
+var sentence =[&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;]
+console.log(sentence.splice(0,2)) //[&lsquo;a&rsquo;,&lsquo;b&rsquo;]
+console.log(sentence) //[&lsquo;c&rsquo;,&rsquo;d&rsquo;]</p>
+<hr>
+<p>Code: JAVASCRIPT indexOf concept
+var greeting = &ldquo;Hello&rdquo;
+console.log(greeting.indexOf(&ldquo;e&rdquo;)) //1</p>
+<hr>
+<p>Code: JAVASCRIPT split concept
+var name =&ldquo;Priya Bagde&rdquo;
+console.log(name.split(&quot;&quot;)) //[&ldquo;P&rdquo;,&ldquo;r&rdquo;,&ldquo;i&rdquo;,&ldquo;y&rdquo;,&ldquo;a&rdquo;,&quot; &ldquo;,&ldquo;B&rdquo;,&ldquo;a&rdquo;,&ldquo;g&rdquo;,&ldquo;d&rdquo;,&ldquo;e&rdquo;]
+console.log(name.split(&rdquo; &ldquo;)) //[&ldquo;Priya&rdquo;,&ldquo;Bagde&rdquo;]</p>
+<hr>
+<p>Code: JAVASCRIPT join concept
+var arr = [&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;,&rsquo;e&rsquo;]
+console.log(arr.join()) //&ldquo;a,b,c,d,e&rdquo;</p>
+<hr>
+<p>Code: JAVASCRIPT join concept
+var arr = [&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;,&rsquo;e&rsquo;]
+for(var i=0; i&lt;arr.length; i++){
+console.log(arr[i])
+}
+&ldquo;a&rdquo;
+&ldquo;b&rdquo;
+&ldquo;c&rdquo;
+&ldquo;d&rdquo;
+&ldquo;e&rdquo;</p>
+<hr>
+<p>Advance Interview Concepts</p>
+<ol>
+<li>Closures-
+A closure is the combination of a function and the lexical environment within which that function was declared.
+OR
+When inner function can have access to the outer function variables and parameter.</li>
+</ol>
+<p>The return statement does not execute the inner function - function is only executed only when followed by ()parathesis, but rather than returns the entire
+body of the function.</p>
+<p>Uses/advantages of closures:
+-event handlers
+-callback functions
+-Encapsulation: can store data in separate store
+-Object data privacy
+-Module Design Pattern
+-Currying
+-Functions like once
+-memoize
+-setTimeouts
+-Iterators
+-maintaining state in async world</p>
+<p>Disadvantages of closures:</p>
+<ol>
+<li>Creating function inside a function leads to duplicate in memory and cause slowing down the application means use only when required privacy.</li>
+<li>As long as the clousers are active, the memory can&rsquo;t be garbage collected means if we are using clousers in ten places then untill all the 10 process complete
+it hold the memory and can overcome to set closure to Null.</li>
+</ol>
+<p>const outerFunction =(a)=&gt;{
+let b=10;
+const innerFunction =()=&gt;{
+let sum = a+b;
+console.log(sum)
+}
+innerFunction()
+}
+outerFunction(5)// 15</p>
+<p>const outerFunction =(a)=&gt;{
+let b=10;
+const innerFunction =()=&gt;{
+let sum = a+b;
+console.log(sum)
+}
+return innerFunction
+}
+outerFunction(5) //output :
+()=&gt;{
+let sum = a+b;
+console.log(sum)
+}</p>
+<p>const outerFunction =(a)=&gt;{
+let b=10;
+const innerFunction =()=&gt;{
+let sum = a+b;
+console.log(sum)
+}
+return innerFunction
+}
+let inner = outerFunction(5)
+console.log(inner)
+inner() //15</p>
+<hr>
+<p>Prototype:</p>
+<ol>
+<li>Javascript is a prototype based language, so, whenever we are creating a function using javascript, javascript engine adds a prototype property inside a function,
+Prototype property is basically an object (also known as Prototype object), where we can attach methods and properties in a prototype object, which enables all the
+other objects to inherit these methods and properties.</li>
+<li>We are creating prototype in constructor function. All the intances of objects can able to access properties and methods from constuctor function.</li>
+<li>The prototype is an object that is associated with every functions and objects by default in JavaScript, where function&rsquo;s prototype property is accessible and
+modifiable and object&rsquo;s prototype property (aka attribute) is not visible.</li>
+<li>object&rsquo;s prototype property is invisible. Use Object.getPrototypeOf(obj) method instead of <strong>proto</strong> to access prototype object.</li>
+<li>prototype is useful in keeping only one copy of functions for all the objects (instances).</li>
+<li>An Object has a prototype. A prototype is also an object. Hence Even it may have its own prototype object. This is referred to as prototype chain.</li>
+</ol>
+<p><A>Several Types:</p>
+<ol>
+<li>Object.prototype- It is a prototype OBJECT of object(cunstruction function where it will inherit all properties of Object.protorype).
+Prototype Object of Object.prototype is NULL.</li>
+<li>Array.prototype-Prototype Object of Array.prototype is Object.prototype and Prototype Object of Object.prototype is NULL.</li>
+<li>Function.prototype</li>
+<li>Example-
+var person = function(name){
+this.name = name;
+}
+person.prototype.age = 21;
+var piya = new person(&ldquo;Piya&rdquo;);
+var priya = new person(&ldquo;Priya&rdquo;);
+console.log(piya.age) //21
+console.log(priya.age) //21</li>
+</ol>
+<p><B>Purpose/Use of prototype:</p>
+<ol>
+<li>to find properties and methods of an object</li>
+<li>to implement inheritance in JavaScript</li>
+</ol>
+<p><C>Difference between Prototype and <strong>proto</strong>:</p>
+<ol>
+<li>In reality, the only true difference between prototype and <strong>proto</strong> is that the former is a property of a class constructor,
+while the latter is a property of a class instance.</li>
+<li>Instances have <strong>proto</strong>, classes have prototype.</li>
+<li>Instances of a constructor function use <strong>proto</strong> to access the prototype property of its constructor function.</li>
+<li><strong>proto</strong> is invisible property of an object. It returns prototype object of a function to which it links to.</li>
+<li><strong>proto</strong> is Deprecated.</li>
+<li>Example:
+function Person(name){
+this.name = name
+};
+var eve = new Person(&ldquo;Eve&rdquo;);
+eve.<strong>proto</strong> == Person.prototype //true
+eve.prototype //undefined</li>
+<li>Example:
+function Person() {
+this.name = &lsquo;John&rsquo;
+}
+// adding property
+Person.prototype.name = &lsquo;Peter&rsquo;;
+Person.prototype.age = 23
+const person1 = new Person();
+console.log(person1.name); // John
+console.log(person1.age); // 23</li>
+</ol>
+<hr>
+<p>CSS Positions:</p>
+<ol>
+<li>Static: HTML elements are positioned static by default. Static positioned elements are not affected by the top, bottom, left, and right properties.
+Imapct of margin or padding. Object can&rsquo;t move. it is always positioned according to the normal flow of the page.</li>
+<li>Relative: Object can move. It is positioned relative to its normal position. If want gap from its actual placed position then use it. It work with left,
+right, top, bottom properties.</li>
+<li>Fixed: Not allow to scroll up or down. is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled.
+The top, right, bottom, and left properties are used to position the element. The element is positioned relative to the browser window</li>
+<li>Absolute: it is work with relative i.e, w.r.t parent. It is positioned relative to the nearest positioned ancestor (instead of positioned relative to the
+viewport, like fixed). if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.</li>
+<li>Sticky: An element with position: sticky; is positioned based on the user&rsquo;s scroll position. Internet Explorer does not support sticky positioning.
+You must also specify at least one of top, right, bottom or left for sticky positioning to work. Use for to create menu.</li>
+</ol>
+<hr>
+<p>Time based Event:</p>
+<p>SetTimeout:</p>
+<ol>
+<li>allows us to run a FUNCTION ONCE, after the interval of time</li>
+<li>setTimeout() executes the passed function after given time. The id_value returned by setTimeout() function is stored in a variable and
+it’s passed into the clearTimeout() function to clear the timer.</li>
+<li>Syntax- let timerId = setTimeout(function, milliseconds, [arg1], [arg2], &hellip;)</li>
+<li>Don&rsquo;t make a mistake by adding brackets () after the function otherwise gives undefined and nothing will scheduled.</li>
+<li>Example-
+let timerId = function sayHi(phrase, who) {
+console.log( phrase + who );
+}
+setTimeout(sayHi, 1000, &ldquo;Hello&rdquo;, &ldquo;John&rdquo;);</li>
+</ol>
+<p>SetInterval:</p>
+<ol>
+<li>allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.</li>
+<li>setInterval() executes the passed function for the given time interval. The number id value returned by setInterval() function is stored
+in a variable and it’s passed into the clearInterval() function to clear the interval.</li>
+<li>Syntax-</li>
+<li>Example
+let timerId = function sayHi(phrase, who) {
+console.log( phrase + who );
+}
+setInterval(sayHi, 1000, &ldquo;Hello&rdquo;, &ldquo;John&rdquo;);</li>
+</ol>
+<p>ClearTimeout:</p>
+<ol>
+<li>This method is used to cancel a setTimeout(). Inside the method you have to reference the timeoutID.
+clearTimeout(timerId)</li>
+</ol>
+<p>ClearInterval:</p>
+<ol>
+<li>This method is used to cancel a setInterval(). Inside the method you have to reference the intervalID.
+clearInterval(timerId)</li>
+</ol>
+<hr>
+<p>Debouncing and Throttling in JavaScript:</p>
+<ol>
+<li>Create impact on performance of your website, but also prevent unnecessary API calls and load on the server.</li>
+<li>Debouncing and throttling techniques are used to limit the number of times a function can execute. ke button click, mouse move, search bar, window scrolling
+and window resize allow the user to decide when to execute.</li>
+<li>The main difference between throttling and debouncing is that throttling executes the function at a regular interval, while debouncing executes the function only
+after some cooling period.</li>
+<li>Example: If you&rsquo;re scrolling, throttle will slowly call your function while you scroll (every X milliseconds). Debounce will wait until after you&rsquo;re done scrolling
+to call your function.</li>
+</ol>
+<p>Throttling-
+Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval.</p>
+<p>Debouncing-
+No matter how many times the user fires the event, the attached function will be executed only after the specified time once the user stops firing the event.
+The Debounce technique allow us to “group” multiple sequential calls in a single one.
+var debounced*version = *.debounce(doSomething, 200);
+$(window).on(&lsquo;scroll&rsquo;, debounced_version);
+debounced_version.cancel();</p>
+<hr>
+<p>CALL, APPLY and BIND method: These methods allow us to write a function once and invoke it in a different context. They all attach this into a function (or object)
+and the difference is in the function invocation. Call and apply are pretty interchangeable. Just decide whether it’s easier to send in an array or a comma separated
+list of arguments. I always remember which one is which by remembering that Call is for comma (separated list) and Apply is for Array. Bind is a bit different.
+It returns a new function. Call and Apply execute the current function immediately. The main concept behind all this methods is Function burrowing.</p>
+<p>CALL:</p>
+<ol>
+<li>It is predefined javascript method.</li>
+<li>An object can use a method belonging to another object.</li>
+<li>Call invokes the function and allows you to pass in arguments one by one.
+APPLY:</li>
+<li>Apply invokes the function and allows you to pass in arguments as an array.
+BIND:</li>
+<li>We can bind an object to a common function, so that the function gives different results when its need.</li>
+<li>It takes an object as an first argument and creates a new function.</li>
+</ol>
+<p>Example1:
+const people={
+fullName: function(){
+return this.firstName+&rdquo; &ldquo;+this.lastName;
+}
+}
+const person1={
+firstName: &ldquo;Priya&rdquo;,
+lastName:&ldquo;Bagde&rdquo;
+}
+console.log(people.fullName.call(person1)); //Priya Bagde
+console.log(people.fullName.apply(person1)); //Priya Bagde
+let bound = people.fullName.bind(person1)
+console.log(bound()) //Priya Bagde</p>
+<p>Example2:
+const obj = {name:&ldquo;Priya&rdquo;}
+let greeting = function(a,b){
+return a+&rdquo; &ldquo;+this.name+&rdquo; &ldquo;+b;
+}
+console.log(greeting.call(obj, &ldquo;Hello&rdquo;, &ldquo;How are you?&rdquo;));
+console.log(greeting.apply(obj, [&ldquo;Hello&rdquo;, &ldquo;How are you?&rdquo;]));
+let test=greeting.bind(obj);
+console.log(test(&ldquo;Hello&rdquo;, &ldquo;How are you?&rdquo;))</p>
+<hr>
+<p>Hoisting:</p>
+<ol>
+<li>To move all of the variable and function declarations at the top of the current scope.</li>
+<li>Hoisting is JavaScript&rsquo;s default behavior of moving declarations to the top.</li>
+<li>A variable can be used before it has been declared.</li>
+<li>Note: JavaScript only hoists declarations, not the initializations.</li>
+<li>JavaScript allocates memory for all variables and functions defined in the program before execution.</li>
+<li>Due to the concept of hoisting in JavaScript, we can call a function even before we define the function definition in our program&rsquo;s code.</li>
+<li>Variables defined with let and const are hoisted to the top of the block, but not initialized.</li>
+</ol>
+<p>Examples:</p>
+<ol>
+<li>
+<p>Hoisting Function: If i write below code then JS compiler auto move declaration first then call of a function.
+hello() //call
+function hello(){ //declaration
+console.log(&ldquo;Hello world&rdquo;)
+}</p>
+</li>
+<li>
+<p>Hoisting Var keyword:
+var x; //declaration
+console.log(x) //call //output will be undefined because if value is not assigned before call then always assign a &ldquo;undefined&rdquo; value. whereas it doesn&rsquo;t provide
+undefined for const and let keywords
+x=7; //assignment</p>
+</li>
+</ol>
+<hr>
+<p>var x=7; //declaration and assignment
+console.log(x) //call //7</p>
+<hr>
+<p>x=7; //assignment
+console.log(x) //call //7
+var x; //declaration</p>
+<hr>
+<p>console.log(x) //call //undefined
+x=7; //assignment
+var x; //declaration</p>
+<hr>
+<p>console.log(x) //call //undefined
+var x=7; //declaration</p>
+<ol start="3">
+<li>Let/const Hoising:
+let x=7; //declaration and assignment
+console.log(x) //call //7</li>
+</ol>
+<hr>
+<p>const x; //declaration
+console.log(x) //call //Missing initializer in const declaration
+x=7; //assignment</p>
+<hr>
+<p>Window and This:</p>
+<p>Window:</p>
+<ol>
+<li>Javascript engine create global context execution and allocate some memory space. It is a big object with lot of methods and functions which is created in global space
+by JS engine.</li>
+<li>Window is the main JavaScript object root, aka the global object in a browser, and it can also be treated as the root of the document object model. You can access it as window.</li>
+<li>window.document or just document is the main object of the potentially visible (or better yet: rendered) document object model/DOM.</li>
+<li>window is the global object, you can reference any properties of it with just the property name - so you do not have to write down window. - it will be figured out by the runtime.</li>
+<li>window.document.getElementById(&ldquo;header&rdquo;) is the same as document.getElementById(&ldquo;header&rdquo;).</li>
+</ol>
+<p>This:</p>
+<ol>
+<li>At global level THIS points to the window.</li>
+<li>With Window object THIS variable is created by default.</li>
+<li>This === window //true</li>
+</ol>
+<p>Example:
+var a=10;
+function b(){
+var x=10;
+}
+console.log(window.a); //10
+console.log(a); //10
+console.log(this.a); //10</p>
+<hr>
+<p>Even Propogation an STOP Propogation: Bydefault event capturing happen first and then even bubbling happen.</p>
+<p>Event Bubbling:</p>
+<ol>
+<li>When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. With bubbling, the event is
+first captured and handled by the innermost element and then propagated to outer elements.</li>
+<li>Bydefault event bubbling execute. To run event bubbling required to mention 3rd argument as FALSE or nothing.</li>
+<li>&ldquo;child clicked&rdquo;
+&ldquo;parent clicked&rdquo;
+&ldquo;grandparent clicked&rdquo;</li>
+<li>Drawback: Bubbling not occur at blur, focus, resizing of window etc.</li>
+</ol>
+<p>Event Capturing or Event Trickling:</p>
+<ol>
+<li>With capturing, the event is first captured by the outermost element and propagated to the inner elements.</li>
+<li>To run event capturing required to mention 3rd argument as TRUE.</li>
+<li>&ldquo;grandparent clicked&rdquo;
+&ldquo;parent clicked&rdquo;
+&ldquo;child clicked&rdquo;</li>
+</ol>
+<p>Example:
+html-</p>
+<div id="grandparent">
+  <div id="parent">
+    <div id="child">
+      </div>
+</div>
+</div>
+<p>css-
+div{
+min-width: 10px;
+min-height: 10px;
+border: 1px solid red;
+padding: 30px;
+}</p>
+<p>js-
+for bubbling:
+document.querySelector(&quot;#grandparent&rdquo;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;grandparent clicked&rdquo;)}, false); or document.querySelector(&quot;#grandparent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;grandparent clicked&rdquo;)});
+document.querySelector(&quot;#parent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;parent clicked&rdquo;)}, false); or document.querySelector(&quot;#parent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;parent clicked&rdquo;)});
+document.querySelector(&quot;#child&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;child clicked&rdquo;)}, false); or document.querySelector(&quot;#child&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;child clicked&rdquo;)})
+for capturing:
+document.querySelector(&quot;#grandparent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;grandparent clicked&rdquo;)}, true);
+document.querySelector(&quot;#parent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;parent clicked&rdquo;)},true);
+document.querySelector(&quot;#child&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;child clicked&rdquo;)},true);
+stopPropogation:
+document.querySelector(&quot;#grandparent&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;grandparent clicked&rdquo;)}, false);</p>
+<p>document.querySelector(&quot;#parent&quot;).addEventListener(&ldquo;click&rdquo;,(e)=&gt; {console.log(&ldquo;parent clicked&rdquo;); e.stopPropogation()},false);</p>
+<p>document.querySelector(&quot;#child&quot;).addEventListener(&ldquo;click&rdquo;,()=&gt; {console.log(&ldquo;child clicked&rdquo;)},false);</p>
+<hr>
+<p>Event Delegation:</p>
+<ol>
+<li>Event delegation makes use of one of the Event Propagation techniques called Event Bubbling</li>
+<li>if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.</li>
+<li>In the handler we get event.target to see where the event actually happened and handle it.</li>
+<li>Less memory usage, better performance.</li>
+<li>Less time required to set up event handlers on the page.</li>
+<li>Event delegation is a pattern to handle events efficiently in JavaScript. The main idea is to reduce the number of event handlers on a webpage and thus
+improving the performance of the website.</li>
+<li>When there are multiple DOM elements present, instead of adding event handlers on each one of them, you can just add one event handler
+(on the parent/common ancestor element) which can do the exact same work which all those multiple event handlers were supposed to do.</li>
+</ol>
+<p>Example:</p>
+<p>html-
+Counter: <input type="button" value="1" data-counter>
+One more counter: <input type="button" value="2" data-counter></p>
+<script>
+  document.addEventListener('click', function(event) {
+
+    if (event.target.dataset.counter != undefined) {
+      event.target.value++;
+      console.log(event.target.value)
+    }
+  });
+</script>
+<hr>
+<p>Polyfill:</p>
+<ol>
+<li>With the help of polyfill can write own implementation of BIND function.</li>
+<li>Polyfills is a way to use modern features (usually JS) on browsers where it is currently unsupported. We do this by mimicking the functionality using supported methods
+along with our own logic.</li>
+<li>A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.</li>
+</ol>
+<p>Example for bind:
+With Bind-
+let name ={
+first: &ldquo;Priya&rdquo;,
+last: &ldquo;Bagde&rdquo;
+}
+let printName = function(){
+console.log(this.first+this.last)
+}
+let printNameFinal= printName.bind(name)
+printNameFinal()</p>
+<p>Without Bind-
+let name ={ first: &ldquo;Priya&rdquo;, last: &ldquo;Bagde&rdquo;}
+let printName = function(town, state){ console.log(this.first+&quot; &ldquo;+this.last+&rdquo; &ldquo;+town+&rdquo; &ldquo;+state)}
+Function.prototype.mybind= function(&hellip;args){ //printName arguments
+let obj = this; //printName
+params = args.slice(1)
+return function(&hellip;args2){ //printNameFinal arguments
+obj.apply(args[0], [&hellip;params, &hellip;args2])
+}
+}
+let printNameFinal= printName.mybind(name, &ldquo;chhindwara&rdquo;)
+printNameFinal(&ldquo;MadyaPradesh&rdquo;)</p>
+<hr>
+<p>Promises:-</p>
+<p>👉Why do you need a promise?
+✌🏼Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.</p>
+<p>👉What are the three states of promise ?
+✌🏼Promises have three states:
+Pending: This is an initial state of the Promise before an operation begins
+Fulfilled: This state indicates that the specified operation was completed.
+Rejected: This state indicates that the operation did not complete. In this case an error value will be thrown.</p>
+<p>👉What is promise chaining ?
+✌🏼The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.</p>
+<p>👉What is promise.all ?
+✌🏼Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,
+Promise.all([Promise1, Promise2, Promise3])
+.then(result) =&gt; { console.log(result) })
+.catch(error =&gt; console.log(<code>Error in promises ${error}</code>))</p>
+<p>👉What are the pros and cons of promises over callbacks ?
+✌🏼Pros:
+It avoids callback hell which is unreadable
+Easy to write sequential asynchronous code with .then()
+Easy to write parallel asynchronous code with Promise.all()
+Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+Cons:
+It makes little complex code
+You need to load a polyfill if ES6 is not supported</p>
+<p>👉How to cancel a fetch request ?
+✌🏼One shortcoming of native promises is no direct way to cancel a fetch request. But the new AbortController from js specification allows you to use a signal to abort one or multiple fetch calls.</p>
+<hr>
+<p>👉What are default parameters?
+✌🏼In E5, we need to depend on logical OR operators to handle default values of function parameters. Whereas in ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. Let&rsquo;s compare the behavior with an examples,
+//ES5
+var calculateArea = function(height, width) {
+height = height || 50;
+width = width || 60;
+return width _ height;
+}
+console.log(calculateArea()); //300
+//ES6
+var calculateArea = function(height = 50, width = 60) {
+return width _ height;
+}
+console.log(calculateArea()); //300</p>
+<p>✌🏼After default parameters you should not have parameters without default value-
+function printValue(a=1, b) {
+console.log(&ldquo;a = &quot; + a + &quot; and b = &quot; + b);
+}
+printValue(); // Logs: a = 1 and b = undefined
+printValue(7); // Logs: a = 7 and b = undefined
+printValue(7, 3); // Logs: a = 7 and b = 3</p>
+<p>✌🏼Default values for parameters and calling it without arguments-
+function add(a=10, b=20)
+{
+return a+b;
+}
+console.log(&rdquo; Sum is : &quot; + add()); // No argument //30
+console.log(&rdquo; Sum is : &quot; + add(1)); // with one argument //21
+console.log(&quot; Sum is : &quot; + add(5,6)); // with both argument //11</p>
+<p>✌🏼JavaScript Default Parameters with null or empty Argument-
+function test(a = 1)
+{
+console.log(typeof a);
+console.log(&ldquo;Value of a: &quot; + a);
+}
+test(); // number, Value of a: 1
+test(undefined); // number, Value of a: 1
+test(&rsquo;&rsquo;); // string, Value of a:
+test(null); // object, Value of a: null</p>
+<p>✌🏼Default Parameters are evaluated at Call time-
+function append(value, array = []) {
+array.push(value)
+return array
+}
+append(1) // [1]
+append(2) // [2], not [1, 2]</p>
+<hr>
+<p>JWT Token:</p>
+<ol>
+<li>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information
+between parties as a JSON object.</li>
+<li>This information can be verified and trusted because it is digitally signed. JWTs can be signed using a public/private key pair using RSA.</li>
+</ol>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>================================================================================================================================================================</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/others/others/interview-algorithm-questions-in-javascript/" class="stretched-link text-reset text-decoration-none">Interview Algorithm Questions in Javascript</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/others/others/reverse-interview-questions/" class="stretched-link text-reset text-decoration-none">Reverse Interview Questions</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>
