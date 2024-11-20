@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/07-sets-and-maps/">
+  <link rel="canonical" href="http://localhost:1313/es6/07-sets-and-maps/">
+<title>07 Sets and Maps  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="07 Sets and Maps">
+<meta property="og:description" content="JavaScript only had one type of collection, represented by the Array type, for most of its history (though some may argue all non-array objects are just collections of key-value pairs, their intended use was, originally quite different from arrays). Arrays are used in JavaScript just like arrays in other languages, but the lack of other collection options meant arrays were often used as queues and stacks, as well. Since arrays only use numeric indices, developers used non-array objects whenever a non-numeric index was necessary. That technique led to custom implementations of sets and maps using non-array objects.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/07-sets-and-maps/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="07 Sets and Maps">
+<meta name="twitter:description" content="JavaScript only had one type of collection, represented by the Array type, for most of its history (though some may argue all non-array objects are just collections of key-value pairs, their intended use was, originally quite different from arrays). Arrays are used in JavaScript just like arrays in other languages, but the lack of other collection options meant arrays were often used as queues and stacks, as well. Since arrays only use numeric indices, developers used non-array objects whenever a non-numeric index was necessary. That technique led to custom implementations of sets and maps using non-array objects.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "07 Sets and Maps",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#sets-and-maps-in-ecmascript-5">Sets and Maps in ECMAScript 5</a></li>
+    <li><a href="#problems-with-workarounds">Problems with Workarounds</a></li>
+    <li><a href="#sets-in-ecmascript-6">Sets in ECMAScript 6</a>
+      <ul>
+        <li><a href="#creating-sets-and-adding-items">Creating Sets and Adding Items</a></li>
+        <li><a href="#removing-values">Removing Values</a></li>
+        <li><a href="#the-foreach-method-for-sets">The forEach() Method for Sets</a></li>
+        <li><a href="#converting-a-set-to-an-array">Converting a Set to an Array</a></li>
+        <li><a href="#weak-sets">Weak Sets</a></li>
+      </ul>
+    </li>
+    <li><a href="#maps-in-ecmascript-6">Maps in ECMAScript 6</a>
+      <ul>
+        <li><a href="#map-methods">Map Methods</a></li>
+        <li><a href="#map-initialization">Map Initialization</a></li>
+        <li><a href="#the-foreach-method-on-maps">The forEach Method on Maps</a></li>
+        <li><a href="#weak-maps">Weak Maps</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>07 Sets and Maps</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sets-and-maps-in-ecmascript-5">Sets and Maps in ECMAScript 5</a></li>
+    <li><a href="#problems-with-workarounds">Problems with Workarounds</a></li>
+    <li><a href="#sets-in-ecmascript-6">Sets in ECMAScript 6</a>
+      <ul>
+        <li><a href="#creating-sets-and-adding-items">Creating Sets and Adding Items</a></li>
+        <li><a href="#removing-values">Removing Values</a></li>
+        <li><a href="#the-foreach-method-for-sets">The forEach() Method for Sets</a></li>
+        <li><a href="#converting-a-set-to-an-array">Converting a Set to an Array</a></li>
+        <li><a href="#weak-sets">Weak Sets</a></li>
+      </ul>
+    </li>
+    <li><a href="#maps-in-ecmascript-6">Maps in ECMAScript 6</a>
+      <ul>
+        <li><a href="#map-methods">Map Methods</a></li>
+        <li><a href="#map-initialization">Map Initialization</a></li>
+        <li><a href="#the-foreach-method-on-maps">The forEach Method on Maps</a></li>
+        <li><a href="#weak-maps">Weak Maps</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>JavaScript only had one type of collection, represented by the <code>Array</code> type, for most of its history (though some may argue all non-array objects are just collections of key-value pairs, their intended use was, originally quite different from arrays). Arrays are used in JavaScript just like arrays in other languages, but the lack of other collection options meant arrays were often used as queues and stacks, as well. Since arrays only use numeric indices, developers used non-array objects whenever a non-numeric index was necessary. That technique led to custom implementations of sets and maps using non-array objects.</p>
+<p>A <em>set</em> is a list of values that cannot contain duplicates. You typically don&rsquo;t access individual items in a set like you would items in an array; instead, it&rsquo;s much more common to just check a set to see if a value is present. A <em>map</em> is a collection of keys that correspond to specific values. As such, each item in a map stores two pieces of data, and values are retrieved by specifying the key to read from. Maps are frequently used as caches, for storing data to be quickly retrieved later. While ECMAScript 5 didn&rsquo;t formally have sets and maps, developers worked around this limitation using non-array objects, too.</p>
+<p>ECMAScript 6 added sets and maps to JavaScript, and this chapter discusses everything you need to know about these two collection types.</p>
+<p>First, I will discuss the workarounds developers used to implement sets and maps before ECMAScript 6, and why those implementations were problematic. After that important background information, I will cover how sets and maps work in ECMAScript 6.</p>
+<h2 id="sets-and-maps-in-ecmascript-5">Sets and Maps in ECMAScript 5<a href="#sets-and-maps-in-ecmascript-5" class="anchor" aria-hidden="true">#</a> </h2>
+<p>In ECMAScript 5, developers mimicked sets and maps by using object properties, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// checking for existence
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// do something
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>set</code> variable in this example is an object with a <code>null</code> prototype, ensuring that there are no inherited properties on the object. Using object properties as unique values to be checked is a common approach in ECMAScript 5. When a property is added to the <code>set</code> object, it is set to <code>true</code> so conditional statements (such as the <code>if</code> statement in this example) can easily check whether the value is present.</p>
+<p>The only real difference between an object used as a set and an object used as a map is the value being stored. For instance, this example uses an object as a map:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;bar&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// retrieving a value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// &#34;bar&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code stores a string value <code>&quot;bar&quot;</code> under the key <code>foo</code>. Unlike sets, maps are mostly used to retrieve information, rather than just checking for the key&rsquo;s existence.</p>
+<h2 id="problems-with-workarounds">Problems with Workarounds<a href="#problems-with-workarounds" class="anchor" aria-hidden="true">#</a> </h2>
+<p>While using objects as sets and maps works okay in simple situations, the approach can get more complicated once you run into the limitations of object properties. For example, since all object properties must be strings, you must be certain no two keys evaluate to the same string. Consider the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="s2">&#34;5&#34;</span><span class="p">]);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example assigns the string value <code>&quot;foo&quot;</code> to a numeric key of <code>5</code>. Internally, that numeric value is converted to a string, so <code>map[&quot;5&quot;]</code> and <code>map[5]</code> actually reference the same property. That internal conversion can cause problems when you want to use both numbers and strings as keys. Another problem arises when using objects as keys, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key1</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key2</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">[</span><span class="nx">key1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">key2</span><span class="p">]);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>map[key2]</code> and <code>map[key1]</code> reference the same value. The objects <code>key1</code> and <code>key2</code> are converted to strings because object properties must be strings. Since <code>&quot;[object Object]&quot;</code> is the default string representation for objects, both <code>key1</code> and <code>key2</code> are converted to that string. This can cause errors that may not be obvious because it&rsquo;s logical to assume that different object keys would, in fact, be different.</p>
+<p>The conversion to the default string representation makes it difficult to use objects as keys. (The same problem exists when trying to use an object as a set.)</p>
+<p>Maps with a key whose value is falsy present their own particular problem, too. A falsy value is automatically converted to false when used in situations where a boolean value is required, such as in the condition of an <code>if</code> statement. This conversion alone isn&rsquo;t a problem&ndash;so long as you&rsquo;re careful as to how you use values. For instance, look at this code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// checking for the existence of &#34;count&#34; or a nonzero value?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example has some ambiguity as to how <code>map.count</code> should be used. Is the <code>if</code> statement intended to check for the existence of <code>map.count</code> or that the value is nonzero? The code inside the <code>if</code> statement will execute because the value 1 is truthy. However, if <code>map.count</code> is 0, or if <code>map.count</code> doesn&rsquo;t exist, the code inside the <code>if</code> statement would not be executed.</p>
+<p>These are difficult problems to identify and debug when they occur in large applications, which is a prime reason that ECMAScript 6 adds both sets and maps to the language.</p>
+<p>I&gt; JavaScript has the <code>in</code> operator that returns <code>true</code> if a property exists in an object without reading the value of the object. However, the <code>in</code> operator also searches the prototype of an object, which makes it only safe to use when an object has a <code>null</code> prototype. Even so, many developers still incorrectly use code as in the last example rather than using <code>in</code>.</p>
+<h2 id="sets-in-ecmascript-6">Sets in ECMAScript 6<a href="#sets-in-ecmascript-6" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 6 adds a <code>Set</code> type that is an ordered list of values without duplicates. Sets allow fast access to the data they contain, adding a more efficient manner of tracking discrete values.</p>
+<h3 id="creating-sets-and-adding-items">Creating Sets and Adding Items<a href="#creating-sets-and-adding-items" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Sets are created using <code>new Set()</code> and items are added to a set by calling the <code>add()</code> method. You can see how many items are in a set by checking the <code>size</code> property:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;5&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Sets do not coerce values to determine whether they are the same. That means a set can contain both the number <code>5</code> and the string <code>&quot;5&quot;</code> as two separate items. (The only exception is that -0 and +0 are considered to be the same.) You can also add multiple objects to the set, and those objects will remain distinct:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key1</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key2</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">key1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">key2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Because <code>key1</code> and <code>key2</code> are not converted to strings, they count as two unique items in the set. (Remember, if they were converted to strings, they would both be equal to <code>&quot;[object Object]&quot;</code>.)</p>
+<p>If the <code>add()</code> method is called more than once with the same value, all calls after the first one are effectively ignored:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;5&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// duplicate - this is ignored
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>You can initialize a set using an array, and the <code>Set</code> constructor will ensure that only unique values are used. For instance:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 5
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, an array with duplicate values is used to initialize the set. The number <code>5</code> only appears once in the set even though it appears four times in the array. This functionality makes converting existing code or JSON structures to use sets easy.</p>
+<p>I&gt; The <code>Set</code> constructor actually accepts any iterable object as an argument. Arrays work because they are iterable by default, as are sets and maps. The <code>Set</code> constructor uses an iterator to extract values from the argument. (Iterables and iterators are discussed in detail in Chapter 8.)</p>
+<p>You can test which values are in a set using the <code>has()</code> method, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;5&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>set.has(6)</code> would return false because the set doesn&rsquo;t have that value.</p>
+<h3 id="removing-values">Removing Values<a href="#removing-values" class="anchor" aria-hidden="true">#</a> </h3>
+<p>It&rsquo;s also possible to remove values from a set. You can remove single value by using the <code>delete()</code> method, or you can remove all values from the set by calling the <code>clear()</code> method. This code shows both in action:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;5&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;5&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>After the <code>delete()</code> call, only <code>5</code> is gone; after the <code>clear()</code> method executes, <code>set</code> is empty.</p>
+<p>All of this amounts to a very easy mechanism for tracking unique ordered values. However, what if you want to add items to a set and then perform some operation on each item? That&rsquo;s where the <code>forEach()</code> method comes in.</p>
+<h3 id="the-foreach-method-for-sets">The forEach() Method for Sets<a href="#the-foreach-method-for-sets" class="anchor" aria-hidden="true">#</a> </h3>
+<p>If you&rsquo;re used to working with arrays, then you may already be familiar with the <code>forEach()</code> method. ECMAScript 5 added <code>forEach()</code> to arrays to make working on each item in an array without setting up a <code>for</code> loop easier. The method proved popular among developers, and so the same method is available on sets and works the same way.</p>
+<p>The <code>forEach()</code> method is passed a callback function that accepts three arguments:</p>
+<ol>
+<li>The value from the next position in the set</li>
+<li>The same value as the first argument</li>
+<li>The set from which the value is read</li>
+</ol>
+<p>The strange difference between the set version of <code>forEach()</code> and the array version is that the first and second arguments to the callback function are the same. While this might look like a mistake, there&rsquo;s a good reason for the behavior.</p>
+<p>The other objects that have <code>forEach()</code> methods (arrays and maps) pass three arguments to their callback functions. The first two arguments for arrays and maps are the value and the key (the numeric index for arrays).</p>
+<p>Sets do not have keys, however. The people behind the ECMAScript 6 standard could have made the callback function in the set version of <code>forEach()</code> accept two arguments, but that would have made it different from the other two. Instead, they found a way to keep the callback function the same and accept three arguments: each value in a set is considered to be both the key and the value. As such, the first and second argument are always the same in <code>forEach()</code> on sets to keep this functionality consistent with the other <code>forEach()</code> methods on arrays and maps.</p>
+<p>Other than the difference in arguments, using <code>forEach()</code> is basically the same for a set as it is for an array. Here&rsquo;s some code that shows the method at work:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">ownerSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ownerSet</span> <span class="o">===</span> <span class="nx">set</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code iterates over each item in the set and outputs the values passed to the <code>forEach()</code> callback function. Each time the callback function executes, <code>key</code> and <code>value</code> are the same, and <code>ownerSet</code> is always equal to <code>set</code>. This code outputs:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>1 1
+true
+2 2
+true</code></pre>
+  </figure>
+</div>
+<p>Also the same as arrays, you can pass a <code>this</code> value as the second argument to <code>forEach()</code> if you need to use <code>this</code> in your callback function:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">processor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">(</span><span class="nx">dataSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dataSet</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">processor</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">set</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, the <code>processor.process()</code> method calls <code>forEach()</code> on the set and passes <code>this</code> as the <code>this</code> value for the callback. That&rsquo;s necessary so <code>this.output()</code> will correctly resolve to the <code>processor.output()</code> method. The <code>forEach()</code> callback function only makes use of the first argument, <code>value</code>, so the others are omitted. You can also use an arrow function to get the same effect without passing the second argument, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">processor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">(</span><span class="nx">dataSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dataSet</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">processor</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">set</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The arrow function in this example reads <code>this</code> from the containing <code>process()</code> function, and so it should correctly resolve <code>this.output()</code> to a <code>processor.output()</code> call.</p>
+<p>Keep in mind that while sets are great for tracking values and <code>forEach()</code> lets you work on each value sequentially, you can&rsquo;t directly access a value by index like you can with an array. If you need to do so, then the best option is to convert the set into an array.</p>
+<h3 id="converting-a-set-to-an-array">Converting a Set to an Array<a href="#converting-a-set-to-an-array" class="anchor" aria-hidden="true">#</a> </h3>
+<p>It&rsquo;s easy to convert an array into a set because you can pass the array to the <code>Set</code> constructor. It&rsquo;s also easy to convert a set back into an array using the spread operator. Chapter 3 introduced the spread operator (<code>...</code>) as a way to split items in an array into separate function parameters. You can also use the spread operator to work on iterable objects, such as sets, to convert them into arrays. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">array</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">set</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> <span class="c1">// [1,2,3,4,5]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, a set is initially loaded with an array that contains duplicates. The set removes the duplicates, and then the items are placed into a new array using the spread operator. The set itself still contains the same items (<code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, and <code>5</code>) it received when it was created. They&rsquo;ve just been copied to a new array.</p>
+<p>This approach is useful when you already have an array and want to create an array without duplicates. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">eliminateDuplicates</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">items</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">noDuplicates</span> <span class="o">=</span> <span class="nx">eliminateDuplicates</span><span class="p">(</span><span class="nx">numbers</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">noDuplicates</span><span class="p">);</span> <span class="c1">// [1,2,3,4,5]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In the <code>eliminateDuplicates()</code> function, the set is just a temporary intermediary used to filter out duplicate values before creating a new array that has no duplicates.</p>
+<h3 id="weak-sets">Weak Sets<a href="#weak-sets" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The <code>Set</code> type could alternately be called a strong set, because of the way it stores object references. An object stored in an instance of <code>Set</code> is effectively the same as storing that object inside a variable. As long as a reference to that <code>Set</code> instance exists, the object cannot be garbage collected to free memory. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// eliminate original reference
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">key</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// get the original reference back
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">key</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">set</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, setting <code>key</code> to <code>null</code> clears one reference of the <code>key</code> object, but another remains inside <code>set</code>. You can still retrieve <code>key</code> by converting the set to an array with the spread operator and accessing the first item. That result is fine for most programs, but sometimes, it&rsquo;s better for references in a set to disappear when all other references disappear. For instance, if your JavaScript code is running in a web page and wants to keep track of DOM elements that might be removed by another script, you don&rsquo;t want your code holding onto the last reference to a DOM element. (That situation is called a <em>memory leak</em>.)</p>
+<p>To alleviate such issues, ECMAScript 6 also includes <em>weak sets</em>, which only store weak object references and cannot store primitive values. A <em>weak reference</em> to an object does not prevent garbage collection if it is the only remaining reference.</p>
+<h4 id="creating-a-weak-set">Creating a Weak Set<a href="#creating-a-weak-set" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Weak sets are created using the <code>WeakSet</code> constructor and have an <code>add()</code> method, a <code>has()</code> method, and a <code>delete()</code> method. Here&rsquo;s an example that uses all three:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakSet</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// add the object to the set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">set</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Using a weak set is a lot like using a regular set. You can add, remove, and check for references in the weak set. You can also seed a weak set with values by passing an iterable to the constructor:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">key1</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key2</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakSet</span><span class="p">([</span><span class="nx">key1</span><span class="p">,</span> <span class="nx">key2</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key1</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key2</span><span class="p">));</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, an array is passed to the <code>WeakSet</code> constructor. Since this array contains two objects, those objects are added into the weak set. Keep in mind that an error will be thrown if the array contains any non-object values, since <code>WeakSet</code> can&rsquo;t accept primitive values.</p>
+<h4 id="key-differences-between-set-types">Key Differences Between Set Types<a href="#key-differences-between-set-types" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The biggest difference between weak sets and regular sets is the weak reference held to the object value. Here&rsquo;s an example that demonstrates that difference:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakSet</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// add the object to the set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">set</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">set</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// remove the last strong reference to key, also removes from weak set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">key</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>After this code executes, the reference to <code>key</code> in the weak set is no longer accessible. It is not possible to verify its removal because you would need one reference to that object to pass to the <code>has()</code> method. This can make testing weak sets a little confusing, but you can trust that the reference has been properly removed by the JavaScript engine.</p>
+<p>These examples show that weak sets share some characteristics with regular sets, but there are some key differences. Those are:</p>
+<ol>
+<li>In a <code>WeakSet</code> instance, the <code>add()</code> method throws an error when passed a non-object (<code>has()</code> and <code>delete()</code> always return <code>false</code> for non-object arguments).</li>
+<li>Weak sets are not iterables and therefore cannot be used in a <code>for-of</code> loop.</li>
+<li>Weak sets do not expose any iterators (such as the <code>keys()</code> and <code>values()</code> methods), so there is no way to programmatically determine the contents of a weak set.</li>
+<li>Weak sets do not have a <code>forEach()</code> method.</li>
+<li>Weak sets do not have a <code>size</code> property.</li>
+</ol>
+<p>The seemingly limited functionality of weak sets is necessary in order to properly handle memory. In general, if you only need to track object references, then you should use a weak set instead of a regular set.</p>
+<p>Sets give you a new way to handle lists of values, but they aren&rsquo;t useful when you need to associate additional information with those values. That&rsquo;s why ECMAScript 6 also adds maps.</p>
+<h2 id="maps-in-ecmascript-6">Maps in ECMAScript 6<a href="#maps-in-ecmascript-6" class="anchor" aria-hidden="true">#</a> </h2>
+<p>The ECMAScript 6 <code>Map</code> type is an ordered list of key-value pairs, where both the key and the value can have any type. Keys equivalence is determined by using the same approach as <code>Set</code> objects, so you can have both a key of <code>5</code> and a key of <code>&quot;5&quot;</code> because they are different types. This is quite different from using object properties as keys, as object properties always coerce values into strings.</p>
+<p>You can add items to maps by calling the <code>set()</code> method and passing it a key and the value to associate with the key. You can later retrieve a value by passing the key to the <code>get()</code> method. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;Understanding ES6&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;year&#34;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">));</span> <span class="c1">// &#34;Understanding ES6&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;year&#34;</span><span class="p">));</span> <span class="c1">// 2016
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, two key-value pairs are stored. The <code>&quot;title&quot;</code> key stores a string while the <code>&quot;year&quot;</code> key stores a number. The <code>get()</code> method is called later to retrieve the values for both keys. If either key didn&rsquo;t exist in the map, then <code>get()</code> would have returned the special value <code>undefined</code> instead of a value.</p>
+<p>You can also use objects as keys, which isn&rsquo;t possible when using object properties to create a map in the old workaround approach. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key1</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key2</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">key2</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key1</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key2</span><span class="p">));</span> <span class="c1">// 42
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses the objects <code>key1</code> and <code>key2</code> as keys in the map to store two different values. Because these keys are not coerced into another form, each object is considered unique. This allows you to associate additional data with an object without modifying the object itself.</p>
+<h3 id="map-methods">Map Methods<a href="#map-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Maps share several methods with sets. That is intentional, and it allows you to interact with maps and sets in similar ways. These three methods are available on both maps and sets:</p>
+<ul>
+<li><code>has(key)</code> - Determines if the given key exists in the map</li>
+<li><code>delete(key)</code> - Removes the key and its associated value from the map</li>
+<li><code>clear()</code> - Removes all keys and values from the map</li>
+</ul>
+<p>Maps also have a <code>size</code> property that indicates how many key-value pairs it contains. This code uses all three methods and <code>size</code> in different ways:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>As with sets, the <code>size</code> property always contains the number of key-value pairs in the map. The <code>Map</code> instance in this example starts with the <code>&quot;name&quot;</code> and <code>&quot;age&quot;</code> keys, so <code>has()</code> returns <code>true</code> when passed either key. After the <code>&quot;name&quot;</code> key is removed by the <code>delete()</code> method, the <code>has()</code> method returns <code>false</code> when passed <code>&quot;name&quot;</code> and the <code>size</code> property indicates one less item. The <code>clear()</code> method then removes the remaining key, as indicated by <code>has()</code> returning <code>false</code> for both keys and <code>size</code> being 0.</p>
+<p>The <code>clear()</code> method is a fast way to remove a lot of data from a map, but there&rsquo;s also a way to add a lot of data to a map at one time.</p>
+<h3 id="map-initialization">Map Initialization<a href="#map-initialization" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Also similar to sets, you can initialize a map with data by passing an array to the <code>Map</code> constructor. Each item in the array must itself be an array where the first item is the key and the second is that key&rsquo;s corresponding value. The entire map, therefore, is an array of these two-item arrays, for example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">));</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">));</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The keys <code>&quot;name&quot;</code> and <code>&quot;age&quot;</code> are added into <code>map</code> through initialization in the constructor. While the array of arrays may look a bit strange, it&rsquo;s necessary to accurately represent keys, as keys can be any data type. Storing the keys in an array is the only way to ensure they aren&rsquo;t coerced into another data type before being stored in the map.</p>
+<h3 id="the-foreach-method-on-maps">The forEach Method on Maps<a href="#the-foreach-method-on-maps" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The <code>forEach()</code> method for maps is similar to <code>forEach()</code> for sets and arrays, in that it accepts a callback function that receives three arguments:</p>
+<ol>
+<li>The value from the next position in the map</li>
+<li>The key for that value</li>
+<li>The map from which the value is read</li>
+</ol>
+<p>These callback arguments more closely match the <code>forEach()</code> behavior in arrays, where the first argument is the value and the second is the key (corresponding to a numeric index in arrays). Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">ownerMap</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ownerMap</span> <span class="o">===</span> <span class="nx">map</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>forEach()</code> callback function outputs the information that is passed to it. The <code>value</code> and <code>key</code> are output directly, and <code>ownerMap</code> is compared to <code>map</code> to show that the values are equivalent. This outputs:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>name Nicholas
+true
+age 25
+true</code></pre>
+  </figure>
+</div>
+<p>The callback passed to <code>forEach()</code> receives each key-value pair in the order in which the pairs were inserted into the map. This behavior differs slightly from calling <code>forEach()</code> on arrays, where the callback receives each item in order of numeric index.</p>
+<p>I&gt; You can also provide a second argument to <code>forEach()</code> to specify the <code>this</code> value inside the callback function. A call like that behaves the same as the set version of the <code>forEach()</code> method.</p>
+<h3 id="weak-maps">Weak Maps<a href="#weak-maps" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Weak maps are to maps what weak sets are to sets: they&rsquo;re a way to store weak object references. In <em>weak maps</em>, every key must be an object (an error is thrown if you try to use a non-object key), and those object references are held weakly so they don&rsquo;t interfere with garbage collection. When there are no references to a weak map key outside a weak map, the key-value pair is removed from the weak map.</p>
+<p>The most useful place to employ weak maps is when creating an object related to a particular DOM element in a web page. For example, some JavaScript libraries for web pages maintain one custom object for every DOM element referenced in the library, and that mapping is stored in a cache of objects internally.</p>
+<p>The difficult part of this approach is determining when a DOM element no longer exists in the web page, so that the library can remove its associated object. Otherwise, the library would hold onto the DOM element reference past the reference&rsquo;s usefulness and cause a memory leak. Tracking the DOM elements with a weak map would still allow the library to associate a custom object with every DOM element, and it could automatically destroy any object in the map when that object&rsquo;s DOM element no longer exists.</p>
+<p>I&gt; It&rsquo;s important to note that only weak map keys, and not weak map values, are weak references. An object stored as a weak map value will prevent garbage collection if all other references are removed.</p>
+<h4 id="using-weak-maps">Using Weak Maps<a href="#using-weak-maps" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The ECMAScript 6 <code>WeakMap</code> type is an unordered list of key-value pairs, where a key must be a non-null object and a value can be of any type. The interface for <code>WeakMap</code> is very similar to that of <code>Map</code> in that <code>set()</code> and <code>get()</code> are used to add and retrieve data, respectively:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;.element&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="s2">&#34;Original&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// &#34;Original&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// remove the element
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">element</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// the weak map is empty at this point
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, one key-value pair is stored. The <code>element</code> key is a DOM element used to store a corresponding string value. That value is then retrieved by passing in the DOM element to the <code>get()</code> method. When the DOM element is later removed from the document and the variable referencing it is set to <code>null</code>, the data is also removed from the weak map.</p>
+<p>Similar to weak sets, there is no way to verify that a weak map is empty, because it doesn&rsquo;t have a <code>size</code> property. Because there are no remaining references to the key, you can&rsquo;t retrieve the value by calling the <code>get()</code> method, either. The weak map has cut off access to the value for that key, and when the garbage collector runs, the memory occupied by the value will be freed.</p>
+<h4 id="weak-map-initialization">Weak Map Initialization<a href="#weak-map-initialization" class="anchor" aria-hidden="true">#</a> </h4>
+<p>To initialize a weak map, pass an array of arrays to the <code>WeakMap</code> constructor. Just like initializing a regular map, each array inside the containing array should have two items, where the first item is the non-null object key and the second item is the value (any data type). For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">key1</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">key2</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">key1</span><span class="p">,</span> <span class="s2">&#34;Hello&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">key2</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key1</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key1</span><span class="p">));</span> <span class="c1">// &#34;Hello&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key2</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key2</span><span class="p">));</span> <span class="c1">// 42
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The objects <code>key1</code> and <code>key2</code> are used as keys in the weak map, and the <code>get()</code> and <code>has()</code> methods can access them. An error is thrown if the <code>WeakMap</code> constructor receives a non-object key in any of the key-value pairs.</p>
+<h4 id="weak-map-methods">Weak Map Methods<a href="#weak-map-methods" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Weak maps have only two additional methods available to interact with key-value pairs. There is a <code>has()</code> method to determine if a given key exists in the map and a <code>delete()</code> method to remove a specific key-value pair. There is no <code>clear()</code> method because that would require enumerating keys, and like weak sets, that isn&rsquo;t possible with weak maps. This example uses both the <code>has()</code> and <code>delete()</code> methods:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;.element&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="s2">&#34;Original&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span> <span class="c1">// &#34;Original&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">map</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">element</span><span class="p">));</span> <span class="c1">// undefined
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, a DOM element is once again used as the key in a weak map. The <code>has()</code> method is useful for checking to see if a reference is currently being used as a key in the weak map. Keep in mind that this only works when you have a non-null reference to a key. The key is forcibly removed from the weak map by the <code>delete()</code> method, at which point <code>has()</code> returns <code>false</code> and <code>get()</code> returns <code>undefined</code>.</p>
+<h4 id="private-object-data">Private Object Data<a href="#private-object-data" class="anchor" aria-hidden="true">#</a> </h4>
+<p>While most developers consider the main use case of weak maps to be associated data with DOM elements, there are many other possible uses (and no doubt, some that have yet to be discovered). One practical use of weak maps is to store data that is private to object instances. All object properties are public in ECMAScript 6, and so you need to use some creativity to make data accessible to objects, but not accessible to everything. Consider the following example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses the common convention of a leading underscore to indicate that a property is considered private and should not be modified outside the object instance. The intent is to use <code>getName()</code> to read <code>this._name</code> and not allow the <code>_name</code> value to change. However, there is nothing standing in the way of someone writing to the <code>_name</code> property, so it can be overwritten either intentionally or accidentally.</p>
+<p>In ECMAScript 5, it&rsquo;s possible to get close to having truly private data, by creating an object using a pattern such as this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">privateData</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">privateId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&#34;_id&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">privateId</span><span class="o">++</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">privateData</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">privateData</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">_id</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">})();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example wraps the definition of <code>Person</code> in an IIFE that contains two private variables, <code>privateData</code> and <code>privateId</code>. The <code>privateData</code> object stores private information for each instance while <code>privateId</code> is used to generate a unique ID for each instance. When the <code>Person</code> constructor is called, a nonenumerable, nonconfigurable, and nonwritable <code>_id</code> property is added.</p>
+<p>Then, an entry is made into the <code>privateData</code> object that corresponds to the ID for the object instance; that&rsquo;s where the <code>name</code> is stored. Later, in the <code>getName()</code> function, the name can be retrieved by using <code>this._id</code> as the key into <code>privateData</code>. Because <code>privateData</code> is not accessible outside of the IIFE, the actual data is safe, even though <code>this._id</code> is exposed publicly.</p>
+<p>The big problem with this approach is that the data in <code>privateData</code> never disappears because there is no way to know when an object instance is destroyed; the <code>privateData</code> object will always contain extra data. This problem can be solved by using a weak map instead, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">privateData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">privateData</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">privateData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">Person</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">})();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This version of the <code>Person</code> example uses a weak map for the private data instead of an object. Because the <code>Person</code> object instance itself can be used as a key, there&rsquo;s no need to keep track of a separate ID. When the <code>Person</code> constructor is called, a new entry is made into the weak map with a key of <code>this</code> and a value of an object containing private information. In this case, that value is an object containing only <code>name</code>. The <code>getName()</code> function retrieves that private information by passing <code>this</code> to the <code>privateData.get()</code> method, which fetches the value object and accesses the <code>name</code> property. This technique keeps the private information private, and destroys that information whenever an object instance associated with it is destroyed.</p>
+<h4 id="weak-map-uses-and-limitations">Weak Map Uses and Limitations<a href="#weak-map-uses-and-limitations" class="anchor" aria-hidden="true">#</a> </h4>
+<p>When deciding whether to use a weak map or a regular map, the primary decision to consider is whether you want to use only object keys. Anytime you&rsquo;re going to use only object keys, then the best choice is a weak map. That will allow you to optimize memory usage and avoid memory leaks by ensuring that extra data isn&rsquo;t kept around after it&rsquo;s no longer accessible.</p>
+<p>Keep in mind that weak maps give you very little visibility into their contents, so you can&rsquo;t use the <code>forEach()</code> method, the <code>size</code> property, or the <code>clear()</code> method to manage the items. If you need some inspection capabilities, then regular maps are a better choice. Just be sure to keep an eye on memory usage.</p>
+<p>Of course, if you only want to use non-object keys, then regular maps are your only choice.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 6 formally introduces sets and maps into JavaScript. Prior to this, developers frequently used objects to mimic both sets and maps, often running into problems due to the limitations associated with object properties.</p>
+<p>Sets are ordered lists of unique values. Values are not coerced to determine equivalence. Sets automatically remove duplicate values, so you can use a set to filter an array for duplicates and return the result. Sets aren&rsquo;t subclasses of arrays, so you cannot randomly access a set&rsquo;s values. Instead, you can use the <code>has()</code> method to determine if a value is contained in the set and the <code>size</code> property to inspect the number of values in the set. The <code>Set</code> type also has a <code>forEach()</code> method to process each set value.</p>
+<p>Weak sets are special sets that can contain only objects. The objects are stored with weak references, meaning that an item in a weak set will not block garbage collection if that item is the only remaining reference to an object. Weak set contents can&rsquo;t be inspected due to the complexities of memory management, so it&rsquo;s best to use weak sets only for tracking objects that need to be grouped together.</p>
+<p>Maps are ordered key-value pairs where the key can be any data type. Similar to sets, keys are not coerced to determine equivalence, which means you can have a numeric key <code>5</code> and a string <code>&quot;5&quot;</code> as two separate keys. A value of any data type can be associated with a key using the <code>set()</code> method, and that value can later be retrieved by using the <code>get()</code> method. Maps also have a <code>size</code> property and a <code>forEach()</code> method to allow for easier item access.</p>
+<p>Weak maps are a special type of map that can only have object keys. As with weak sets, an object key reference is weak and doesn&rsquo;t prevent garbage collection when it&rsquo;s the only remaining reference to an object. When a key is garbage collected, the value associated with the key is also removed from the weak map. This memory management aspect makes weak maps uniquely suited for correlating additional information with objects whose lifecycles are managed outside of the code accessing them.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/06-symbols/" class="stretched-link text-reset text-decoration-none">06 Symbols and Symbol Properties</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/08-iterators-and-generators/" class="stretched-link text-reset text-decoration-none">08 Iterators and Generators</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

@@ -4,6 +4,11 @@
 #  weight = 30
 
 [[main]]
+  name = "ES6"
+  url = "/es6/"
+  weight = 30
+
+[[main]]
   name = "Set 1"
   url = "/prep-1/"
   weight = 30

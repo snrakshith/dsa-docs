@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/10-arrays/">
+  <link rel="canonical" href="http://localhost:1313/es6/10-arrays/">
+<title>10 Improved Array Capabilities  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="10 Improved Array Capabilities">
+<meta property="og:description" content="The array is a foundational JavaScript object. But while other aspects of JavaScript have evolved over time, arrays remained the same until ECMAScript 5 introduced several methods to make them easier to use. ECMAScript 6 continues to improve arrays by adding a lot more functionality, like new creation methods, several useful convenience methods, and the ability to make typed arrays.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/10-arrays/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="10 Improved Array Capabilities">
+<meta name="twitter:description" content="The array is a foundational JavaScript object. But while other aspects of JavaScript have evolved over time, arrays remained the same until ECMAScript 5 introduced several methods to make them easier to use. ECMAScript 6 continues to improve arrays by adding a lot more functionality, like new creation methods, several useful convenience methods, and the ability to make typed arrays.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "10 Improved Array Capabilities",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#creating-arrays">Creating Arrays</a>
+      <ul>
+        <li><a href="#the-arrayof-method">The Array.of() Method</a></li>
+        <li><a href="#the-arrayfrom-method">The Array.from() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-methods-on-all-arrays">New Methods on All Arrays</a>
+      <ul>
+        <li><a href="#the-find-and-findindex-methods">The find() and findIndex() Methods</a></li>
+        <li><a href="#the-fill-method">The fill() Method</a></li>
+        <li><a href="#the-copywithin-method">The copyWithin() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#typed-arrays">Typed Arrays</a>
+      <ul>
+        <li><a href="#numeric-data-types">Numeric Data Types</a></li>
+        <li><a href="#array-buffers">Array Buffers</a></li>
+        <li><a href="#manipulating-array-buffers-with-views">Manipulating Array Buffers with Views</a></li>
+      </ul>
+    </li>
+    <li><a href="#similarities-between-typed-and-regular-arrays">Similarities Between Typed and Regular Arrays</a>
+      <ul>
+        <li><a href="#common-methods">Common Methods</a></li>
+        <li><a href="#the-same-iterators">The Same Iterators</a></li>
+        <li><a href="#of-and-from-methods">of() and from() Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#differences-between-typed-and-regular-arrays">Differences Between Typed and Regular Arrays</a>
+      <ul>
+        <li><a href="#behavioral-differences">Behavioral Differences</a></li>
+        <li><a href="#missing-methods">Missing Methods</a></li>
+        <li><a href="#additional-methods">Additional Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>10 Improved Array Capabilities</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating-arrays">Creating Arrays</a>
+      <ul>
+        <li><a href="#the-arrayof-method">The Array.of() Method</a></li>
+        <li><a href="#the-arrayfrom-method">The Array.from() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-methods-on-all-arrays">New Methods on All Arrays</a>
+      <ul>
+        <li><a href="#the-find-and-findindex-methods">The find() and findIndex() Methods</a></li>
+        <li><a href="#the-fill-method">The fill() Method</a></li>
+        <li><a href="#the-copywithin-method">The copyWithin() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#typed-arrays">Typed Arrays</a>
+      <ul>
+        <li><a href="#numeric-data-types">Numeric Data Types</a></li>
+        <li><a href="#array-buffers">Array Buffers</a></li>
+        <li><a href="#manipulating-array-buffers-with-views">Manipulating Array Buffers with Views</a></li>
+      </ul>
+    </li>
+    <li><a href="#similarities-between-typed-and-regular-arrays">Similarities Between Typed and Regular Arrays</a>
+      <ul>
+        <li><a href="#common-methods">Common Methods</a></li>
+        <li><a href="#the-same-iterators">The Same Iterators</a></li>
+        <li><a href="#of-and-from-methods">of() and from() Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#differences-between-typed-and-regular-arrays">Differences Between Typed and Regular Arrays</a>
+      <ul>
+        <li><a href="#behavioral-differences">Behavioral Differences</a></li>
+        <li><a href="#missing-methods">Missing Methods</a></li>
+        <li><a href="#additional-methods">Additional Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>The array is a foundational JavaScript object. But while other aspects of JavaScript have evolved over time, arrays remained the same until ECMAScript 5 introduced several methods to make them easier to use. ECMAScript 6 continues to improve arrays by adding a lot more functionality, like new creation methods, several useful convenience methods, and the ability to make typed arrays.</p>
+<h2 id="creating-arrays">Creating Arrays<a href="#creating-arrays" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Prior to ECMAScript 6, there were two primary ways to create arrays: the <code>Array</code> constructor and array literal syntax. Both approaches require listing array items individually and are otherwise fairly limited. Options for converting an array-like object (that is, an object with numeric indices and a <code>length</code> property) into an array were also limited and often required extra code. To make JavaScript arrays easier to create, ECMAScript 6 adds the <code>Array.of()</code> and <code>Array.from()</code> methods.</p>
+<h3 id="the-arrayof-method">The Array.of() Method<a href="#the-arrayof-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>One reason ECMAScript 6 adds new creation methods to JavaScript is to help developers avoid a quirk of creating arrays with the <code>Array</code> constructor. The <code>new Array()</code> constructor actually behaves differently based on the type and number of arguments passed to it. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;2&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&#34;2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// &#34;2&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When the <code>Array</code> constructor is passed a single numeric value, the <code>length</code> property of the array is set to that value. If a single non-numeric value is passed, then that value becomes the one and only item in the array. If multiple values are passed (numeric or not), then those values become items in the array. This behavior is both confusing and risky, as you may not always be aware of the type of data being passed.</p>
+<p>ECMAScript 6 introduces <code>Array.of()</code> to solve this problem. The <code>Array.of()</code> method works similarly to the <code>Array</code> constructor but has no special case regarding a single numeric value. The <code>Array.of()</code> method always creates an array containing its arguments regardless of the number of arguments or the argument types. Here are some examples that use the <code>Array.of()</code> method:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">items</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">items</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="s2">&#34;2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;2&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>To create an array with the <code>Array.of()</code> method, just pass it the values you want in your array. The first example here creates an array containing two numbers, the second array contains one number, and the last array contains one string. This is similar to using an array literal, and you can use an array literal instead of <code>Array.of()</code> for native arrays most of the time. But if you ever need to pass the <code>Array</code> constructor into a function, then you might want to pass <code>Array.of()</code> instead to ensure consistent behavior. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createArray</span><span class="p">(</span><span class="nx">arrayCreator</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arrayCreator</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">createArray</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="k">of</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the <code>createArray()</code> function accepts an array creator function and a value to insert into the array. You can pass <code>Array.of()</code> as the first argument to <code>createArray()</code> to create a new array. It would be dangerous to pass <code>Array</code> directly if you cannot guarantee that <code>value</code> won&rsquo;t be a number.</p>
+<p>I&gt; The <code>Array.of()</code> method does not use the <code>Symbol.species</code> property (discussed in Chapter 9) to determine the type of return value. Instead, it uses the current constructor (<code>this</code> inside the <code>of()</code> method) to determine the correct data type to return.</p>
+<h3 id="the-arrayfrom-method">The Array.from() Method<a href="#the-arrayfrom-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Converting non-array objects into actual arrays has always been cumbersome in JavaScript. For instance, if you have an <code>arguments</code> object (which is array-like) and want to use it like an array, then you&rsquo;d need to convert it first. To convert an array-like object to an array in ECMAScript 5, you&rsquo;d write a function like the one in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeArray</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">arrayLike</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">makeArray</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// use args
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This approach manually creates a <code>result</code> array and copies each item from <code>arguments</code> into the new array. That works but takes a decent amount of code to perform a relatively simple operation. Eventually, developers discovered they could reduce the amount of code by calling the native <code>slice()</code> method for arrays on array-like objects, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeArray</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">makeArray</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// use args
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code is functionally equivalent to the previous example, and it works because it sets the <code>this</code> value for <code>slice()</code> to the array-like object. Since <code>slice()</code> needs only numeric indices and a <code>length</code> property to function correctly, any array-like object will work.</p>
+<p>Even though this technique requires less typing, calling <code>Array.prototype.slice.call(arrayLike)</code> doesn&rsquo;t obviously translate to, &ldquo;Convert <code>arrayLike</code> to an array.&rdquo; Fortunately, ECMAScript 6 added the <code>Array.from()</code> method as an obvious, yet clean, way to convert objects into arrays.</p>
+<p>Given either an iterable or an array-like object as the first argument, the <code>Array.from()</code> method returns an array. Here&rsquo;s a simple example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">doSomething</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// use args
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>Array.from()</code> call creates a new array based on the items in <code>arguments</code>. So <code>args</code> is an instance of <code>Array</code> that contains the same values in the same positions as <code>arguments</code>.</p>
+<p>I&gt; The <code>Array.from()</code> method also uses <code>this</code> to determine the type of array to return.</p>
+<h4 id="mapping-conversion">Mapping Conversion<a href="#mapping-conversion" class="anchor" aria-hidden="true">#</a> </h4>
+<p>If you want to take array conversion a step further, you can provide <code>Array.from()</code> with a mapping function as a second argument. That function operates on each value from the array-like object and converts it to some final form before storing the result at the appropriate index in the final array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">translate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nx">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">);</span> <span class="c1">// 2,3,4
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>Array.from()</code> is passed <code>(value) =&gt; value + 1</code> as a mapping function, so it adds 1 to each item in the array before storing the item. If the mapping function is on an object, you can also optionally pass a third argument to <code>Array.from()</code> that represents the <code>this</code> value for the mapping function:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">helper</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">diff</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">add</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">value</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">diff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">translate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="nx">helper</span><span class="p">.</span><span class="nx">add</span><span class="p">,</span> <span class="nx">helper</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nx">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">);</span> <span class="c1">// 2,3,4
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example passes <code>helper.add()</code> as the mapping function for the conversion. Since <code>helper.add()</code> uses the <code>this.diff</code> property, you need to provide the third argument to <code>Array.from()</code> specifying the value of <code>this</code>. Thanks to the third argument, <code>Array.from()</code> can easily convert data without calling <code>bind()</code> or specifying the <code>this</code> value in some other way.</p>
+<h4 id="use-on-iterables">Use on Iterables<a href="#use-on-iterables" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The <code>Array.from()</code> method works on both array-like objects and iterables. That means the method can convert any object with a <code>Symbol.iterator</code> property into an array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers2</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">numbers</span><span class="p">,</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers2</span><span class="p">);</span> <span class="c1">// 2,3,4
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Since the <code>numbers</code> object is an iterable, you can pass <code>numbers</code> directly to <code>Array.from()</code> to convert its values into an array. The mapping function adds one to each number so the resulting array contains 2, 3, and 4 instead of 1, 2, and 3.</p>
+<p>I&gt; If an object is both array-like and iterable, then the iterator is used by <code>Array.from()</code> to determine the values to convert.</p>
+<h2 id="new-methods-on-all-arrays">New Methods on All Arrays<a href="#new-methods-on-all-arrays" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Continuing the trend from ECMAScript 5, ECMAScript 6 adds several new methods to arrays. The <code>find()</code> and <code>findIndex()</code> methods are meant to aid developers using arrays with any values, while <code>fill()</code> and <code>copyWithin()</code> are inspired by use cases for <em>typed arrays</em>, a form of array introduced in ECMAScript 6 that uses only numbers.</p>
+<h3 id="the-find-and-findindex-methods">The find() and findIndex() Methods<a href="#the-find-and-findindex-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Prior to ECMAScript 5, searching through arrays was cumbersome because there were no built-in methods for doing so. ECMAScript 5 added the <code>indexOf()</code> and <code>lastIndexOf()</code> methods, finally allowing developers to search for specific values inside an array. These two methods were a big improvement, yet they were still fairly limited because you could only search for one value at a time. For example, if you wanted to find the first even number in a series of numbers, you&rsquo;d need to write your own code to do so. ECMAScript 6 solved that problem by introducing the <code>find()</code> and <code>findIndex()</code> methods.</p>
+<p>Both <code>find()</code> and <code>findIndex()</code> accept two arguments: a callback function and an optional value to use for <code>this</code> inside the callback function. The callback function is passed an array element, the index of that element in the array, and the array itself&ndash;the same arguments passed to methods like <code>map()</code> and <code>forEach()</code>. The callback should return <code>true</code> if the given value matches some criteria you define. Both <code>find()</code> and <code>findIndex()</code> also stop searching the array the first time the callback function returns <code>true</code>.</p>
+<p>The only difference between these methods is that <code>find()</code> returns the value whereas <code>findIndex()</code> returns the index at which the value was found. Here&rsquo;s an example to demonstrate:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">33</span><span class="p">));</span> <span class="c1">// 35
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">((</span><span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">33</span><span class="p">));</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code calls <code>find()</code> and <code>findIndex()</code> to locate the first value in the <code>numbers</code> array that is greater than 33. The call to <code>find()</code> returns 35 and <code>findIndex()</code> returns 2, the location of 35 in the <code>numbers</code> array.</p>
+<p>Both <code>find()</code> and <code>findIndex()</code> are useful to find an array element that matches a condition rather than a value. If you only want to find a value, then <code>indexOf()</code> and <code>lastIndexOf()</code> are better choices.</p>
+<h3 id="the-fill-method">The fill() Method<a href="#the-fill-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The <code>fill()</code> method fills one or more array elements with a specific value. When passed a value, <code>fill()</code> overwrites all of the values in an array with that value. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">numbers</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 1,1,1,1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the call to <code>numbers.fill(1)</code> changes all values in <code>numbers</code> to <code>1</code>. If you only want to change some of the elements, rather than all of them, you can optionally include a start index and an exclusive end index, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">numbers</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 1,2,1,1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">numbers</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 1,0,0,1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In the <code>numbers.fill(1,2)</code> call, the <code>2</code> indicates to start filling elements at index 2. The exclusive end index isn&rsquo;t specified with a third argument, so <code>numbers.length</code> is used as the end index, meaning the last two elements in <code>numbers</code> are filled with <code>1</code>. The <code>numbers.fill(0, 1, 3)</code> operation fills array elements at indices 1 and 2 with <code>0</code>. Calling <code>fill()</code> with the second and third arguments allows you to fill multiple array elements at once without overwriting the entire array.</p>
+<p>I&gt; If either the start or end index are negative, then those values are added to the array&rsquo;s length to determine the final location. For instance, a start location of <code>-1</code> gives <code>array.length - 1</code> as the index, where <code>array</code> is the array on which <code>fill()</code> is called.</p>
+<h3 id="the-copywithin-method">The copyWithin() Method<a href="#the-copywithin-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The <code>copyWithin()</code> method is similar to <code>fill()</code> in that it changes multiple array elements at the same time. However, instead of specifying a single value to assign to array elements, <code>copyWithin()</code> lets you copy array element values from the array itself. To accomplish that, you need to pass two arguments to the <code>copyWithin()</code> method: the index where the method should start filling values and the index where the values to be copied begin.</p>
+<p>For instance, to copy the values from the first two elements in an array to the last two items in the array, you can do the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// paste values into array starting at index 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// copy values from array starting at index 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">numbers</span><span class="p">.</span><span class="nx">copyWithin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 1,2,1,2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code pastes values into <code>numbers</code> beginning from index 2, so both indices 2 and 3 will be overwritten. Passing <code>0</code> as the second argument to <code>copyWithin()</code> indicates to start copying values from index 0 and continue until there are no more elements to copy into.</p>
+<p>By default, <code>copyWithin()</code> always copies values up to the end of the array, but you can provide an optional third argument to limit how many elements will be overwritten. That third argument is an exclusive end index at which copying of values stops. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// paste values into array starting at index 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// copy values from array starting at index 0
+</span></span></span><span class="line"><span class="cl"><span class="c1">// stop copying values when you hit index 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">numbers</span><span class="p">.</span><span class="nx">copyWithin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 1,2,1,4
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, only the value in index 0 is copied because the optional end index is set to <code>1</code>. The last element in the array remains unchanged.</p>
+<p>I&gt; As with the <code>fill()</code> method, if you pass a negative number for any argument to the <code>copyWithin()</code> method, the array&rsquo;s length is automatically added to that value to determine the index to use.</p>
+<p>The use cases for <code>fill()</code> and <code>copyWithin()</code> may not be obvious to you at this point. That&rsquo;s because these methods originated on typed arrays and were added to regular arrays for consistency. As you&rsquo;ll learn in the next section, however, if you use typed arrays for manipulating the bits of a number, these methods become a lot more useful.</p>
+<h2 id="typed-arrays">Typed Arrays<a href="#typed-arrays" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Typed arrays are special-purpose arrays designed to work with numeric types (not all types, as the name might imply). The origin of typed arrays can be traced to WebGL, a port of Open GL ES 2.0 designed for use in web pages with the <code>&lt;canvas&gt;</code> element. Typed arrays were created as part of the port to provide fast bitwise arithmetic in JavaScript.</p>
+<p>Arithmetic on native JavaScript numbers was too slow for WebGL because the numbers were stored in a 64-bit floating-point format and converted to 32-bit integers as needed. Typed arrays were introduced to circumvent this limitation and provide better performance for arithmetic operations. The concept is that any single number can be treated like an array of bits and thus can use the familiar methods available on JavaScript arrays.</p>
+<p>ECMAScript 6 adopted typed arrays as a formal part of the language to ensure better compatibility across JavaScript engines and interoperability with JavaScript arrays. While the ECMAScript 6 version of typed arrays is not exactly the same as the WebGL version, there are enough similarities to make the ECMAScript 6 version an evolution of the WebGL version rather than a different approach.</p>
+<h3 id="numeric-data-types">Numeric Data Types<a href="#numeric-data-types" class="anchor" aria-hidden="true">#</a> </h3>
+<p>JavaScript numbers are stored in IEEE 754 format, which uses 64 bits to store a floating-point representation of the number. This format represents both integers and floats in JavaScript, with conversion between the two formats happening frequently as numbers change. Typed arrays allow the storage and manipulation of eight different numeric types:</p>
+<ol>
+<li>Signed 8-bit integer (int8)</li>
+<li>Unsigned 8-bit integer (uint8)</li>
+<li>Signed 16-bit integer (int16)</li>
+<li>Unsigned 16-bit integer (uint16)</li>
+<li>Signed 32-bit integer (int32)</li>
+<li>Unsigned 32-bit integer (uint32)</li>
+<li>32-bit float (float32)</li>
+<li>64-bit float (float64)</li>
+</ol>
+<p>If you represent a number that fits in an int8 as a normal JavaScript number, you&rsquo;ll waste 56 bits. Those bits might better be used to store additional int8 values or any other number that requires less than 56 bits. Using bits more efficiently is one of the use cases typed arrays address.</p>
+<p>All of the operations and objects related to typed arrays are centered around these eight data types. In order to use them, though, you&rsquo;ll need to create an array buffer to store the data.</p>
+<p>I&gt; In this book, I will refer to these types by the abbreviations I showed in parentheses. Those abbreviations don&rsquo;t appear in actual JavaScript code; they&rsquo;re just a shorthand for the much longer descriptions.</p>
+<h3 id="array-buffers">Array Buffers<a href="#array-buffers" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The foundation for all typed arrays is an <em>array buffer</em>, which is a memory location that can contain a specified number of bytes. Creating an array buffer is akin to calling <code>malloc()</code> in C to allocate memory without specifying what the memory block contains. You can create an array buffer by using the <code>ArrayBuffer</code> constructor as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// allocate 10 bytes
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Just pass the number of bytes the array buffer should contain when you call the constructor. This <code>let</code> statement creates an array buffer 10 bytes long. Once an array buffer is created, you can retrieve the number of bytes in it by checking the <code>byteLength</code> property:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// allocate 10 bytes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buffer</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 10
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>You can also use the <code>slice()</code> method to create a new array buffer that contains part of an existing array buffer. The <code>slice()</code> method works like the <code>slice()</code> method on arrays: you pass it the start index and end index as arguments, and it returns a new <code>ArrayBuffer</code> instance comprised of those elements from the original. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// allocate 10 bytes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer2</span> <span class="o">=</span> <span class="nx">buffer</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buffer2</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, <code>buffer2</code> is created by extracting the bytes at indices 4 and 5. Just like when you call the array version of this method, the second argument to <code>slice()</code> is exclusive.</p>
+<p>Of course, creating a storage location isn&rsquo;t very helpful without being able to write data into that location. To do so, you&rsquo;ll need to create a view.</p>
+<p>I&gt; An array buffer always represents the exact number of bytes specified when it was created. You can change the data contained within an array buffer, but never the size of the array buffer itself.</p>
+<h3 id="manipulating-array-buffers-with-views">Manipulating Array Buffers with Views<a href="#manipulating-array-buffers-with-views" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Array buffers represent memory locations, and <em>views</em> are the interfaces you&rsquo;ll use to manipulate that memory. A view operates on an array buffer or a subset of an array buffer&rsquo;s bytes, reading and writing data in one of the numeric data types. The <code>DataView</code> type is a generic view on an array buffer that allows you to operate on all eight numeric data types.</p>
+<p>To use a <code>DataView</code>, first create an instance of <code>ArrayBuffer</code> and use it to create a new <code>DataView</code>. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>view</code> object in this example has access to all 10 bytes in <code>buffer</code>. You can also create a view over just a portion of a buffer. Just provide a byte offset and, optionally, the number of bytes to include from that offset. When a number of bytes isn&rsquo;t included, the<code>DataView</code> will go from the offset to the end of the buffer by default. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// cover bytes 5 and 6
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>view</code> operates only on the bytes at indices 5 and 6. This approach allows you to create several views over the same array buffer, which can be useful if you want to use a single memory location for an entire application rather than dynamically allocating space as needed.</p>
+<h4 id="retrieving-view-information">Retrieving View Information<a href="#retrieving-view-information" class="anchor" aria-hidden="true">#</a> </h4>
+<p>You can retrieve information about a view by fetching the following read-only properties:</p>
+<ul>
+<li><code>buffer</code> - The array buffer that the view is tied to</li>
+<li><code>byteOffset</code> - The second argument to the <code>DataView</code> constructor, if provided (0 by default)</li>
+<li><code>byteLength</code> - The third argument to the <code>DataView</code> constructor, if provided (the buffer&rsquo;s <code>byteLength</code> by default)</li>
+</ul>
+<p>Using these properties, you can inspect exactly where a view is operating, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">),</span> <span class="c1">// cover all bytes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">view2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// cover bytes 5 and 6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">===</span> <span class="nx">buffer</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">===</span> <span class="nx">buffer</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">byteOffset</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">byteOffset</span><span class="p">);</span> <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code creates <code>view1</code>, a view over the entire array buffer, and <code>view2</code>, which operates on a small section of the array buffer. These views have equivalent <code>buffer</code> properties because both work on the same array buffer. The <code>byteOffset</code> and <code>byteLength</code> are different for each view, however. They reflect the portion of the array buffer where each view operates.</p>
+<p>Of course, reading information about memory isn&rsquo;t very useful on its own. You need to write data into and read data out of that memory to get any benefit.</p>
+<h4 id="reading-and-writing-data">Reading and Writing Data<a href="#reading-and-writing-data" class="anchor" aria-hidden="true">#</a> </h4>
+<p>For each of JavaScript&rsquo;s eight numeric data types, the <code>DataView</code> prototype has a method to write data and a method to read data from an array buffer. The method names all begin with either &ldquo;set&rdquo; or &ldquo;get&rdquo; and are followed by the data type abbreviation. For instance, here&rsquo;s a list of the read and write methods that can operate on int8 and uint8 values:</p>
+<ul>
+<li><code>getInt8(byteOffset)</code> - Read an int8 starting at <code>byteOffset</code></li>
+<li><code>setInt8(byteOffset, value)</code> - Write an int8 starting at <code>byteOffset</code></li>
+<li><code>getUint8(byteOffset)</code> - Read an uint8 starting at <code>byteOffset</code></li>
+<li><code>setUint8(byteOffset, value)</code> - Write an uint8 starting at <code>byteOffset</code></li>
+</ul>
+<p>The &ldquo;get&rdquo; methods accept a single argument: the byte offset to read from. The &ldquo;set&rdquo; methods accept two arguments: the byte offset to write at and the value to write.</p>
+<p>Though I&rsquo;ve only shown the methods you can use with 8-bit values, the same methods exist for operating on 16- and 32-bit values. Just replace the <code>8</code> in each name with <code>16</code> or <code>32</code>. Alongside all those integer methods, <code>DataView</code> also has the following read and write methods for floating point numbers:</p>
+<ul>
+<li><code>getFloat32(byteOffset, littleEndian)</code> - Read a float32 starting at <code>byteOffset</code></li>
+<li><code>setFloat32(byteOffset, value, littleEndian)</code> - Write a float32 starting at <code>byteOffset</code></li>
+<li><code>getFloat64(byteOffset, littleEndian)</code> - Read a float64 starting at <code>byteOffset</code></li>
+<li><code>setFloat64(byteOffset, value, littleEndian)</code> - Write a float64 starting at <code>byteOffset</code></li>
+</ul>
+<p>The float-related methods are only different in that they accept an additional optional boolean indicating whether the value should be read or written as little-endian. (<em>Little-endian</em> means the least significant byte is at byte 0, instead of in the last byte.)</p>
+<p>To see a &ldquo;set&rdquo; and a &ldquo;get&rdquo; method in action, consider the following example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">view</span><span class="p">.</span><span class="nx">setInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">view</span><span class="p">.</span><span class="nx">setInt8</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getInt8</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// -1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses a two-byte array buffer to store two int8 values. The first value is set at offset 0 and the second is at offset 1, reflecting that each value spans a full byte (8 bits). Those values are later retrieved from their positions with the <code>getInt8()</code> method. While this example uses int8 values, you can use any of the eight numeric types with their corresponding methods.</p>
+<p>Views are interesting because they allow you to read and write in any format at any point in time, regardless of how data was previously stored. For instance, writing two int8 values and reading the buffer with an int16 method works just fine, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataView</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">view</span><span class="p">.</span><span class="nx">setInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">view</span><span class="p">.</span><span class="nx">setInt8</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getInt16</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 1535
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view</span><span class="p">.</span><span class="nx">getInt8</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// -1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The call to <code>view.getInt16(0)</code> reads all bytes in the view and interprets those bytes as the number 1535. To understand why this happens, take a look at Figure 10-1, which shows what each <code>setInt8()</code> line does to the array buffer.</p>
+<!--![Figure 10-1: The array buffer after two method calls](images/Ch 10 Graphic.jpg)-->
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>new ArrayBuffer(2)      0000000000000000
+view.setInt8(0, 5);     0000010100000000
+view.setInt8(1, -1);    0000010111111111</code></pre>
+  </figure>
+</div>
+<p>The array buffer starts with 16 bits that are all zero. Writing <code>5</code> to the first byte with <code>setInt8()</code> introduces a couple of 1s (in 8-bit representation, 5 is 00000101). Writing -1 to the second byte sets all bits in that byte to 1, which is the two&rsquo;s complement representation of -1. After the second <code>setInt8()</code> call, the array buffer contains 16 bits, and <code>getInt16()</code> reads those bits as a single 16-bit integer, which is 1535 in decimal.</p>
+<p>The <code>DataView</code> object is perfect for use cases that mix different data types in this way. However, if you&rsquo;re only using one specific data type, then the type-specific views are a better choice.</p>
+<h4 id="typed-arrays-are-views">Typed Arrays Are Views<a href="#typed-arrays-are-views" class="anchor" aria-hidden="true">#</a> </h4>
+<p>ECMAScript 6 typed arrays are actually type-specific views for array buffers. Instead of using a generic <code>DataView</code> object to operate on an array buffer, you can use objects that enforce specific data types. There are eight type-specific views corresponding to the eight numeric data types, plus an additional option for <code>uint8</code> values.</p>
+<p>Table 10-1 shows an abbreviated version of the complete list of type-specific views from section 22.2 of the ECMAScript 6 specification.</p>
+<!--{ title="Table 10-1: Some Type-Specific Views in ECMAScript 6" }-->
+<!-- @Nicholas: I noticed the table title was throwing off the markdown preview
+     output somehow, so I commented it out for now. /JG -->
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Constructor Name</th>
+          <th style="text-align: left">Element Size (in bytes)</th>
+          <th style="text-align: left">Description</th>
+          <th style="text-align: left">Equivalent C Type</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>Int8Array</code></td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">8-bit two&rsquo;s complement signed integer</td>
+          <td style="text-align: left"><code>signed char</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Uint8Array</code></td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">8-bit unsigned integer</td>
+          <td style="text-align: left"><code>unsigned char</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Uint8ClampedArray</code></td>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">8-bit unsigned integer (clamped conversion)</td>
+          <td style="text-align: left"><code>unsigned char</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Int16Array</code></td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">16-bit two&rsquo;s complement signed integer</td>
+          <td style="text-align: left"><code>short</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Uint16Array</code></td>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">16-bit unsigned integer</td>
+          <td style="text-align: left"><code>unsigned short</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Int32Array</code></td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">32-bit two&rsquo;s complement signed integer</td>
+          <td style="text-align: left"><code>int</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Uint32Array</code></td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">32-bit unsigned integer</td>
+          <td style="text-align: left"><code>int</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Float32Array</code></td>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">32-bit IEEE floating point</td>
+          <td style="text-align: left"><code>float</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>Float64Array</code></td>
+          <td style="text-align: left">8</td>
+          <td style="text-align: left">64-bit IEEE floating point</td>
+          <td style="text-align: left"><code>double</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>The left column lists the typed array constructors, and the other columns describe the data each typed array can contain. A <code>Uint8ClampedArray</code> is the same as a <code>Uint8Array</code> unless values in the array buffer are less than 0 or greater than 255. A <code>Uint8ClampedArray</code> converts values lower than 0 to 0 (-1 becomes 0, for instance) and converts values higher than 255 to 255 (so 300 becomes 255).</p>
+<p>Typed array operations only work on a particular type of data. For example, all operations on <code>Int8Array</code> use <code>int8</code> values. The size of an element in a typed array also depends on the type of array. While an element in an <code>Int8Array</code> is a single byte long, <code>Float64Array</code> uses eight bytes per element. Fortunately, the elements are accessed using numeric indices just like regular arrays, allowing you to avoid the somewhat awkward calls to the &ldquo;set&rdquo; and &ldquo;get&rdquo; methods of <code>DataView</code>.</p>
+<p>A&gt; ### Element Size
+A&gt;
+A&gt; Each typed array is made up of a number of elements, and the element size is the number of bytes each element represents. This value is stored on a <code>BYTES_PER_ELEMENT</code> property on each constructor and each instance, so you can easily query the element size:
+A&gt;
+A&gt; <code>js A&gt; console.log(UInt8Array.BYTES_PER_ELEMENT);      // 1 A&gt; console.log(UInt16Array.BYTES_PER_ELEMENT);     // 2 A&gt; A&gt; let ints = new Int8Array(5); A&gt; console.log(ints.BYTES_PER_ELEMENT);            // 1 A&gt; </code></p>
+<h4 id="creating-type-specific-views">Creating Type-Specific Views<a href="#creating-type-specific-views" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Typed array constructors accept multiple types of arguments, so there are a few ways to create typed arrays. First, you can create a new typed array by passing the same arguments <code>DataView</code> takes (an array buffer, an optional byte offset, and an optional byte length). For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayBuffer</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int8Array</span><span class="p">(</span><span class="nx">buffer</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">view2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int8Array</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">===</span> <span class="nx">buffer</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">===</span> <span class="nx">buffer</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">byteOffset</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">byteOffset</span><span class="p">);</span> <span class="c1">// 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view1</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">view2</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the two views are both <code>Int8Array</code> instances that use <code>buffer</code>. Both <code>view1</code> and <code>view2</code> have the same <code>buffer</code>, <code>byteOffset</code>, and <code>byteLength</code> properties that exist on <code>DataView</code> instances. It&rsquo;s easy to switch to using a typed array wherever you use a <code>DataView</code> so long as you only work with one numeric type.</p>
+<p>The second way to create a typed array is to pass a single number to the constructor. That number represents the number of elements (not bytes) to allocate to the array. The constructor will create a new buffer with the correct number of bytes to represent that number of array elements, and you can access the number of elements in the array by using the <code>length</code> property. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">floats</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 5
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>ints</code> array is created with space for two elements. Each 16-bit integer requires two bytes per value, so the array is allocated four bytes. The <code>floats</code> array is created to hold five elements, so the number of bytes required is 20 (four bytes per element). In both cases, a new buffer is created and can be accessed using the <code>buffer</code> property if necessary.</p>
+<p>W&gt; If no argument is passed to a typed array constructor, the constructor acts as if <code>0</code> was passed. This creates a typed array that cannot hold data because zero bytes are allocated to the buffer.</p>
+<p>The third way to create a typed array is to pass an object as the only argument to the constructor. The object can be any of the following:</p>
+<ul>
+<li><strong>A Typed Array</strong> - Each element is copied into a new element on the new typed array. For example, if you pass an int8 to the <code>Int16Array</code> constructor, the int8 values would be copied into an int16 array. The new typed array has a different array buffer than the one that was passed in.</li>
+<li><strong>An Iterable</strong> - The object&rsquo;s iterator is called to retrieve the items to insert into the typed array. The constructor will throw an error if any elements are invalid for the view type.</li>
+<li><strong>An Array</strong> - The elements of the array are copied into a new typed array. The constructor will throw an error if any elements are invalid for the type.</li>
+<li><strong>An Array-Like Object</strong> - Behaves the same as an array.</li>
+</ul>
+<p>In each of these cases, a new typed array is created with the data from the source object. This can be especially useful when you want to initialize a typed array with some values, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ints2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int32Array</span><span class="p">(</span><span class="nx">ints1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints1</span><span class="p">.</span><span class="nx">buffer</span> <span class="o">===</span> <span class="nx">ints2</span><span class="p">.</span><span class="nx">buffer</span><span class="p">);</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints1</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints1</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints1</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints1</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints2</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">);</span> <span class="c1">// 8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints2</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints2</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints2</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example creates an <code>Int16Array</code> and initializes it with an array of two values. Then, an <code>Int32Array</code> is created and passed the <code>Int16Array</code>. The values 25 and 50 are copied from <code>ints1</code> into <code>ints2</code> as the two typed arrays have completely separate buffers. The same numbers are represented in both typed arrays, but <code>ints2</code> has eight bytes to represent the data while <code>ints1</code> has only four.</p>
+<h2 id="similarities-between-typed-and-regular-arrays">Similarities Between Typed and Regular Arrays<a href="#similarities-between-typed-and-regular-arrays" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Typed arrays and regular arrays are similar in several ways, and as you&rsquo;ve already seen in this chapter, typed arrays can be used like regular arrays in many situations. For instance, you can check how many elements are in a typed array using the <code>length</code> property, and you can access a typed array&rsquo;s elements directly using numeric indices. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ints</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, a new <code>Int16Array</code> with two items is created. The items are read from and written to using their numeric indices, and those values are automatically stored and converted into int16 values as part of the operation. The similarities don&rsquo;t end there, though.</p>
+<p>I&gt; Unlike regular arrays, you cannot change the size of a typed array using the <code>length</code> property. The <code>length</code> property is not writable, so any attempt to change it is ignored in non-strict mode and throws an error in strict mode.</p>
+<h3 id="common-methods">Common Methods<a href="#common-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Typed arrays also include a large number of methods that are functionally equivalent to regular array methods. You can use the following array methods on typed arrays:</p>
+<ul>
+<li><code>copyWithin()</code></li>
+<li><code>entries()</code></li>
+<li><code>fill()</code></li>
+<li><code>filter()</code></li>
+<li><code>find()</code></li>
+<li><code>findIndex()</code></li>
+<li><code>forEach()</code></li>
+<li><code>indexOf()</code></li>
+<li><code>join()</code></li>
+<li><code>keys()</code></li>
+<li><code>lastIndexOf()</code></li>
+<li><code>map()</code></li>
+<li><code>reduce()</code></li>
+<li><code>reduceRight()</code></li>
+<li><code>reverse()</code></li>
+<li><code>slice()</code></li>
+<li><code>some()</code></li>
+<li><code>sort()</code></li>
+<li><code>values()</code></li>
+</ul>
+<p>Keep in mind that while these methods act like their counterparts on <code>Array.prototype</code>, they are not exactly the same. The typed array methods have additional checks for numeric type safety and, when an array is returned, will return a typed array instead of a regular array (due to <code>Symbol.species</code>). Here&rsquo;s a simple example to demonstrate the difference:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mapped</span> <span class="o">=</span> <span class="nx">ints</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">v</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span> <span class="k">instanceof</span> <span class="nx">Int16Array</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses the <code>map()</code> method to create a new array based on the values in <code>ints</code>. The mapping function doubles each value in the array and returns a new <code>Int16Array</code>.</p>
+<h3 id="the-same-iterators">The Same Iterators<a href="#the-same-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Typed arrays have the same three iterators as regular arrays, too. Those are the <code>entries()</code> method, the <code>keys()</code> method, and the <code>values()</code> method. That means you can use the spread operator and <code>for-of</code> loops with typed arrays just like you would with regular arrays. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">intsArray</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">ints</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">intsArray</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">intsArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">intsArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code creates a new array called <code>intsArray</code> containing the same data as the typed array <code>ints</code>. As with other iterables, the spread operator makes converting typed arrays into regular arrays easy.</p>
+<h3 id="of-and-from-methods">of() and from() Methods<a href="#of-and-from-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Lastly, all typed arrays have static <code>of()</code> and <code>from()</code> methods that work like the <code>Array.of()</code> and <code>Array.from()</code> methods. The difference is that the methods on typed arrays return a typed array instead of a regular array. Here are some examples that use these methods to create typed arrays:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="nx">Int16Array</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">floats</span> <span class="o">=</span> <span class="nx">Float32Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span> <span class="k">instanceof</span> <span class="nx">Int16Array</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span> <span class="k">instanceof</span> <span class="nx">Float32Array</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 1.5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">floats</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 2.5
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>of()</code> and <code>from()</code> methods in this example are used to create an <code>Int16Array</code> and a <code>Float32Array</code>, respectively. These methods ensure that typed arrays can be created just as easily as regular arrays.</p>
+<h2 id="differences-between-typed-and-regular-arrays">Differences Between Typed and Regular Arrays<a href="#differences-between-typed-and-regular-arrays" class="anchor" aria-hidden="true">#</a> </h2>
+<p>The most important difference between typed arrays and regular arrays is that typed arrays are not regular arrays. Typed arrays don&rsquo;t inherit from <code>Array</code> and <code>Array.isArray()</code> returns <code>false</code> when passed a typed array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">);</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">ints</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Since the <code>ints</code> variable is a typed array, it isn&rsquo;t an instance of <code>Array</code> and cannot otherwise be identified as an array. This distinction is important because while typed arrays and regular arrays are similar, there are many ways in which typed arrays behave differently.</p>
+<h3 id="behavioral-differences">Behavioral Differences<a href="#behavioral-differences" class="anchor" aria-hidden="true">#</a> </h3>
+<p>While regular arrays can grow and shrink as you interact with them, typed arrays always remain the same size. You cannot assign a value to a nonexistent numeric index in a typed array like you can with regular arrays, as typed arrays ignore the operation. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 50
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">ints</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// undefined
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Despite assigning <code>5</code> to the numeric index <code>2</code> in this example, the <code>ints</code> array does not grow at all. The <code>length</code> remains the same and the value is thrown away.</p>
+<p>Typed arrays also have checks to ensure that only valid data types are used. Zero is used in place of any invalid values. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="s2">&#34;hi&#34;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 0
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code attempts to use the string value <code>&quot;hi&quot;</code> in an <code>Int16Array</code>. Of course, strings are invalid data types in typed arrays, so the value is inserted as <code>0</code> instead. The <code>length</code> of the array is still one, and even though the <code>ints[0]</code> slot exists, it just contains <code>0</code>.</p>
+<p>All methods that modify values in a typed array enforce the same restriction. For example, if the function passed to <code>map()</code> returns an invalid value for the typed array, then <code>0</code> is used instead:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mapped</span> <span class="o">=</span> <span class="nx">ints</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="s2">&#34;hi&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span> <span class="k">instanceof</span> <span class="nx">Int16Array</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">);</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Since the string value <code>&quot;hi&quot;</code> isn&rsquo;t a 16-bit integer, it&rsquo;s replaced with <code>0</code> in the resulting array. Thanks to this error correction behavior, typed array methods don&rsquo;t have to worry about throwing errors when invalid data is present, because there will never be invalid data in the array.</p>
+<h3 id="missing-methods">Missing Methods<a href="#missing-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>While typed arrays do have many of the same methods as regular arrays, they also lack several array methods. The following methods are not available on typed arrays:</p>
+<ul>
+<li><code>concat()</code></li>
+<li><code>pop()</code></li>
+<li><code>push()</code></li>
+<li><code>shift()</code></li>
+<li><code>splice()</code></li>
+<li><code>unshift()</code></li>
+</ul>
+<p>Except for the <code>concat()</code> method, the methods in this list can change the size of an array. Typed arrays can&rsquo;t change size, which is why these aren&rsquo;t available for typed arrays. The <code>concat()</code> method isn&rsquo;t available because the result of concatenating two typed arrays (especially if they deal with different data types) would be uncertain, and that would go against the reason for using typed arrays in the first place.</p>
+<h3 id="additional-methods">Additional Methods<a href="#additional-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Finally, typed arrays methods have two methods not present on regular arrays: the <code>set()</code> and <code>subarray()</code> methods. These two methods are opposites in that <code>set()</code> copies another array into an existing typed array, whereas <code>subarray()</code> extracts part of an existing typed array into a new typed array.</p>
+<p>The <code>set()</code> method accepts an array (either typed or regular) and an optional offset at which to insert the data; if you pass nothing, the offset defaults to zero. The data from the array argument is copied into the destination typed array while ensuring only valid data types are used. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">ints</span><span class="p">.</span><span class="nx">set</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ints</span><span class="p">.</span><span class="nx">set</span><span class="p">([</span><span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ints</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 25,50,75,100
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code creates an <code>Int16Array</code> with four elements. The first call to <code>set()</code> copies two values to the first and second elements in the array. The second call to <code>set()</code> uses an offset of <code>2</code> to indicate that the values should be placed in the array starting at the third element.</p>
+<p>The <code>subarray()</code> method accepts an optional start and end index (the end index is exclusive, as in the <code>slice()</code> method) and returns a new typed array. You can also omit both arguments to create a clone of the typed array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ints</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int16Array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">subints1</span> <span class="o">=</span> <span class="nx">ints</span><span class="p">.</span><span class="nx">subarray</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">subints2</span> <span class="o">=</span> <span class="nx">ints</span><span class="p">.</span><span class="nx">subarray</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">subints3</span> <span class="o">=</span> <span class="nx">ints</span><span class="p">.</span><span class="nx">subarray</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subints1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 25,50,75,100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subints2</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 75,100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subints3</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// 50,75
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Three typed arrays are created from the original <code>ints</code> array in this example. The <code>subints1</code> array is a clone of <code>ints</code> that contains the same information. Since the <code>subints2</code> array copies data starting from index 2, it only contains the last two elements of the <code>ints</code> array (75 and 100). The <code>subints3</code> array contains only the middle two elements of the <code>ints</code> array, as <code>subarray()</code> was called with both a start and an end index.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 6 continues the work of ECMAScript 5 by making arrays more useful. There are two more ways to create arrays: the <code>Array.of()</code> and <code>Array.from()</code> methods. The <code>Array.from()</code> method can also convert iterables and array-like objects into arrays. Both methods are inherited by derived array classes and do not use the <code>Symbol.species</code> property to determine what type of value should be returned (other inherited methods do use <code>Symbol.species</code> when returning an array).</p>
+<p>There are also several new methods on arrays. The <code>fill()</code> and <code>copyWithin()</code> methods allow you to alter array elements in-place. The <code>find()</code> and <code>findIndex()</code> methods are useful for finding the first element in an array that matches some criteria. The former returns the first element that fits the criteria, and the latter returns the element&rsquo;s index.</p>
+<p>Typed arrays are not technically arrays, as they do not inherit from <code>Array</code>, but they do look and behave a lot like arrays. Typed arrays contain one of eight different numeric data types and are built upon <code>ArrayBuffer</code> objects that represent the underlying bits of a number or series of numbers. Typed arrays are a more efficient way of doing bitwise arithmetic because the values are not converted back and forth between formats, as is the case with the JavaScript number type.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/09-classes/" class="stretched-link text-reset text-decoration-none">09 Introducing JavaScript Classes</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/11-promises/" class="stretched-link text-reset text-decoration-none">11 Promises and Asynchronous Programming</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

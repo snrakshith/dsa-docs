@@ -1,0 +1,1655 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/08-iterators-and-generators/">
+  <link rel="canonical" href="http://localhost:1313/es6/08-iterators-and-generators/">
+<title>08 Iterators and Generators  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="08 Iterators and Generators">
+<meta property="og:description" content="Many programming languages have shifted from iterating over data with for loops, which require initializing variables to track position in a collection, to using iterator objects that programmatically return the next item in a collection. Iterators make working with collections of data easier, and ECMAScript 6 adds iterators to JavaScript. When coupled with new array methods and new types of collections (such as sets and maps), iterators are key for efficient data processing, and you will find them in many parts of the language. There&rsquo;s a new for-of loop that works with iterators, the spread (...) operator uses iterators, and iterators even make asynchronous programming easier.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/08-iterators-and-generators/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="08 Iterators and Generators">
+<meta name="twitter:description" content="Many programming languages have shifted from iterating over data with for loops, which require initializing variables to track position in a collection, to using iterator objects that programmatically return the next item in a collection. Iterators make working with collections of data easier, and ECMAScript 6 adds iterators to JavaScript. When coupled with new array methods and new types of collections (such as sets and maps), iterators are key for efficient data processing, and you will find them in many parts of the language. There&rsquo;s a new for-of loop that works with iterators, the spread (...) operator uses iterators, and iterators even make asynchronous programming easier.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "08 Iterators and Generators",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#the-loop-problem">The Loop Problem</a></li>
+    <li><a href="#what-are-iterators">What are Iterators?</a></li>
+    <li><a href="#what-are-generators">What Are Generators?</a>
+      <ul>
+        <li><a href="#generator-function-expressions">Generator Function Expressions</a></li>
+        <li><a href="#generator-object-methods">Generator Object Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#iterables-and-for-of">Iterables and for-of</a>
+      <ul>
+        <li><a href="#accessing-the-default-iterator">Accessing the Default Iterator</a></li>
+        <li><a href="#creating-iterables">Creating Iterables</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-in-iterators">Built-in Iterators</a>
+      <ul>
+        <li><a href="#collection-iterators">Collection Iterators</a></li>
+        <li><a href="#string-iterators">String Iterators</a></li>
+        <li><a href="#nodelist-iterators">NodeList Iterators</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-spread-operator-and-non-array-iterables">The Spread Operator and Non-Array Iterables</a></li>
+    <li><a href="#advanced-iterator-functionality">Advanced Iterator Functionality</a>
+      <ul>
+        <li><a href="#passing-arguments-to-iterators">Passing Arguments to Iterators</a></li>
+        <li><a href="#throwing-errors-in-iterators">Throwing Errors in Iterators</a></li>
+        <li><a href="#generator-return-statements">Generator Return Statements</a></li>
+        <li><a href="#delegating-generators">Delegating Generators</a></li>
+      </ul>
+    </li>
+    <li><a href="#asynchronous-task-running">Asynchronous Task Running</a>
+      <ul>
+        <li><a href="#a-simple-task-runner">A Simple Task Runner</a></li>
+        <li><a href="#task-running-with-data">Task Running With Data</a></li>
+        <li><a href="#asynchronous-task-runner">Asynchronous Task Runner</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>08 Iterators and Generators</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-loop-problem">The Loop Problem</a></li>
+    <li><a href="#what-are-iterators">What are Iterators?</a></li>
+    <li><a href="#what-are-generators">What Are Generators?</a>
+      <ul>
+        <li><a href="#generator-function-expressions">Generator Function Expressions</a></li>
+        <li><a href="#generator-object-methods">Generator Object Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#iterables-and-for-of">Iterables and for-of</a>
+      <ul>
+        <li><a href="#accessing-the-default-iterator">Accessing the Default Iterator</a></li>
+        <li><a href="#creating-iterables">Creating Iterables</a></li>
+      </ul>
+    </li>
+    <li><a href="#built-in-iterators">Built-in Iterators</a>
+      <ul>
+        <li><a href="#collection-iterators">Collection Iterators</a></li>
+        <li><a href="#string-iterators">String Iterators</a></li>
+        <li><a href="#nodelist-iterators">NodeList Iterators</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-spread-operator-and-non-array-iterables">The Spread Operator and Non-Array Iterables</a></li>
+    <li><a href="#advanced-iterator-functionality">Advanced Iterator Functionality</a>
+      <ul>
+        <li><a href="#passing-arguments-to-iterators">Passing Arguments to Iterators</a></li>
+        <li><a href="#throwing-errors-in-iterators">Throwing Errors in Iterators</a></li>
+        <li><a href="#generator-return-statements">Generator Return Statements</a></li>
+        <li><a href="#delegating-generators">Delegating Generators</a></li>
+      </ul>
+    </li>
+    <li><a href="#asynchronous-task-running">Asynchronous Task Running</a>
+      <ul>
+        <li><a href="#a-simple-task-runner">A Simple Task Runner</a></li>
+        <li><a href="#task-running-with-data">Task Running With Data</a></li>
+        <li><a href="#asynchronous-task-runner">Asynchronous Task Runner</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>Many programming languages have shifted from iterating over data with <code>for</code> loops, which require initializing variables to track position in a collection, to using iterator objects that programmatically return the next item in a collection. Iterators make working with collections of data easier, and ECMAScript 6 adds iterators to JavaScript. When coupled with new array methods and new types of collections (such as sets and maps), iterators are key for efficient data processing, and you will find them in many parts of the language. There&rsquo;s a new <code>for-of</code> loop that works with iterators, the spread (<code>...</code>) operator uses iterators, and iterators even make asynchronous programming easier.</p>
+<p>This chapter covers the many uses of iterators, but first, it&rsquo;s important to understand the history behind why iterators were added to JavaScript.</p>
+<h2 id="the-loop-problem">The Loop Problem<a href="#the-loop-problem" class="anchor" aria-hidden="true">#</a> </h2>
+<p>If you&rsquo;ve ever programmed in JavaScript, you&rsquo;ve probably written code that looks like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colors</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This standard <code>for</code> loop tracks the index into the <code>colors</code> array with the <code>i</code> variable. The value of <code>i</code> increments each time the loop executes if <code>i</code> isn&rsquo;t larger than the length of the array (stored in <code>len</code>).</p>
+<p>While this loop is fairly straightforward, loops grow in complexity when you nest them and need to keep track of multiple variables. Additional complexity can lead to errors, and the boilerplate nature of the <code>for</code> loop lends itself to more errors as similar code is written in multiple places. Iterators are meant to solve that problem.</p>
+<h2 id="what-are-iterators">What are Iterators?<a href="#what-are-iterators" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Iterators are just objects with a specific interface designed for iteration. All iterator objects have a <code>next()</code> method that returns a result object. The result object has two properties: <code>value</code>, which is the next value, and <code>done</code>, which is a boolean that&rsquo;s <code>true</code> when there are no more values to return. The iterator keeps an internal pointer to a location within a collection of values and with each call to the <code>next()</code> method, it returns the next appropriate value.</p>
+<p>If you call <code>next()</code> after the last value has been returned, the method returns <code>done</code> as <code>true</code> and <code>value</code> contains the <em>return value</em> for the iterator. That return value is not part of the data set, but rather a final piece of related data, or <code>undefined</code> if no such data exists. An iterator&rsquo;s return value is similar to a function&rsquo;s return value in that it&rsquo;s a final way to pass information to the caller.</p>
+<p>With that in mind, creating an iterator using ECMAScript 5 is fairly straightforward:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createIterator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">next</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="o">!</span><span class="nx">done</span> <span class="o">?</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">]</span> <span class="o">:</span> <span class="kc">undefined</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">done</span><span class="o">:</span> <span class="nx">done</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">value</span><span class="o">:</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 3, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// for all further calls
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>createIterator()</code> function returns an object with a <code>next()</code> method. Each time the method is called, the next value in the <code>items</code> array is returned as <code>value</code>. When <code>i</code> is 3, <code>done</code> becomes <code>true</code> and the ternary conditional operator that sets <code>value</code> evaluates to <code>undefined</code>. These two results fulfill the special last case for iterators in ECMAScript 6, where <code>next()</code> is called on an iterator after the last piece of data has been used.</p>
+<p>As this example shows, writing iterators that behave according to the rules laid out in ECMAScript 6 is a bit complex.</p>
+<p>Fortunately, ECMAScript 6 also provides generators, which make creating iterator objects much simpler.</p>
+<h2 id="what-are-generators">What Are Generators?<a href="#what-are-generators" class="anchor" aria-hidden="true">#</a> </h2>
+<p>A <em>generator</em> is a function that returns an iterator. Generator functions are indicated by a star character (<code>*</code>) after the <code>function</code> keyword and use the new <code>yield</code> keyword. It doesn&rsquo;t matter if the star is directly next to <code>function</code> or if there&rsquo;s some whitespace between it and the <code>*</code> character, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// generator
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// generators are called like regular functions but return an iterator
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>*</code> before <code>createIterator()</code> makes this function a generator. The <code>yield</code> keyword, also new to ECMAScript 6, specifies values the resulting iterator should return when <code>next()</code> is called, in the order they should be returned. The iterator generated in this example has three different values to return on successive calls to the <code>next()</code> method: first <code>1</code>, then <code>2</code>, and finally <code>3</code>. A generator gets called like any other function, as shown when <code>iterator</code> is created.</p>
+<p>Perhaps the most interesting aspect of generator functions is that they stop execution after each <code>yield</code> statement. For instance, after <code>yield 1</code> executes in this code, the function doesn&rsquo;t execute anything else until the iterator&rsquo;s <code>next()</code> method is called. At that point, <code>yield 2</code> executes. This ability to stop execution in the middle of a function is extremely powerful and leads to some interesting uses of generator functions (discussed in the &ldquo;Advanced Iterator Functionality&rdquo; section).</p>
+<p>The <code>yield</code> keyword can be used with any value or expression, so you can write generator functions that add items to iterators without just listing the items one by one. For example, here&rsquo;s one way you could use <code>yield</code> inside a <code>for</code> loop:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 3, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// for all further calls
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example passes an array called <code>items</code> to the <code>createIterator()</code> generator function. Inside the function, a <code>for</code> loop yields the elements from the array into the iterator as the loop progresses. Each time <code>yield</code> is encountered, the loop stops, and each time <code>next()</code> is called on <code>iterator</code>, the loop picks up with the next <code>yield</code> statement.</p>
+<p>Generator functions are an important feature of ECMAScript 6, and since they are just functions, they can be used in all the same places. The rest of this section focuses on other useful ways to write generators.</p>
+<p>W&gt; The <code>yield</code> keyword can only be used inside of generators. Use of <code>yield</code> anywhere else is a syntax error, including functions that are inside of generators, such as:
+W&gt;
+W&gt; <code>js W&gt; function *createIterator(items) { W&gt; W&gt;     items.forEach(function(item) { W&gt; W&gt;         // syntax error W&gt;         yield item + 1; W&gt;     }); W&gt; } W&gt; </code>
+W&gt;
+W&gt; Even though <code>yield</code> is technically inside of <code>createIterator()</code>, this code is a syntax error because <code>yield</code> cannot cross function boundaries. In this way, <code>yield</code> is similar to <code>return</code>, in that a nested function cannot return a value for its containing function.</p>
+<h3 id="generator-function-expressions">Generator Function Expressions<a href="#generator-function-expressions" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can use function expressions to create generators by just including a star (<code>*</code>) character between the <code>function</code> keyword and the opening parenthesis. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">createIterator</span> <span class="o">=</span> <span class="kd">function</span><span class="o">*</span> <span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 3, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// for all further calls
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, <code>createIterator()</code> is a generator function expression instead of a function declaration. The asterisk goes between the <code>function</code> keyword and the opening parentheses because the function expression is anonymous. Otherwise, this example is the same as the previous version of the <code>createIterator()</code> function, which also used a <code>for</code> loop.</p>
+<p>I&gt; Creating an arrow function that is also a generator is not possible.</p>
+<h3 id="generator-object-methods">Generator Object Methods<a href="#generator-object-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Because generators are just functions, they can be added to objects, too. For example, you can make a generator in an ECMAScript 5-style object literal with a function expression:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">createIterator</span><span class="o">:</span> <span class="kd">function</span><span class="o">*</span> <span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">o</span><span class="p">.</span><span class="nx">createIterator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>You can also use the ECMAScript 6 method shorthand by prepending the method name with a star (<code>*</code>):</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="nx">createIterator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">o</span><span class="p">.</span><span class="nx">createIterator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>These examples are functionally equivalent to the example in the &ldquo;Generator Function Expressions&rdquo; section; they just use different syntax. In the shorthand version, because the <code>createIterator()</code> method is defined with no <code>function</code> keyword, the star is placed immediately before the method name, though you can leave whitespace between the star and the method name.</p>
+<h2 id="iterables-and-for-of">Iterables and for-of<a href="#iterables-and-for-of" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Closely related to iterators, an <em>iterable</em> is an object with a <code>Symbol.iterator</code> property. The well-known <code>Symbol.iterator</code> symbol specifies a function that returns an iterator for the given object. All collection objects (arrays, sets, and maps) and strings are iterables in ECMAScript 6 and so they have a default iterator specified. Iterables are designed to be used with a new addition to ECMAScript: the <code>for-of</code> loop.</p>
+<p>I&gt; All iterators created by generators are also iterables, as generators assign the <code>Symbol.iterator</code> property by default.</p>
+<p>At the beginning of this chapter, I mentioned the problem of tracking an index inside a <code>for</code> loop. Iterators are the first part of the solution to that problem. The <code>for-of</code> loop is the second part: it removes the need to track an index into a collection entirely, leaving you free to focus on working with the contents of the collection.</p>
+<p>A <code>for-of</code> loop calls <code>next()</code> on an iterable each time the loop executes and stores the <code>value</code> from the result object in a variable. The loop continues this process until the returned object&rsquo;s <code>done</code> property is <code>true</code>. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>1
+2
+3</code></pre>
+  </figure>
+</div>
+<p>This <code>for-of</code> loop first calls the <code>Symbol.iterator</code> method on the <code>values</code> array to retrieve an iterator. (The call to <code>Symbol.iterator</code> happens behind the scenes in the JavaScript engine itself.) Then <code>iterator.next()</code> is called, and the <code>value</code> property on the iterator&rsquo;s result object is read into <code>num</code>. The <code>num</code> variable is first 1, then 2, and finally 3. When <code>done</code> on the result object is <code>true</code>, the loop exits, so <code>num</code> is never assigned the value of <code>undefined</code>.</p>
+<p>If you are simply iterating over values in an array or collection, then it&rsquo;s a good idea to use a <code>for-of</code> loop instead of a <code>for</code> loop. The <code>for-of</code> loop is generally less error-prone because there are fewer conditions to keep track of. Save the traditional <code>for</code> loop for more complex control conditions.</p>
+<p>W&gt; The <code>for-of</code> statement will throw an error when used on, a non-iterable object, <code>null</code>, or <code>undefined</code>.</p>
+<h3 id="accessing-the-default-iterator">Accessing the Default Iterator<a href="#accessing-the-default-iterator" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can use <code>Symbol.iterator</code> to access the default iterator for an object, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">values</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 3, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code gets the default iterator for <code>values</code> and uses that to iterate over the items in the array. This is the same process that happens behind-the-scenes when using a <code>for-of</code> loop.</p>
+<p>Since <code>Symbol.iterator</code> specifies the default iterator, you can use it to detect whether an object is iterable as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">isIterable</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">typeof</span> <span class="nx">object</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&#34;function&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">(</span><span class="k">new</span> <span class="nx">Map</span><span class="p">()));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">(</span><span class="k">new</span> <span class="nx">Set</span><span class="p">()));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">(</span><span class="k">new</span> <span class="nx">WeakMap</span><span class="p">()));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isIterable</span><span class="p">(</span><span class="k">new</span> <span class="nx">WeakSet</span><span class="p">()));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>isIterable()</code> function simply checks to see if a default iterator exists on the object and is a function. The <code>for-of</code> loop does a similar check before executing.</p>
+<p>So far, the examples in this section have shown ways to use <code>Symbol.iterator</code> with built-in iterable types, but you can also use the <code>Symbol.iterator</code> property to create your own iterables.</p>
+<h3 id="creating-iterables">Creating Iterables<a href="#creating-iterables" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Developer-defined objects are not iterable by default, but you can make them iterable by creating a <code>Symbol.iterator</code> property containing a generator. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">collection</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">  <span class="o">*</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">item</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">yield</span> <span class="nx">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">collection</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">collection</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">collection</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">collection</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>1
+2
+3</code></pre>
+  </figure>
+</div>
+<p>First, the example defines a default iterator for an object called <code>collection</code>. The default iterator is created by the <code>Symbol.iterator</code> method, which is a generator (note the star still comes before the name). The generator then uses a <code>for-of</code> loop to iterate over the values in <code>this.items</code> and uses <code>yield</code> to return each one. Instead of manually iterating to define values for the default iterator of <code>collection</code> to return, the <code>collection</code> object relies on the default iterator of <code>this.items</code> to do the work.</p>
+<p>I&gt; &ldquo;Delegating Generators&rdquo; later in this chapter describes a different approach to using the iterator of another object.</p>
+<p>Now you&rsquo;ve seen some uses for the default array iterator, but there are many more iterators built in to ECMAScript 6 to make working with collections of data easy.</p>
+<h2 id="built-in-iterators">Built-in Iterators<a href="#built-in-iterators" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Iterators are an important part of ECMAScript 6, and as such, you don&rsquo;t need to create your own iterators for many built-in types; the language includes them by default. You only need to create iterators when the built-in iterators don&rsquo;t serve your purpose, which will most frequently be when defining your own objects or classes. Otherwise, you can rely on built-in iterators to do your work. Perhaps the most common iterators to use are those that work on collections.</p>
+<h3 id="collection-iterators">Collection Iterators<a href="#collection-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 6 has three types of collection objects: arrays, maps, and sets. All three have the following built-in iterators to help you navigate their content:</p>
+<ul>
+<li><code>entries()</code> - Returns an iterator whose values are a key-value pair</li>
+<li><code>values()</code> - Returns an iterator whose values are the values of the collection</li>
+<li><code>keys()</code> - Returns an iterator whose values are the keys contained in the collection</li>
+</ul>
+<p>You can retrieve an iterator for a collection by calling one of these methods.</p>
+<h4 id="the-entries-iterator">The entries() Iterator<a href="#the-entries-iterator" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The <code>entries()</code> iterator returns a two-item array each time <code>next()</code> is called. The two-item array represents the key and value for each item in the collection. For arrays, the first item is the numeric index; for sets, the first item is also the value (since values double as keys in sets); for maps, the first item is the key.</p>
+<p>Here are some examples that use this iterator:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">tracking</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1234</span><span class="p">,</span> <span class="mi">5678</span><span class="p">,</span> <span class="mi">9012</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;Understanding ECMAScript 6&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;format&#34;</span><span class="p">,</span> <span class="s2">&#34;ebook&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">tracking</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">data</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>console.log()</code> calls give the following output:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>[0, &#34;red&#34;]
+[1, &#34;green&#34;]
+[2, &#34;blue&#34;]
+[1234, 1234]
+[5678, 5678]
+[9012, 9012]
+[&#34;title&#34;, &#34;Understanding ECMAScript 6&#34;]
+[&#34;format&#34;, &#34;ebook&#34;]</code></pre>
+  </figure>
+</div>
+<p>This code uses the <code>entries()</code> method on each type of collection to retrieve an iterator, and it uses <code>for-of</code> loops to iterate the items. The console output shows how the keys and values are returned in pairs for each object.</p>
+<h4 id="the-values-iterator">The values() Iterator<a href="#the-values-iterator" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The <code>values()</code> iterator simply returns values as they are stored in the collection. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">tracking</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1234</span><span class="p">,</span> <span class="mi">5678</span><span class="p">,</span> <span class="mi">9012</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;Understanding ECMAScript 6&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;format&#34;</span><span class="p">,</span> <span class="s2">&#34;ebook&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">tracking</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">data</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>&#34;red&#34;
+&#34;green&#34;
+&#34;blue&#34;
+1234
+5678
+9012
+&#34;Understanding ECMAScript 6&#34;
+&#34;ebook&#34;</code></pre>
+  </figure>
+</div>
+<p>Calling the <code>values()</code> iterator, as in this example, returns the exact data contained in each collection without any information about that data&rsquo;s location in the collection.</p>
+<h4 id="the-keys-iterator">The keys() Iterator<a href="#the-keys-iterator" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The <code>keys()</code> iterator returns each key present in a collection. For arrays, it only returns numeric keys, never other own properties of the array. For sets, the keys are the same as the values, and so <code>keys()</code> and <code>values()</code> return the same iterator. For maps, the <code>keys()</code> iterator returns each unique key. Here&rsquo;s an example that demonstrates all three:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">tracking</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1234</span><span class="p">,</span> <span class="mi">5678</span><span class="p">,</span> <span class="mi">9012</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;Understanding ECMAScript 6&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;format&#34;</span><span class="p">,</span> <span class="s2">&#34;ebook&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">of</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">keys</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">of</span> <span class="nx">tracking</span><span class="p">.</span><span class="nx">keys</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">of</span> <span class="nx">data</span><span class="p">.</span><span class="nx">keys</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>0
+1
+2
+1234
+5678
+9012
+&#34;title&#34;
+&#34;format&#34;</code></pre>
+  </figure>
+</div>
+<p>The <code>keys()</code> iterator fetches each key in <code>colors</code>, <code>tracking</code>, and <code>data</code>, and those keys are printed from inside the three <code>for-of</code> loops. For the array object, only numeric indices are printed, which would still happen even if you added named properties to the array. This is different from the way the <code>for-in</code> loop works with arrays, because the <code>for-in</code> loop iterates over properties rather than just the numeric indices.</p>
+<h4 id="default-iterators-for-collection-types">Default Iterators for Collection Types<a href="#default-iterators-for-collection-types" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Each collection type also has a default iterator that is used by <code>for-of</code> whenever an iterator isn&rsquo;t explicitly specified. The <code>values()</code> method is the default iterator for arrays and sets, while the <code>entries()</code> method is the default iterator for maps. These defaults make using collection objects in <code>for-of</code> loops a little easier. For instance, consider this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">tracking</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1234</span><span class="p">,</span> <span class="mi">5678</span><span class="p">,</span> <span class="mi">9012</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;Understanding ECMAScript 6&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&#34;format&#34;</span><span class="p">,</span> <span class="s2">&#34;print&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// same as using colors.values()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">colors</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// same as using tracking.values()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">tracking</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// same as using data.entries()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>No iterator is specified, so the default iterator functions will be used. The default iterators for arrays, sets, and maps are designed to reflect how these objects are initialized, so this code outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>&#34;red&#34;
+&#34;green&#34;
+&#34;blue&#34;
+1234
+5678
+9012
+[&#34;title&#34;, &#34;Understanding ECMAScript 6&#34;]
+[&#34;format&#34;, &#34;print&#34;]</code></pre>
+  </figure>
+</div>
+<p>Arrays and sets return their values by default, while maps return the same array format that can be passed into the <code>Map</code> constructor. Weak sets and weak maps, on the other hand, do not have built-in iterators. Managing weak references means there&rsquo;s no way to know exactly how many values are in these collections, which also means there&rsquo;s no way to iterate over them.</p>
+<p>A&gt; ### Destructuring and for-of Loops
+A&gt;
+A&gt; The behavior of the default iterator for maps is also helpful when used in <code>for-of</code> loops with destructuring, as in this example:
+A&gt;
+A&gt; <code>js A&gt; let data = new Map(); A&gt; A&gt; data.set(&quot;title&quot;, &quot;Understanding ECMAScript 6&quot;); A&gt; data.set(&quot;format&quot;, &quot;ebook&quot;); A&gt; A&gt; // same as using data.entries() A&gt; for (let [key, value] of data) { A&gt;     console.log(key + &quot;=&quot; + value); A&gt; } A&gt; </code>
+A&gt;
+A&gt; The <code>for-of</code> loop in this code uses a destructured array to assign <code>key</code> and <code>value</code> for each entry in the map. In this way, you can easily work with keys and values at the same time without needing to access a two-item array or going back to the map to fetch either the key or the value. Using a destructured array for maps makes the <code>for-of</code> loop equally useful for maps as it is for sets and arrays.</p>
+<h3 id="string-iterators">String Iterators<a href="#string-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>JavaScript strings have slowly become more like arrays since ECMAScript 5 was released. For example, ECMAScript 5 formalized bracket notation for accessing characters in strings (that is, using <code>text[0]</code> to get the first character, and so on). But bracket notation works on code units rather than characters, so it cannot be used to access double-byte characters correctly, as this example demonstrates:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&#34;A 𠮷 B&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses bracket notation and the <code>length</code> property to iterate over and print a string containing a Unicode character. The output is a bit unexpected:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>A
+(blank)
+(blank)
+(blank)
+(blank)
+B</code></pre>
+  </figure>
+</div>
+<p>Since the double-byte character is treated as two separate code units, there are four empty lines between <code>A</code> and <code>B</code> in the output.</p>
+<p>Fortunately, ECMAScript 6 aims to fully support Unicode (see Chapter 2), and the default string iterator is an attempt to solve the string iteration problem. As such, the default iterator for strings works on characters rather than code units. Changing this example to use the default string iterator with a <code>for-of</code> loop results in more appropriate output. Here&rsquo;s the tweaked code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&#34;A 𠮷 B&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">c</span> <span class="k">of</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This outputs the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <pre tabindex="0"><code>A
+(blank)
+𠮷
+(blank)
+B</code></pre>
+  </figure>
+</div>
+<p>This result is more in line with what you&rsquo;d expect when working with characters: the loop successfully prints the Unicode character, as well as all the rest.</p>
+<h3 id="nodelist-iterators">NodeList Iterators<a href="#nodelist-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The Document Object Model (DOM) has a <code>NodeList</code> type that represents a collection of elements in a document. For those who write JavaScript to run in web browsers, understanding the difference between <code>NodeList</code> objects and arrays has always been a bit difficult. Both <code>NodeList</code> objects and arrays use the <code>length</code> property to indicate the number of items, and both use bracket notation to access individual items. Internally, however, a <code>NodeList</code> and an array behave quite differently, which has led to a lot of confusion.</p>
+<p>With the addition of default iterators in ECMAScript 6, the DOM definition of <code>NodeList</code> (included in the HTML specification rather than ECMAScript 6 itself) includes a default iterator that behaves in the same manner as the array default iterator. That means you can use <code>NodeList</code> in a <code>for-of</code> loop or any other place that uses an object&rsquo;s default iterator. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">div</span> <span class="k">of</span> <span class="nx">divs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">div</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code calls <code>getElementsByTagName()</code> to retrieve a <code>NodeList</code> that represents all of the <code>&lt;div&gt;</code> elements in the <code>document</code> object. The <code>for-of</code> loop then iterates over each element and outputs the element IDs, effectively making the code the same as it would be for a standard array.</p>
+<h2 id="the-spread-operator-and-non-array-iterables">The Spread Operator and Non-Array Iterables<a href="#the-spread-operator-and-non-array-iterables" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Recall from Chapter 7 that the spread operator (<code>...</code>) can be used to convert a set into an array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">array</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">set</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> <span class="c1">// [1,2,3,4,5]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses the spread operator inside an array literal to fill in that array with the values from <code>set</code>. The spread operator works on all iterables and uses the default iterator to determine which values to include. All values are read from the iterator and inserted into the array in the order in which values were returned from the iterator. This example works because sets are iterables, but it can work equally well on any iterable. Here&rsquo;s another example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="s2">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">array</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">map</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> <span class="c1">// [ [&#34;name&#34;, &#34;Nicholas&#34;], [&#34;age&#34;, 25]]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the spread operator converts <code>map</code> into an array of arrays. Since the default iterator for maps returns key-value pairs, the resulting array looks like the array that was passed during the <code>new Map()</code> call.</p>
+<p>You can use the spread operator in an array literal as many times as you want, and you can use it wherever you want to insert multiple items from an iterable. Those items will just appear in order in the new array at the location of the spread operator. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">smallNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bigNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">allNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">...</span><span class="nx">smallNumbers</span><span class="p">,</span> <span class="p">...</span><span class="nx">bigNumbers</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">allNumbers</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">allNumbers</span><span class="p">);</span> <span class="c1">// [0, 1, 2, 3, 100, 101, 102]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The spread operator is used to create <code>allNumbers</code> from the values in <code>smallNumbers</code> and <code>bigNumbers</code>. The values are placed in <code>allNumbers</code> in the same order the arrays are added when <code>allNumbers</code> is created: <code>0</code> is first, followed by the values from <code>smallNumbers</code>, followed by the values from <code>bigNumbers</code>. The original arrays are unchanged, though, as their values have just been copied into <code>allNumbers</code>.</p>
+<p>Since the spread operator can be used on any iterable, it&rsquo;s the easiest way to convert an iterable into an array. You can convert strings into arrays of characters (not code units) and <code>NodeList</code> objects in the browser into arrays of nodes.</p>
+<p>Now that you understand the basics of how iterators work, including <code>for-of</code> and the spread operator, it&rsquo;s time to look at some more complex uses of iterators.</p>
+<h2 id="advanced-iterator-functionality">Advanced Iterator Functionality<a href="#advanced-iterator-functionality" class="anchor" aria-hidden="true">#</a> </h2>
+<p>You can accomplish a lot with the basic functionality of iterators and the convenience of creating them using generators. However, iterators are much more powerful when used for tasks other than simply iterating over a collection of values. During the development of ECMAScript 6, a lot of unique ideas and patterns emerged that encouraged the creators to add more functionality. Some of those additions are subtle, but when used together, can accomplish some interesting interactions.</p>
+<h3 id="passing-arguments-to-iterators">Passing Arguments to Iterators<a href="#passing-arguments-to-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Throughout this chapter, examples have shown iterators passing values out via the <code>next()</code> method or by using <code>yield</code> in a generator. But you can also pass arguments to the iterator through the <code>next()</code> method. When an argument is passed to the <code>next()</code> method, that argument becomes the value of the <code>yield</code> statement inside a generator. This capability is important for more advanced functionality such as asynchronous programming. Here&rsquo;s a basic example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">first</span> <span class="o">=</span> <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">second</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">first</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 4 + 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">yield</span> <span class="nx">second</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 5 + 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// &#34;{ value: 6, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// &#34;{ value: 8, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The first call to <code>next()</code> is a special case where any argument passed to it is lost. Since arguments passed to <code>next()</code> become the values returned by <code>yield</code>, an argument from the first call to <code>next()</code> could only replace the first yield statement in the generator function if it could be accessed before that <code>yield</code> statement. That&rsquo;s not possible, so there&rsquo;s no reason to pass an argument the first time <code>next()</code> is called.</p>
+<p>On the second call to <code>next()</code>, the value <code>4</code> is passed as the argument. The <code>4</code> ends up assigned to the variable <code>first</code> inside the generator function. In a <code>yield</code> statement including an assignment, the right side of the expression is evaluated on the first call to <code>next()</code> and the left side is evaluated on the second call to <code>next()</code> before the function continues executing. Since the second call to <code>next()</code> passes in <code>4</code>, that value is assigned to <code>first</code> and then execution continues.</p>
+<p>The second <code>yield</code> uses the result of the first <code>yield</code> and adds two, which means it returns a value of six. When <code>next()</code> is called a third time, the value <code>5</code> is passed as an argument. That value is assigned to the variable <code>second</code> and then used in the third <code>yield</code> statement to return <code>8</code>.</p>
+<p>It&rsquo;s a bit easier to think about what&rsquo;s happening by considering which code is executing each time execution continues inside the generator function. Figure 8-1 uses colors to show the code being executed before yielding.</p>
+<p>
+
+<img
+  src="/es6/images/fg0601_hu4405930453463050834.webp"
+  width="1950"
+  height="501"
+  decoding="async"
+  fetchpriority="auto"
+  loading="lazy"
+  alt="Figure 8-1: Code execution inside a generator"id="h-rh-i-0"
+/></p>
+<p>The color yellow represents the first call to <code>next()</code> and all the code executed inside of the generator as a result. The color aqua represents the call to <code>next(4)</code> and the code that is executed with that call. The color purple represents the call to <code>next(5)</code> and the code that is executed as a result. The tricky part is how the code on the right side of each expression executes and stops before the left side is executed. This makes debugging complicated generators a bit more involved than debugging regular functions.</p>
+<p>So far, you&rsquo;ve seen that <code>yield</code> can act like <code>return</code> when a value is passed to the <code>next()</code> method. However, that&rsquo;s not the only execution trick you can do inside a generator. You can also cause iterators throw an error.</p>
+<h3 id="throwing-errors-in-iterators">Throwing Errors in Iterators<a href="#throwing-errors-in-iterators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>It&rsquo;s possible to pass not just data into iterators but also error conditions. Iterators can choose to implement a <code>throw()</code> method that instructs the iterator to throw an error when it resumes. This is an important capability for asynchronous programming, but also for flexibility inside generators, where you want to be able to mimic both return values and thrown errors (the two ways of exiting a function). You can pass an error object to <code>throw()</code> that should be thrown when the iterator continues processing. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">first</span> <span class="o">=</span> <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">second</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">first</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// yield 4 + 2, then throw
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">yield</span> <span class="nx">second</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// never is executed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// &#34;{ value: 6, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="k">throw</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&#34;Boom&#34;</span><span class="p">)));</span> <span class="c1">// error thrown from generator
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, the first two <code>yield</code> expressions are evaluated as normal, but when <code>throw()</code> is called, an error is thrown before <code>let second</code> is evaluated. This effectively halts code execution similar to directly throwing an error. The only difference is the location in which the error is thrown. Figure 8-2 shows which code is executed at each step.</p>
+<p>
+
+<img
+  src="/es6/images/fg0602_hu2188896253092156230.webp"
+  width="1950"
+  height="501"
+  decoding="async"
+  fetchpriority="auto"
+  loading="lazy"
+  alt="Figure 8-2: Throwing an error inside a generator"id="h-rh-i-1"
+/></p>
+<p>In this figure, the color red represents the code executed when <code>throw()</code> is called, and the red star shows approximately when the error is thrown inside the generator. The first two <code>yield</code> statements are executed, and when <code>throw()</code> is called, an error is thrown before any other code executes.</p>
+<p>Knowing this, you can catch such errors inside the generator using a <code>try-catch</code> block:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">first</span> <span class="o">=</span> <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">second</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">second</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">first</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// yield 4 + 2, then throw
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">second</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// on error, assign a different value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="nx">second</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// &#34;{ value: 6, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="k">throw</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&#34;Boom&#34;</span><span class="p">)));</span> <span class="c1">// &#34;{ value: 9, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, a <code>try-catch</code> block is wrapped around the second <code>yield</code> statement. While this <code>yield</code> executes without error, the error is thrown before any value can be assigned to <code>second</code>, so the <code>catch</code> block assigns it a value of six. Execution then flows to the next <code>yield</code> and returns nine.</p>
+<p>Notice that something interesting happened: the <code>throw()</code> method returned a result object just like the <code>next()</code> method. Because the error was caught inside the generator, code execution continued on to the next <code>yield</code> and returned the next value, <code>9</code>.</p>
+<p>It helps to think of <code>next()</code> and <code>throw()</code> as both being instructions to the iterator. The <code>next()</code> method instructs the iterator to continue executing (possibly with a given value) and <code>throw()</code> instructs the iterator to continue executing by throwing an error. What happens after that point depends on the code inside the generator.</p>
+<p>The <code>next()</code> and <code>throw()</code> methods control execution inside an iterator when using <code>yield</code>, but you can also use the <code>return</code> statement. But <code>return</code> works a bit differently than it does in regular functions, as you will see in the next section.</p>
+<h3 id="generator-return-statements">Generator Return Statements<a href="#generator-return-statements" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Since generators are functions, you can use the <code>return</code> statement both to exit early and specify a return value for the last call to the <code>next()</code> method. In most examples in this chapter, the last call to <code>next()</code> on an iterator returns <code>undefined</code>, but you can specify an alternate value by using <code>return</code> as you would in any other function. In a generator, <code>return</code> indicates that all processing is done, so the <code>done</code> property is set to <code>true</code> and the value, if provided, becomes the <code>value</code> field. Here&rsquo;s an example that simply exits early using <code>return</code>:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the generator has a <code>yield</code> statement followed by a <code>return</code> statement. The <code>return</code> indicates that there are no more values to come, and so the rest of the <code>yield</code> statements will not execute (they are unreachable).</p>
+<p>You can also specify a return value that will end up in the <code>value</code> field of the returned object. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 42, done: true }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the value <code>42</code> is returned in the <code>value</code> field on the second call to the <code>next()</code> method (which is the first time that <code>done</code> is <code>true</code>). The third call to <code>next()</code> returns an object whose <code>value</code> property is once again <code>undefined</code>. Any value you specify with <code>return</code> is only available on the returned object one time before the <code>value</code> field is reset to <code>undefined</code>.</p>
+<p>I&gt; The spread operator and <code>for-of</code> ignore any value specified by a <code>return</code> statement. As soon as they see <code>done</code> is <code>true</code>, they stop without reading the <code>value</code>. Iterator return values are helpful, however, when delegating generators.</p>
+<h3 id="delegating-generators">Delegating Generators<a href="#delegating-generators" class="anchor" aria-hidden="true">#</a> </h3>
+<p>In some cases, combining the values from two iterators into one is useful. Generators can delegate to other iterators using a special form of <code>yield</code> with a star (<code>*</code>) character. As with generator definitions, where the star appears doesn&rsquo;t matter, as long as the star falls between the <code>yield</code> keyword and the generator function name. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createColorIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="s2">&#34;green&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createCombinedIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="o">*</span> <span class="nx">createColorIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createCombinedIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;red&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;green&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: true, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, the <code>createCombinedIterator()</code> generator delegates first to the iterator returned from <code>createNumberIterator()</code> and then to the iterator returned from <code>createColorIterator()</code>. The iterator returned from <code>createCombinedIterator()</code> appears, from the outside, to be one consistent iterator that has produced all of the values. Each call to <code>next()</code> is delegated to the appropriate iterator until the iterators created by <code>createNumberIterator()</code> and <code>createColorIterator()</code> are empty. Then the final <code>yield</code> is executed to return <code>true</code>.</p>
+<p>Generator delegation also lets you make further use of generator return values. This is the easiest way to access such returned values and can be quite useful in performing complex tasks. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createRepeatingIterator</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s2">&#34;repeat&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createCombinedIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">yield</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="o">*</span> <span class="nx">createRepeatingIterator</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createCombinedIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the <code>createCombinedIterator()</code> generator delegates to <code>createNumberIterator()</code> and assigns the return value to <code>result</code>. Since <code>createNumberIterator()</code> contains <code>return 3</code>, the returned value is <code>3</code>. The <code>result</code> variable is then passed to <code>createRepeatingIterator()</code> as an argument indicating how many times to yield the same string (in this case, three times).</p>
+<p>Notice that the value <code>3</code> was never output from any call to the <code>next()</code> method. Right now, it exists solely inside the <code>createCombinedIterator()</code> generator. But you can output that value as well by adding another <code>yield</code> statement, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createRepeatingIterator</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">yield</span> <span class="s2">&#34;repeat&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span><span class="o">*</span> <span class="nx">createCombinedIterator</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">yield</span><span class="o">*</span> <span class="nx">createNumberIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="o">*</span> <span class="nx">createRepeatingIterator</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">createCombinedIterator</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 1, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 2, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: 3, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: &#34;repeat&#34;, done: false }&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span> <span class="c1">// &#34;{ value: undefined, done: true }&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the extra <code>yield</code> statement explicitly outputs the returned value from the <code>createNumberIterator()</code> generator.</p>
+<p>Generator delegation using the return value is a very powerful paradigm that allows for some very interesting possibilities, especially when used in conjunction with asynchronous operations.</p>
+<p>I&gt; You can use <code>yield *</code> directly on strings (such as <code>yield * &quot;hello&quot;</code>) and the string&rsquo;s default iterator will be used.</p>
+<h2 id="asynchronous-task-running">Asynchronous Task Running<a href="#asynchronous-task-running" class="anchor" aria-hidden="true">#</a> </h2>
+<p>A lot of the excitement around generators is directly related to asynchronous programming. Asynchronous programming in JavaScript is a double-edged sword: simple tasks are easy to do asynchronously, while complex tasks become an errand in code organization. Since generators allow you to effectively pause code in the middle of execution, they open up a lot of possibilities related to asynchronous processing.</p>
+<p>The traditional way to perform asynchronous operations is to call a function that has a callback. For example, consider reading a file from the disk in Node.js:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&#34;config.json&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">contents</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">doSomethingWith</span><span class="p">(</span><span class="nx">contents</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Done&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>fs.readFile()</code> method is called with the filename to read and a callback function. When the operation is finished, the callback function is called. The callback checks to see if there&rsquo;s an error, and if not, processes the returned <code>contents</code>. This works well when you have a small, finite number of asynchronous tasks to complete, but gets complicated when you need to nest callbacks or otherwise sequence a series of asynchronous tasks. This is where generators and <code>yield</code> are helpful.</p>
+<h3 id="a-simple-task-runner">A Simple Task Runner<a href="#a-simple-task-runner" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Because <code>yield</code> stops execution and waits for the <code>next()</code> method to be called before starting again, you can implement asynchronous calls without managing callbacks. To start, you need a function that can call a generator and start the iterator, such as this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="nx">taskDef</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// create the iterator, make available elsewhere
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="nx">taskDef</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the task
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// recursive function to keep calling next()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">function</span> <span class="nx">step</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if there&#39;s more to do
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the process
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>run()</code> function accepts a task definition (a generator function) as an argument. It calls the generator to create an iterator and stores the iterator in <code>task</code>. The <code>task</code> variable is outside the function so it can be accessed by other functions; I will explain why later in this section. The first call to <code>next()</code> begins the iterator and the result is stored for later use. The <code>step()</code> function checks to see if <code>result.done</code> is false and, if so, calls <code>next()</code> before recursively calling itself. Each call to <code>next()</code> stores the return value in <code>result</code>, which is always overwritten to contain the latest information. The initial call to <code>step()</code> starts the process of looking at the <code>result.done</code> variable to see whether there&rsquo;s more to do.</p>
+<p>With this implementation of <code>run()</code>, you can run a generator containing multiple <code>yield</code> statements, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="o">*</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">yield</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example just outputs three numbers to the console, which simply shows that all calls to <code>next()</code> are being made. However, just yielding a couple of times isn&rsquo;t very useful. The next step is to pass values into and out of the iterator.</p>
+<h3 id="task-running-with-data">Task Running With Data<a href="#task-running-with-data" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The easiest way to pass data through the task runner is to pass the value specified by <code>yield</code> into the next call to the <code>next()</code> method. To do so, you need only pass <code>result.value</code>, as in this code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="nx">taskDef</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// create the iterator, make available elsewhere
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="nx">taskDef</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the task
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// recursive function to keep calling next()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">function</span> <span class="nx">step</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if there&#39;s more to do
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the process
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Now that <code>result.value</code> is passed to <code>next()</code> as an argument, it&rsquo;s possible to pass data between <code>yield</code> calls, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="o">*</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="nx">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">value</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example outputs two values to the console: 1 and 4. The value 1 comes from <code>yield 1</code>, as the 1 is passed right back into the <code>value</code> variable. The 4 is calculated by adding 3 to <code>value</code> and passing that result back to <code>value</code>. Now that data is flowing between calls to <code>yield</code>, you just need one small change to allow asynchronous calls.</p>
+<h3 id="asynchronous-task-runner">Asynchronous Task Runner<a href="#asynchronous-task-runner" class="anchor" aria-hidden="true">#</a> </h3>
+<p>The previous example passed static data back and forth between <code>yield</code> calls, but waiting for an asynchronous process is slightly different. The task runner needs to know about callbacks and how to use them. And since <code>yield</code> expressions pass their values into the task runner, that means any function call must return a value that somehow indicates the call is an asynchronous operation that the task runner should wait for.</p>
+<p>Here&rsquo;s one way you might signal that a value is an asynchronous operation:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&#34;Hi!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>For the purposes of this example, any function meant to be called by the task runner will return a function that executes a callback. The <code>fetchData()</code> function returns a function that accepts a callback function as an argument. When the returned function is called, it executes the callback function with a single piece of data (the <code>&quot;Hi!&quot;</code> string). The <code>callback</code> argument needs to come from the task runner to ensure executing the callback correctly interacts with the underlying iterator. While the <code>fetchData()</code> function is synchronous, you can easily extend it to be asynchronous by calling the callback with a slight delay, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&#34;Hi!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="mi">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This version of <code>fetchData()</code> introduces a 50ms delay before calling the callback, demonstrating that this pattern works equally well for synchronous and asynchronous code. You just have to make sure each function that wants to be called using <code>yield</code> follows the same pattern.</p>
+<p>With a good understanding of how a function can signal that it&rsquo;s an asynchronous process, you can modify the task runner to take that fact into account. Anytime <code>result.value</code> is a function, the task runner will execute it instead of just passing that value to the <code>next()</code> method. Here&rsquo;s the updated code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="nx">taskDef</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// create the iterator, make available elsewhere
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="nx">taskDef</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the task
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// recursive function to keep calling next()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">function</span> <span class="nx">step</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// if there&#39;s more to do
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">result</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&#34;function&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="k">throw</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">result</span> <span class="o">=</span> <span class="nx">task</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// start the process
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">step</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When <code>result.value</code> is a function (checked with the <code>===</code> operator), it is called with a callback function. That callback function follows the Node.js convention of passing any possible error as the first argument (<code>err</code>) and the result as the second argument. If <code>err</code> is present, then that means an error occurred and <code>task.throw()</code> is called with the error object instead of <code>task.next()</code> so an error is thrown at the correct location. If there is no error, then <code>data</code> is passed into <code>task.next()</code> and the result is stored. Then, <code>step()</code> is called to continue the process. When <code>result.value</code> is not a function, it is directly passed to the <code>next()</code> method.</p>
+<p>This new version of the task runner is ready for all asynchronous tasks. To read data from a file in Node.js, you need to create a wrapper around <code>fs.readFile()</code> that returns a function similar to the <code>fetchData()</code> function from the beginning of this section. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;fs&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">readFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>readFile()</code> method accepts a single argument, the filename, and returns a function that calls a callback. The callback is passed directly to the <code>fs.readFile()</code> method, which will execute the callback upon completion. You can then run this task using <code>yield</code> as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">run</span><span class="p">(</span><span class="kd">function</span><span class="o">*</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">contents</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">readFile</span><span class="p">(</span><span class="s2">&#34;config.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">doSomethingWith</span><span class="p">(</span><span class="nx">contents</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Done&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example is performing the asynchronous <code>readFile()</code> operation without making any callbacks visible in the main code. Aside from <code>yield</code>, the code looks the same as synchronous code. As long as the functions performing asynchronous operations all conform to the same interface, you can write logic that reads like synchronous code.</p>
+<p>Of course, there are downsides to the pattern used in these examples&ndash;namely that you can&rsquo;t always be sure a function that returns a function is asynchronous. For now, though, it&rsquo;s only important that you understand the theory behind the task running. Using promises offers more powerful ways of scheduling asynchronous tasks, and Chapter 11 covers this topic further.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Iterators are an important part of ECMAScript 6 and are at the root of several key language elements. On the surface, iterators provide a simple way to return a sequence of values using a simple API. However, there are far more complex ways to use iterators in ECMAScript 6.</p>
+<p>The <code>Symbol.iterator</code> symbol is used to define default iterators for objects. Both built-in objects and developer-defined objects can use this symbol to provide a method that returns an iterator. When <code>Symbol.iterator</code> is provided on an object, the object is considered an iterable.</p>
+<p>The <code>for-of</code> loop uses iterables to return a series of values in a loop. Using <code>for-of</code> is easier than iterating with a traditional <code>for</code> loop because you no longer need to track values and control when the loop ends. The <code>for-of</code> loop automatically reads all values from the iterator until there are no more, and then it exits.</p>
+<p>To make <code>for-of</code> easier to use, many values in ECMAScript 6 have default iterators. All the collection types&ndash;that is, arrays, maps, and sets&ndash;have iterators designed to make their contents easy to access. Strings also have a default iterator, which makes iterating over the characters of the string (rather than the code units) easy.</p>
+<p>The spread operator works with any iterable and makes converting iterables into arrays easy, too. The conversion works by reading values from an iterator and inserting them individually into an array.</p>
+<p>A generator is a special function that automatically creates an iterator when called. Generator definitions are indicated by a star (<code>*</code>) character and use of the <code>yield</code> keyword to indicate which value to return for each successive call to the <code>next()</code> method.</p>
+<p>Generator delegation encourages good encapsulation of iterator behavior by letting you reuse existing generators in new generators. You can use an existing generator inside another generator by calling <code>yield *</code> instead of <code>yield</code>. This process allows you to create an iterator that returns values from multiple iterators.</p>
+<p>Perhaps the most interesting and exciting aspect of generators and iterators is the possibility of creating cleaner-looking asynchronous code. Instead of needing to use callbacks everywhere, you can set up code that looks synchronous but in fact uses <code>yield</code> to wait for asynchronous operations to complete.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/07-sets-and-maps/" class="stretched-link text-reset text-decoration-none">07 Sets and Maps</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/09-classes/" class="stretched-link text-reset text-decoration-none">09 Introducing JavaScript Classes</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

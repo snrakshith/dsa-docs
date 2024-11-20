@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/13-modules/">
+  <link rel="canonical" href="http://localhost:1313/es6/13-modules/">
+<title>13 Encapsulating Code With Modules  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="13 Encapsulating Code With Modules">
+<meta property="og:description" content="JavaScript&rsquo;s &ldquo;shared everything&rdquo; approach to loading code is one of the most error-prone and confusing aspects of the language. Other languages use concepts such as packages to define code scope, but before ECMAScript 6, everything defined in every JavaScript file of an application shared one global scope. As web applications became more complex and started using even more JavaScript code, that approach caused problems like naming collisions and security concerns. One goal of ECMAScript 6 was to solve the scope problem and bring some order to JavaScript applications. That&rsquo;s where modules come in.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/13-modules/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="13 Encapsulating Code With Modules">
+<meta name="twitter:description" content="JavaScript&rsquo;s &ldquo;shared everything&rdquo; approach to loading code is one of the most error-prone and confusing aspects of the language. Other languages use concepts such as packages to define code scope, but before ECMAScript 6, everything defined in every JavaScript file of an application shared one global scope. As web applications became more complex and started using even more JavaScript code, that approach caused problems like naming collisions and security concerns. One goal of ECMAScript 6 was to solve the scope problem and bring some order to JavaScript applications. That&rsquo;s where modules come in.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "13 Encapsulating Code With Modules",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#what-are-modules">What are Modules?</a></li>
+    <li><a href="#basic-exporting">Basic Exporting</a></li>
+    <li><a href="#basic-importing">Basic Importing</a>
+      <ul>
+        <li><a href="#importing-a-single-binding">Importing a Single Binding</a></li>
+        <li><a href="#importing-multiple-bindings">Importing Multiple Bindings</a></li>
+        <li><a href="#importing-all-of-a-module">Importing All of a Module</a></li>
+        <li><a href="#a-subtle-quirk-of-imported-bindings">A Subtle Quirk of Imported Bindings</a></li>
+      </ul>
+    </li>
+    <li><a href="#renaming-exports-and-imports">Renaming Exports and Imports</a></li>
+    <li><a href="#default-values-in-modules">Default Values in Modules</a>
+      <ul>
+        <li><a href="#exporting-default-values">Exporting Default Values</a></li>
+        <li><a href="#importing-default-values">Importing Default Values</a></li>
+      </ul>
+    </li>
+    <li><a href="#re-exporting-a-binding">Re-exporting a Binding</a></li>
+    <li><a href="#importing-without-bindings">Importing Without Bindings</a></li>
+    <li><a href="#loading-modules">Loading Modules</a>
+      <ul>
+        <li><a href="#using-modules-in-web-browsers">Using Modules in Web Browsers</a></li>
+        <li><a href="#browser-module-specifier-resolution">Browser Module Specifier Resolution</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>13 Encapsulating Code With Modules</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-modules">What are Modules?</a></li>
+    <li><a href="#basic-exporting">Basic Exporting</a></li>
+    <li><a href="#basic-importing">Basic Importing</a>
+      <ul>
+        <li><a href="#importing-a-single-binding">Importing a Single Binding</a></li>
+        <li><a href="#importing-multiple-bindings">Importing Multiple Bindings</a></li>
+        <li><a href="#importing-all-of-a-module">Importing All of a Module</a></li>
+        <li><a href="#a-subtle-quirk-of-imported-bindings">A Subtle Quirk of Imported Bindings</a></li>
+      </ul>
+    </li>
+    <li><a href="#renaming-exports-and-imports">Renaming Exports and Imports</a></li>
+    <li><a href="#default-values-in-modules">Default Values in Modules</a>
+      <ul>
+        <li><a href="#exporting-default-values">Exporting Default Values</a></li>
+        <li><a href="#importing-default-values">Importing Default Values</a></li>
+      </ul>
+    </li>
+    <li><a href="#re-exporting-a-binding">Re-exporting a Binding</a></li>
+    <li><a href="#importing-without-bindings">Importing Without Bindings</a></li>
+    <li><a href="#loading-modules">Loading Modules</a>
+      <ul>
+        <li><a href="#using-modules-in-web-browsers">Using Modules in Web Browsers</a></li>
+        <li><a href="#browser-module-specifier-resolution">Browser Module Specifier Resolution</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>JavaScript&rsquo;s &ldquo;shared everything&rdquo; approach to loading code is one of the most error-prone and confusing aspects of the language. Other languages use concepts such as packages to define code scope, but before ECMAScript 6, everything defined in every JavaScript file of an application shared one global scope. As web applications became more complex and started using even more JavaScript code, that approach caused problems like naming collisions and security concerns. One goal of ECMAScript 6 was to solve the scope problem and bring some order to JavaScript applications. That&rsquo;s where modules come in.</p>
+<h2 id="what-are-modules">What are Modules?<a href="#what-are-modules" class="anchor" aria-hidden="true">#</a> </h2>
+<p><em>Modules</em> are JavaScript files that are loaded in a different mode (as opposed to <em>scripts</em>, which are loaded in the original way JavaScript worked). This different mode is necessary because modules have very different semantics than scripts:</p>
+<ol>
+<li>Module code automatically runs in strict mode, and there&rsquo;s no way to opt-out of strict mode.</li>
+<li>Variables created in the top level of a module aren&rsquo;t automatically added to the shared global scope. They exist only within the top-level scope of the module.</li>
+<li>The value of <code>this</code> in the top level of a module is <code>undefined</code>.</li>
+<li>Modules don&rsquo;t allow HTML-style comments within code (a leftover feature from JavaScript&rsquo;s early browser days).</li>
+<li>Modules must export anything that should be available to code outside of the module.</li>
+<li>Modules may import bindings from other modules.</li>
+</ol>
+<p>These differences may seem small at first glance, but they represent a significant change in how JavaScript code is loaded and evaluated, which I will discuss over the course of this chapter. The real power of modules is the ability to export and import only bindings you need, rather than everything in a file. A good understanding of exporting and importing is fundamental to understanding how modules differ from scripts.</p>
+<h2 id="basic-exporting">Basic Exporting<a href="#basic-exporting" class="anchor" aria-hidden="true">#</a> </h2>
+<p>You can use the <code>export</code> keyword to expose parts of published code to other modules. In the simplest case, you can place <code>export</code> in front of any variable, function, or class declaration to export it from the module, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// export data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">magicNumber</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// export function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// export class
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">constructor</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// this function is private to the module
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">subtract</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">-</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// define a function...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">*</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ...and then export it later
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="p">{</span> <span class="nx">multiply</span> <span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>There are a few things to notice in this example. First, apart from the <code>export</code> keyword, every declaration is exactly the same as it would be otherwise. Each exported function or class also has a name; that&rsquo;s because exported function and class declarations require a name. You can&rsquo;t export anonymous functions or classes using this syntax unless you use the <code>default</code> keyword (discussed in detail in the &ldquo;Default Values in Modules&rdquo; section).</p>
+<p>Next, consider the <code>multiply()</code> function, which isn&rsquo;t exported when it&rsquo;s defined. That works because you need not always export a declaration: you can also export references. Finally, notice that this example doesn&rsquo;t export the <code>subtract()</code> function. That function won&rsquo;t be accessible from outside this module because any variables, functions, or classes that are not explicitly exported remain private to the module.</p>
+<h2 id="basic-importing">Basic Importing<a href="#basic-importing" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Once you have a module with exports, you can access the functionality in another module by using the <code>import</code> keyword. The two parts of an <code>import</code> statement are the identifiers you&rsquo;re importing and the module from which those identifiers should be imported. This is the statement&rsquo;s basic form:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">identifier1</span><span class="p">,</span> <span class="nx">identifier2</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The curly braces after <code>import</code> indicate the bindings to import from a given module. The keyword <code>from</code> indicates the module from which to import the given binding. The module is specified by a string representing the path to the module (called the <em>module specifier</em>). Browsers use the same path format you might pass to the <code>&lt;script&gt;</code> element, which means you must include a file extension. Node.js, on the other hand, follows its traditional convention of differentiating between local files and packages based on a filesystem prefix. For example, <code>example</code> would be a package and <code>./example.js</code> would be a local file.</p>
+<p>I&gt; The list of bindings to import looks similar to a destructured object, but it isn&rsquo;t one.</p>
+<p>When importing a binding from a module, the binding acts as if it were defined using <code>const</code>. That means you can&rsquo;t define another variable with the same name (including importing another binding of the same name), use the identifier before the <code>import</code> statement, or change its value.</p>
+<h3 id="importing-a-single-binding">Importing a Single Binding<a href="#importing-a-single-binding" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Suppose that the first example in the &ldquo;Basic Exporting&rdquo; section is in a module with the filename <code>example.js</code>. You can import and use bindings from that module in a number of ways. For instance, you can just import one identifier:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// import just one
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">sum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// error
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Even though <code>example.js</code> exports more than just that one function this example imports only the <code>sum()</code> function. If you try to assign a new value to <code>sum</code>, the result is an error, as you can&rsquo;t reassign imported bindings.</p>
+<p>W&gt; Make sure to include <code>/</code>, <code>./</code>, or <code>../</code> at the beginning of the file you&rsquo;re importing for best compatibility across browsers and Node.js.</p>
+<h3 id="importing-multiple-bindings">Importing Multiple Bindings<a href="#importing-multiple-bindings" class="anchor" aria-hidden="true">#</a> </h3>
+<p>If you want to import multiple bindings from the example module, you can explicitly list them out as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// import multiple
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span><span class="p">,</span> <span class="nx">multiply</span><span class="p">,</span> <span class="nx">magicNumber</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">magicNumber</span><span class="p">));</span> <span class="c1">// 8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, three bindings are imported from the example module: <code>sum</code>, <code>multiply</code>, and <code>magicNumber</code>. They are then used as if they were locally defined.</p>
+<h3 id="importing-all-of-a-module">Importing All of a Module<a href="#importing-all-of-a-module" class="anchor" aria-hidden="true">#</a> </h3>
+<p>There&rsquo;s also a special case that allows you to import the entire module as a single object. All of the exports are then available on that object as properties. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// import everything
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">example</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">example</span><span class="p">.</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">example</span><span class="p">.</span><span class="nx">magicNumber</span><span class="p">));</span> <span class="c1">// 8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">example</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 2
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, all exported bindings in <code>example.js</code> are loaded into an object called <code>example</code>. The named exports (the <code>sum()</code> function, the <code>multiple()</code> function, and <code>magicNumber</code>) are then accessible as properties on <code>example</code>. This import format is called a <em>namespace import</em> because the <code>example</code> object doesn&rsquo;t exist inside of the <code>example.js</code> file and is instead created to be used as a namespace object for all of the exported members of <code>example.js</code>.</p>
+<p>Keep in mind, however, that no matter how many times you use a module in <code>import</code> statements, the module will only be executed once. After the code to import the module executes, the instantiated module is kept in memory and reused whenever another <code>import</code> statement references it. Consider the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">multiply</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">magicNumber</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Even though there are three <code>import</code> statements in this module, <code>example.js</code> will only be executed once. If other modules in the same application were to import bindings from <code>example.js</code>, those modules would use the same module instance this code uses.</p>
+<p>A&gt; ### Module Syntax Limitations
+A&gt;
+A&gt; An important limitation of both <code>export</code> and <code>import</code> is that they must be used outside other statements and functions. For instance, this code will give a syntax error:
+A&gt;
+A&gt; <code>js A&gt; if (flag) { A&gt;     export flag;    // syntax error A&gt; } A&gt; </code>
+A&gt;The <code>export</code> statement is inside an <code>if</code> statement, which isn&rsquo;t allowed. Exports cannot be conditional or done dynamically in any way. One reason module syntax exists is to let the JavaScript engine staticly determine what will be exported. As such, you can only use <code>export</code> at the top-level of a module.
+A&gt;
+A&gt; Similarly, you can&rsquo;t use <code>import</code> inside of a statement; you can only use it at the top-level. That means this code also gives a syntax error:
+A&gt;
+A&gt; <code>js A&gt; function tryImport() { A&gt;     import flag from &quot;./example.js&quot;;    // syntax error A&gt; } A&gt; </code>
+A&gt;
+A&gt; You can&rsquo;t dynamically import bindings for the same reason you can&rsquo;t dynamically export bindings. The <code>export</code> and <code>import</code> keywords are designed to be static so that tools like text editors can easily tell what information is available from a module.</p>
+<h3 id="a-subtle-quirk-of-imported-bindings">A Subtle Quirk of Imported Bindings<a href="#a-subtle-quirk-of-imported-bindings" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 6&rsquo;s <code>import</code> statements create read-only bindings to variables, functions, and classes rather than simply referencing the original bindings like normal variables. Even though the module that imports the binding can&rsquo;t change its value, the module that exports that identifier can. For example, suppose you want to use this module:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">newName</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When you import those two bindings, the <code>setName()</code> function can change the value of <code>name</code>:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">setName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">setName</span><span class="p">(</span><span class="s2">&#34;Greg&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;Greg&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span> <span class="c1">// error
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The call to <code>setName(&quot;Greg&quot;)</code> goes back into the module from which <code>setName()</code> was exported and executes there, setting <code>name</code> to <code>&quot;Greg&quot;</code> instead. Note this change is automatically reflected on the imported <code>name</code> binding. That&rsquo;s because <code>name</code> is the local name for the exported <code>name</code> identifier. The <code>name</code> used in the code above and the <code>name</code> used in the module being imported from aren&rsquo;t the same.</p>
+<h2 id="renaming-exports-and-imports">Renaming Exports and Imports<a href="#renaming-exports-and-imports" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Sometimes, you may not want to use the original name of a variable, function, or class you&rsquo;ve imported from a module. Fortunately, you can change the name of an export both during the export and during the import.</p>
+<p>In the first case, suppose you have a function that you&rsquo;d like to export with a different name. You can use the <code>as</code> keyword to specify the name that the function should be known as outside of the module:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="p">{</span> <span class="nx">sum</span> <span class="nx">as</span> <span class="nx">add</span> <span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the <code>sum()</code> function (<code>sum</code> is the <em>local name</em>) is exported as <code>add()</code> (<code>add</code> is the <em>exported name</em>). That means when another module wants to import this function, it will have to use the name <code>add</code> instead:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">add</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>If the module importing the function wants to use a different name, it can also use <code>as</code>:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">add</span> <span class="nx">as</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">add</span><span class="p">);</span> <span class="c1">// &#34;undefined&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code imports the <code>add()</code> function using the <em>import name</em> and renames it to <code>sum()</code> (the local name). That means there is no identifier named <code>add</code> in this module.</p>
+<h2 id="default-values-in-modules">Default Values in Modules<a href="#default-values-in-modules" class="anchor" aria-hidden="true">#</a> </h2>
+<p>The module syntax is really optimized for exporting and importing default values from modules, as this pattern was quite common in other module systems, like CommonJS (another JavaScript module format popularized by Node.js). The <em>default value</em> for a module is a single variable, function, or class as specified by the <code>default</code> keyword, and you can only set one default export per module. Using the <code>default</code> keyword with multiple exports is a syntax error.</p>
+<h3 id="exporting-default-values">Exporting Default Values<a href="#exporting-default-values" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Here&rsquo;s a simple example that uses the <code>default</code> keyword:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This module exports a function as its default value. The <code>default</code> keyword indicates that this is a default export. The function doesn&rsquo;t require a name because the module itself represents the function.</p>
+<p>You can also specify an identifier as the default export by placing it after <code>export default</code>, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">sum</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the <code>sum()</code> function is defined first and later exported as the default value of the module. You may want to choose this approach if the default value needs to be calculated.</p>
+<p>A third way to specify an identifier as the default export is by using the renaming syntax as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="p">{</span> <span class="nx">sum</span> <span class="nx">as</span> <span class="k">default</span> <span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The identifier <code>default</code> has special meaning in a renaming export and indicates a value should be the default for the module. Because <code>default</code> is a keyword in JavaScript, it can&rsquo;t be used for a variable, function, or class name (it can be used as a property name). So the use of <code>default</code> to rename an export is a special case to create a consistency with how non-default exports are defined. This syntax is useful if you want to use a single <code>export</code> statement to specify multiple exports, including the default, at once.</p>
+<h3 id="importing-default-values">Importing Default Values<a href="#importing-default-values" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can import a default value from a module using the following syntax:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// import the default
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">sum</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This import statement imports the default from the module <code>example.js</code>. Note that no curly braces are used, unlike you&rsquo;d see in a non-default import. The local name <code>sum</code> is used to represent whatever default function the module exports. This syntax is the cleanest, and the creators of ECMAScript 6 expect it to be the dominant form of import on the Web, allowing you to use an already-existing object.</p>
+<p>For modules that export both a default and one or more non-default bindings, you can import all exported bindings with one statement. For instance, suppose you have this module:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kd">let</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>You can import both <code>color</code> and the default function using the following <code>import</code> statement:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">sum</span><span class="p">,</span> <span class="p">{</span> <span class="nx">color</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The comma separates the default local name from the non-defaults, which are also surrounded by curly braces. Keep in mind that the default must come before the non-defaults in the <code>import</code> statement.</p>
+<p>As with exporting defaults, you can import defaults with the renaming syntax, too:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// equivalent to previous example
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="k">default</span> <span class="nx">as</span> <span class="nx">sum</span><span class="p">,</span> <span class="nx">color</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;example&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the default export (<code>default</code>) is renamed to <code>sum</code> and the additional <code>color</code> export is also imported. This example is equivalent to the preceding example.</p>
+<h2 id="re-exporting-a-binding">Re-exporting a Binding<a href="#re-exporting-a-binding" class="anchor" aria-hidden="true">#</a> </h2>
+<p>There may be a time when you&rsquo;d like to re-export something that your module has imported (for instance, if you&rsquo;re creating a library out of several small modules). You can re-export an imported value with the patterns already discussed in this chapter as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>That works, but a single statement can also do the same thing:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This form of <code>export</code> looks into the specified module for the declaration of <code>sum</code> and then exports it. Of course, you can also choose to export a different name for the same value:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="p">{</span> <span class="nx">sum</span> <span class="nx">as</span> <span class="nx">add</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>sum</code> is imported from <code>&quot;./example.js&quot;</code> and then exported as <code>add</code>.</p>
+<p>If you&rsquo;d like to export everything from another module, you can use the <code>*</code> pattern:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="o">*</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When you export everything, you are including all named exports and excluding any default export. For instance, if <code>example.js</code> has a default export, you would need to import it explicitly and then export it explicitly.</p>
+<h2 id="importing-without-bindings">Importing Without Bindings<a href="#importing-without-bindings" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Some modules may not export anything, and instead, only make modifications to objects in the global scope. Even though top-level variables, functions, and classes inside modules don&rsquo;t automatically end up in the global scope, that doesn&rsquo;t mean modules cannot access the global scope. The shared definitions of built-in objects such as <code>Array</code> and <code>Object</code> are accessible inside a module and changes to those objects will be reflected in other modules.</p>
+<p>For instance, if you want to add a <code>pushAll()</code> method to all arrays, you might define a module like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// module code without exports or imports
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">pushAll</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// items must be an array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">items</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="s2">&#34;Argument must be an array.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// use built-in push() and spread operator
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">items</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This is a valid module even though there are no exports or imports. This code can be used both as a module and a script. Since it doesn&rsquo;t export anything, you can use a simplified import to execute the module code without importing any bindings:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">items</span><span class="p">.</span><span class="nx">pushAll</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code imports and executes the module containing the <code>pushAll()</code> method, so <code>pushAll()</code> is added to the array prototype. That means <code>pushAll()</code> is now available for use on all arrays inside of this module.</p>
+<p>I&gt; Imports without bindings are most likely to be used to create polyfills and shims.</p>
+<h2 id="loading-modules">Loading Modules<a href="#loading-modules" class="anchor" aria-hidden="true">#</a> </h2>
+<p>While ECMAScript 6 defines the syntax for modules, it doesn&rsquo;t define how to load them. This is part of the complexity of a specification that&rsquo;s supposed to be agnostic to implementation environments. Rather than trying to create a single specification that would work for all JavaScript environments, ECMAScript 6 specifies only the syntax and abstracts out the loading mechanism to an undefined internal operation called <code>HostResolveImportedModule</code>. Web browsers and Node.js are left to decide how to implement <code>HostResolveImportedModule</code> in a way that makes sense for their respective environments.</p>
+<h3 id="using-modules-in-web-browsers">Using Modules in Web Browsers<a href="#using-modules-in-web-browsers" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Even before ECMAScript 6, web browsers had multiple ways of including JavaScript in an web application. Those script loading options are:</p>
+<ol>
+<li>Loading JavaScript code files using the <code>&lt;script&gt;</code> element with the <code>src</code> attribute specifying a location from which to load the code.</li>
+<li>Embedding JavaScript code inline using the <code>&lt;script&gt;</code> element without the <code>src</code> attribute.</li>
+<li>Loading JavaScript code files to execute as workers (such as a web worker or service worker).</li>
+</ol>
+<p>In order to fully support modules, web browsers had to update each of these mechanisms. These details are defined in the HTML specification, and I&rsquo;ll summarize them in this section.</p>
+<h4 id="using-modules-with-script">Using Modules With <code>&lt;script&gt;</code><a href="#using-modules-with-script" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The default behavior of the <code>&lt;script&gt;</code> element is to load JavaScript files as scripts (not modules). This happens when the <code>type</code> attribute is missing or when the <code>type</code> attribute contains a JavaScript content type (such as <code>&quot;text/javascript&quot;</code>). The <code>&lt;script&gt;</code> element can then execute inline code or load the file specified in <code>src</code>. To support modules, the <code>&quot;module&quot;</code> value was added as a <code>type</code> option. Setting <code>type</code> to <code>&quot;module&quot;</code> tells the browser to load any inline code or code contained in the file specified by <code>src</code> as a module instead of a script. Here&rsquo;s a simple example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- load a module JavaScript file --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;module.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- include a module inline --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The first <code>&lt;script&gt;</code> element in this example loads an external module file using the <code>src</code> attribute. The only difference from loading a script is that <code>&quot;module&quot;</code> is given as the <code>type</code>. The second <code>&lt;script&gt;</code> element contains a module that is embedded directly in the web page. The variable <code>result</code> is not exposed globally because it exists only within the module (as defined by the <code>&lt;script&gt;</code> element) and is therefore not added to <code>window</code> as a property.</p>
+<p>As you can see, including modules in web pages is fairly simple and similar to including scripts. However, there are some differences in how modules are loaded.</p>
+<p>I&gt; You may have noticed that <code>&quot;module&quot;</code> is not a content type like the <code>&quot;text/javascript&quot;</code> type. Module JavaScript files are served with the same content type as script JavaScript files, so it&rsquo;s not possible to differentiate solely based on content type. Also, browsers ignore <code>&lt;script&gt;</code> elements when the <code>type</code> is unrecognized, so browsers that don&rsquo;t support modules will automatically ignore the <code>&lt;script type=&quot;module&quot;&gt;</code> line, providing good backwards-compatibility.</p>
+<h4 id="module-loading-sequence-in-web-browsers">Module Loading Sequence in Web Browsers<a href="#module-loading-sequence-in-web-browsers" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Modules are unique in that, unlike scripts, they may use <code>import</code> to specify that other files must be loaded to execute correctly. To support that functionality, <code>&lt;script type=&quot;module&quot;&gt;</code> always acts as if the <code>defer</code> attribute is applied.</p>
+<p>The <code>defer</code> attribute is optional for loading script files but is always applied for loading module files. The module file begins downloading as soon as the HTML parser encounters <code>&lt;script type=&quot;module&quot;&gt;</code> with a <code>src</code> attribute but doesn&rsquo;t execute until after the document has been completely parsed. Modules are also executed in the order in which they appear in the HTML file. That means the first <code>&lt;script type=&quot;module&quot;&gt;</code> is always guaranteed to execute before the second, even if one module contains inline code instead of specifying <code>src</code>. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- this will execute first --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;module1.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- this will execute second --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">import</span> <span class="p">{</span> <span class="nx">sum</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- this will execute third --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;module2.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>These three <code>&lt;script&gt;</code> elements execute in the order they are specified, so <code>module1.js</code> is guaranteed to execute before the inline module, and the inline module is guaranteed to execute before <code>module2.js</code>.</p>
+<p>Each module may <code>import</code> from one or more other modules, which complicates matters. That&rsquo;s why modules are parsed completely first to identify all <code>import</code> statements. Each <code>import</code> statement then triggers a fetch (either from the network or from the cache), and no module is executed until all <code>import</code> resources have first been loaded and executed.</p>
+<p>All modules, both those explicitly included using <code>&lt;script type=&quot;module&quot;&gt;</code> and those implicitly included using <code>import</code>, are loaded and executed in order. In the preceding example, the complete loading sequence is:</p>
+<ol>
+<li>Download and parse <code>module1.js</code>.</li>
+<li>Recursively download and parse <code>import</code> resources in <code>module1.js</code>.</li>
+<li>Parse the inline module.</li>
+<li>Recursively download and parse <code>import</code> resources in the inline module.</li>
+<li>Download and parse <code>module2.js</code>.</li>
+<li>Recursively download and parse <code>import</code> resources in <code>module2.js</code></li>
+</ol>
+<p>Once loading is complete, nothing is executed until after the document has been completely parsed. After document parsing completes, the following actions happen:</p>
+<ol>
+<li>Recursively execute <code>import</code> resources for <code>module1.js</code>.</li>
+<li>Execute <code>module1.js</code>.</li>
+<li>Recursively execute <code>import</code> resources for the inline module.</li>
+<li>Execute the inline module.</li>
+<li>Recursively execute <code>import</code> resources for <code>module2.js</code>.</li>
+<li>Execute <code>module2.js</code>.</li>
+</ol>
+<p>Notice that the inline module acts like the other two modules except that the code doesn&rsquo;t have to be downloaded first. Otherwise, the sequence of loading <code>import</code> resources and executing modules is exactly the same.</p>
+<p>I&gt; The <code>defer</code> attribute is ignored on <code>&lt;script type=&quot;module&quot;&gt;</code> because it already behaves as if <code>defer</code> is applied.</p>
+<h4 id="asynchronous-module-loading-in-web-browsers">Asynchronous Module Loading in Web Browsers<a href="#asynchronous-module-loading-in-web-browsers" class="anchor" aria-hidden="true">#</a> </h4>
+<p>You may already be familiar with the <code>async</code> attribute on the <code>&lt;script&gt;</code> element. When used with scripts, <code>async</code> causes the script file to be executed as soon as the file is completely downloaded and parsed. The order of <code>async</code> scripts in the document doesn&rsquo;t affect the order in which the scripts are executed, though. The scripts are always executed as soon as they finish downloading without waiting for the containing document to finish parsing.</p>
+<p>The <code>async</code> attribute can be applied to modules as well. Using <code>async</code> on <code>&lt;script type=&quot;module&quot;&gt;</code> causes the module to execute in a manner similar to a script. The only difference is that all <code>import</code> resources for the module are downloaded before the module itself is executed. That guarantees all resources the module needs to function will be downloaded before the module executes; you just can&rsquo;t guarantee <em>when</em> the module will execute. Consider the following code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- no guarantee which one of these will execute first --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;module1.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;module&#34;</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;module2.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, there are two module files loaded asynchronously. It&rsquo;s not possible to tell which module will execute first simply by looking at this code. If <code>module1.js</code> finishes downloading first (including all of its <code>import</code> resources), then it will execute first. If <code>module2.js</code> finishes downloading first, then that module will execute first instead.</p>
+<h4 id="loading-modules-as-workers">Loading Modules as Workers<a href="#loading-modules-as-workers" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Workers, such as web workers and service workers, execute JavaScript code outside of the web page context. Creating a new worker involves creating a new instance <code>Worker</code> (or another class) and passing in the location of JavaScript file. The default loading mechanism is to load files as scripts, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// load script.js as a script
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">&#34;script.js&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>To support loading modules, the developers of the HTML standard added a second argument to these constructors. The second argument is an object with a <code>type</code> property with a default value of <code>&quot;script&quot;</code>. You can set <code>type</code> to <code>&quot;module&quot;</code> in order to load module files:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// load module.js as a module
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">&#34;module.js&#34;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;module&#34;</span> <span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example loads <code>module.js</code> as a module instead of a script by passing a second argument with <code>&quot;module&quot;</code> as the <code>type</code> property&rsquo;s value. (The <code>type</code> property is meant to mimic how the <code>type</code> attribute of <code>&lt;script&gt;</code> differentiates modules and scripts.) The second argument is supported for all worker types in the browser.</p>
+<p>Worker modules are generally the same as worker scripts, but there are a couple of exceptions. First, worker scripts are limited to being loaded from the same origin as the web page in which they are referenced, but worker modules aren&rsquo;t quite as limited. Although worker modules have the same default restriction, they can also load files that have appropriate Cross-Origin Resource Sharing (CORS) headers to allow access. Second, while a worker script can use the <code>self.importScripts()</code> method to load additional scripts into the worker, <code>self.importScripts()</code> always fails on worker modules because you should use <code>import</code> instead.</p>
+<h3 id="browser-module-specifier-resolution">Browser Module Specifier Resolution<a href="#browser-module-specifier-resolution" class="anchor" aria-hidden="true">#</a> </h3>
+<p>All of the examples to this point in the chapter have used a relative module specifier path such as <code>&quot;./example.js&quot;</code>. Browsers require module specifiers to be in one of the following formats:</p>
+<ul>
+<li>Begin with <code>/</code> to resolve from the root directory</li>
+<li>Begin with <code>./</code> to resolve from the current directory</li>
+<li>Begin with <code>../</code> to resolve from the parent directory</li>
+<li>URL format</li>
+</ul>
+<p>For example, suppose you have a module file located at <code>https://www.example.com/modules/module.js</code> that contains the following code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// imports from https://www.example.com/modules/example1.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">first</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;./example1.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// imports from https://www.example.com/example2.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">second</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../example2.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// imports from https://www.example.com/example3.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">third</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;/example3.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// imports from https://www2.example.com/example4.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">fourth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;https://www2.example.com/example4.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Each of the module specifiers in this example is valid for use in a browser, including the complete URL in the final line (you&rsquo;d need to be sure <code>ww2.example.com</code> has properly configured its Cross-Origin Resource Sharing (CORS) headers to allow cross-domain loading). These are the only module specifier formats that browsers can resolve by default (though the not-yet-complete module loader specification will provide ways to resolve other formats). That means some normal looking module specifiers are actually invalid in browsers and will result in an error, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// invalid - doesn&#39;t begin with /, ./, or ../
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">first</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;example.js&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// invalid - doesn&#39;t begin with /, ./, or ../
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">second</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;example/index.js&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Each of these module specifiers cannot be loaded by the browser. The two module specifiers are in an invalid format (missing the correct beginning characters) even though both will work when used as the value of <code>src</code> in a <code>&lt;script&gt;</code> tag. This is an intentional difference in behavior between <code>&lt;script&gt;</code> and <code>import</code>.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 6 adds modules to the language as a way to package up and encapsulate functionality. Modules behave differently than scripts, as they don&rsquo;t modify the global scope with their top-level variables, functions, and classes, and <code>this</code> is <code>undefined</code>. To achieve that behavior, modules are loaded using a different mode.</p>
+<p>You must export any functionality you&rsquo;d like to make available to consumers of a module. Variables, functions, and classes can all be exported, and there is also one default export allowed per module. After exporting, another module can import all or some of the exported names. These names act as if defined by <code>let</code> and operate as block bindings that can&rsquo;t be redeclared in the same module.</p>
+<p>Modules need not export anything if they are manipulating something in the global scope. You can actually import from such a module without introducing any bindings into the module scope.</p>
+<p>Because modules must run in a different mode, browsers introduced <code>&lt;script type=&quot;module&quot;&gt;</code> to signal that the source file or inline code should be executed as a module. Module files loaded with <code>&lt;script type=&quot;module&quot;&gt;</code> are loaded as if the <code>defer</code> attribute is applied to them. Modules are also executed in the order in which they appear in the containing document once the document is fully parsed.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/12-proxies-and-reflection/" class="stretched-link text-reset text-decoration-none">12 Proxies and the Reflection API</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

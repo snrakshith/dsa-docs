@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/04-objects/">
+  <link rel="canonical" href="http://localhost:1313/es6/04-objects/">
+<title>04 Expanded Object Functionality  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="04 Expanded Object Functionality">
+<meta property="og:description" content="ECMAScript 6 focuses heavily on improving the utility of objects, which makes sense because nearly every value in JavaScript is some type of object. Additionally, the number of objects used in an average JavaScript program continues to increase as the complexity of JavaScript applications increases, meaning that programs are creating more objects all the time. With more objects comes the necessity to use them more effectively.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/04-objects/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="04 Expanded Object Functionality">
+<meta name="twitter:description" content="ECMAScript 6 focuses heavily on improving the utility of objects, which makes sense because nearly every value in JavaScript is some type of object. Additionally, the number of objects used in an average JavaScript program continues to increase as the complexity of JavaScript applications increases, meaning that programs are creating more objects all the time. With more objects comes the necessity to use them more effectively.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "04 Expanded Object Functionality",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#object-categories">Object Categories</a></li>
+    <li><a href="#object-literal-syntax-extensions">Object Literal Syntax Extensions</a>
+      <ul>
+        <li><a href="#property-initializer-shorthand">Property Initializer Shorthand</a></li>
+        <li><a href="#concise-methods">Concise Methods</a></li>
+        <li><a href="#computed-property-names">Computed Property Names</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-methods">New Methods</a>
+      <ul>
+        <li><a href="#the-objectis-method">The Object.is() Method</a></li>
+        <li><a href="#the-objectassign-method">The Object.assign() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#duplicate-object-literal-properties">Duplicate Object Literal Properties</a></li>
+    <li><a href="#own-property-enumeration-order">Own Property Enumeration Order</a></li>
+    <li><a href="#more-powerful-prototypes">More Powerful Prototypes</a>
+      <ul>
+        <li><a href="#changing-an-objects-prototype">Changing an Object&rsquo;s Prototype</a></li>
+        <li><a href="#easy-prototype-access-with-super-references">Easy Prototype Access with Super References</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-formal-method-definition">A Formal Method Definition</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>04 Expanded Object Functionality</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#object-categories">Object Categories</a></li>
+    <li><a href="#object-literal-syntax-extensions">Object Literal Syntax Extensions</a>
+      <ul>
+        <li><a href="#property-initializer-shorthand">Property Initializer Shorthand</a></li>
+        <li><a href="#concise-methods">Concise Methods</a></li>
+        <li><a href="#computed-property-names">Computed Property Names</a></li>
+      </ul>
+    </li>
+    <li><a href="#new-methods">New Methods</a>
+      <ul>
+        <li><a href="#the-objectis-method">The Object.is() Method</a></li>
+        <li><a href="#the-objectassign-method">The Object.assign() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#duplicate-object-literal-properties">Duplicate Object Literal Properties</a></li>
+    <li><a href="#own-property-enumeration-order">Own Property Enumeration Order</a></li>
+    <li><a href="#more-powerful-prototypes">More Powerful Prototypes</a>
+      <ul>
+        <li><a href="#changing-an-objects-prototype">Changing an Object&rsquo;s Prototype</a></li>
+        <li><a href="#easy-prototype-access-with-super-references">Easy Prototype Access with Super References</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-formal-method-definition">A Formal Method Definition</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>ECMAScript 6 focuses heavily on improving the utility of objects, which makes sense because nearly every value in JavaScript is some type of object. Additionally, the number of objects used in an average JavaScript program continues to increase as the complexity of JavaScript applications increases, meaning that programs are creating more objects all the time. With more objects comes the necessity to use them more effectively.</p>
+<p>ECMAScript 6 improves objects in a number of ways, from simple syntax extensions to options for manipulating and interacting with them.</p>
+<h2 id="object-categories">Object Categories<a href="#object-categories" class="anchor" aria-hidden="true">#</a> </h2>
+<p>JavaScript uses a mix of terminology to describe objects found in the standard as opposed to those added by execution environments such as the browser or Node.js, and the ECMAScript 6 specification has clear definitions for each category of object. It&rsquo;s important to understand this terminology to have a good understanding of the language as a whole. The object categories are:</p>
+<ul>
+<li><em>Ordinary objects</em> Have all the default internal behaviors for objects in JavaScript.</li>
+<li><em>Exotic objects</em> Have internal behavior that differs from the default in some way.</li>
+<li><em>Standard objects</em> Are those defined by ECMAScript 6, such as <code>Array</code>, <code>Date</code>, and so on. Standard objects may be ordinary or exotic.</li>
+<li><em>Built-in objects</em> Are present in a JavaScript execution environment when a script begins to execute. All standard objects are built-in objects.</li>
+</ul>
+<p>I will use these terms throughout the book to explain the various objects defined by ECMAScript 6.</p>
+<h2 id="object-literal-syntax-extensions">Object Literal Syntax Extensions<a href="#object-literal-syntax-extensions" class="anchor" aria-hidden="true">#</a> </h2>
+<p>The object literal is one of the most popular patterns in JavaScript. JSON is built upon its syntax, and it&rsquo;s in nearly every JavaScript file on the Internet. The object literal is so popular because it&rsquo;s a succinct syntax for creating objects that otherwise would take several lines of code. Luckily for developers, ECMAScript 6 makes object literals more powerful and even more succinct by extending the syntax in several ways.</p>
+<h3 id="property-initializer-shorthand">Property Initializer Shorthand<a href="#property-initializer-shorthand" class="anchor" aria-hidden="true">#</a> </h3>
+<p>In ECMAScript 5 and earlier, object literals were simply collections of name-value pairs. That meant there could be some duplication when property values are initialized. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span><span class="o">:</span> <span class="nx">age</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>createPerson()</code> function creates an object whose property names are the same as the function parameter names. The result appears to be duplication of <code>name</code> and <code>age</code> even though one is the name of an object property while the other provides the value for that property. The key <code>name</code> in the returned object is assigned the value contained in the variable <code>name</code>, and the key <code>age</code> in the returned object is assigned the value contained in the variable <code>age</code>.</p>
+<p>In ECMAScript 6, you can eliminate the duplication that exists around property names and local variables by using the <em>property initializer</em> shorthand. When an object property name is the same as the local variable name, you can simply include the name without a colon and value. For example, <code>createPerson()</code> can be rewritten for ECMAScript 6 as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createPerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When a property in an object literal only has a name, the JavaScript engine looks into the surrounding scope for a variable of the same name. If it finds one, that variable&rsquo;s value is assigned to the same name on the object literal. In this example, the object literal property <code>name</code> is assigned the value of the local variable <code>name</code>.</p>
+<p>This extension makes object literal initialization even more succinct and helps to eliminate naming errors. Assigning a property with the same name as a local variable is a very common pattern in JavaScript, making this extension a welcome addition.</p>
+<h3 id="concise-methods">Concise Methods<a href="#concise-methods" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 6 also improves the syntax for assigning methods to object literals. In ECMAScript 5 and earlier, you must specify a name and then the full function definition to add a method to an object, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sayName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In ECMAScript 6, the syntax is made more concise by eliminating the colon and the <code>function</code> keyword. That means you can rewrite the previous example like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sayName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This shorthand syntax, also called <em>concise method</em> syntax, creates a method on the <code>person</code> object just as the previous example did. The <code>sayName()</code> property is assigned an anonymous function and has all the same characteristics as the ECMAScript 5 <code>sayName()</code> function. The one difference is that concise methods may use <code>super</code> (discussed later in the &ldquo;Easy Prototype Access with Super References&rdquo; section), while the nonconcise methods may not.</p>
+<p>I&gt; The <code>name</code> property of a method created using concise method shorthand is the name used before the parentheses. In the last example, the <code>name</code> property for <code>person.sayName()</code> is <code>&quot;sayName&quot;</code>.</p>
+<h3 id="computed-property-names">Computed Property Names<a href="#computed-property-names" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 5 and earlier could compute property names on object instances when those properties were set with square brackets instead of dot notation. The square brackets allow you to specify property names using variables and string literals that may contain characters that would cause a syntax error if used in an identifier. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">lastName</span> <span class="o">=</span> <span class="s2">&#34;last name&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;first name&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">person</span><span class="p">[</span><span class="nx">lastName</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Zakas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;first name&#34;</span><span class="p">]);</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="nx">lastName</span><span class="p">]);</span> <span class="c1">// &#34;Zakas&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Since <code>lastName</code> is assigned a value of <code>&quot;last name&quot;</code>, both property names in this example use a space, making it impossible to reference them using dot notation. However, bracket notation allows any string value to be used as a property name, so assigning <code>&quot;first name&quot;</code> to <code>&quot;Nicholas&quot;</code> and &ldquo;<code>last name&quot;</code> to <code>&quot;Zakas&quot;</code> works.</p>
+<p>Additionally, you can use string literals directly as property names in object literals, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;first name&#34;</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;first name&#34;</span><span class="p">]);</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This pattern works for property names that are known ahead of time and can be represented with a string literal. If, however, the property name <code>&quot;first name&quot;</code> were contained in a variable (as in the previous example) or had to be calculated, then there would be no way to define that property using an object literal in ECMAScript 5.</p>
+<p>In ECMAScript 6, computed property names are part of the object literal syntax, and they use the same square bracket notation that has been used to reference computed property names in object instances. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="s2">&#34;last name&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;first name&#34;</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">lastName</span><span class="p">]</span><span class="o">:</span> <span class="s2">&#34;Zakas&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;first name&#34;</span><span class="p">]);</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="nx">lastName</span><span class="p">]);</span> <span class="c1">// &#34;Zakas&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The square brackets inside the object literal indicate that the property name is computed, so its contents are evaluated as a string. That means you can also include expressions such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">suffix</span> <span class="o">=</span> <span class="s2">&#34; name&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;first&#34;</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">]</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="s2">&#34;last&#34;</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">]</span><span class="o">:</span> <span class="s2">&#34;Zakas&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;first name&#34;</span><span class="p">]);</span> <span class="c1">// &#34;Nicholas&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">[</span><span class="s2">&#34;last name&#34;</span><span class="p">]);</span> <span class="c1">// &#34;Zakas&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>These properties evaluate to <code>&quot;first name&quot;</code> and <code>&quot;last name&quot;</code>, and those strings can be used to reference the properties later. Anything you would put inside square brackets while using bracket notation on object instances will also work for computed property names inside object literals.</p>
+<h2 id="new-methods">New Methods<a href="#new-methods" class="anchor" aria-hidden="true">#</a> </h2>
+<p>One of the design goals of ECMAScript beginning with ECMAScript 5 was to avoid creating new global functions or methods on <code>Object.prototype</code>, and instead try to find objects on which new methods should be available. As a result, the <code>Object</code> global has received an increasing number of methods when no other objects are more appropriate. ECMAScript 6 introduces a couple new methods on the <code>Object</code> global that are designed to make certain tasks easier.</p>
+<h3 id="the-objectis-method">The Object.is() Method<a href="#the-objectis-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>When you want to compare two values in JavaScript, you&rsquo;re probably used to using either the equals operator (<code>==</code>) or the identically equals operator (<code>===</code>). Many developers prefer the latter, to avoid type coercion during comparison. But even the identically equals operator isn&rsquo;t entirely accurate. For example, the values +0 and -0 are considered equal by <code>===</code> even though they are represented differently in the JavaScript engine. Also <code>NaN === NaN</code> returns <code>false</code>, which necessitates using <code>isNaN()</code> to detect <code>NaN</code> properly.</p>
+<p>ECMAScript 6 introduces the <code>Object.is()</code> method to make up for the remaining quirks of the identically equals operator. This method accepts two arguments and returns <code>true</code> if the values are equivalent. Two values are considered equivalent when they are of the same type and have the same value. Here are some examples:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span> <span class="o">==</span> <span class="o">-</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span> <span class="o">===</span> <span class="o">-</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">==</span> <span class="kc">NaN</span><span class="p">);</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">);</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="kc">NaN</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="s2">&#34;5&#34;</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">===</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">===</span> <span class="s2">&#34;5&#34;</span><span class="p">);</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&#34;5&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In many cases, <code>Object.is()</code> works the same as the <code>===</code> operator. The only differences are that +0 and -0 are considered not equivalent and <code>NaN</code> is considered equivalent to <code>NaN</code>. But there&rsquo;s no need to stop using equality operators altogether. Choose whether to use <code>Object.is()</code> instead of <code>==</code> or <code>===</code> based on how those special cases affect your code.</p>
+<h3 id="the-objectassign-method">The Object.assign() Method<a href="#the-objectassign-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p><em>Mixins</em> are among the most popular patterns for object composition in JavaScript. In a mixin, one object receives properties and methods from another object. Many JavaScript libraries have a mixin method similar to this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">mixin</span><span class="p">(</span><span class="nx">receiver</span><span class="p">,</span> <span class="nx">supplier</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">supplier</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">receiver</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">supplier</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">receiver</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>mixin()</code> function iterates over the own properties of <code>supplier</code> and copies them onto <code>receiver</code> (a shallow copy, where object references are shared when property values are objects). This allows the <code>receiver</code> to gain new properties without inheritance, as in this code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">EventTarget</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">EventTarget</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">constructor</span><span class="o">:</span> <span class="nx">EventTarget</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">emit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">on</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mixin</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span> <span class="nx">EventTarget</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">myObject</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;somethingChanged&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, <code>myObject</code> receives behavior from the <code>EventTarget.prototype</code> object. This gives <code>myObject</code> the ability to publish events and subscribe to them using the <code>emit()</code> and <code>on()</code> methods, respectively.</p>
+<p>This pattern became popular enough that ECMAScript 6 added the <code>Object.assign()</code> method, which behaves the same way, accepting a receiver and any number of suppliers, and then returning the receiver. The name change from <code>mixin()</code> to <code>assign()</code> reflects the actual operation that occurs. Since the <code>mixin()</code> function uses the assignment operator (<code>=</code>), it cannot copy accessor properties to the receiver as accessor properties. The name <code>Object.assign()</code> was chosen to reflect this distinction.</p>
+<p>I&gt; Similar methods in various libraries may have other names for the same basic functionality; popular alternates include the <code>extend()</code> and <code>mix()</code> methods. There was also, briefly, an <code>Object.mixin()</code> method in ECMAScript 6 in addition to the <code>Object.assign()</code> method. The primary difference was that <code>Object.mixin()</code> also copied over accessor properties, but the method was removed due to concerns over the use of <code>super</code> (discussed in the &ldquo;Easy Prototype Access with Super References&rdquo; section of this chapter).</p>
+<p>You can use <code>Object.assign()</code> anywhere the <code>mixin()</code> function would have been used. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">EventTarget</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">EventTarget</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">constructor</span><span class="o">:</span> <span class="nx">EventTarget</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">emit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">on</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/*...*/</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span> <span class="nx">EventTarget</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">myObject</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;somethingChanged&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>Object.assign()</code> method accepts any number of suppliers, and the receiver receives the properties in the order in which the suppliers are specified. That means the second supplier might overwrite a value from the first supplier on the receiver, which is what happens in this snippet:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">receiver</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">receiver</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;js&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;file.js&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;css&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">receiver</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;css&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">receiver</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;file.js&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The value of <code>receiver.type</code> is <code>&quot;css&quot;</code> because the second supplier overwrote the value of the first.</p>
+<p>The <code>Object.assign()</code> method isn&rsquo;t a big addition to ECMAScript 6, but it does formalize a common function found in many JavaScript libraries.</p>
+<p>A&gt; ### Working with Accessor Properties
+A&gt;
+A&gt; Keep in mind that <code>Object.assign()</code> doesn&rsquo;t create accessor properties on the receiver when a supplier has accessor properties. Since <code>Object.assign()</code> uses the assignment operator, an accessor property on a supplier will become a data property on the receiver. For example:
+A&gt;
+A&gt; <code>js A&gt; var receiver = {}, A&gt;     supplier = { A&gt;         get name() { A&gt;             return &quot;file.js&quot; A&gt;         } A&gt;     }; A&gt; A&gt; Object.assign(receiver, supplier); A&gt; A&gt; var descriptor = Object.getOwnPropertyDescriptor(receiver, &quot;name&quot;); A&gt; A&gt; console.log(descriptor.value);      // &quot;file.js&quot; A&gt; console.log(descriptor.get);        // undefined A&gt; </code>
+A&gt;
+A&gt; In this code, the <code>supplier</code> has an accessor property called <code>name</code>. After using the <code>Object.assign()</code> method, <code>receiver.name</code> exists as a data property with a value of <code>&quot;file.js&quot;</code> because <code>supplier.name</code> returned <code>&quot;file.js&quot;</code> when <code>Object.assign()</code> was called.</p>
+<h2 id="duplicate-object-literal-properties">Duplicate Object Literal Properties<a href="#duplicate-object-literal-properties" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 5 strict mode introduced a check for duplicate object literal properties that would throw an error if a duplicate was found. For example, this code was problematic:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Greg&#34;</span> <span class="c1">// syntax error in ES5 strict mode
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>When running in ECMAScript 5 strict mode, the second <code>name</code> property causes a syntax error. But in ECMAScript 6, the duplicate property check was removed. Both strict and nonstrict mode code no longer check for duplicate properties. Instead, the last property of the given name becomes the property&rsquo;s actual value, as shown here:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Greg&#34;</span> <span class="c1">// no error in ES6 strict mode
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;Greg&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, the value of <code>person.name</code> is <code>&quot;Greg&quot;</code> because that&rsquo;s the last value assigned to the property.</p>
+<h2 id="own-property-enumeration-order">Own Property Enumeration Order<a href="#own-property-enumeration-order" class="anchor" aria-hidden="true">#</a> </h2>
+<p>ECMAScript 5 didn&rsquo;t define the enumeration order of object properties, as it left this up to the JavaScript engine vendors. However, ECMAScript 6 strictly defines the order in which own properties must be returned when they are enumerated. This affects how properties are returned using <code>Object.getOwnPropertyNames()</code> and <code>Reflect.ownKeys</code> (covered in Chapter 12). It also affects the order in which properties are processed by <code>Object.assign()</code>.</p>
+<p>The basic order for own property enumeration is:</p>
+<ol>
+<li>All numeric keys in ascending order</li>
+<li>All string keys in the order in which they were added to the object</li>
+<li>All symbol keys (covered in Chapter 6) in the order in which they were added to the object</li>
+</ol>
+<p>Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">0</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">c</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">2</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">b</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="mi">1</span><span class="o">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">obj</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">));</span> <span class="c1">// &#34;012acbd&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>Object.getOwnPropertyNames()</code> method returns the properties in <code>obj</code> in the order <code>0</code>, <code>1</code>, <code>2</code>, <code>a</code>, <code>c</code>, <code>b</code>, <code>d</code>. Note that the numeric keys are grouped together and sorted, even though they appear out of order in the object literal. The string keys come after the numeric keys and appear in the order that they were added to <code>obj</code>. The keys in the object literal itself come first, followed by any dynamic keys that were added later (in this case, <code>d</code>).</p>
+<p>W&gt; The <code>for-in</code> loop still has an unspecified enumeration order because not all JavaScript engines implement it the same way. The <code>Object.keys()</code> method and <code>JSON.stringify()</code> are both specified to use the same (unspecified) enumeration order as <code>for-in</code>.</p>
+<p>While enumeration order is a subtle change to how JavaScript works, it&rsquo;s not uncommon to find programs that rely on a specific enumeration order to work correctly. ECMAScript 6, by defining the enumeration order, ensures that JavaScript code relying on enumeration will work correctly regardless of where it is executed.</p>
+<h2 id="more-powerful-prototypes">More Powerful Prototypes<a href="#more-powerful-prototypes" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Prototypes are the foundation of inheritance in JavaScript, and ECMAScript 6 continues to make prototypes more powerful. Early versions of JavaScript severely limited what could be done with prototypes. However, as the language matured and developers became more familiar with how prototypes work, it became clear that developers wanted more control over prototypes and easier ways to work with them. As a result, ECMAScript 6 introduced some improvements to prototypes.</p>
+<h3 id="changing-an-objects-prototype">Changing an Object&rsquo;s Prototype<a href="#changing-an-objects-prototype" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Normally, the prototype of an object is specified when the object is created, via either a constructor or the <code>Object.create()</code> method. The idea that an object&rsquo;s prototype remains unchanged after instantiation was one of the biggest assumptions in JavaScript programming through ECMAScript 5. ECMAScript 5 did add the <code>Object.getPrototypeOf()</code> method for retrieving the prototype of any given object, but it still lacked a standard way to change an object&rsquo;s prototype after instantiation.</p>
+<p>ECMAScript 6 changes that assumption by adding the <code>Object.setPrototypeOf()</code> method, which allows you to change the prototype of any given object. The <code>Object.setPrototypeOf()</code> method accepts two arguments: the object whose prototype should change and the object that should become the first argument&rsquo;s prototype. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">dog</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Woof&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">)</span> <span class="o">===</span> <span class="nx">person</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// set prototype to dog
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">dog</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Woof&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">)</span> <span class="o">===</span> <span class="nx">dog</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code defines two base objects: <code>person</code> and <code>dog</code>. Both objects have a <code>getGreeting()</code> method that returns a string. The object <code>friend</code> first inherits from the <code>person</code> object, meaning that <code>getGreeting()</code> outputs <code>&quot;Hello&quot;</code>. When the prototype becomes the <code>dog</code> object, <code>friend.getGreeting()</code> outputs <code>&quot;Woof&quot;</code> because the original relationship to <code>person</code> is broken.</p>
+<p>The actual value of an object&rsquo;s prototype is stored in an internal-only property called <code>[[Prototype]]</code>. The <code>Object.getPrototypeOf()</code> method returns the value stored in <code>[[Prototype]]</code> and <code>Object.setPrototypeOf()</code> changes the value stored in <code>[[Prototype]]</code>. However, these aren&rsquo;t the only ways to work with the value of <code>[[Prototype]]</code>.</p>
+<h3 id="easy-prototype-access-with-super-references">Easy Prototype Access with Super References<a href="#easy-prototype-access-with-super-references" class="anchor" aria-hidden="true">#</a> </h3>
+<p>As previously mentioned, prototypes are very important for JavaScript and a lot of work went into making them easier to use in ECMAScript 6. Another improvement is the introduction of <code>super</code> references, which make accessing functionality on an object&rsquo;s prototype easier. For example, to override a method on an object instance such that it also calls the prototype method of the same name, you&rsquo;d do the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">dog</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Woof&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getGreeting</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// set prototype to person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello, hi!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">)</span> <span class="o">===</span> <span class="nx">person</span><span class="p">);</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// set prototype to dog
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">dog</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Woof, hi!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">)</span> <span class="o">===</span> <span class="nx">dog</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, <code>getGreeting()</code> on <code>friend</code> calls the prototype method of the same name. The <code>Object.getPrototypeOf()</code> method ensures the correct prototype is called, and then an additional string is appended to the output. The additional <code>.call(this)</code> ensures that the <code>this</code> value inside the prototype method is set correctly.</p>
+<p>Remembering to use <code>Object.getPrototypeOf()</code> and <code>.call(this)</code> to call a method on the prototype is a bit involved, so ECMAScript 6 introduced <code>super</code>. At its simplest, <code>super</code> is a pointer to the current object&rsquo;s prototype, effectively the <code>Object.getPrototypeOf(this)</code> value. Knowing that, you can simplify the <code>getGreeting()</code> method as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// in the previous example, this is the same as:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Object.getPrototypeOf(this).getGreeting.call(this)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The call to <code>super.getGreeting()</code> is the same as <code>Object.getPrototypeOf(this).getGreeting.call(this)</code> in this context. Similarly, you can call any method on an object&rsquo;s prototype by using a <code>super</code> reference, so long as it&rsquo;s inside a concise method. Attempting to use <code>super</code> outside of concise methods results in a syntax error, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// syntax error
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example uses a named property with a function, and the call to <code>super.getGreeting()</code> results in a syntax error because <code>super</code> is invalid in this context.</p>
+<p>The <code>super</code> reference is really powerful when you have multiple levels of inheritance, because in that case, <code>Object.getPrototypeOf()</code> no longer works in all circumstances. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getGreeting</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is friend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">relative</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">friend</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello, hi!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">relative</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// error!
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The call to <code>Object.getPrototypeOf()</code> results in an error when <code>relative.getGreeting()</code> is called. That&rsquo;s because <code>this</code> is <code>relative</code>, and the prototype of <code>relative</code> is the <code>friend</code> object. When <code>friend.getGreeting().call()</code> is called with <code>relative</code> as <code>this</code>, the process starts over again and continues to call recursively until a stack overflow error occurs.</p>
+<p>That problem is difficult to solve in ECMAScript 5, but with ECMAScript 6 and <code>super</code>, it&rsquo;s easy:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is friend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">relative</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">friend</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello, hi!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">relative</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello, hi!&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Because <code>super</code> references are not dynamic, they always refer to the correct object. In this case, <code>super.getGreeting()</code> always refers to <code>person.getGreeting()</code>, regardless of how many other objects inherit the method.</p>
+<h2 id="a-formal-method-definition">A Formal Method Definition<a href="#a-formal-method-definition" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Prior to ECMAScript 6, the concept of a &ldquo;method&rdquo; wasn&rsquo;t formally defined. Methods were just object properties that contained functions instead of data. ECMAScript 6 formally defines a method as a function that has an internal <code>[[HomeObject]]</code> property containing the object to which the method belongs. Consider the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// method
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// not a method
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">shareGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="s2">&#34;Hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example defines <code>person</code> with a single method called <code>getGreeting()</code>. The <code>[[HomeObject]]</code> for <code>getGreeting()</code> is <code>person</code> by virtue of assigning the function directly to an object. The <code>shareGreeting()</code> function, on the other hand, has no <code>[[HomeObject]]</code> specified because it wasn&rsquo;t assigned to an object when it was created. In most cases, this difference isn&rsquo;t important, but it becomes very important when using <code>super</code> references.</p>
+<p>Any reference to <code>super</code> uses the <code>[[HomeObject]]</code> to determine what to do. The first step is to call <code>Object.getPrototypeOf()</code> on the <code>[[HomeObject]]</code> to retrieve a reference to the prototype. Then, the prototype is searched for a function with the same name. Last, the <code>this</code> binding is set and the method is called. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// prototype is person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getGreeting</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;, hi!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">friend</span><span class="p">,</span> <span class="nx">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">friend</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">());</span> <span class="c1">// &#34;Hello, hi!&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Calling <code>friend.getGreeting()</code> returns a string, which combines the value from <code>person.getGreeting()</code> with <code>&quot;, hi!&quot;</code>. The <code>[[HomeObject]]</code> of <code>friend.getGreeting()</code> is <code>friend</code>, and the prototype of <code>friend</code> is <code>person</code>, so <code>super.getGreeting()</code> is equivalent to <code>person.getGreeting.call(this)</code>.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Objects are the center of programming in JavaScript, and ECMAScript 6 made some helpful changes to objects that both make them easier to deal with and more powerful.</p>
+<p>ECMAScript 6 makes several changes to object literals. Shorthand property definitions make assigning properties with the same names as in-scope variables easier. Computed property names allow you to specify non-literal values as property names, which you&rsquo;ve already been able to do in other areas of the language. Shorthand methods let you type a lot fewer characters in order to define methods on object literals, by completely omitting the colon and <code>function</code> keyword. ECMAScript 6 loosens the strict mode check for duplicate object literal property names as well, meaning you can have two properties with the same name in a single object literal without throwing an error.</p>
+<p>The <code>Object.assign()</code> method makes it easier to change multiple properties on a single object at once. This can be very useful if you use the mixin pattern. The <code>Object.is()</code> method performs strict equality on any value, effectively becoming a safer version of <code>===</code> when dealing with special JavaScript values.</p>
+<p>Enumeration order for own properties is now clearly defined in ECMAScript 6. When enumerating properties, numeric keys always come first in ascending order followed by string keys in insertion order and symbol keys in insertion order.</p>
+<p>It&rsquo;s now possible to modify an object&rsquo;s prototype after it&rsquo;s already created, thanks to ECMAScript 6&rsquo;s <code>Object.setPrototypeOf()</code> method.</p>
+<p>Finally, you can use the <code>super</code> keyword to call methods on an object&rsquo;s prototype. The <code>this</code> binding inside a method invoked using <code>super</code> is set up to automatically work with the current value of <code>this</code>.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/03-functions/" class="stretched-link text-reset text-decoration-none">03 Functions</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/05-destructuring/" class="stretched-link text-reset text-decoration-none">05 Destructuring for Easier Data Access</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

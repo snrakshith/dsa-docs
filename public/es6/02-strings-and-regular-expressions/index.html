@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/02-strings-and-regular-expressions/">
+  <link rel="canonical" href="http://localhost:1313/es6/02-strings-and-regular-expressions/">
+<title>02 Strings and Regular Expressions  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="02 Strings and Regular Expressions">
+<meta property="og:description" content="Strings are arguably one of the most important data types in programming. They&rsquo;re in nearly every higher-level programming language, and being able to work with them effectively is fundamental for developers to create useful programs. By extension, regular expressions are important because of the extra power they give developers to wield on strings. With these facts in mind, the creators of ECMAScript 6 improved strings and regular expressions by adding new capabilities and long-missing functionality. This chapter gives a tour of both types of changes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/02-strings-and-regular-expressions/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="02 Strings and Regular Expressions">
+<meta name="twitter:description" content="Strings are arguably one of the most important data types in programming. They&rsquo;re in nearly every higher-level programming language, and being able to work with them effectively is fundamental for developers to create useful programs. By extension, regular expressions are important because of the extra power they give developers to wield on strings. With these facts in mind, the creators of ECMAScript 6 improved strings and regular expressions by adding new capabilities and long-missing functionality. This chapter gives a tour of both types of changes.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "02 Strings and Regular Expressions",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#better-unicode-support">Better Unicode Support</a>
+      <ul>
+        <li><a href="#utf-16-code-points">UTF-16 Code Points</a></li>
+        <li><a href="#the-codepointat-method">The codePointAt() Method</a></li>
+        <li><a href="#the-stringfromcodepoint-method">The String.fromCodePoint() Method</a></li>
+        <li><a href="#the-normalize-method">The normalize() Method</a></li>
+        <li><a href="#the-regular-expression-u-flag">The Regular Expression u Flag</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-string-changes">Other String Changes</a>
+      <ul>
+        <li><a href="#methods-for-identifying-substrings">Methods for Identifying Substrings</a></li>
+        <li><a href="#the-repeat-method">The repeat() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-regular-expression-changes">Other Regular Expression Changes</a>
+      <ul>
+        <li><a href="#the-regular-expression-y-flag">The Regular Expression y Flag</a></li>
+        <li><a href="#duplicating-regular-expressions">Duplicating Regular Expressions</a></li>
+        <li><a href="#the-flags-property">The <code>flags</code> Property</a></li>
+      </ul>
+    </li>
+    <li><a href="#template-literals">Template Literals</a>
+      <ul>
+        <li><a href="#basic-syntax">Basic Syntax</a></li>
+        <li><a href="#multiline-strings">Multiline Strings</a></li>
+        <li><a href="#making-substitutions">Making Substitutions</a></li>
+        <li><a href="#tagged-templates">Tagged Templates</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>02 Strings and Regular Expressions</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#better-unicode-support">Better Unicode Support</a>
+      <ul>
+        <li><a href="#utf-16-code-points">UTF-16 Code Points</a></li>
+        <li><a href="#the-codepointat-method">The codePointAt() Method</a></li>
+        <li><a href="#the-stringfromcodepoint-method">The String.fromCodePoint() Method</a></li>
+        <li><a href="#the-normalize-method">The normalize() Method</a></li>
+        <li><a href="#the-regular-expression-u-flag">The Regular Expression u Flag</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-string-changes">Other String Changes</a>
+      <ul>
+        <li><a href="#methods-for-identifying-substrings">Methods for Identifying Substrings</a></li>
+        <li><a href="#the-repeat-method">The repeat() Method</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-regular-expression-changes">Other Regular Expression Changes</a>
+      <ul>
+        <li><a href="#the-regular-expression-y-flag">The Regular Expression y Flag</a></li>
+        <li><a href="#duplicating-regular-expressions">Duplicating Regular Expressions</a></li>
+        <li><a href="#the-flags-property">The <code>flags</code> Property</a></li>
+      </ul>
+    </li>
+    <li><a href="#template-literals">Template Literals</a>
+      <ul>
+        <li><a href="#basic-syntax">Basic Syntax</a></li>
+        <li><a href="#multiline-strings">Multiline Strings</a></li>
+        <li><a href="#making-substitutions">Making Substitutions</a></li>
+        <li><a href="#tagged-templates">Tagged Templates</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>Strings are arguably one of the most important data types in programming. They&rsquo;re in nearly every higher-level programming language, and being able to work with them effectively is fundamental for developers to create useful programs. By extension, regular expressions are important because of the extra power they give developers to wield on strings. With these facts in mind, the creators of ECMAScript 6 improved strings and regular expressions by adding new capabilities and long-missing functionality. This chapter gives a tour of both types of changes.</p>
+<h2 id="better-unicode-support">Better Unicode Support<a href="#better-unicode-support" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Before ECMAScript 6, JavaScript strings revolved around 16-bit character encoding (UTF-16). Each 16-bit sequence is a <em>code unit</em> representing a character. All string properties and methods, like the <code>length</code> property and the <code>charAt()</code> method, were based on these 16-bit code units. Of course, 16 bits used to be enough to contain any character. That&rsquo;s no longer true thanks to the expanded character set introduced by Unicode.</p>
+<h3 id="utf-16-code-points">UTF-16 Code Points<a href="#utf-16-code-points" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Limiting character length to 16 bits wasn&rsquo;t possible for Unicode&rsquo;s stated goal of providing a globally unique identifier to every character in the world. These globally unique identifiers, called <em>code points</em>, are simply numbers starting at 0. Code points are what you may think of as character codes, where a number represents a character. A character encoding must encode code points into code units that are internally consistent. For UTF-16, code points can be made up of many code units.</p>
+<p>The first 2^16^ code points in UTF-16 are represented as single 16-bit code units. This range is called the <em>Basic Multilingual Plane</em> (BMP). Everything beyond that is considered to be in one of the <em>supplementary planes</em>, where the code points can no longer be represented in just 16-bits. UTF-16 solves this problem by introducing <em>surrogate pairs</em> in which a single code point is represented by two 16-bit code units. That means any single character in a string can be either one code unit for BMP characters, giving a total of 16 bits, or two units for supplementary plane characters, giving a total of 32 bits.</p>
+<p>In ECMAScript 5, all string operations work on 16-bit code units, meaning that you can get unexpected results from UTF-16 encoded strings containing surrogate pairs, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;𠮷&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sr">/^.$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// &#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// &#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 55362
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// 57271
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The single Unicode character <code>&quot;𠮷&quot;</code> is represented using surrogate pairs, and as such, the JavaScript string operations above treat the string as having two 16-bit characters. That means:</p>
+<ul>
+<li>The <code>length</code> of <code>text</code> is 2, when it should be 1.</li>
+<li>A regular expression trying to match a single character fails because it thinks there are two characters.</li>
+<li>The <code>charAt()</code> method is unable to return a valid character string, because neither set of 16 bits corresponds to a printable character.</li>
+</ul>
+<p>The <code>charCodeAt()</code> method also just can&rsquo;t identify the character properly. It returns the appropriate 16-bit number for each code unit, but that is the closest you could get to the real value of <code>text</code> in ECMAScript 5.</p>
+<p>ECMAScript 6, on the other hand, enforces UTF-16 string encoding to address problems like these. Standardizing string operations based on this character encoding means that JavaScript can support functionality designed to work specifically with surrogate pairs. The rest of this section discusses a few key examples of that functionality.</p>
+<h3 id="the-codepointat-method">The codePointAt() Method<a href="#the-codepointat-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>One method ECMAScript 6 added to fully support UTF-16 is the <code>codePointAt()</code> method, which retrieves the Unicode code point that maps to a given position in a string. This method accepts the code unit position rather than the character position and returns an integer value, as these <code>console.log()</code> examples show:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;𠮷a&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 55362
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// 57271
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 97
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="c1">// 134071
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// 57271
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 97
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>codePointAt()</code> method returns the same value as the <code>charCodeAt()</code> method unless it operates on non-BMP characters. The first character in <code>text</code> is non-BMP and is therefore comprised of two code units, meaning the <code>length</code> property is 3 rather than 2. The <code>charCodeAt()</code> method returns only the first code unit for position 0, but <code>codePointAt()</code> returns the full code point even though the code point spans multiple code units. Both methods return the same value for positions 1 (the second code unit of the first character) and 2 (the <code>&quot;a&quot;</code> character).</p>
+<p>Calling the <code>codePointAt()</code> method on a character is the easiest way to determine if that character is represented by one or two code units. Here&rsquo;s a function you could write to check:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">is32Bit</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">codePointAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mh">0xffff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">is32Bit</span><span class="p">(</span><span class="s2">&#34;𠮷&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">is32Bit</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The upper bound of 16-bit characters is represented in hexadecimal as <code>FFFF</code>, so any code point above that number must be represented by two code units, for a total of 32 bits.</p>
+<h3 id="the-stringfromcodepoint-method">The String.fromCodePoint() Method<a href="#the-stringfromcodepoint-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>When ECMAScript provides a way to do something, it also tends to provide a way to do the reverse. You can use <code>codePointAt()</code> to retrieve the code point for a character in a string, while <code>String.fromCodePoint()</code> produces a single-character string from a given code point. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCodePoint</span><span class="p">(</span><span class="mi">134071</span><span class="p">));</span> <span class="c1">// &#34;𠮷&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Think of <code>String.fromCodePoint()</code> as a more complete version of the <code>String.fromCharCode()</code> method. Both give the same result for all characters in the BMP. There&rsquo;s only a difference when you pass code points for characters outside of the BMP.</p>
+<h3 id="the-normalize-method">The normalize() Method<a href="#the-normalize-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Another interesting aspect of Unicode is that different characters may be considered equivalent for the purpose of sorting or other comparison-based operations. There are two ways to define these relationships. First, <em>canonical equivalence</em> means that two sequences of code points are considered interchangeable in all respects. For example, a combination of two characters can be canonically equivalent to one character. The second relationship is <em>compatibility</em>. Two compatible sequences of code points look different but can be used interchangeably in certain situations.</p>
+<p>Due to these relationships, two strings representing fundamentally the same text can contain different code point sequences. For example, the character &ldquo;æ&rdquo; and the two-character string &ldquo;ae&rdquo; may be used interchangeably but are strictly not equivalent unless normalized in some way.</p>
+<p>ECMAScript 6 supports Unicode normalization forms by giving strings a <code>normalize()</code> method. This method optionally accepts a single string parameter indicating one of the following Unicode normalization forms to apply:</p>
+<ul>
+<li>Normalization Form Canonical Composition (<code>&quot;NFC&quot;</code>), which is the default</li>
+<li>Normalization Form Canonical Decomposition (<code>&quot;NFD&quot;</code>)</li>
+<li>Normalization Form Compatibility Composition (<code>&quot;NFKC&quot;</code>)</li>
+<li>Normalization Form Compatibility Decomposition (<code>&quot;NFKD&quot;</code>)</li>
+</ul>
+<p>It&rsquo;s beyond the scope of this book to explain the differences between these four forms. Just keep in mind that when comparing strings, both strings must be normalized to the same form. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">normalized</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">text</span><span class="p">.</span><span class="nx">normalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">normalized</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">first</span> <span class="o">&lt;</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">first</span> <span class="o">===</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code converts the strings in the <code>values</code> array into a normalized form so that the array can be sorted appropriately. You can also sort the original array by calling <code>normalize()</code> as part of the comparator, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">firstNormalized</span> <span class="o">=</span> <span class="nx">first</span><span class="p">.</span><span class="nx">normalize</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">secondNormalized</span> <span class="o">=</span> <span class="nx">second</span><span class="p">.</span><span class="nx">normalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">firstNormalized</span> <span class="o">&lt;</span> <span class="nx">secondNormalized</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">firstNormalized</span> <span class="o">===</span> <span class="nx">secondNormalized</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Once again, the most important thing to note about this code is that both <code>first</code> and <code>second</code> are normalized in the same way. These examples have used the default, NFC, but you can just as easily specify one of the others, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">firstNormalized</span> <span class="o">=</span> <span class="nx">first</span><span class="p">.</span><span class="nx">normalize</span><span class="p">(</span><span class="s2">&#34;NFD&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">secondNormalized</span> <span class="o">=</span> <span class="nx">second</span><span class="p">.</span><span class="nx">normalize</span><span class="p">(</span><span class="s2">&#34;NFD&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">firstNormalized</span> <span class="o">&lt;</span> <span class="nx">secondNormalized</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">firstNormalized</span> <span class="o">===</span> <span class="nx">secondNormalized</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>If you&rsquo;ve never worried about Unicode normalization before, then you probably won&rsquo;t have much use for this method now. But if you ever work on an internationalized application, you&rsquo;ll definitely find the <code>normalize()</code> method helpful.</p>
+<p>Methods aren&rsquo;t the only improvements that ECMAScript 6 provides for working with Unicode strings, though. The standard also adds two useful syntax elements.</p>
+<h3 id="the-regular-expression-u-flag">The Regular Expression u Flag<a href="#the-regular-expression-u-flag" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can accomplish many common string operations through regular expressions. But remember, regular expressions assume 16-bit code units, where each represents a single character. To address this problem, ECMAScript 6 defines a <code>u</code> flag for regular expressions, which stands for Unicode.</p>
+<h4 id="the-u-flag-in-action">The u Flag in Action<a href="#the-u-flag-in-action" class="anchor" aria-hidden="true">#</a> </h4>
+<p>When a regular expression has the <code>u</code> flag set, it switches modes to work on characters, not code units. That means the regular expression should no longer get confused about surrogate pairs in strings and should behave as expected. For example, consider this code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;𠮷&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sr">/^.$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sr">/^.$/u</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">text</span><span class="p">));</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The regular expression <code>/^.$/</code> matches any input string with a single character. When used without the <code>u</code> flag, this regular expression matches on code units, and so the Japanese character (which is represented by two code units) doesn&rsquo;t match the regular expression. When used with the <code>u</code> flag, the regular expression compares characters instead of code units and so the Japanese character matches.</p>
+<h4 id="counting-code-points">Counting Code Points<a href="#counting-code-points" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Unfortunately, ECMAScript 6 doesn&rsquo;t add a method to determine how many code points a string has, but with the <code>u</code> flag, you can use regular expressions to figure it out as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">codePointLength</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/[\s\S]/gu</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span> <span class="o">?</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">codePointLength</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">codePointLength</span><span class="p">(</span><span class="s2">&#34;𠮷bc&#34;</span><span class="p">));</span> <span class="c1">// 3
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example calls <code>match()</code> to check <code>text</code> for both whitespace and non-whitespace characters (using <code>[\s\S]</code> to ensure the pattern matches newlines), using a regular expression that is applied globally with Unicode enabled. The <code>result</code> contains an array of matches when there&rsquo;s at least one match, so the array length is the number of code points in the string. In Unicode, the strings <code>&quot;abc&quot;</code> and <code>&quot;𠮷bc&quot;</code> both have three characters, so the array length is three.</p>
+<p>W&gt; Although this approach works, it&rsquo;s not very fast, especially when applied to long strings. You can use a string iterator (discussed in Chapter 8) as well. In general, try to minimize counting code points whenever possible.</p>
+<h4 id="determining-support-for-the-u-flag">Determining Support for the u Flag<a href="#determining-support-for-the-u-flag" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Since the <code>u</code> flag is a syntax change, attempting to use it in JavaScript engines that aren&rsquo;t compatible with ECMAScript 6 throws a syntax error. The safest way to determine if the <code>u</code> flag is supported is with a function, like this one:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">hasRegExpU</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;u&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This function uses the <code>RegExp</code> constructor to pass in the <code>u</code> flag as an argument. This syntax is valid even in older JavaScript engines, but the constructor will throw an error if <code>u</code> isn&rsquo;t supported.</p>
+<p>I&gt; If your code still needs to work in older JavaScript engines, always use the <code>RegExp</code> constructor when using the <code>u</code> flag. This will prevent syntax errors and allow you to optionally detect and use the <code>u</code> flag without aborting execution.</p>
+<h2 id="other-string-changes">Other String Changes<a href="#other-string-changes" class="anchor" aria-hidden="true">#</a> </h2>
+<p>JavaScript strings have always lagged behind similar features of other languages. It was only in ECMAScript 5 that strings finally gained a <code>trim()</code> method, for example, and ECMAScript 6 continues extending JavaScript&rsquo;s capacity to parse strings with new functionality.</p>
+<h3 id="methods-for-identifying-substrings">Methods for Identifying Substrings<a href="#methods-for-identifying-substrings" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Developers have used the <code>indexOf()</code> method to identify strings inside other strings since JavaScript was first introduced. ECMAScript 6 includes the following three methods, which are designed to do just that:</p>
+<ul>
+<li>The <code>includes()</code> method returns true if the given text is found anywhere within the string. It returns false if not.</li>
+<li>The <code>startsWith()</code> method returns true if the given text is found at the beginning of the string. It returns false if not.</li>
+<li>The <code>endsWith()</code> method returns true if the given text is found at the end of the string. It returns false if not.</li>
+</ul>
+<p>Each methods accept two arguments: the text to search for and an optional index. When the second argument is provided, <code>includes()</code> and <code>startsWith()</code> start the match from that index while <code>endsWith()</code> starts the match from the second argument; when the second argument is omitted, <code>includes()</code> and <code>startsWith()</code> search from the beginning of the string, while <code>endsWith()</code> starts from the end. In effect, the second argument minimizes the amount of the string being searched. Here are some examples showing these three methods in action:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&#34;Hello world!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s2">&#34;!&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;o&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;o&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s2">&#34;world!&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&#34;o&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s2">&#34;o&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&#34;o&#34;</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The first six calls don&rsquo;t include a second parameter, so they&rsquo;ll search the whole string if needed. The last three calls only check part of the string. The call to <code>msg.startsWith(&quot;o&quot;, 4)</code> starts the match by looking at index 4 of the <code>msg</code> string, which is the &ldquo;o&rdquo; in &ldquo;Hello&rdquo;. The call to <code>msg.endsWith(&quot;o&quot;, 8)</code> starts the search from index 0 and searches up to index 7, which is the &ldquo;o&rdquo; in &ldquo;world&rdquo;. The call to <code>msg.includes(&quot;o&quot;, 8)</code> starts the match from index 8, which is the &ldquo;r&rdquo; in &ldquo;world&rdquo;.</p>
+<p>While these three methods make identifying the existence of substrings easier, each only returns a boolean value. If you need to find the actual position of one string within another, use the <code>indexOf()</code> or <code>lastIndexOf()</code> methods.</p>
+<p>W&gt; The <code>startsWith()</code>, <code>endsWith()</code>, and <code>includes()</code> methods will throw an error if you pass a regular expression instead of a string. This stands in contrast to <code>indexOf()</code> and <code>lastIndexOf()</code>, which both convert a regular expression argument into a string and then search for that string.</p>
+<h3 id="the-repeat-method">The repeat() Method<a href="#the-repeat-method" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 6 also adds a <code>repeat()</code> method to strings, which accepts the number of times to repeat the string as an argument. It returns a new string containing the original string repeated the specified number of times. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span> <span class="c1">// &#34;xxx&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// &#34;hellohello&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;abc&#34;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// &#34;abcabcabcabc&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This method is a convenience function above all else, and it can be especially useful when manipulating text. It&rsquo;s particularly useful in code formatting utilities that need to create indentation levels, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// indent using a specified number of spaces
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">indent</span> <span class="o">=</span> <span class="s2">&#34; &#34;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">indentLevel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// whenever you increase the indent
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">newIndent</span> <span class="o">=</span> <span class="nx">indent</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="o">++</span><span class="nx">indentLevel</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The first <code>repeat()</code> call creates a string of four spaces, and the <code>indentLevel</code> variable keeps track of the indent level. Then, you can just call <code>repeat()</code> with an incremented <code>indentLevel</code> to change the number of spaces.</p>
+<p>ECMAScript 6 also makes some useful changes to regular expression functionality that don&rsquo;t fit into a particular category. The next section highlights a few.</p>
+<h2 id="other-regular-expression-changes">Other Regular Expression Changes<a href="#other-regular-expression-changes" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Regular expressions are an important part of working with strings in JavaScript, and like many parts of the language, they haven&rsquo;t changed much in recent versions. ECMAScript 6, however, makes several improvements to regular expressions to go along with the updates to strings.</p>
+<h3 id="the-regular-expression-y-flag">The Regular Expression y Flag<a href="#the-regular-expression-y-flag" class="anchor" aria-hidden="true">#</a> </h3>
+<p>ECMAScript 6 standardized the <code>y</code> flag after it was implemented in Firefox as a proprietary extension to regular expressions. The <code>y</code> flag affects a regular expression search&rsquo;s <code>sticky</code> property, and it tells the search to start matching characters in a string at the position specified by the regular expression&rsquo;s <code>lastIndex</code> property. If there is no match at that location, then the regular expression stops matching. To see how this works, consider the following code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;hello1 hello2 hello3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">globalPattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/g</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">globalResult</span> <span class="o">=</span> <span class="nx">globalPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">stickyPattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/y</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">stickyResult</span> <span class="o">=</span> <span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">globalPattern</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">lastIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">globalResult</span> <span class="o">=</span> <span class="nx">globalPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stickyResult</span> <span class="o">=</span> <span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello2 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// Error! stickyResult is null
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example has three regular expressions. The expression in <code>pattern</code> has no flags, the one in <code>globalPattern</code> uses the <code>g</code> flag, and the one in <code>stickyPattern</code> uses the <code>y</code> flag. In the first trio of <code>console.log()</code> calls, all three regular expressions should return <code>&quot;hello1 &quot;</code> with a space at the end.</p>
+<p>After that, the <code>lastIndex</code> property is changed to 1 on all three patterns, meaning that the regular expression should start matching from the second character on all of them. The regular expression with no flags completely ignores the change to <code>lastIndex</code> and still matches <code>&quot;hello1 &quot;</code> without incident. The regular expression with the <code>g</code> flag goes on to match <code>&quot;hello2 &quot;</code> because it is searching forward from the second character of the string (<code>&quot;e&quot;</code>). The sticky regular expression doesn&rsquo;t match anything beginning at the second character so <code>stickyResult</code> is <code>null</code>.</p>
+<p>The sticky flag saves the index of the next character after the last match in <code>lastIndex</code> whenever an operation is performed. If an operation results in no match, then <code>lastIndex</code> is set back to 0. The global flag behaves the same way, as demonstrated here:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;hello1 hello2 hello3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">globalPattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/g</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">globalResult</span> <span class="o">=</span> <span class="nx">globalPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">stickyPattern</span> <span class="o">=</span> <span class="sr">/hello\d\s?/y</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">stickyResult</span> <span class="o">=</span> <span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalPattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">result</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">globalResult</span> <span class="o">=</span> <span class="nx">globalPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stickyResult</span> <span class="o">=</span> <span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello1 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello2 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyResult</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;hello2 &#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">globalPattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stickyPattern</span><span class="p">.</span><span class="nx">lastIndex</span><span class="p">);</span> <span class="c1">// 14
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The value of <code>lastIndex</code> changes to 7 after the first call to <code>exec()</code> and to 14 after the second call, for both the <code>stickyPattern</code> and <code>globalPattern</code> variables.</p>
+<p>There are two more subtle details about the sticky flag to keep in mind:</p>
+<ol>
+<li>The <code>lastIndex</code> property is only honored when calling methods that exist on the regular expression object, like the <code>exec()</code> and <code>test()</code> methods. Passing the regular expression to a string method, such as <code>match()</code>, will not result in the sticky behavior.</li>
+<li>When using the <code>^</code> character to match the start of a string, sticky regular expressions only match from the start of the string (or the start of the line in multiline mode). While <code>lastIndex</code> is 0, the <code>^</code> makes a sticky regular expression no different from a non-sticky one. If <code>lastIndex</code> doesn&rsquo;t correspond to the beginning of the string in single-line mode or the beginning of a line in multiline mode, the sticky regular expression will never match.</li>
+</ol>
+<p>As with other regular expression flags, you can detect the presence of <code>y</code> by using a property. In this case, you&rsquo;d check the <code>sticky</code> property, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="sr">/hello\d/y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">sticky</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>sticky</code> property is set to true if the sticky flag is present, and the property is false if not. The <code>sticky</code> property is read-only based on the presence of the flag and cannot be changed in code.</p>
+<p>Similar to the <code>u</code> flag, the <code>y</code> flag is a syntax change, so it will cause a syntax error in older JavaScript engines. You can use the following approach to detect support:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">hasRegExpY</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Just like the <code>u</code> check, this returns false if it&rsquo;s unable to create a regular expression with the <code>y</code> flag. In one final similarity to <code>u</code>, if you need to use <code>y</code> in code that runs in older JavaScript engines, be sure to use the <code>RegExp</code> constructor when defining those regular expressions to avoid a syntax error.</p>
+<h3 id="duplicating-regular-expressions">Duplicating Regular Expressions<a href="#duplicating-regular-expressions" class="anchor" aria-hidden="true">#</a> </h3>
+<p>In ECMAScript 5, you can duplicate regular expressions by passing them into the <code>RegExp</code> constructor like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">re1</span> <span class="o">=</span> <span class="sr">/ab/i</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">re2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">re1</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>re2</code> variable is just a copy of the <code>re1</code> variable. But if you provide the second argument to the <code>RegExp</code> constructor, which specifies the flags for the regular expression, your code won&rsquo;t work, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">re1</span> <span class="o">=</span> <span class="sr">/ab/i</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// throws an error in ES5, okay in ES6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">re2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">re1</span><span class="p">,</span> <span class="s2">&#34;g&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>If you execute this code in an ECMAScript 5 environment, you&rsquo;ll get an error stating that the second argument cannot be used when the first argument is a regular expression. ECMAScript 6 changed this behavior such that the second argument is allowed and overrides any flags present on the first argument. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">re1</span> <span class="o">=</span> <span class="sr">/ab/i</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// throws an error in ES5, okay in ES6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">re2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">re1</span><span class="p">,</span> <span class="s2">&#34;g&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// &#34;/ab/i&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re2</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// &#34;/ab/g&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re1</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;ab&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re2</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;ab&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re1</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;AB&#34;</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re2</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;AB&#34;</span><span class="p">));</span> <span class="c1">// false
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, <code>re1</code> has the case-insensitive <code>i</code> flag while <code>re2</code> has only the global <code>g</code> flag. The <code>RegExp</code> constructor duplicated the pattern from <code>re1</code> and substituted the <code>g</code> flag for the <code>i</code> flag. Without the second argument, <code>re2</code> would have the same flags as <code>re1</code>.</p>
+<h3 id="the-flags-property">The <code>flags</code> Property<a href="#the-flags-property" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Along with adding a new flag and changing how you can work with flags, ECMAScript 6 added a property associated with them. In ECMAScript 5, you could get the text of a regular expression by using the <code>source</code> property, but to get the flag string, you&rsquo;d have to parse the output of the <code>toString()</code> method as shown below:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getFlags</span><span class="p">(</span><span class="nx">re</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">text</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// toString() is &#34;/ab/g&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/ab/g</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getFlags</span><span class="p">(</span><span class="nx">re</span><span class="p">));</span> <span class="c1">// &#34;g&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This converts a regular expression into a string and then returns the characters found after the last <code>/</code>. Those characters are the flags.</p>
+<p>ECMAScript 6 makes fetching flags easier by adding a <code>flags</code> property to go along with the <code>source</code> property. Both properties are prototype accessor properties with only a getter assigned, making them read-only. The <code>flags</code> property makes inspecting regular expressions easier for both debugging and inheritance purposes.</p>
+<p>A late addition to ECMAScript 6, the <code>flags</code> property returns the string representation of any flags applied to a regular expression. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="sr">/ab/g</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">source</span><span class="p">);</span> <span class="c1">// &#34;ab&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">re</span><span class="p">.</span><span class="nx">flags</span><span class="p">);</span> <span class="c1">// &#34;g&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This fetches all flags on <code>re</code> and prints them to the console with far fewer lines of code than the <code>toString()</code> technique can. Using <code>source</code> and <code>flags</code> together allows you to extract the pieces of the regular expression that you need without parsing the regular expression string directly.</p>
+<p>The changes to strings and regular expressions that this chapter has covered so far are definitely powerful, but ECMAScript 6 improves your power over strings in a much bigger way. It brings a type of literal to the table that makes strings more flexible.</p>
+<h2 id="template-literals">Template Literals<a href="#template-literals" class="anchor" aria-hidden="true">#</a> </h2>
+<p>JavaScript&rsquo;s strings have always had limited functionality compared to strings in other languages. For instance, until ECMAScript 6, strings lacked the methods covered so far in this chapter, and string concatenation is as simple as possible. To allow developers to solve more complex problems, ECMAScript 6&rsquo;s <em>template literals</em> provide syntax for creating domain-specific languages (DSLs) for working with content in a safer way than the solutions available in ECMAScript 5 and earlier. (A DSL is a programming language designed for a specific, narrow purpose, as opposed to general-purpose languages like JavaScript.) The ECMAScript wiki offers the following description on the <a href="http://wiki.ecmascript.org/doku.php?id=harmony:quasis">template literal strawman</a>:</p>
+<blockquote>
+<p>This scheme extends ECMAScript syntax with syntactic sugar to allow libraries to provide DSLs that easily produce, query, and manipulate content from other languages that are immune or resistant to injection attacks such as XSS, SQL Injection, etc.</p>
+</blockquote>
+<p>In reality, though, template literals are ECMAScript 6&rsquo;s answer to the following features that JavaScript lacked all the way through ECMAScript 5:</p>
+<ul>
+<li><strong>Multiline strings</strong> A formal concept of multiline strings.</li>
+<li><strong>Basic string formatting</strong> The ability to substitute parts of the string for values contained in variables.</li>
+<li><strong>HTML escaping</strong> The ability to transform a string such that it is safe to insert into HTML.</li>
+</ul>
+<p>Rather than trying to add more functionality to JavaScript&rsquo;s already-existing strings, template literals represent an entirely new approach to solving these problems.</p>
+<h3 id="basic-syntax">Basic Syntax<a href="#basic-syntax" class="anchor" aria-hidden="true">#</a> </h3>
+<p>At their simplest, template literals act like regular strings delimited by backticks (<code>`</code>) instead of double or single quotes. For example, consider the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hello world!`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Hello world!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;string&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 12
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code demonstrates that the variable <code>message</code> contains a normal JavaScript string. The template literal syntax is used to create the string value, which is then assigned to the <code>message</code> variable.</p>
+<p>If you want to use a backtick in your string, then just escape it with a backslash (<code>\</code>), as in this version of the <code>message</code> variable:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`\`Hello\` world!`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;`Hello` world!&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;string&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 14
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>There&rsquo;s no need to escape either double or single quotes inside of template literals.</p>
+<h3 id="multiline-strings">Multiline Strings<a href="#multiline-strings" class="anchor" aria-hidden="true">#</a> </h3>
+<p>JavaScript developers have wanted a way to create multiline strings since the first version of the language. But when using double or single quotes, strings must be completely contained on a single line.</p>
+<h4 id="pre-ecmascript-6-workarounds">Pre-ECMAScript 6 Workarounds<a href="#pre-ecmascript-6-workarounds" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Thanks to a long-standing syntax bug, JavaScript does have a workaround. You can create multiline strings if there&rsquo;s a backslash (<code>\</code>) before a newline. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;Multiline \
+</span></span></span><span class="line"><span class="cl"><span class="s2">string&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Multiline string&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>message</code> string has no newlines present when printed to the console because the backslash is treated as a continuation rather than a newline. In order to show a newline in output, you&rsquo;d need to manually include it:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;Multiline \n\
+</span></span></span><span class="line"><span class="cl"><span class="s2">string&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Multiline
+</span></span></span><span class="line"><span class="cl"><span class="c1">//  string&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This should print <code>Multiline String</code> on two separate lines in all major JavaScript engines, but the behavior is defined as a bug and many developers recommend avoiding it.</p>
+<p>Other pre-ECMAScript 6 attempts to create multiline strings usually relied on arrays or string concatenation, such as:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Multiline &#34;</span><span class="p">,</span> <span class="s2">&#34;string&#34;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;\n&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&#34;Multiline \n&#34;</span> <span class="o">+</span> <span class="s2">&#34;string&#34;</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>All of the ways developers worked around JavaScript&rsquo;s lack of multiline strings left something to be desired.</p>
+<h4 id="multiline-strings-the-easy-way">Multiline Strings the Easy Way<a href="#multiline-strings-the-easy-way" class="anchor" aria-hidden="true">#</a> </h4>
+<p>ECMAScript 6&rsquo;s template literals make multiline strings easy because there&rsquo;s no special syntax. Just include a newline where you want, and it shows up in the result. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Multiline
+</span></span></span><span class="line"><span class="cl"><span class="sb">string`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Multiline
+</span></span></span><span class="line"><span class="cl"><span class="c1">//  string&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 16
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>All whitespace inside the backticks is part of the string, so be careful with indentation. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Multiline
+</span></span></span><span class="line"><span class="cl"><span class="sb">               string`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Multiline
+</span></span></span><span class="line"><span class="cl"><span class="c1">//                 string&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 31
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, all whitespace before the second line of the template literal is considered part of the string itself. If making the text line up with proper indentation is important to you, then consider leaving nothing on the first line of a multiline template literal and then indenting after that, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">html</span> <span class="o">=</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">&lt;div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    &lt;h1&gt;Title&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">&lt;/div&gt;`</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code begins the template literal on the first line but doesn&rsquo;t have any text until the second. The HTML tags are indented to look correct and then the <code>trim()</code> method is called to remove the initial empty line.</p>
+<p>A&gt; If you prefer, you can also use <code>\n</code> in a template literal to indicate where a newline should be inserted:
+A&gt; {:lang=&ldquo;js&rdquo;}
+A&gt; ~~~~~~~~
+A&gt;
+A&gt; let message = <code>Multiline\nstring</code>;
+A&gt;
+A&gt; console.log(message); // &ldquo;Multiline
+A&gt; // string&rdquo;
+A&gt; console.log(message.length); // 16
+A&gt; ~~~~~~~~</p>
+<h3 id="making-substitutions">Making Substitutions<a href="#making-substitutions" class="anchor" aria-hidden="true">#</a> </h3>
+<p>At this point, template literals may look like fancier versions of normal JavaScript strings. The real difference between the two lies in template literal <em>substitutions</em>. Substitutions allow you to embed any valid JavaScript expression inside a template literal and output the result as part of the string.</p>
+<p>Substitutions are delimited by an opening <code>${</code> and a closing <code>}</code> that can have any JavaScript expression inside. The simplest substitutions let you embed local variables directly into a resulting string, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Hello, Nicholas.&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The substitution <code>${name}</code> accesses the local variable <code>name</code> to insert <code>name</code> into the <code>message</code> string. The <code>message</code> variable then holds the result of the substitution immediately.</p>
+<p>I&gt; A template literal can access any variable accessible in the scope in which it is defined. Attempting to use an undeclared variable in a template literal throws an error in both strict and non-strict modes.</p>
+<p>Since all substitutions are JavaScript expressions, you can substitute more than just simple variable names. You can easily embed calculations, function calls, and more. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">price</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> items cost $</span><span class="si">${</span><span class="p">(</span><span class="nx">count</span> <span class="o">*</span> <span class="nx">price</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;10 items cost $2.50.&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code performs a calculation as part of the template literal. The variables <code>count</code> and <code>price</code> are multiplied together to get a result, and then formatted to two decimal places using <code>.toFixed()</code>. The dollar sign before the second substitution is output as-is because it&rsquo;s not followed by an opening curly brace.</p>
+<p>Template literals are also JavaScript expressions, which means you can place a template literal inside of another template literal, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span> <span class="o">=</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="sb">`my name is </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Hello, my name is Nicholas.&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example nests a second template literal inside the first. After the first <code>${</code>, another template literal begins. The second <code>${</code> indicates the beginning of an embedded expression inside the inner template literal. That expression is the variable <code>name</code>, which is inserted into the result.</p>
+<h3 id="tagged-templates">Tagged Templates<a href="#tagged-templates" class="anchor" aria-hidden="true">#</a> </h3>
+<p>Now you&rsquo;ve seen how template literals can create multiline strings and insert values into strings without concatenation. But the real power of template literals comes from tagged templates. A <em>template tag</em> performs a transformation on the template literal and returns the final string value. This tag is specified at the start of the template, just before the first <code>`</code> character, as shown here:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">tag</span><span class="sb">`Hello world`</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, <code>tag</code> is the template tag to apply to the <code>`Hello world`</code> template literal.</p>
+<h4 id="defining-tags">Defining Tags<a href="#defining-tags" class="anchor" aria-hidden="true">#</a> </h4>
+<p>A <em>tag</em> is simply a function that is called with the processed template literal data. The tag receives data about the template literal as individual pieces and must combine the pieces to create the result. The first argument is an array containing the literal strings as interpreted by JavaScript. Each subsequent argument is the interpreted value of each substitution.</p>
+<p>Tag functions are typically defined using rest arguments as follows, to make dealing with the data easier:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">tag</span><span class="p">(</span><span class="nx">literals</span><span class="p">,</span> <span class="p">...</span><span class="nx">substitutions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// return a string
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>To better understand what gets passed to tags, consider the following:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">price</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span> <span class="o">=</span> <span class="nx">passthru</span><span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> items cost $</span><span class="si">${</span><span class="p">(</span><span class="nx">count</span> <span class="o">*</span> <span class="nx">price</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>If you had a function called <code>passthru()</code>, that function would receive three arguments. First, it would get a <code>literals</code> array, containing the following elements:</p>
+<ul>
+<li>The empty string before the first substitution (<code>&quot;&quot;</code>)</li>
+<li>The string after the first substitution and before the second (<code>&quot; items cost $&quot;</code>)</li>
+<li>The string after the second substitution (<code>&quot;.&quot;</code>)</li>
+</ul>
+<p>The next argument would be <code>10</code>, which is the interpreted value for the <code>count</code> variable. This becomes the first element in a <code>substitutions</code> array. The final argument would be <code>&quot;2.50&quot;</code>, which is the interpreted value for <code>(count * price).toFixed(2)</code> and the second element in the <code>substitutions</code> array.</p>
+<p>Note that the first item in <code>literals</code> is an empty string. This ensures that <code>literals[0]</code> is always the start of the string, just like <code>literals[literals.length - 1]</code> is always the end of the string. There is always one fewer substitution than literal, which means the expression <code>substitutions.length === literals.length - 1</code> is always true.</p>
+<p>Using this pattern, the <code>literals</code> and <code>substitutions</code> arrays can be interwoven to create a resulting string. The first item in <code>literals</code> comes first, the first item in <code>substitutions</code> is next, and so on, until the string is complete. As an example, you can mimic the default behavior of a template literal by alternating values from these two arrays:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">passthru</span><span class="p">(</span><span class="nx">literals</span><span class="p">,</span> <span class="p">...</span><span class="nx">substitutions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// run the loop only for the substitution count
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">substitutions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">literals</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">substitutions</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the last literal
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">literals</span><span class="p">[</span><span class="nx">literals</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">price</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span> <span class="o">=</span> <span class="nx">passthru</span><span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> items cost $</span><span class="si">${</span><span class="p">(</span><span class="nx">count</span> <span class="o">*</span> <span class="nx">price</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="sb">.`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;10 items cost $2.50.&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example defines a <code>passthru</code> tag that performs the same transformation as the default template literal behavior. The only trick is to use <code>substitutions.length</code> for the loop rather than <code>literals.length</code> to avoid accidentally going past the end of the <code>substitutions</code> array. This works because the relationship between <code>literals</code> and <code>substitutions</code> is well-defined in ECMAScript 6.</p>
+<p>I&gt; The values contained in <code>substitutions</code> are not necessarily strings. If an expression evaluates to a number, as in the previous example, then the numeric value is passed in. Determining how such values should output in the result is part of the tag&rsquo;s job.</p>
+<h4 id="using-raw-values-in-template-literals">Using Raw Values in Template Literals<a href="#using-raw-values-in-template-literals" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Template tags also have access to raw string information, which primarily means access to character escapes before they are transformed into their character equivalents. The simplest way to work with raw string values is to use the built-in <code>String.raw()</code> tag. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message1</span> <span class="o">=</span> <span class="sb">`Multiline\nstring`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message2</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">raw</span><span class="sb">`Multiline\nstring`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message1</span><span class="p">);</span> <span class="c1">// &#34;Multiline
+</span></span></span><span class="line"><span class="cl"><span class="c1">//  string&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message2</span><span class="p">);</span> <span class="c1">// &#34;Multiline\nstring&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the <code>\n</code> in <code>message1</code> is interpreted as a newline while the <code>\n</code> in <code>message2</code> is returned in its raw form of <code>&quot;\\n&quot;</code> (the slash and <code>n</code> characters). Retrieving the raw string information like this allows for more complex processing when necessary.</p>
+<p>The raw string information is also passed into template tags. The first argument in a tag function is an array with an extra property called <code>raw</code>. The <code>raw</code> property is an array containing the raw equivalent of each literal value. For example, the value in <code>literals[0]</code> always has an equivalent <code>literals.raw[0]</code> that contains the raw string information. Knowing that, you can mimic <code>String.raw()</code> using the following code:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">raw</span><span class="p">(</span><span class="nx">literals</span><span class="p">,</span> <span class="p">...</span><span class="nx">substitutions</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// run the loop only for the substitution count
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">substitutions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">literals</span><span class="p">.</span><span class="nx">raw</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="c1">// use raw values instead
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">substitutions</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the last literal
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">result</span> <span class="o">+=</span> <span class="nx">literals</span><span class="p">.</span><span class="nx">raw</span><span class="p">[</span><span class="nx">literals</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">raw</span><span class="sb">`Multiline\nstring`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &#34;Multiline\nstring&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 17
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This uses <code>literals.raw</code> instead of <code>literals</code> to output the string result. That means any character escapes, including Unicode code point escapes, should be returned in their raw form. Raw strings are helpful when you want to output a string containing code in which you&rsquo;ll need to include the character escaping (for instance, if you want to generate documentation about some code, you may want to output the actual code as it appears).</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Full Unicode support allows JavaScript to deal with UTF-16 characters in logical ways. The ability to transfer between code point and character via <code>codePointAt()</code> and <code>String.fromCodePoint()</code> is an important step for string manipulation. The addition of the regular expression <code>u</code> flag makes it possible to operate on code points instead of 16-bit characters, and the <code>normalize()</code> method allows for more appropriate string comparisons.</p>
+<p>ECMAScript 6 also added new methods for working with strings, allowing you to more easily identify a substring regardless of its position in the parent string. More functionality was added to regular expressions, too.</p>
+<p>Template literals are an important addition to ECMAScript 6 that allows you to create domain-specific languages (DSLs) to make creating strings easier. The ability to embed variables directly into template literals means that developers have a safer tool than string concatenation for composing long strings with variables.</p>
+<p>Built-in support for multiline strings also makes template literals a useful upgrade over normal JavaScript strings, which have never had this ability. Despite allowing newlines directly inside the template literal, you can still use <code>\n</code> and other character escape sequences.</p>
+<p>Template tags are the most important part of this feature for creating DSLs. Tags are functions that receive the pieces of the template literal as arguments. You can then use that data to return an appropriate string value. The data provided includes literals, their raw equivalents, and any substitution values. These pieces of information can then be used to determine the correct output for the tag.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/01-block-bindings/" class="stretched-link text-reset text-decoration-none">01 Block Bindings</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/03-functions/" class="stretched-link text-reset text-decoration-none">03 Functions</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

@@ -546,475 +546,577 @@ console.log(isPrime(17)); //true
 ---
 
 Code 31: To print all the numbers from 2 to 100
+
+```js
 for (let i = 2; i <= 100; i++) {
-let flag = 0;
-for (let j = 2; j < i; j++) {
-if (i % j == 0) {
-flag = 1;
-break;
+  let flag = 0;
+  for (let j = 2; j < i; j++) {
+    if (i % j == 0) {
+      flag = 1;
+      break;
+    }
+  }
+  if (i > 1 && flag == 0) {
+    console.log(i);
+  }
 }
-}
-if (i > 1 && flag == 0) {
-console.log(i);
-}
-}
+```
 
 ---
 
-for (let i = 2; i <= 100; i++)
-{
-let flag = 0;
-for (let j = 2; j < i; j++) { //2<2 //2<3 //3<4
-if (i % j == 0) {
-flag = 1;
-break;
+```js
+for (let i = 2; i <= 100; i++) {
+  let flag = 0;
+  for (let j = 2; j < i; j++) {
+    //2<2 //2<3 //3<4
+    if (i % j == 0) {
+      flag = 1;
+      break;
+    }
+  }
+  if (i > 1 && flag == 0) {
+    document.write(i + "</br>");
+  }
 }
-}
-if (i > 1 && flag == 0)
-{
-document.write(i+ "</br>");
-}
-}
+```
 
 ---
 
 Code 32: To find unique values from 2 arrays and keep into one array.
-function uniqueElements(arr1,arr2){
-let arr =[...arr1,...arr2];
-let array =[...new Set(arr)]
-console.log(array)
+
+```js
+function uniqueElements(arr1, arr2) {
+  let arr = [...arr1, ...arr2];
+  let array = [...new Set(arr)];
+  console.log(array);
 }
-uniqueElements([1,2,3,4,4],[2,3,4,5,6])
+uniqueElements([1, 2, 3, 4, 4], [2, 3, 4, 5, 6]);
+```
 
 ---
 
 Code 33: Find first duplicate element from an array
+
+```js
 function firstDuplicate() {
-let arr = [1,2,2,5,5];
-let data = [];
-for (var item of arr) {
-if (data[item]) {
-return item
-} else {
-data[item] = item
-console.log(data[item])
+  let arr = [1, 2, 2, 5, 5];
+  let data = [];
+  for (var item of arr) {
+    if (data[item]) {
+      return item;
+    } else {
+      data[item] = item;
+      console.log(data[item]);
+    }
+  }
+  return -1;
 }
-}
-return -1
-}
-console.log(firstDuplicate())
+console.log(firstDuplicate());
+```
 
 ---
 
 Code 34: Write a program that prints the numbers from 1 to 100. But for multiples of three, print "Fizz" instead of the number, and for the multiples of five, print "Buzz".
 For numbers which are multiples of both three and five, print "FizzBuzz"
-for (var i=1; i <= 20; i++)
-{
-if (i % 15 == 0)
-console.log("FizzBuzz");
-else if (i % 3 == 0)
-console.log("Fizz");
-else if (i % 5 == 0)
-console.log("Buzz");
-else
-console.log(i);
+
+```js
+for (var i = 1; i <= 20; i++) {
+  if (i % 15 == 0) console.log("FizzBuzz");
+  else if (i % 3 == 0) console.log("Fizz");
+  else if (i % 5 == 0) console.log("Buzz");
+  else console.log(i);
 }
+```
 
 ---
 
 Code 35: Uppercase of each first letter of a words
-function upperCaseFirsstLetter(){
-var string ="India is my country";
-var words = string.toLowerCase().split(" ")
-for( var i=0; i<words.length; i++) {
-words[i]=words[i][0].toUpperCase() + words[i].slice(1) //slice is used here to give all the letters except first letter.
+
+```js
+function upperCaseFirsstLetter() {
+  var string = "India is my country";
+  var words = string.toLowerCase().split(" ");
+  for (var i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1); //slice is used here to give all the letters except first letter.
+  }
+  return words.join(" ");
 }
-return words.join(" ")
-}
-console.log(upperCaseFirsstLetter())
+console.log(upperCaseFirsstLetter());
+```
 
 ---
 
 Code 36: Uppercase of each first letter of a words using map function
-function upperCaseFirsstLetter(){
-var string ="India is my country";
-var words = string.toLowerCase().split(" ").map((ele)=>{
-return ele[0].toUpperCase() + ele.slice(1)
-})
-return words.join(" ")
+
+```js
+function upperCaseFirsstLetter() {
+  var string = "India is my country";
+  var words = string
+    .toLowerCase()
+    .split(" ")
+    .map((ele) => {
+      return ele[0].toUpperCase() + ele.slice(1);
+    });
+  return words.join(" ");
 }
-console.log(upperCaseFirsstLetter())
+console.log(upperCaseFirsstLetter());
+```
 
 ---
 
 Code 37: To check ending of the string with given character/s using inbuild function
-function confirmEnding(str,target){
-return str.endsWith(target) //true
+
+```js
+function confirmEnding(str, target) {
+  return str.endsWith(target); //true
 }
-console.log(confirmEnding("priya","a"))
-===============================================================================================================================================================================
-Code 38: To check ending of the string with given character/s using custom
-function confirmEnding(str,target){
-return str.substr(-target.length)===target
-}
-console.log(confirmEnding("priya","a"))
-===============================================================================================================================================================================
-Code 39: To find the largest elements fro the 2 diensional array
-function largestFromArray(arr){
-var max=[];
-for(var i=0; i<arr.length;i++){
-var tempMax =arr[i][0] //first elements of the 4 internal arrays i,e(1,5,45,89
-for(var j=0; j<arr[i].length; j++){
-var currElement = arr[i][j];
-if(currElement>=tempMax){
-tempMax = currElement
-}
-}
-max.push(tempMax)
-}
-console.log(max)
-return max;
-}
-largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])
+console.log(confirmEnding("priya", "a"));
+```
 
 ---
 
-Code 40: To find the largest elements fro the 2 diensional array in another way
-function largestFromArray(arr){
-var max=[0,0,0,0];
-for(var i=0; i<arr.length;i++){
-for(var j=0; j<arr[i].length; j++)
-{
-if(arr[i][j]>=max[i]){
-max[i] = arr[i][j]
+Code 38: To check ending of the string with given character/s using custom function
+
+```js
+function confirmEnding(str, target) {
+  return str.substr(-target.length) === target;
 }
+console.log(confirmEnding("priya", "a"));
+```
+
+---
+
+Code 39: To find the largest elements for the 2 dimensional array
+
+```js
+function largestFromArray(arr) {
+  var max = [];
+  for (var i = 0; i < arr.length; i++) {
+    var tempMax = arr[i][0]; //first elements of the 4 internal arrays i,e(1,5,45,89
+    for (var j = 0; j < arr[i].length; j++) {
+      var currElement = arr[i][j];
+      if (currElement >= tempMax) {
+        tempMax = currElement;
+      }
+    }
+    max.push(tempMax);
+  }
+  console.log(max);
+  return max;
 }
+largestFromArray([
+  [1, 2, 3, 4],
+  [5, 6, 7, 9],
+  [45, 76, 2, 1],
+  [89, 90, 87, 9]
+]);
+```
+
+---
+
+Code 40: To find the largest elements for the 2 dimensional array in another way
+
+```js
+function largestFromArray(arr) {
+  var max = [0, 0, 0, 0];
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] >= max[i]) {
+        max[i] = arr[i][j];
+      }
+    }
+  }
+  console.log(max);
+  return max;
 }
-console.log(max)
-return max;
-}
-largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])
+largestFromArray([
+  [1, 2, 3, 4],
+  [5, 6, 7, 9],
+  [45, 76, 2, 1],
+  [89, 90, 87, 9]
+]);
+```
 
 ---
 
 Code 41: Print string n times using inbuilt function
-function repeatStrinNumTimes(str, num){
-if (num<1) return ""
-return str.repeat(num)
+
+```js
+function repeatStrinNumTimes(str, num) {
+  if (num < 1) return "";
+  return str.repeat(num);
 }
-console.log(repeatStrinNumTimes("priya",3))
+console.log(repeatStrinNumTimes("priya", 3));
+```
 
 ---
 
 Code 42: Print string n times in custom way
-function repeatStrinNumTimes(str, num){
-var final="";
-if(num<0) return ""
-for(var i=0; i<num;i++)
-{
-final=final+str
+
+```js
+function repeatStrinNumTimes(str, num) {
+  var final = "";
+  if (num < 0) return "";
+  for (var i = 0; i < num; i++) {
+    final = final + str;
+  }
+  return final;
 }
-return final
-}
-console.log(repeatStrinNumTimes("priya",3))
+console.log(repeatStrinNumTimes("priya", 3));
+```
 
 ---
 
-Code 43:Print string n times in custom way
-function repeatStrinNumTimes(str, num){
-if(num<0) return ""
-if(num===1) return str
-return str+ repeatStrinNumTimes(str, num-1)
+Code 43: Print string n times in custom way
+
+```js
+function repeatStrinNumTimes(str, num) {
+  if (num < 0) return "";
+  if (num === 1) return str;
+  return str + repeatStrinNumTimes(str, num - 1);
 }
-console.log(repeatStrinNumTimes("priya",3))
+console.log(repeatStrinNumTimes("priya", 3));
+```
 
 ---
 
 Code 44: Truncate the string
-function truncateString(str, num){
-if(num<=3) return str.slice(0,num)
-return str.slice(0,num-3)+"..." //retuen only 4 digits thats why subtracted from 3
+
+```js
+function truncateString(str, num) {
+  if (num <= 3) return str.slice(0, num);
+  return str.slice(0, num - 3) + "..."; //retuen only 4 digits thats why subtracted from 3
 }
-console.log(truncateString("priyabagde",2)) //pr
-console.log(truncateString("priyabagde",4)) //p... //retuen only 4 digits
+console.log(truncateString("priyabagde", 2)); //pr
+console.log(truncateString("priyabagde", 4)); //p... //retuen only 4 digits
+```
 
 ---
 
 Code 45: Converting one dimensional array into n dimensional array using slice
-function chunkArrayInGroup(arr, size){
-var group=[]
-while(arr.length>0){
-group.push(arr.slice(0, size))
-arr = arr.slice(size)
+
+```js
+function chunkArrayInGroup(arr, size) {
+  var group = [];
+  while (arr.length > 0) {
+    group.push(arr.slice(0, size));
+    arr = arr.slice(size);
+  }
+  return group;
 }
-return group
-}
-console.log (chunkArrayInGroup(['a','b','c','d'],2)) //[["a", "b"], ["c", "d"]]
+console.log(chunkArrayInGroup(["a", "b", "c", "d"], 2)); //[["a", "b"], ["c", "d"]]
+```
 
 ---
 
 Code 46: Converting one dimensional array into n dimensional array using splice
-function chunkArrayInGroup(arr, size){
-var group=[]
-while(arr.length>0){
-group.push(arr.splice(0, size))
+
+```js
+function chunkArrayInGroup(arr, size) {
+  var group = [];
+  while (arr.length > 0) {
+    group.push(arr.splice(0, size));
+  }
+  return group;
 }
-return group
-}
-console.log (chunkArrayInGroup(['a','b','c','d'],2)) //[["a", "b"], ["c", "d"]]
+console.log(chunkArrayInGroup(["a", "b", "c", "d"], 2)); //[["a", "b"], ["c", "d"]]
+```
 
 ---
 
 Code 47: To find only truthy values
-function removeFalseValue(arr){
-var trueth = []
-for (var item of arr){
-if(item){
-trueth.push(item)
+
+```js
+function removeFalseValue(arr) {
+  var trueth = [];
+  for (var item of arr) {
+    if (item) {
+      trueth.push(item);
+    }
+  }
+  return trueth;
 }
-}
-return trueth
-}
-console.log(removeFalseValue(["priya", 0 ,"", false, null,undefined, "ate", Nan ,9 ])) //["priya","ate",9]
+console.log(removeFalseValue(["priya", 0, "", false, null, undefined, "ate", Nan, 9])); //["priya","ate",9]
+```
 
 ---
 
 Code 49: To find only truthy values using filter
-function removeFalseValue(arr){
-return arr.filter((item)=>{
-return item})
+
+```js
+function removeFalseValue(arr) {
+  return arr.filter((item) => {
+    return item;
+  });
 }
-console.log(removeFalseValue(["priya", 0 ,"", false, null,undefined, "ate", 9 ]))
+console.log(removeFalseValue(["priya", 0, "", false, null, undefined, "ate", 9]));
+```
 
 ---
 
 Code 50: Checking all letters of second words should present in first word, in the same order using include function
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var letter of second){
-if(!first.includes(letter)){
-return false
+
+```js
+function characterPresent(arr) {
+  var first = arr[0].toLowerCase();
+  var second = arr[1].toLowerCase();
+  for (var letter of second) {
+    if (!first.includes(letter)) {
+      return false;
+    }
+  }
+  return true;
 }
-}
-return true
-}
-console.log(characterPresent(["hello","hey"]))
+console.log(characterPresent(["hello", "hey"]));
+```
 
 ---
 
 Code 51: Checking all letters of second words should present in first word, in the same order using indexOf without indexing i.e for-of loop
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var letter of second){
-if(first.indexOf(letter)== -1){ //-1 means not found in array
-return false
+
+```js
+function characterPresent(arr) {
+  var first = arr[0].toLowerCase();
+  var second = arr[1].toLowerCase();
+  for (var letter of second) {
+    if (first.indexOf(letter) == -1) {
+      //-1 means not found in array
+      return false;
+    }
+  }
+  return true;
 }
-}
-return true
-}
-console.log(characterPresent(["hello","he"]))
+console.log(characterPresent(["hello", "he"]));
+```
 
 ---
 
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var i=0; i<second.length; i++){
-if(!first.includes(second[i])){ //-1 means not found in array
-return false
+```js
+function characterPresent(arr) {
+  var first = arr[0].toLowerCase();
+  var second = arr[1].toLowerCase();
+  for (var i = 0; i < second.length; i++) {
+    if (!first.includes(second[i])) {
+      //-1 means not found in array
+      return false;
+    }
+  }
+  return true;
 }
-}
-return true
-}
-console.log(characterPresent(["hello","he"]))
+console.log(characterPresent(["hello", "he"]));
+```
 
 ---
 
 Code 52: Checking all letters of second words should present in first word, in the same order using indexOf with indexing
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var i=0; i<second.length; i++){
-if(first.indexOf(second)== -1){ //-1 means not found in array
-return false
+
+```js
+function characterPresent(arr) {
+  var first = arr[0].toLowerCase();
+  var second = arr[1].toLowerCase();
+  for (var i = 0; i < second.length; i++) {
+    if (first.indexOf(second) == -1) {
+      //-1 means not found in array
+      return false;
+    }
+  }
+  return true;
 }
-}
-return true
-}
-console.log(characterPresent(["hello","he"]))
+console.log(characterPresent(["hello", "he"]));
+```
 
 ---
 
 Code 53: Unique values only from 2 arrays
-function diffArrayElement(arr1, arr2){
-var result =[]
-for(var i=0; i<arr1.length; i++){
-if(arr2.indexOf(arr1[i]) === -1){
-result.push(arr1[i])
+
+```js
+function diffArrayElement(arr1, arr2) {
+  var result = [];
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) === -1) {
+      result.push(arr1[i]);
+    }
+  }
+  for (var j = 0; j < arr2.length; j++) {
+    if (arr1.indexOf(arr2[j]) === -1) {
+      result.push(arr2[j]);
+    }
+  }
+  return result;
 }
-}
-for(var j=0; j<arr2.length; j++){
-if(arr1.indexOf(arr2[j]) === -1){
-result.push(arr2[j])
-}
-}
-return result
-}
-console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) //[1,5]
+console.log(diffArrayElement([1, 2, 3, 4], [2, 3, 4, 5])); //[1,5]
+```
 
 ---
 
 Code 54: Unique values only from 2 arrays
-function diffArrayElement(arr1, arr2){
-var combine = arr1.concat(arr2)
-return combine.filter( (num)=>{
-if(arr1.indexOf(num)== -1 || arr2.indexOf(num)== -1 ) return num
-})
+
+```js
+function diffArrayElement(arr1, arr2) {
+  var combine = arr1.concat(arr2);
+  return combine.filter((num) => {
+    if (arr1.indexOf(num) == -1 || arr2.indexOf(num) == -1) return num;
+  });
 }
-console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) [1,5]
+console.log(diffArrayElement([1, 2, 3, 4], [2, 3, 4, 5]))[(1, 5)];
+```
 
 ---
 
 Code 55: Remove Duplicates from 2 arrays using Set
-function uniquefromArrays(arr1, arr2){
-let arr = [...arr1, ...arr2]
-let unique = [...new Set(arr)];
-return unique
+
+```js
+function uniquefromArrays(arr1, arr2) {
+  let arr = [...arr1, ...arr2];
+  let unique = [...new Set(arr)];
+  return unique;
 }
-console.log(uniquefromArrays([1,2,3,4], [2,3,4,5])) //[1,2,3,4,5]
+console.log(uniquefromArrays([1, 2, 3, 4], [2, 3, 4, 5])); //[1,2,3,4,5]
+```
 
 ---
 
 code 56: Sum of all numbers from start to end given number
-function sumFromStartToEnd(arr){
-var start = Math.min(arr[0], arr[1])
-var end = Math.max(arr[0], arr[1])
-sum =0
-for(var i= start; i<=end; i++){
-sum+=i
+
+```js
+function sumFromStartToEnd(arr) {
+  var start = Math.min(arr[0], arr[1]);
+  var end = Math.max(arr[0], arr[1]);
+  sum = 0;
+  for (var i = start; i <= end; i++) {
+    sum += i;
+  }
+  return sum;
 }
-return sum
-}
-console.log(sumFromStartToEnd([1,4]))
+console.log(sumFromStartToEnd([1, 4]));
+```
 
 ---
 
 code 57: Remove or Delete elements from an array using various ways
-Way 1: Removing Elements from End of a JavaScript Array
+
+```js
+// Way 1: Removing Elements from End of a JavaScript Array
 var ar = [1, 2, 3, 4, 5, 6];
 ar.length = 4; // set length to remove elements
-console.log( ar ); // [1, 2, 3, 4]
+console.log(ar); // [1, 2, 3, 4]
 
-Way 2: Removing Elements from Beginning of a JavaScript Array
-var ar = ['zero', 'one', 'two', 'three'];
+// Way 2: Removing Elements from Beginning of a JavaScript Array
+var ar = ["zero", "one", "two", "three"];
 ar.shift(); // returns "zero"
-console.log( ar ); // ["one", "two", "three"]
+console.log(ar); // ["one", "two", "three"]
 
-Way 3: Using Splice to Remove Array Elements in JavaScript
+// Way 3: Using Splice to Remove Array Elements in JavaScript
 var list = ["bar", "baz", "foo", "qux"];
 list.splice(0, 2); // Starting at index position 0, remove two elements ["bar", "baz"] and retains ["foo", "qux"].
 
-Way 4: Removing Array Items By Value Using Splice
+// Way 4: Removing Array Items By Value Using Splice
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-for( var i = 0; i < arr.length; i++){
-if ( arr[i] === 5) {
-arr.splice(i, 1);
-}
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i] === 5) {
+    arr.splice(i, 1);
+  }
 } // [1, 2, 3, 4, 6, 7, 8, 9, 0]
 
-       OR
+// OR;
 
-        var arr = [1, 2, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
-        for( var i = 0; i < arr.length; i++){
-        if ( arr[i] === 5) {
-            arr.splice(i, 1);
-            i--;
-          }
-        } // [1, 2, 3, 4, 6, 7, 8, 9, 0]
+var arr = [1, 2, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i] === 5) {
+    arr.splice(i, 1);
+    i--;
+  }
+} // [1, 2, 3, 4, 6, 7, 8, 9, 0]
 
-Way 5: Using the Array filter Method to Remove Items By Value
+// Way 5: Using the Array filter Method to Remove Items By Value
 var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-var filtered = array.filter(function(value, index, arr){
-return value > 5;
+var filtered = array.filter(function (value, index, arr) {
+  return value > 5;
 }); //filtered => [6, 7, 8, 9]
 
-Way 6: Making a Remove Method
+// Way 6: Making a Remove Method
 function arrayRemove(arr, value) {
-return arr.filter(function(ele){
-return ele != value;
-});
+  return arr.filter(function (ele) {
+    return ele != value;
+  });
 }
 var result = arrayRemove(array, 6); // result = [1, 2, 3, 4, 5, 7, 8, 9, 0]
 
-Way 7: Explicitly Remove Array Elements Using the Delete Operator
+// Way 7: Explicitly Remove Array Elements Using the Delete Operator
 var ar = [1, 2, 3, 4, 5, 6];
 delete ar[4]; // delete element with index 4
-console.log( ar ); // [1, 2, 3, 4, undefined, 6]
+console.log(ar); // [1, 2, 3, 4, undefined, 6]
+```
 
 ---
 
-Code 58 : Spiral Matrix Printing | Print the elements of a matrix in spiral form
-var input = [[1,  2,   3,  4],
-             [5,  6,   7,  8],
-             [9,  10, 11, 12],
-             [13, 14, 15, 16]];
+Code 58 : Spiral Matrix Printing | Print the elements of a matrix in spiral form/
+
+```js
+var input = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+];
 function run(input, result) {
-// add the first row to result
-result = result.concat(input.shift());
-console.log("res1", result) //[1, 2, 3, 4] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7]
-console.log("in1", input) //[[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]] // [[10, 11]]
+  // add the first row to result
+  result = result.concat(input.shift());
+  console.log("res1", result); //[1, 2, 3, 4] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7]
+  console.log("in1", input); //[[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]] // [[10, 11]]
 
-    // add the last element of each remaining row
-    input.forEach(function(rightEnd) {
-        result.push(rightEnd.pop());
-    });
-    console.log("res2", result) //[1, 2, 3, 4, 8, 12, 16] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11]
-    console.log("in2", input)   //[[5, 6, 7], [9, 10, 11], [13, 14, 15]] // [[10]]
+  // add the last element of each remaining row
+  input.forEach(function (rightEnd) {
+    result.push(rightEnd.pop());
+  });
+  console.log("res2", result); //[1, 2, 3, 4, 8, 12, 16] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11]
+  console.log("in2", input); //[[5, 6, 7], [9, 10, 11], [13, 14, 15]] // [[10]]
 
-    // add the last row in reverse order
-    result = result.concat(input.pop().reverse());
-    console.log("res3", result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
-    console.log("in3", input)   //[[5, 6, 7], [9, 10, 11]]
+  // add the last row in reverse order
+  result = result.concat(input.pop().reverse());
+  console.log("res3", result); //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+  console.log("in3", input); //[[5, 6, 7], [9, 10, 11]]
 
-    // add the first element in each remaining row (going upwards)
-    var tmp = [];
-    input.forEach(function(leftEnd) {
-        tmp.push(leftEnd.shift());
-    });
-    console.log("res4", result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13]
-    console.log("in4", input)   //[[6, 7], [10, 11]]
+  // add the first element in each remaining row (going upwards)
+  var tmp = [];
+  input.forEach(function (leftEnd) {
+    tmp.push(leftEnd.shift());
+  });
+  console.log("res4", result); //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13]
+  console.log("in4", input); //[[6, 7], [10, 11]]
 
-    result = result.concat(tmp.reverse());
-    console.log("temp", temp) //[9, 5]
-    console.log("res5", result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
-    console.log("in5", input)   //[[6, 7], [10, 11]]
+  result = result.concat(tmp.reverse());
+  console.log("temp", temp); //[9, 5]
+  console.log("res5", result); //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
+  console.log("in5", input); //[[6, 7], [10, 11]]
 
-    //again start the function
-    return run(input, result);
-
+  //again start the function
+  return run(input, result);
 }
-console.log('result', run(input, [])); // [1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]
+console.log("result", run(input, [])); // [1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]
+```
 
 ---
 
 Code 59: Currying function i.e sum of multiple argument functions //inner function can access outer function variables but outer functions can't able to acceess inner function.
-function sum(a){
-return function sum(b){
-return function sum(c){
-return function sum(d){
-return a+b+c+d;
-}
-}
-}
-}
-console.log(sum(1)(2)(3)(4))
 
-OR
+```js
+function sum(a) {
+  return function sum(b) {
+    return function sum(c) {
+      return function sum(d) {
+        return a + b + c + d;
+      };
+    };
+  };
+}
+console.log(sum(1)(2)(3)(4));
 
-const sum = (a) => (b) => (c) => (d) => a+b+c+d // using ES6
-console.log(sum(1)(2)(3)(4))
+// OR
+
+const sum = (a) => (b) => (c) => (d) => a + b + c + d; // using ES6
+console.log(sum(1)(2)(3)(4));
+```
 
 ---
 
@@ -1713,7 +1815,7 @@ console.log(date)
 
 ---
 
-Code 100: String Compression (Microsoft, Amazon etc)
+Code 101: String Compression (Microsoft, Amazon etc)
 function stringCompression (str) {
 if (str.length ==0) {
 console.log('Please enter valid string.');
