@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<script 
+  src="/js/color-mode.f14b3e296de1d0b69e75af684b62a4a912a2cadab04e36123407cd8388204f1d.js"
+  integrity="sha256-8Us&#43;KW3h0Laeda9oS2KkqRKiytqwTjYSNAfNg4ggTx0=">
+</script>
+
+
+<link rel="stylesheet" href="/main.01b0834d5af51b24812d02878d09c8d7677d6b8af13164fb50215889dc19aaefd0e9366c13b45a9a57ae481dfd1836bce46b5ebfe461d56e3498b9443d8c5e27.css" integrity="sha512-AbCDTVr1GySBLQKHjQnI12d9a4rxMWT7UCFYidwZqu/Q6TZsE7RamleuSB39GDa85Gtev&#43;Rh1W40mLlEPYxeJw==" crossorigin="anonymous">
+
+<noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/es6/05-destructuring/">
+  <link rel="canonical" href="http://localhost:1313/es6/05-destructuring/">
+<title>05 Destructuring for Easier Data Access  |  DSA Prep</title>
+<meta name="description" content="Congrats on setting up a new Doks project!">
+
+    
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+      <link
+        rel="apple-touch-icon"
+        href="/apple-touch-icon.png"
+        sizes="180x180"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-192x192.png"
+        sizes="192x192"
+        type="image/png"
+      >
+      <link
+        rel="icon"
+        href="/favicon-512x512.png"
+        sizes="512x512"
+        type="image/png"
+      >
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:title" content="05 Destructuring for Easier Data Access">
+<meta property="og:description" content="Object and array literals are two of the most frequently used notations in JavaScript, and thanks to the popular JSON data format, they&rsquo;ve become a particularly important part of the language. It&rsquo;s quite common to define objects and arrays, and then systematically pull out relevant pieces of information from those structures. ECMAScript 6 simplifies this task by adding destructuring, which is the process of breaking a data structure down into smaller parts. This chapter shows you how to harness destructuring for both objects and arrays.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/es6/05-destructuring/"><meta property="og:image" content="http://localhost:1313/cover.png"><meta property="article:section" content="es6">
+
+<meta property="og:site_name" content="Frontend documentation site">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="05 Destructuring for Easier Data Access">
+<meta name="twitter:description" content="Object and array literals are two of the most frequently used notations in JavaScript, and thanks to the popular JSON data format, they&rsquo;ve become a particularly important part of the language. It&rsquo;s quite common to define objects and arrays, and then systematically pull out relevant pieces of information from those structures. ECMAScript 6 simplifies this task by adding destructuring, which is the process of breaking a data structure down into smaller parts. This chapter shows you how to harness destructuring for both objects and arrays.">
+<meta name="twitter:site" content="@getdoks">
+
+    
+    <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Preperation Sheet",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/es6/",
+       "name": "Es6",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "05 Destructuring for Easier Data Access",
+       "position": 3
+     }
+   ]
+ }
+</script>
+
+
+
+
+
+</head>
+
+  
+  <body class="single section es6" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+    <div class="sticky-top">
+<header class="navbar navbar-expand-lg">
+  <div class="container-lg">
+  
+    <a class="navbar-brand me-auto me-lg-3" href="/">DSA Prep</a>
+
+    
+    
+    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="10" cy="10" r="7"></circle>
+        <line x1="21" y1="21" x2="15" y2="15"></line>
+      </svg>
+    </button>
+    
+    
+    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="4" y1="8" x2="20" y2="8"></line>
+        <line x1="4" y1="16" x2="20" y2="16"></line>
+      </svg>
+    </button>
+
+    
+    <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavMainLabel">DSA Prep</h5>
+        <button type="button" class="btn btn-link nav-link p-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+         </svg>
+        </button>
+      </div>
+      
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+        <ul class="navbar-nav flex-grow-1"><li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/others/">Others</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/resources/">Resources</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/prep-1/">Set 1</a>
+              </li>
+            </ul>
+
+        
+        
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="10" cy="10" r="7"></circle>
+            <line x1="21" y1="21" x2="15" y2="15"></line>
+          </svg>
+        </button>
+        
+        
+        
+        <button id="buttonColorMode" class="btn btn-link mx-auto nav-link p-0 ms-lg-2 me-lg-1" type="button" aria-label="Toggle theme">
+          <svg data-bs-theme-value="dark" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+          </svg>
+          <svg data-bs-theme-value="light" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0m-5 0h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+          </svg>
+        </button>
+        
+        <ul id="socialMenu" class="nav mx-auto flex-row order-lg-4">
+          <li class="nav-item">
+              <a class="nav-link social-link" href="https://github.com/snrakshith/dsa-docs"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg><small class="ms-2 visually-hidden">GitHub</small></a>
+            </li>
+          </ul>
+        
+        </div>
+    </div>
+
+    
+    </div>
+</header>
+</div>
+
+<div class="modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 visually-hidden" id="searchModalLabel">Search</h1>
+        <button type="button" class="btn-close visually-hidden" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="search-input flex-grow-1 d-none">
+          <form id="search-form" class="search-form" action="#" method="post" accept-charset="UTF-8" role="search">
+            <label for="query" class="visually-hidden">Search</label>
+            <div class="d-flex">
+              <input type="search" id="query" name="query" class="search-text form-control form-control-lg" placeholder="Search" aria-label="Search" maxlength="128" autocomplete="off">
+              <button type="button" class="btn btn-link text-decoration-none px-0 ms-3 d-md-none" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="search-loading status message d-none mt-3 text-center">Loading search index…</p>
+        <p class="search-no-recent message d-none mt-3 text-center">No recent searches</p>
+        <p class="search-no-results message d-none mt-3 text-center">No results for "<strong><span class="query-no-results">Query here</span></strong>"</p>
+        <div id="searchResults" class="search-results"></div>
+        <template>
+          <article class="search-result list-view">
+            <div class="card my-3">
+              <div class="card-body">
+                <header>
+                  <h2 class="h5 title title-submitted mb-0"><a class="stretched-link text-decoration-none text-reset" href="#">Title here</a></h2>
+                  <div class="submitted d-none"><time class="created-date">Date here</time></div>
+                </header>
+                <div class="content">Summary here</div>
+              </div>
+            </div>
+          </article>
+        </template>
+      </div>
+      <div class="modal-footer">
+        <ul class="list-inline me-auto d-none d-md-block">
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd><span class="DocSearch-Label">to select</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd><kbd class="me-2"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd><span class="DocSearch-Label">to navigate</span></li>
+          <li class="list-inline-item"><kbd class="me-2"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd><span class="DocSearch-Label">to close</span></li>
+        </ul>
+        <p class="d-md-none">Search by <a class="text-decoration-none" href="https://github.com/nextapps-de/flexsearch">FlexSearch</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="wrap container-lg" role="document">
+      <div class="content">
+      
+        
+	<div class="row flex-xl-nowrap">
+		
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			<div class="page-links">
+  <h3>On this page</h3>
+    <nav id="toc">
+  <ul>
+    <li><a href="#why-is-destructuring-useful">Why is Destructuring Useful?</a></li>
+    <li><a href="#object-destructuring">Object Destructuring</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#array-destructuring">Array Destructuring</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#mixed-destructuring">Mixed Destructuring</a></li>
+    <li><a href="#destructured-parameters">Destructured Parameters</a>
+      <ul>
+        <li><a href="#destructured-parameters-are-required">Destructured Parameters are Required</a></li>
+        <li><a href="#default-values-for-destructured-parameters">Default Values for Destructured Parameters</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</div>
+
+		</nav>
+		<main class="docs-content col-lg-11 col-xl-9 mx-xl-auto">
+		
+			<h1>05 Destructuring for Easier Data Access</h1>
+			
+			<nav class="toc-mobile d-xl-none" aria-label="Quaternary navigation">
+				<details>
+    <summary>On this page</summary>
+    <div class="page-links">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-is-destructuring-useful">Why is Destructuring Useful?</a></li>
+    <li><a href="#object-destructuring">Object Destructuring</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#array-destructuring">Array Destructuring</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#mixed-destructuring">Mixed Destructuring</a></li>
+    <li><a href="#destructured-parameters">Destructured Parameters</a>
+      <ul>
+        <li><a href="#destructured-parameters-are-required">Destructured Parameters are Required</a></li>
+        <li><a href="#default-values-for-destructured-parameters">Default Values for Destructured Parameters</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+  </details>
+
+			</nav>
+			<p>Object and array literals are two of the most frequently used notations in JavaScript, and thanks to the popular JSON data format, they&rsquo;ve become a particularly important part of the language. It&rsquo;s quite common to define objects and arrays, and then systematically pull out relevant pieces of information from those structures. ECMAScript 6 simplifies this task by adding <em>destructuring</em>, which is the process of breaking a data structure down into smaller parts. This chapter shows you how to harness destructuring for both objects and arrays.</p>
+<h2 id="why-is-destructuring-useful">Why is Destructuring Useful?<a href="#why-is-destructuring-useful" class="anchor" aria-hidden="true">#</a> </h2>
+<p>In ECMAScript 5 and earlier, the need to fetch information from objects and arrays could lead to a lot of code that looks the same, just to get certain data into local variables. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">repeat</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">save</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// extract data from the object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">repeat</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">repeat</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">save</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">save</span><span class="p">;</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code extracts the values of <code>repeat</code> and <code>save</code> from the <code>options</code> object and stores that data in local variables with the same names. While this code looks simple, imagine if you had a large number of variables to assign; you would have to assign them all one by one. And if there was a nested data structure to traverse to find the information instead, you might have to dig through the entire structure just to find one piece of data.</p>
+<p>That&rsquo;s why ECMAScript 6 adds destructuring for both objects and arrays. When you break a data structure into smaller parts, getting the information you need out of it becomes much easier. Many languages implement destructuring with a minimal amount of syntax to make the process simpler to use. The ECMAScript 6 implementation actually makes use of syntax you&rsquo;re already familiar with: the syntax for object and array literals.</p>
+<h2 id="object-destructuring">Object Destructuring<a href="#object-destructuring" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Object destructuring syntax uses an object literal on the left side of an assignment operation. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the value of <code>node.type</code> is stored in a variable called <code>type</code> and the value of <code>node.name</code> is stored in a variable called <code>name</code>. This syntax is the same as the object literal property initializer shorthand introduced in Chapter 4. The identifiers <code>type</code> and <code>name</code> are both declarations of local variables and the properties to read the value from on the <code>node</code> object.</p>
+<p>A&gt; #### Don&rsquo;t Forget the Initializer
+A&gt;
+A&gt;When using destructuring to declare variables using <code>var</code>, <code>let</code>, or <code>const</code>, you must supply an initializer (the value after the equals sign). The following lines of code will all throw syntax errors due to a missing initializer:
+A&gt;
+A&gt;<code>js A&gt;// syntax error! A&gt;var { type, name }; A&gt; A&gt;// syntax error! A&gt;let { type, name }; A&gt; A&gt;// syntax error! A&gt;const { type, name }; A&gt;</code>
+A&gt;
+A&gt;While <code>const</code> always requires an initializer, even when using nondestructured variables, <code>var</code> and <code>let</code> only require initializers when using destructuring.</p>
+<h4 id="destructuring-assignment">Destructuring Assignment<a href="#destructuring-assignment" class="anchor" aria-hidden="true">#</a> </h4>
+<p>The object destructuring examples so far have used variable declarations. However, it&rsquo;s also possible to use destructuring in assignments. For instance, you may decide to change the values of variables after they are defined, as follows:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span> <span class="o">=</span> <span class="s2">&#34;Literal&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// assign different values using destructuring
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">({</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, <code>type</code> and <code>name</code> are initialized with values when declared, and then two variables with the same names are initialized with different values. The next line uses destructuring assignment to change those values by reading from the <code>node</code> object. Note that you must put parentheses around a destructuring assignment statement. That&rsquo;s because an opening curly brace is expected to a be a block statement, and a block statement cannot appear on the left side of an assignment. The parentheses signal that the next curly brace is not a block statement and should be interpreted as an expression, allowing the assignment to complete.</p>
+<p>A destructuring assignment expression evaluates to the right side of the expression (after the <code>=</code>). That means you can use a destructuring assignment expression anywhere a value is expected. For instance, passing a value to a function:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span> <span class="o">=</span> <span class="s2">&#34;Literal&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">outputInfo</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">node</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">outputInfo</span><span class="p">(({</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">));</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The <code>outputInfo()</code> function is called with a destructuring assignment expression. The expression evaluates to <code>node</code> because that is the value of the right side of the expression. The assignment to <code>type</code> and <code>name</code> both behave as normal and <code>node</code> is passed into <code>outputInfo()</code>.</p>
+<p>W&gt; An error is thrown when the right side of the destructuring assignment expression (the expression after <code>=</code>) evaluates to <code>null</code> or <code>undefined</code>. This happens because any attempt to read a property of <code>null</code> or <code>undefined</code> results in a runtime error.</p>
+<h4 id="default-values">Default Values<a href="#default-values" class="anchor" aria-hidden="true">#</a> </h4>
+<p>When you use a destructuring assignment statement, if you specify a local variable with a property name that doesn&rsquo;t exist on the object, then that local variable is assigned a value of <code>undefined</code>. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// undefined
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code defines an additional local variable called <code>value</code> and attempts to assign it a value. However, there is no corresponding <code>value</code> property on the <code>node</code> object, so the variable is assigned the value of <code>undefined</code> as expected.</p>
+<p>You can optionally define a default value to use when a specified property doesn&rsquo;t exist. To do so, insert an equals sign (<code>=</code>) after the property name and specify the default value, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, the variable <code>value</code> is given <code>true</code> as a default value. The default value is only used if the property is missing on <code>node</code> or has a value of <code>undefined</code>. Since there is no <code>node.value</code> property, the variable <code>value</code> uses the default value. This works similarly to the default parameter values for functions, as discussed in Chapter 3.</p>
+<h4 id="assigning-to-different-local-variable-names">Assigning to Different Local Variable Names<a href="#assigning-to-different-local-variable-names" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Up to this point, each example destructuring assignment has used the object property name as the local variable name; for example, the value of <code>node.type</code> was stored in a <code>type</code> variable. That works well when you want to use the same name, but what if you don&rsquo;t? ECMAScript 6 has an extended syntax that allows you to assign to a local variable with a different name, and that syntax looks like the object literal nonshorthand property initializer syntax. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">localType</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">localName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localType</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localName</span><span class="p">);</span> <span class="c1">// &#34;foo&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses destructuring assignment to declare the <code>localType</code> and <code>localName</code> variables, which contain the values from the <code>node.type</code> and <code>node.name</code> properties, respectively. The syntax <code>type: localType</code> says to read the property named <code>type</code> and store its value in the <code>localType</code> variable. This syntax is effectively the opposite of traditional object literal syntax, where the name is on the left of the colon and the value is on the right. In this case, the name is on the right of the colon and the location of the value to read is on the left.</p>
+<p>You can add default values when using a different variable name, as well. The equals sign and default value are still placed after the local variable name. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">localType</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">localName</span> <span class="o">=</span> <span class="s2">&#34;bar&#34;</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localType</span><span class="p">);</span> <span class="c1">// &#34;Identifier&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localName</span><span class="p">);</span> <span class="c1">// &#34;bar&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the <code>localName</code> variable has a default value of <code>&quot;bar&quot;</code>. The variable is assigned its default value because there&rsquo;s no <code>node.name</code> property.</p>
+<p>So far, you&rsquo;ve seen how to deal with destructuring of an object whose properties are primitive values. Object destructuring can also be used to retrieve values in nested object structures.</p>
+<h4 id="nested-object-destructuring">Nested Object Destructuring<a href="#nested-object-destructuring" class="anchor" aria-hidden="true">#</a> </h4>
+<p>By using a syntax similar to object literals, you can navigate into a nested object structure to retrieve just the information you want. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">start</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">end</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span> <span class="nx">start</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">start</span><span class="p">.</span><span class="nx">line</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">start</span><span class="p">.</span><span class="nx">column</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The destructuring pattern in this example uses curly braces to indicate that the pattern should descend into the property named <code>loc</code> on <code>node</code> and look for the <code>start</code> property. Remember from the last section that whenever there&rsquo;s a colon in a destructuring pattern, it means the identifier before the colon is giving a location to inspect, and the right side assigns a value. When there&rsquo;s a curly brace after the colon, that indicates that the destination is nested another level into the object.</p>
+<p>You can go one step further and use a different name for the local variable as well:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">start</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">end</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// extract node.loc.start
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span> <span class="nx">start</span><span class="o">:</span> <span class="nx">localStart</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localStart</span><span class="p">.</span><span class="nx">line</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localStart</span><span class="p">.</span><span class="nx">column</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this version of the code, <code>node.loc.start</code> is stored in a new local variable called <code>localStart</code>. Destructuring patterns can be nested to an arbitrary level of depth, with all capabilities available at each level.</p>
+<p>Object destructuring is very powerful and has a lot of options, but array destructuring offers some unique capabilities that allow you to extract information from arrays.</p>
+<p>A&gt; #### Syntax Gotcha
+A&gt;
+A&gt;Be careful when using nested destructuring because you can inadvertently create a statement that has no effect. Empty curly braces are legal in object destructuring, however, they don&rsquo;t do anything. For example:
+A&gt;
+A&gt;<code>js A&gt;// no variables declared! A&gt;let { loc: {} } = node; A&gt;</code>
+A&gt;
+A&gt;There are no bindings declared in this statement. Due to the curly braces on the right, <code>loc</code> is used as a location to inspect rather than a binding to create. In such a case, it&rsquo;s likely that the intent was to use <code>=</code> to define a default value rather than <code>:</code> to define a location. It&rsquo;s possible that this syntax will be made illegal in the future, but for now, this is a gotcha to look out for.</p>
+<h2 id="array-destructuring">Array Destructuring<a href="#array-destructuring" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Array destructuring syntax is very similar to object destructuring; it just uses array literal syntax instead of object literal syntax. The destructuring operates on positions within an array, rather than the named properties that are available in objects. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[</span><span class="nx">firstColor</span><span class="p">,</span> <span class="nx">secondColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstColor</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondColor</span><span class="p">);</span> <span class="c1">// &#34;green&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, array destructuring pulls out the values <code>&quot;red&quot;</code> and <code>&quot;green&quot;</code> from the <code>colors</code> array and stores them in the <code>firstColor</code> and <code>secondColor</code> variables. Those values are chosen because of their position in the array; the actual variable names could be anything. Any items not explicitly mentioned in the destructuring pattern are ignored. Keep in mind that the array itself isn&rsquo;t changed in any way.</p>
+<p>You can also omit items in the destructuring pattern and only provide variable names for the items you&rsquo;re interested in. If, for example, you just want the third value of an array, you don&rsquo;t need to supply variable names for the first and second items. Here&rsquo;s how that works:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[,</span> <span class="p">,</span> <span class="nx">thirdColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">thirdColor</span><span class="p">);</span> <span class="c1">// &#34;blue&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code uses a destructuring assignment to retrieve the third item in <code>colors</code>. The commas preceding <code>thirdColor</code> in the pattern are placeholders for the array items that come before it. By using this approach, you can easily pick out values from any number of slots in the middle of an array without needing to provide variable names for them.</p>
+<p>W&gt; Similar to object destructuring, you must always provide an initializer when using array destructuring with <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+<h4 id="destructuring-assignment-1">Destructuring Assignment<a href="#destructuring-assignment-1" class="anchor" aria-hidden="true">#</a> </h4>
+<p>You can use array destructuring in the context of an assignment, but unlike object destructuring, there is no need to wrap the expression in parentheses. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">firstColor</span> <span class="o">=</span> <span class="s2">&#34;black&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">secondColor</span> <span class="o">=</span> <span class="s2">&#34;purple&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">firstColor</span><span class="p">,</span> <span class="nx">secondColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstColor</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondColor</span><span class="p">);</span> <span class="c1">// &#34;green&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The destructured assignment in this code works in a similar manner to the last array destructuring example. The only difference is that <code>firstColor</code> and <code>secondColor</code> have already been defined. Most of the time, that&rsquo;s probably all you&rsquo;ll need to know about array destructuring assignment, but there&rsquo;s a little bit more to it that you will probably find useful.</p>
+<p>Array destructuring assignment has a very unique use case that makes it easier to swap the values of two variables. Value swapping is a common operation in sorting algorithms, and the ECMAScript 5 way of swapping variables involves a third, temporary variable, as in this example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Swapping variables in ECMAScript 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The intermediate variable <code>tmp</code> is necessary in order to swap the values of <code>a</code> and <code>b</code>. Using array destructuring assignment, however, there&rsquo;s no need for that extra variable. Here&rsquo;s how you can swap variables in ECMAScript 6:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Swapping variables in ECMAScript 6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The array destructuring assignment in this example looks like a mirror image. The left side of the assignment (before the equals sign) is a destructuring pattern just like those in the other array destructuring examples. The right side is an array literal that is temporarily created for the swap. The destructuring happens on the temporary array, which has the values of <code>b</code> and <code>a</code> copied into its first and second positions. The effect is that the variables have swapped values.</p>
+<p>W&gt; Like object destructuring assignment, an error is thrown when the right side of an array destructured assignment expression evaluates to <code>null</code> or <code>undefined</code>.</p>
+<h4 id="default-values-1">Default Values<a href="#default-values-1" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Array destructuring assignment allows you to specify a default value for any position in the array, too. The default value is used when the property at the given position either doesn&rsquo;t exist or has the value <code>undefined</code>. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[</span><span class="nx">firstColor</span><span class="p">,</span> <span class="nx">secondColor</span> <span class="o">=</span> <span class="s2">&#34;green&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstColor</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondColor</span><span class="p">);</span> <span class="c1">// &#34;green&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this code, the <code>colors</code> array has only one item, so there is nothing for <code>secondColor</code> to match. Since there is a default value, <code>secondColor</code> is set to <code>&quot;green&quot;</code> instead of <code>undefined</code>.</p>
+<h4 id="nested-destructuring">Nested Destructuring<a href="#nested-destructuring" class="anchor" aria-hidden="true">#</a> </h4>
+<p>You can destructure nested arrays in a manner similar to destructuring nested objects. By inserting another array pattern into the overall pattern, the destructuring will descend into a nested array, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;lightgreen&#34;</span><span class="p">],</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// later
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[</span><span class="nx">firstColor</span><span class="p">,</span> <span class="p">[</span><span class="nx">secondColor</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstColor</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondColor</span><span class="p">);</span> <span class="c1">// &#34;green&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Here, the <code>secondColor</code> variable refers to the <code>&quot;green&quot;</code> value inside the <code>colors</code> array. That item is contained within a second array, so the extra square brackets around <code>secondColor</code> in the destructuring pattern are necessary. As with objects, you can nest arrays arbitrarily deep.</p>
+<h4 id="rest-items">Rest Items<a href="#rest-items" class="anchor" aria-hidden="true">#</a> </h4>
+<p>Chapter 3 introduced rest parameters for functions, and array destructuring has a similar concept called <em>rest items</em>. Rest items use the <code>...</code> syntax to assign the remaining items in an array to a particular variable. Here&rsquo;s an example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[</span><span class="nx">firstColor</span><span class="p">,</span> <span class="p">...</span><span class="nx">restColors</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstColor</span><span class="p">);</span> <span class="c1">// &#34;red&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">restColors</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">restColors</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// &#34;green&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">restColors</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">// &#34;blue&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The first item in <code>colors</code> is assigned to <code>firstColor</code>, and the rest are assigned into a new <code>restColors</code> array. The <code>restColors</code> array, therefore, has two items: <code>&quot;green&quot;</code> and <code>&quot;blue&quot;</code>. Rest items are useful for extracting certain items from an array and keeping the rest available, but there&rsquo;s another helpful use.</p>
+<p>A glaring omission from JavaScript arrays is the ability to easily create a clone. In ECMAScript 5, developers frequently used the <code>concat()</code> method as an easy way to clone an array. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// cloning an array in ECMAScript 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">clonedColors</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">concat</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">clonedColors</span><span class="p">);</span> <span class="c1">//&#34;[red,green,blue]&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>While the <code>concat()</code> method is intended to concatenate two arrays together, calling it without an argument returns a clone of the array. In ECMAScript 6, you can use rest items to achieve the same thing through syntax intended to function that way. It works like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// cloning an array in ECMAScript 6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">[...</span><span class="nx">clonedColors</span><span class="p">]</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">clonedColors</span><span class="p">);</span> <span class="c1">//&#34;[red,green,blue]&#34;
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>In this example, rest items are used to copy values from the <code>colors</code> array into the <code>clonedColors</code> array. While it&rsquo;s a matter of perception as to whether this technique makes the developer&rsquo;s intent clearer than using the <code>concat()</code> method, this is a useful ability to be aware of.</p>
+<p>W&gt; Rest items must be the last entry in the destructured array and cannot be followed by a comma. Including a comma after rest items is a syntax error.</p>
+<h2 id="mixed-destructuring">Mixed Destructuring<a href="#mixed-destructuring" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Object and array destructuring can be used together to create more complex expressions. In doing so, you are able to extract just the pieces of information you want from any mixture of objects and arrays. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">node</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Identifier&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;foo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">start</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">end</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">line</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">column</span><span class="o">:</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">range</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loc</span><span class="o">:</span> <span class="p">{</span> <span class="nx">start</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">range</span><span class="o">:</span> <span class="p">[</span><span class="nx">startIndex</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">start</span><span class="p">.</span><span class="nx">line</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">start</span><span class="p">.</span><span class="nx">column</span><span class="p">);</span> <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">startIndex</span><span class="p">);</span> <span class="c1">// 0
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This code extracts <code>node.loc.start</code> and <code>node.range[0]</code> into <code>start</code> and <code>startIndex</code>, respectively. Keep in mind that <code>loc:</code> and <code>range:</code> in the destructured pattern are just locations that correspond to properties in the <code>node</code> object. There is no part of <code>node</code> that cannot be extracted using destructuring when you use a mix of object and array destructuring. This approach is particularly useful for pulling values out of JSON configuration structures without navigating the entire structure.</p>
+<h2 id="destructured-parameters">Destructured Parameters<a href="#destructured-parameters" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Destructuring has one more particularly helpful use case, and that is when passing function arguments. When a JavaScript function takes a large number of optional parameters, one common pattern is to create an <code>options</code> object whose properties specify the additional parameters, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// properties on options represent additional parameters
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">options</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">secure</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">secure</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">domain</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">domain</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">expires</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">expires</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// code to set the cookie
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// third argument maps to options
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">setCookie</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span> <span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">secure</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expires</span><span class="o">:</span> <span class="mi">60000</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Many JavaScript libraries contain <code>setCookie()</code> functions that look similar to this one. In this function, the <code>name</code> and <code>value</code> arguments are required, but <code>secure</code>, <code>path</code>, <code>domain</code>, and <code>expires</code> are not. And since there is no priority order for the other data, it&rsquo;s efficient to just have an <code>options</code> object with named properties, rather than list extra named parameters. This approach works, but now you can&rsquo;t tell what input the function expects just by looking at the function definition; you need to read the function body.</p>
+<p>Destructured parameters offer an alternative that makes it clearer what arguments a function expects. A destructured parameter uses an object or array destructuring pattern in place of a named parameter. To see this in action, look at this rewritten version of the <code>setCookie()</code> function from the last example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="p">{</span> <span class="nx">secure</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">domain</span><span class="p">,</span> <span class="nx">expires</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// code to set the cookie
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">setCookie</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span> <span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">secure</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expires</span><span class="o">:</span> <span class="mi">60000</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This function behaves similarly to the previous example, but now, the third argument uses destructuring to pull out the necessary data. The parameters outside the destructured parameter are clearly expected, and at the same time, it&rsquo;s clear to someone using <code>setCookie()</code> what options are available in terms of extra arguments. And of course, if the third argument is required, the values it should contain are crystal clear. The destructured parameters also act like regular parameters in that they are set to <code>undefined</code> if they are not passed.</p>
+<p>A&gt;Destructured parameters have all of the capabilities of destructuring that you&rsquo;ve learned so far in this chapter. You can use default values, mix object and array patterns, and use variable names that differ from the properties you&rsquo;re reading from.</p>
+<h3 id="destructured-parameters-are-required">Destructured Parameters are Required<a href="#destructured-parameters-are-required" class="anchor" aria-hidden="true">#</a> </h3>
+<p>One quirk of using destructured parameters is that, by default, an error is thrown when they are not provided in a function call. For instance, this call to the <code>setCookie()</code> function in the last example throws an error:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Error!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">setCookie</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span> <span class="s2">&#34;js&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>The third argument is missing, and so it evaluates to <code>undefined</code> as expected. This causes an error because destructured parameters are really just a shorthand for destructured declaration. When the <code>setCookie()</code> function is called, the JavaScript engine actually does this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="p">{</span> <span class="nx">secure</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">domain</span><span class="p">,</span> <span class="nx">expires</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">options</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// code to set the cookie
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Since destructuring throws an error when the right side expression evaluates to <code>null</code> or <code>undefined</code>, the same is true when the third argument isn&rsquo;t passed to the <code>setCookie()</code> function.</p>
+<p>If you want the destructured parameter to be required, then this behavior isn&rsquo;t all that troubling. But if you want the destructured parameter to be optional, you can work around this behavior by providing a default value for the destructured parameter, like this:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="p">{</span> <span class="nx">secure</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">domain</span><span class="p">,</span> <span class="nx">expires</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>This example provides a new object as the default value for the third parameter. Providing a default value for the destructured parameter means that the <code>secure</code>, <code>path</code>, <code>domain</code>, and <code>expires</code> will all be <code>undefined</code> if the third argument to <code>setCookie()</code> isn&rsquo;t provided, and no error will be thrown.</p>
+<h3 id="default-values-for-destructured-parameters">Default Values for Destructured Parameters<a href="#default-values-for-destructured-parameters" class="anchor" aria-hidden="true">#</a> </h3>
+<p>You can specify destructured default values for destructured parameters just as you would in destructured assignment. Just add the equals sign after the parameter and specify the default value. For example:</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="p">{</span> <span class="nx">secure</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">path</span> <span class="o">=</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="nx">domain</span> <span class="o">=</span> <span class="s2">&#34;example.com&#34;</span><span class="p">,</span> <span class="nx">expires</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="mi">360000000</span><span class="p">)</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
+<p>Each property in the destructured parameter has a default value in this code, so you can avoid checking to see if a given property has been included in order to use the correct value. Also, the entire destructured parameter has a default value of an empty object, making the parameter optional. This does make the function declaration look a bit more complicated than usual, but that&rsquo;s a small price to pay for ensuring each argument has a usable value.</p>
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true">#</a> </h2>
+<p>Destructuring makes working with objects and arrays in JavaScript easier. Using the familiar object literal and array literal syntax, you can pick data structures apart to get at just the information you&rsquo;re interested in. Object patterns allow you to extract data from objects while array patterns let you extract data from arrays.</p>
+<p>Both object and array destructuring can specify default values for any property or item that is <code>undefined</code> and both throw errors when the right side of an assignment evaluates to <code>null</code> or <code>undefined</code>. You can also navigate deeply nested data structures with object and array destructuring, descending to any arbitrary depth.</p>
+<p>Destructuring declarations use <code>var</code>, <code>let</code>, or <code>const</code> to create variables and must always have an initializer. Destructuring assignments are used in place of other assignments and allow you to destructure into object properties and already-existing variables.</p>
+<p>Destructured parameters use the destructuring syntax to make &ldquo;options&rdquo; objects more transparent when used as function parameters. The actual data you&rsquo;re interested in can be listed out along with other named parameters. Destructured parameters can be array patterns, object patterns, or a mixture, and you can use all of the features of destructuring.</p>
+
+			<div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between">
+				</div>
+			<div class="page-nav d-flex flex-column flex-sm-row">
+	
+	<div class="card w-100">
+			<div class="card-body d-flex">
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M5 12l6 6"></path>
+						<path d="M5 12l6 -6"></path>
+				 	</svg>
+				</div>
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Prev</div>
+					<a href="/es6/04-objects/" class="stretched-link text-reset text-decoration-none">04 Expanded Object Functionality</a>
+				</div>
+			</div>
+		</div>
+	<div class="m-2"></div>
+	<div class="card text-end w-100">
+			<div class="card-body d-flex justify-content-end">
+				<div class="d-flex flex-column">
+					<div class="text-body-secondary">Next</div>
+					<a href="/es6/06-symbols/" class="stretched-link text-reset text-decoration-none">06 Symbols and Symbol Properties</a>
+				</div>
+				<div class="d-flex flex-column justify-content-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M5 12l14 0"></path>
+						<path d="M13 18l6 -6"></path>
+						<path d="M13 6l6 6"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</main>
+		
+	</div>
+
+      
+      </div>
+    </div>
+    
+    
+    <footer class="footer text-muted">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-lg-8 text-center text-lg-start">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-muted" href="/privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-8 text-center text-lg-end">
+        <ul class="list-inline">
+          <li class="list-inline-item">Brought to you by <a class="text-muted" href="https://www.linkedin.com/in/snrakshith/">snrakshith</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script async
+  src="/js/app.1bc033eaaa1b81261bc59c2b90ab0e71c32562150e1fd35b692a8ed86d12ea64.js"
+  integrity="sha256-G8Az6qobgSYbxZwrkKsOccMlYhUOH9NbaSqO2G0S6mQ=">
+</script>
+
+
+
+
+
+<script async
+  src="/js/flexsearch.be33aab3067e96554f261851c25a593228b91154cd28ff5c7f8d52b2e7f306d2.js"
+  integrity="sha256-vjOqswZ&#43;llVPJhhRwlpZMii5EVTNKP9cf41SsufzBtI=">
+</script>
+<script async
+  src="/js/search-modal.97d606e77f08deeb37876860d99c8f6813ef29263e73b6435c252de6be98d55e.js"
+  integrity="sha256-l9YG538I3us3h2hg2ZyPaBPvKSY&#43;c7ZDXCUt5r6Y1V4=">
+</script>
+
+    
+  </body>
+</html>

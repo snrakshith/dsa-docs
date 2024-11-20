@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ES6 on DSA Prep</title>
+    <link>http://localhost:1313/es6/</link>
+    <description>Recent content in ES6 on DSA Prep</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2024 Rakshith</copyright>
+    <atom:link href="http://localhost:1313/es6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>00 Introduction</title>
+      <link>http://localhost:1313/es6/00-introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/00-introduction/</guid>
+      <description>&lt;p&gt;The JavaScript core language features are defined in a standard called ECMA-262. The language defined in this standard is called ECMAScript. What you know as JavaScript in browsers and Node.js is actually a superset of ECMAScript. Browsers and Node.js add more functionality through additional objects and methods, but the core of the language remains as defined in ECMAScript. The ongoing development of ECMA-262 is vital to the success of JavaScript as a whole, and this book covers the changes brought about by the most recent major update to the language: ECMAScript 6.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>01 Block Bindings</title>
+      <link>http://localhost:1313/es6/01-block-bindings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/01-block-bindings/</guid>
+      <description>&lt;p&gt;Traditionally, the way variable declarations work has been one tricky part of programming in JavaScript. In most C-based languages, variables (or &lt;em&gt;bindings&lt;/em&gt;) are created at the spot where the declaration occurs. In JavaScript, however, this is not the case. Where your variables are actually created depends on how you declare them, and ECMAScript 6 offers options to make controlling scope easier. This chapter demonstrates why classic &lt;code&gt;var&lt;/code&gt; declarations can be confusing, introduces block-level bindings in ECMAScript 6, and then offers some best practices for using them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>02 Strings and Regular Expressions</title>
+      <link>http://localhost:1313/es6/02-strings-and-regular-expressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/02-strings-and-regular-expressions/</guid>
+      <description>&lt;p&gt;Strings are arguably one of the most important data types in programming. They&amp;rsquo;re in nearly every higher-level programming language, and being able to work with them effectively is fundamental for developers to create useful programs. By extension, regular expressions are important because of the extra power they give developers to wield on strings. With these facts in mind, the creators of ECMAScript 6 improved strings and regular expressions by adding new capabilities and long-missing functionality. This chapter gives a tour of both types of changes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>03 Functions</title>
+      <link>http://localhost:1313/es6/03-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/03-functions/</guid>
+      <description>&lt;p&gt;Functions are an important part of any programming language, and prior to ECMAScript 6, JavaScript functions hadn&amp;rsquo;t changed much since the language was created. This left a backlog of problems and nuanced behavior that made making mistakes easy and often required more code just to achieve very basic behaviors.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>04 Expanded Object Functionality</title>
+      <link>http://localhost:1313/es6/04-objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/04-objects/</guid>
+      <description>&lt;p&gt;ECMAScript 6 focuses heavily on improving the utility of objects, which makes sense because nearly every value in JavaScript is some type of object. Additionally, the number of objects used in an average JavaScript program continues to increase as the complexity of JavaScript applications increases, meaning that programs are creating more objects all the time. With more objects comes the necessity to use them more effectively.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>05 Destructuring for Easier Data Access</title>
+      <link>http://localhost:1313/es6/05-destructuring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/05-destructuring/</guid>
+      <description>&lt;p&gt;Object and array literals are two of the most frequently used notations in JavaScript, and thanks to the popular JSON data format, they&amp;rsquo;ve become a particularly important part of the language. It&amp;rsquo;s quite common to define objects and arrays, and then systematically pull out relevant pieces of information from those structures. ECMAScript 6 simplifies this task by adding &lt;em&gt;destructuring&lt;/em&gt;, which is the process of breaking a data structure down into smaller parts. This chapter shows you how to harness destructuring for both objects and arrays.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>06 Symbols and Symbol Properties</title>
+      <link>http://localhost:1313/es6/06-symbols/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/06-symbols/</guid>
+      <description>&lt;p&gt;Symbols are a primitive type introduced in ECMAScript 6, joining the existing primitive types: strings, numbers, booleans, &lt;code&gt;null&lt;/code&gt;, and &lt;code&gt;undefined&lt;/code&gt;. Symbols began as a way to create private object members, a feature JavaScript developers wanted for a long time. Before symbols, any property with a string name was easy to access regardless of the obscurity of the name, and the &amp;ldquo;private names&amp;rdquo; feature was meant to let developers create non-string property names. That way, normal techniques for detecting these private names wouldn&amp;rsquo;t work.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>07 Sets and Maps</title>
+      <link>http://localhost:1313/es6/07-sets-and-maps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/07-sets-and-maps/</guid>
+      <description>&lt;p&gt;JavaScript only had one type of collection, represented by the &lt;code&gt;Array&lt;/code&gt; type, for most of its history (though some may argue all non-array objects are just collections of key-value pairs, their intended use was, originally quite different from arrays). Arrays are used in JavaScript just like arrays in other languages, but the lack of other collection options meant arrays were often used as queues and stacks, as well. Since arrays only use numeric indices, developers used non-array objects whenever a non-numeric index was necessary. That technique led to custom implementations of sets and maps using non-array objects.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>08 Iterators and Generators</title>
+      <link>http://localhost:1313/es6/08-iterators-and-generators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/08-iterators-and-generators/</guid>
+      <description>&lt;p&gt;Many programming languages have shifted from iterating over data with &lt;code&gt;for&lt;/code&gt; loops, which require initializing variables to track position in a collection, to using iterator objects that programmatically return the next item in a collection. Iterators make working with collections of data easier, and ECMAScript 6 adds iterators to JavaScript. When coupled with new array methods and new types of collections (such as sets and maps), iterators are key for efficient data processing, and you will find them in many parts of the language. There&amp;rsquo;s a new &lt;code&gt;for-of&lt;/code&gt; loop that works with iterators, the spread (&lt;code&gt;...&lt;/code&gt;) operator uses iterators, and iterators even make asynchronous programming easier.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>09 Introducing JavaScript Classes</title>
+      <link>http://localhost:1313/es6/09-classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/es6/09-classes/</guid>
+      <description>&lt;p&gt;Unlike most formal object-oriented programming languages, JavaScript didn&amp;rsquo;t support classes and classical inheritance as the primary way of defining similar and related objects when it was created. This left many developers confused, and from pre-ECMAScript 1 all the way through ECMAScript 5, many libraries created utilities to make JavaScript look like it supports classes. While some JavaScript developers do feel strongly that the language doesn&amp;rsquo;t need classes, the number of libraries created specifically for this purpose led to the inclusion of classes in ECMAScript 6.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -134,6 +134,9 @@
                 <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
               </li>
             <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
+              </li>
+            <li class="nav-item">
                 <a class="nav-link active" href="http://localhost:1313/others/" aria-current="true">Others</a>
               </li>
             <li class="nav-item">
@@ -1038,411 +1041,740 @@
   </figure>
 </div>
 <hr>
-<p>Code 31: To print all the numbers from 2 to 100
-for (let i = 2; i &lt;= 100; i++) {
-let flag = 0;
-for (let j = 2; j &lt; i; j++) {
-if (i % j == 0) {
-flag = 1;
-break;
-}
-}
-if (i &gt; 1 &amp;&amp; flag == 0) {
-console.log(i);
-}
-}</p>
+<p>Code 31: To print all the numbers from 2 to 100</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="nx">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
-<p>for (let i = 2; i &lt;= 100; i++)
-{
-let flag = 0;
-for (let j = 2; j &lt; i; j++) { //2&lt;2 //2&lt;3 //3&lt;4
-if (i % j == 0) {
-flag = 1;
-break;
-}
-}
-if (i &gt; 1 &amp;&amp; flag == 0)
-{
-document.write(i+ &ldquo;</br>&rdquo;);
-}
-}</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//2&lt;2 //2&lt;3 //3&lt;4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="nx">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s2">&#34;&lt;/br&gt;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
-<p>Code 32: To find unique values from 2 arrays and keep into one array.
-function uniqueElements(arr1,arr2){
-let arr =[&hellip;arr1,&hellip;arr2];
-let array =[&hellip;new Set(arr)]
-console.log(array)
-}
-uniqueElements([1,2,3,4,4],[2,3,4,5,6])</p>
+<p>Code 32: To find unique values from 2 arrays and keep into one array.</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">uniqueElements</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr1</span><span class="p">,</span> <span class="p">...</span><span class="nx">arr2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">uniqueElements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
-<p>Code 33: Find first duplicate element from an array
-function firstDuplicate() {
-let arr = [1,2,2,5,5];
-let data = [];
-for (var item of arr) {
-if (data[item]) {
-return item
-} else {
-data[item] = item
-console.log(data[item])
-}
-}
-return -1
-}
-console.log(firstDuplicate())</p>
+<p>Code 33: Find first duplicate element from an array</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">firstDuplicate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">item</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">data</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">item</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstDuplicate</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
 <p>Code 34: Write a program that prints the numbers from 1 to 100. But for multiples of three, print &ldquo;Fizz&rdquo; instead of the number, and for the multiples of five, print &ldquo;Buzz&rdquo;.
-For numbers which are multiples of both three and five, print &ldquo;FizzBuzz&rdquo;
-for (var i=1; i &lt;= 20; i++)
-{
-if (i % 15 == 0)
-console.log(&ldquo;FizzBuzz&rdquo;);
-else if (i % 3 == 0)
-console.log(&ldquo;Fizz&rdquo;);
-else if (i % 5 == 0)
-console.log(&ldquo;Buzz&rdquo;);
-else
-console.log(i);
-}</p>
-<hr>
-<p>Code 35: Uppercase of each first letter of a words
-function upperCaseFirsstLetter(){
-var string =&ldquo;India is my country&rdquo;;
-var words = string.toLowerCase().split(&quot; &ldquo;)
-for( var i=0; i&lt;words.length; i++) {
-words[i]=words[i][0].toUpperCase() + words[i].slice(1) //slice is used here to give all the letters except first letter.
-}
-return words.join(&rdquo; &ldquo;)
-}
-console.log(upperCaseFirsstLetter())</p>
-<hr>
-<p>Code 36: Uppercase of each first letter of a words using map function
-function upperCaseFirsstLetter(){
-var string =&ldquo;India is my country&rdquo;;
-var words = string.toLowerCase().split(&rdquo; &ldquo;).map((ele)=&gt;{
-return ele[0].toUpperCase() + ele.slice(1)
-})
-return words.join(&rdquo; &ldquo;)
-}
-console.log(upperCaseFirsstLetter())</p>
-<hr>
-<h1 id="consolelogconfirmendingpriyaa">Code 37: To check ending of the string with given character/s using inbuild function
-function confirmEnding(str,target){
-return str.endsWith(target) //true
-}
-console.log(confirmEnding(&ldquo;priya&rdquo;,&ldquo;a&rdquo;))</h1>
-<h1 id="consolelogconfirmendingpriyaa-1">Code 38: To check ending of the string with given character/s using custom
-function confirmEnding(str,target){
-return str.substr(-target.length)===target
-}
-console.log(confirmEnding(&ldquo;priya&rdquo;,&ldquo;a&rdquo;))</h1>
-<p>Code 39: To find the largest elements fro the 2 diensional array
-function largestFromArray(arr){
-var max=[];
-for(var i=0; i&lt;arr.length;i++){
-var tempMax =arr[i][0] //first elements of the 4 internal arrays i,e(1,5,45,89
-for(var j=0; j&lt;arr[i].length; j++){
-var currElement = arr[i][j];
-if(currElement&gt;=tempMax){
-tempMax = currElement
-}
-}
-max.push(tempMax)
-}
-console.log(max)
-return max;
-}
-largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])</p>
-<hr>
-<p>Code 40: To find the largest elements fro the 2 diensional array in another way
-function largestFromArray(arr){
-var max=[0,0,0,0];
-for(var i=0; i&lt;arr.length;i++){
-for(var j=0; j&lt;arr[i].length; j++)
-{
-if(arr[i][j]&gt;=max[i]){
-max[i] = arr[i][j]
-}
-}
-}
-console.log(max)
-return max;
-}
-largestFromArray([[1,2,3,4],[5,6,7,9],[45,76,2,1],[89,90,87,9]])</p>
-<hr>
-<p>Code 41: Print string n times using inbuilt function
-function repeatStrinNumTimes(str, num){
-if (num&lt;1) return &quot;&rdquo;
-return str.repeat(num)
-}
-console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
-<hr>
-<p>Code 42: Print string n times in custom way
-function repeatStrinNumTimes(str, num){
-var final=&quot;&quot;;
-if(num&lt;0) return &quot;&quot;
-for(var i=0; i&lt;num;i++)
-{
-final=final+str
-}
-return final
-}
-console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
-<hr>
-<p>Code 43:Print string n times in custom way
-function repeatStrinNumTimes(str, num){
-if(num&lt;0) return &quot;&quot;
-if(num===1) return str
-return str+ repeatStrinNumTimes(str, num-1)
-}
-console.log(repeatStrinNumTimes(&ldquo;priya&rdquo;,3))</p>
-<hr>
-<p>Code 44: Truncate the string
-function truncateString(str, num){
-if(num&lt;=3) return str.slice(0,num)
-return str.slice(0,num-3)+&quot;&hellip;&quot; //retuen only 4 digits thats why subtracted from 3
-}
-console.log(truncateString(&ldquo;priyabagde&rdquo;,2)) //pr
-console.log(truncateString(&ldquo;priyabagde&rdquo;,4)) //p&hellip; //retuen only 4 digits</p>
-<hr>
-<p>Code 45: Converting one dimensional array into n dimensional array using slice
-function chunkArrayInGroup(arr, size){
-var group=[]
-while(arr.length&gt;0){
-group.push(arr.slice(0, size))
-arr = arr.slice(size)
-}
-return group
-}
-console.log (chunkArrayInGroup([&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;],2)) //[[&ldquo;a&rdquo;, &ldquo;b&rdquo;], [&ldquo;c&rdquo;, &ldquo;d&rdquo;]]</p>
-<hr>
-<p>Code 46: Converting one dimensional array into n dimensional array using splice
-function chunkArrayInGroup(arr, size){
-var group=[]
-while(arr.length&gt;0){
-group.push(arr.splice(0, size))
-}
-return group
-}
-console.log (chunkArrayInGroup([&lsquo;a&rsquo;,&lsquo;b&rsquo;,&lsquo;c&rsquo;,&rsquo;d&rsquo;],2)) //[[&ldquo;a&rdquo;, &ldquo;b&rdquo;], [&ldquo;c&rdquo;, &ldquo;d&rdquo;]]</p>
-<hr>
-<p>Code 47: To find only truthy values
-function removeFalseValue(arr){
-var trueth = []
-for (var item of arr){
-if(item){
-trueth.push(item)
-}
-}
-return trueth
-}
-console.log(removeFalseValue([&ldquo;priya&rdquo;, 0 ,&quot;&quot;, false, null,undefined, &ldquo;ate&rdquo;, Nan ,9 ])) //[&ldquo;priya&rdquo;,&ldquo;ate&rdquo;,9]</p>
-<hr>
-<p>Code 49: To find only truthy values using filter
-function removeFalseValue(arr){
-return arr.filter((item)=&gt;{
-return item})
-}
-console.log(removeFalseValue([&ldquo;priya&rdquo;, 0 ,&quot;&quot;, false, null,undefined, &ldquo;ate&rdquo;, 9 ]))</p>
-<hr>
-<p>Code 50: Checking all letters of second words should present in first word, in the same order using include function
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var letter of second){
-if(!first.includes(letter)){
-return false
-}
-}
-return true
-}
-console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;hey&rdquo;]))</p>
-<hr>
-<p>Code 51: Checking all letters of second words should present in first word, in the same order using indexOf without indexing i.e for-of loop
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var letter of second){
-if(first.indexOf(letter)== -1){ //-1 means not found in array
-return false
-}
-}
-return true
-}
-console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
-<hr>
-<p>function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var i=0; i&lt;second.length; i++){
-if(!first.includes(second[i])){ //-1 means not found in array
-return false
-}
-}
-return true
-}
-console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
-<hr>
-<p>Code 52: Checking all letters of second words should present in first word, in the same order using indexOf with indexing
-function characterPresent(arr){
-var first = arr[0].toLowerCase()
-var second = arr[1].toLowerCase()
-for (var i=0; i&lt;second.length; i++){
-if(first.indexOf(second)== -1){ //-1 means not found in array
-return false
-}
-}
-return true
-}
-console.log(characterPresent([&ldquo;hello&rdquo;,&ldquo;he&rdquo;]))</p>
-<hr>
-<p>Code 53: Unique values only from 2 arrays
-function diffArrayElement(arr1, arr2){
-var result =[]
-for(var i=0; i&lt;arr1.length; i++){
-if(arr2.indexOf(arr1[i]) === -1){
-result.push(arr1[i])
-}
-}
-for(var j=0; j&lt;arr2.length; j++){
-if(arr1.indexOf(arr2[j]) === -1){
-result.push(arr2[j])
-}
-}
-return result
-}
-console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) //[1,5]</p>
-<hr>
-<p>Code 54: Unique values only from 2 arrays
-function diffArrayElement(arr1, arr2){
-var combine = arr1.concat(arr2)
-return combine.filter( (num)=&gt;{
-if(arr1.indexOf(num)== -1 || arr2.indexOf(num)== -1 ) return num
-})
-}
-console.log(diffArrayElement([1,2,3,4], [2,3,4,5])) [1,5]</p>
-<hr>
-<p>Code 55: Remove Duplicates from 2 arrays using Set
-function uniquefromArrays(arr1, arr2){
-let arr = [&hellip;arr1, &hellip;arr2]
-let unique = [&hellip;new Set(arr)];
-return unique
-}
-console.log(uniquefromArrays([1,2,3,4], [2,3,4,5])) //[1,2,3,4,5]</p>
-<hr>
-<p>code 56: Sum of all numbers from start to end given number
-function sumFromStartToEnd(arr){
-var start = Math.min(arr[0], arr[1])
-var end = Math.max(arr[0], arr[1])
-sum =0
-for(var i= start; i&lt;=end; i++){
-sum+=i
-}
-return sum
-}
-console.log(sumFromStartToEnd([1,4]))</p>
-<hr>
-<p>code 57: Remove or Delete elements from an array using various ways
-Way 1: Removing Elements from End of a JavaScript Array
-var ar = [1, 2, 3, 4, 5, 6];
-ar.length = 4; // set length to remove elements
-console.log( ar ); // [1, 2, 3, 4]</p>
-<p>Way 2: Removing Elements from Beginning of a JavaScript Array
-var ar = [&lsquo;zero&rsquo;, &lsquo;one&rsquo;, &rsquo;two&rsquo;, &rsquo;three&rsquo;];
-ar.shift(); // returns &ldquo;zero&rdquo;
-console.log( ar ); // [&ldquo;one&rdquo;, &ldquo;two&rdquo;, &ldquo;three&rdquo;]</p>
-<p>Way 3: Using Splice to Remove Array Elements in JavaScript
-var list = [&ldquo;bar&rdquo;, &ldquo;baz&rdquo;, &ldquo;foo&rdquo;, &ldquo;qux&rdquo;];
-list.splice(0, 2); // Starting at index position 0, remove two elements [&ldquo;bar&rdquo;, &ldquo;baz&rdquo;] and retains [&ldquo;foo&rdquo;, &ldquo;qux&rdquo;].</p>
-<p>Way 4: Removing Array Items By Value Using Splice
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-for( var i = 0; i &lt; arr.length; i++){
-if ( arr[i] === 5) {
-arr.splice(i, 1);
-}
-} // [1, 2, 3, 4, 6, 7, 8, 9, 0]</p>
-<pre><code>   OR
+For numbers which are multiples of both three and five, print &ldquo;FizzBuzz&rdquo;</p>
 
-    var arr = [1, 2, 3, 4, 5, 5, 6, 7, 8, 5, 9, 0];
-    for( var i = 0; i &lt; arr.length; i++){
-    if ( arr[i] === 5) {
-        arr.splice(i, 1);
-        i--;
-      }
-    } // [1, 2, 3, 4, 6, 7, 8, 9, 0]
-</code></pre>
-<p>Way 5: Using the Array filter Method to Remove Items By Value
-var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-var filtered = array.filter(function(value, index, arr){
-return value &gt; 5;
-}); //filtered =&gt; [6, 7, 8, 9]</p>
-<p>Way 6: Making a Remove Method
-function arrayRemove(arr, value) {
-return arr.filter(function(ele){
-return ele != value;
-});
-}
-var result = arrayRemove(array, 6); // result = [1, 2, 3, 4, 5, 7, 8, 9, 0]</p>
-<p>Way 7: Explicitly Remove Array Elements Using the Delete Operator
-var ar = [1, 2, 3, 4, 5, 6];
-delete ar[4]; // delete element with index 4
-console.log( ar ); // [1, 2, 3, 4, undefined, 6]</p>
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;FizzBuzz&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Fizz&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Buzz&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
-<p>Code 58 : Spiral Matrix Printing | Print the elements of a matrix in spiral form
-var input = [[1,  2,   3,  4],
-[5,  6,   7,  8],
-[9,  10, 11, 12],
-[13, 14, 15, 16]];
-function run(input, result) {
-// add the first row to result
-result = result.concat(input.shift());
-console.log(&ldquo;res1&rdquo;, result) //[1, 2, 3, 4] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7]
-console.log(&ldquo;in1&rdquo;, input) //[[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]] // [[10, 11]]</p>
-<pre><code>// add the last element of each remaining row
-input.forEach(function(rightEnd) {
-    result.push(rightEnd.pop());
-});
-console.log(&quot;res2&quot;, result) //[1, 2, 3, 4, 8, 12, 16] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11]
-console.log(&quot;in2&quot;, input)   //[[5, 6, 7], [9, 10, 11], [13, 14, 15]] // [[10]]
+<p>Code 35: Uppercase of each first letter of a words</p>
 
-// add the last row in reverse order
-result = result.concat(input.pop().reverse());
-console.log(&quot;res3&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
-console.log(&quot;in3&quot;, input)   //[[5, 6, 7], [9, 10, 11]]
 
-// add the first element in each remaining row (going upwards)
-var tmp = [];
-input.forEach(function(leftEnd) {
-    tmp.push(leftEnd.shift());
-});
-console.log(&quot;res4&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13]
-console.log(&quot;in4&quot;, input)   //[[6, 7], [10, 11]]
 
-result = result.concat(tmp.reverse());
-console.log(&quot;temp&quot;, temp) //[9, 5]
-console.log(&quot;res5&quot;, result) //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
-console.log(&quot;in5&quot;, input)   //[[6, 7], [10, 11]]
-
-//again start the function
-return run(input, result);
-</code></pre>
-<p>}
-console.log(&lsquo;result&rsquo;, run(input, [])); // [1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]</p>
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">upperCaseFirsstLetter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;India is my country&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//slice is used here to give all the letters except first letter.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">words</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">upperCaseFirsstLetter</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
-<p>Code 59: Currying function i.e sum of multiple argument functions //inner function can access outer function variables but outer functions can&rsquo;t able to acceess inner function.
-function sum(a){
-return function sum(b){
-return function sum(c){
-return function sum(d){
-return a+b+c+d;
-}
-}
-}
-}
-console.log(sum(1)(2)(3)(4))</p>
-<p>OR</p>
-<p>const sum = (a) =&gt; (b) =&gt; (c) =&gt; (d) =&gt; a+b+c+d // using ES6
-console.log(sum(1)(2)(3)(4))</p>
+<p>Code 36: Uppercase of each first letter of a words using map function</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">upperCaseFirsstLetter</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;India is my country&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">ele</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">ele</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">ele</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">words</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">upperCaseFirsstLetter</span><span class="p">());</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 37: To check ending of the string with given character/s using inbuild function</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">confirmEnding</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span> <span class="c1">//true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">confirmEnding</span><span class="p">(</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="s2">&#34;a&#34;</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 38: To check ending of the string with given character/s using custom function</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">confirmEnding</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="o">-</span><span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">===</span> <span class="nx">target</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">confirmEnding</span><span class="p">(</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="s2">&#34;a&#34;</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 39: To find the largest elements for the 2 dimensional array</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">largestFromArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">tempMax</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//first elements of the 4 internal arrays i,e(1,5,45,89
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">currElement</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">currElement</span> <span class="o">&gt;=</span> <span class="nx">tempMax</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">tempMax</span> <span class="o">=</span> <span class="nx">currElement</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">max</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tempMax</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">max</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">largestFromArray</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 40: To find the largest elements for the 2 dimensional array in another way</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">largestFromArray</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">max</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">max</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">max</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">largestFromArray</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 41: Print string n times using inbuilt function</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 42: Print string n times in custom way</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="kr">final</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">final</span> <span class="o">=</span> <span class="kr">final</span> <span class="o">+</span> <span class="nx">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kr">final</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 43: Print string n times in custom way</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">str</span> <span class="o">+</span> <span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">repeatStrinNumTimes</span><span class="p">(</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 44: Truncate the string</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">truncateString</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;...&#34;</span><span class="p">;</span> <span class="c1">//retuen only 4 digits thats why subtracted from 3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">truncateString</span><span class="p">(</span><span class="s2">&#34;priyabagde&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">//pr
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">truncateString</span><span class="p">(</span><span class="s2">&#34;priyabagde&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span> <span class="c1">//p... //retuen only 4 digits
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 45: Converting one dimensional array into n dimensional array using slice</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">chunkArrayInGroup</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">group</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">size</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">group</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunkArrayInGroup</span><span class="p">([</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="s2">&#34;d&#34;</span><span class="p">],</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">//[[&#34;a&#34;, &#34;b&#34;], [&#34;c&#34;, &#34;d&#34;]]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 46: Converting one dimensional array into n dimensional array using splice</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">chunkArrayInGroup</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">group</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">size</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">group</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunkArrayInGroup</span><span class="p">([</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="s2">&#34;d&#34;</span><span class="p">],</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">//[[&#34;a&#34;, &#34;b&#34;], [&#34;c&#34;, &#34;d&#34;]]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 47: To find only truthy values</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">removeFalseValue</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">trueth</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">of</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">trueth</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">trueth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removeFalseValue</span><span class="p">([</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&#34;ate&#34;</span><span class="p">,</span> <span class="nx">Nan</span><span class="p">,</span> <span class="mi">9</span><span class="p">]));</span> <span class="c1">//[&#34;priya&#34;,&#34;ate&#34;,9]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 49: To find only truthy values using filter</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">removeFalseValue</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">removeFalseValue</span><span class="p">([</span><span class="s2">&#34;priya&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&#34;ate&#34;</span><span class="p">,</span> <span class="mi">9</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 50: Checking all letters of second words should present in first word, in the same order using include function</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">characterPresent</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">letter</span> <span class="k">of</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">first</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">letter</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characterPresent</span><span class="p">([</span><span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="s2">&#34;hey&#34;</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 51: Checking all letters of second words should present in first word, in the same order using indexOf without indexing i.e for-of loop</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">characterPresent</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">letter</span> <span class="k">of</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">first</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">letter</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//-1 means not found in array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characterPresent</span><span class="p">([</span><span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="s2">&#34;he&#34;</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">characterPresent</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">second</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">first</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">second</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//-1 means not found in array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characterPresent</span><span class="p">([</span><span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="s2">&#34;he&#34;</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 52: Checking all letters of second words should present in first word, in the same order using indexOf with indexing</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">characterPresent</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">second</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">second</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">first</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//-1 means not found in array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">characterPresent</span><span class="p">([</span><span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="s2">&#34;he&#34;</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 53: Unique values only from 2 arrays</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">diffArrayElement</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr2</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr2</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">arr2</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr2</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">diffArrayElement</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]));</span> <span class="c1">//[1,5]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 54: Unique values only from 2 arrays</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">diffArrayElement</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">combine</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">combine</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="nx">arr2</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">diffArrayElement</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)];</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 55: Remove Duplicates from 2 arrays using Set</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">uniquefromArrays</span><span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr1</span><span class="p">,</span> <span class="p">...</span><span class="nx">arr2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">unique</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">unique</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uniquefromArrays</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]));</span> <span class="c1">//[1,2,3,4,5]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>code 56: Sum of all numbers from start to end given number</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sumFromStartToEnd</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">end</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumFromStartToEnd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]));</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>code 57: Remove or Delete elements from an array using various ways</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// Way 1: Removing Elements from End of a JavaScript Array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ar</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// set length to remove elements
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 2: Removing Elements from Beginning of a JavaScript Array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ar</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;zero&#34;</span><span class="p">,</span> <span class="s2">&#34;one&#34;</span><span class="p">,</span> <span class="s2">&#34;two&#34;</span><span class="p">,</span> <span class="s2">&#34;three&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ar</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span> <span class="c1">// returns &#34;zero&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span> <span class="c1">// [&#34;one&#34;, &#34;two&#34;, &#34;three&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 3: Using Splice to Remove Array Elements in JavaScript
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;bar&#34;</span><span class="p">,</span> <span class="s2">&#34;baz&#34;</span><span class="p">,</span> <span class="s2">&#34;foo&#34;</span><span class="p">,</span> <span class="s2">&#34;qux&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">list</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Starting at index position 0, remove two elements [&#34;bar&#34;, &#34;baz&#34;] and retains [&#34;foo&#34;, &#34;qux&#34;].
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 4: Removing Array Items By Value Using Splice
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">// [1, 2, 3, 4, 6, 7, 8, 9, 0]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// OR;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">// [1, 2, 3, 4, 6, 7, 8, 9, 0]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 5: Using the Array filter Method to Remove Items By Value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">filtered</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span> <span class="c1">//filtered =&gt; [6, 7, 8, 9]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 6: Making a Remove Method
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">arrayRemove</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ele</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">ele</span> <span class="o">!=</span> <span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arrayRemove</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> <span class="c1">// result = [1, 2, 3, 4, 5, 7, 8, 9, 0]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Way 7: Explicitly Remove Array Elements Using the Delete Operator
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">ar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">delete</span> <span class="nx">ar</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">// delete element with index 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ar</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4, undefined, 6]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 58 : Spiral Matrix Printing | Print the elements of a matrix in spiral form/</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the first row to result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;res1&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span> <span class="c1">//[1, 2, 3, 4] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;in1&#34;</span><span class="p">,</span> <span class="nx">input</span><span class="p">);</span> <span class="c1">//[[5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]] // [[10, 11]]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the last element of each remaining row
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">input</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">rightEnd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rightEnd</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;res2&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span> <span class="c1">//[1, 2, 3, 4, 8, 12, 16] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;in2&#34;</span><span class="p">,</span> <span class="nx">input</span><span class="p">);</span> <span class="c1">//[[5, 6, 7], [9, 10, 11], [13, 14, 15]] // [[10]]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the last row in reverse order
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">pop</span><span class="p">().</span><span class="nx">reverse</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;res3&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span> <span class="c1">//[1, 2, 3, 4, 8, 12, 16, 15, 14, 13] //[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;in3&#34;</span><span class="p">,</span> <span class="nx">input</span><span class="p">);</span> <span class="c1">//[[5, 6, 7], [9, 10, 11]]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// add the first element in each remaining row (going upwards)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">input</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">leftEnd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tmp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">leftEnd</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;res4&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span> <span class="c1">//[1, 2, 3, 4, 8, 12, 16, 15, 14, 13]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;in4&#34;</span><span class="p">,</span> <span class="nx">input</span><span class="p">);</span> <span class="c1">//[[6, 7], [10, 11]]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">reverse</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;temp&#34;</span><span class="p">,</span> <span class="nx">temp</span><span class="p">);</span> <span class="c1">//[9, 5]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;res5&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span> <span class="c1">//[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;in5&#34;</span><span class="p">,</span> <span class="nx">input</span><span class="p">);</span> <span class="c1">//[[6, 7], [10, 11]]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//again start the function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nx">run</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">,</span> <span class="nx">run</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="p">[]));</span> <span class="c1">// [1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]
+</span></span></span></code></pre></div>
+  </figure>
+</div>
+<hr>
+<p>Code 59: Currying function i.e sum of multiple argument functions //inner function can access outer function variables but outer functions can&rsquo;t able to acceess inner function.</p>
+
+
+
+<div class="expressive-code">
+  <figure class="frame not-content">
+  <figcaption class="header">
+    <span class="title"></span>
+  </figcaption>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)(</span><span class="mi">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// OR
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">d</span><span class="p">;</span> <span class="c1">// using ES6
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)(</span><span class="mi">4</span><span class="p">));</span></span></span></code></pre></div>
+  </figure>
+</div>
 <hr>
 <p>Code 60: Find SUM, PRODUCT AND AVERAGE of the numbers //accumulation means collection
 let arr=[1,2,3,4,5]
@@ -2054,7 +2386,7 @@ var today = new Date();
 var date = today.getFullYear()+&rsquo;-&rsquo;+(today.getMonth()+1)+&rsquo;-&rsquo;+today.getDate();
 console.log(date)</p>
 <hr>
-<p>Code 100: String Compression (Microsoft, Amazon etc)
+<p>Code 101: String Compression (Microsoft, Amazon etc)
 function stringCompression (str) {
 if (str.length ==0) {
 console.log(&lsquo;Please enter valid string.&rsquo;);

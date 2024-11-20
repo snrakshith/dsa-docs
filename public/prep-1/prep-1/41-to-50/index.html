@@ -45,7 +45,7 @@
 <link rel="manifest" href="/manifest.webmanifest">
 
 <meta property="og:title" content="">
-<meta property="og:description" content="47. Generating a Number Pyramid
+<meta property="og:description" content="46. String Length Without Built-In Functions
 
 
 
@@ -54,11 +54,14 @@
   
     
   
-  function generatePyramid(rows) {
-  return Array.from({ length: rows }, (_, i) =&gt; Array.from({ length: i &#43; 1 }, (_, j) =&gt; j &#43; 1).join(&#34;&#34;)).join(&#34;\n&#34;);
+  function stringLength(str) {
+  let length = 0;
+  for (let char of str) length&#43;&#43;;
+  return length;
 }
 
-console.log(generatePyramid(4));
+console.log(stringLength(&#34;hello&#34;)); // 5
+
   
 ">
 <meta property="og:type" content="article">
@@ -68,7 +71,7 @@ console.log(generatePyramid(4));
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://localhost:1313/cover.png"><meta name="twitter:title" content="">
-<meta name="twitter:description" content="47. Generating a Number Pyramid
+<meta name="twitter:description" content="46. String Length Without Built-In Functions
 
 
 
@@ -77,11 +80,14 @@ console.log(generatePyramid(4));
   
     
   
-  function generatePyramid(rows) {
-  return Array.from({ length: rows }, (_, i) =&gt; Array.from({ length: i &#43; 1 }, (_, j) =&gt; j &#43; 1).join(&#34;&#34;)).join(&#34;\n&#34;);
+  function stringLength(str) {
+  let length = 0;
+  for (let char of str) length&#43;&#43;;
+  return length;
 }
 
-console.log(generatePyramid(4));
+console.log(stringLength(&#34;hello&#34;)); // 5
+
   
 ">
 <meta name="twitter:site" content="@getdoks">
@@ -169,6 +175,9 @@ console.log(generatePyramid(4));
       <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
         <ul class="navbar-nav flex-grow-1"><li class="nav-item">
                 <a class="nav-link" href="http://localhost:1313/code-snippets/">Code Snippets</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:1313/es6/">ES6</a>
               </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:1313/others/">Others</a>
@@ -279,7 +288,7 @@ console.log(generatePyramid(4));
   <ul>
     <li>
       <ul>
-        <li><a href="#47-generating-a-number-pyramid">47. Generating a Number Pyramid</a></li>
+        <li><a href="#46-string-length-without-built-in-functions">46. String Length Without Built-In Functions</a></li>
       </ul>
     </li>
   </ul>
@@ -299,7 +308,7 @@ console.log(generatePyramid(4));
   <ul>
     <li>
       <ul>
-        <li><a href="#47-generating-a-number-pyramid">47. Generating a Number Pyramid</a></li>
+        <li><a href="#46-string-length-without-built-in-functions">46. String Length Without Built-In Functions</a></li>
       </ul>
     </li>
   </ul>
@@ -308,7 +317,7 @@ console.log(generatePyramid(4));
   </details>
 
 			</nav>
-			<h3 id="47-generating-a-number-pyramid">47. Generating a Number Pyramid<a href="#47-generating-a-number-pyramid" class="anchor" aria-hidden="true">#</a> </h3>
+			<h3 id="46-string-length-without-built-in-functions">46. String Length Without Built-In Functions<a href="#46-string-length-without-built-in-functions" class="anchor" aria-hidden="true">#</a> </h3>
 
 
 
@@ -317,11 +326,14 @@ console.log(generatePyramid(4));
   <figcaption class="header">
     <span class="title"></span>
   </figcaption>
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">generatePyramid</span><span class="p">(</span><span class="nx">rows</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">rows</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">({</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;\n&#34;</span><span class="p">);</span>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">stringLength</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="kr">char</span> <span class="k">of</span> <span class="nx">str</span><span class="p">)</span> <span class="nx">length</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">length</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generatePyramid</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span></span></span></code></pre></div>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringLength</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">));</span> <span class="c1">// 5
+</span></span></span></code></pre></div>
   </figure>
 </div>
 
